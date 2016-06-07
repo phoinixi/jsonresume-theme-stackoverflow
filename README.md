@@ -25,7 +25,7 @@ This is a theme for JSON Resume. It is available via npm:
 npm install jsonresume-theme-stackoverflow
 ```
 
-then change directory: 
+then change directory:
 
 `cd node_modules/jsonresume-theme-stackoverflow/`
 
@@ -58,15 +58,16 @@ With stackoverflow theme it is possible to add:
 - `summary` to each 'interests' and 'education' item
 - `location` to each 'work', 'education' and 'volunteer' item
 - `birth` to 'basics'
+- `googleAnalytics` to track your resume
 
-example of the extra `location` object: 
+example of the extra `location` object:
 
 ```
 "location": {
 	"city": "Zürich",
 	"countryCode": "CH",
 	"region": "Switzerland"
-} 
+}
 ```
 example of the extra `birth` object:
 
@@ -82,7 +83,7 @@ example of the extra `birth` object:
 
 Fork the project, add your feature (or fix your bug) and open a pull request OR
 
-[Open an issue](https://github.com/francescoes/jsonresume-theme-stackoverflow/issues/new) if you find find or if you would like to have extra fields or changes 
+[Open an issue](https://github.com/francescoes/jsonresume-theme-stackoverflow/issues/new) if you find find or if you would like to have extra fields or changes
 
 ## License
 
