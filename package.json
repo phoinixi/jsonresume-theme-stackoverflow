@@ -1,11 +1,11 @@
 {
-  "name": "jsonresume-theme-stackoverflow",
-  "version": "1.0.4",
-  "description": "Stack Overflow theme for JSON Resume",
-  "author": "Francesco Esposito <http://fran.cesco.io>",
+  "name": "jsonresume-theme-curzy",
+  "version": "1.0.0",
+  "description": "Modified JSON Resume theme from Stack Overflow theme",
+  "author": "Curzy <https://github.com/Curzy>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/francescoes/jsonresume-theme-stackoverflow"
+    "url": "https://github.com/Curzy/jsonresume-theme-curzy"
   },
   "license": "MIT",
   "dependencies": {
