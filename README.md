@@ -1,5 +1,7 @@
 # It's Modified Version of Stack Overflow theme for jsonresume ([jsonresume-theme-stackoverflow](https://github.com/francescoes/jsonresume-theme-stackoverflow))
 
+## [Demo](http://themes.jsonresume.org/theme/curzy)
+
 ## Modified Features
 
 1. Open website links in new tab
