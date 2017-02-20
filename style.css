@@ -547,7 +547,8 @@ ul.courses li:hover {
 @media print {
 
     #resume {
-        margin: 0;
+        width: 80%;
+        margin: 2rem auto;
         padding: 0;
         -ms-word-wrap: break-word;
         word-wrap: break-word;
