@@ -559,6 +559,9 @@ ul.courses li:hover {
     border-left: 5px solid #ff6d1f;
 }
 
+.toggle-item {
+  visibility: hidden;
+}
 
 /******************
 *	HELPER CLASSES
@@ -602,10 +605,7 @@ ul.courses li:hover {
     }
     #resume {
         width: 820px;
-        margin: 2rem auto;
-        opacity: 0;
-        -webkit-transition: opacity .5s ease-in-out;
-        transition: opacity .5s ease-in-out;
+        margin: 2rem auto;      
     }
     .section>section>header .space-left {
         opacity: 1;
