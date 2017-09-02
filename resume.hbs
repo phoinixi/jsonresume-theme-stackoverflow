@@ -37,7 +37,7 @@
         var arrowRight = current.classList.contains('fa-caret-right');
         var arrowDown = current.classList.contains('fa-caret-down');
 
-        if (current && current.nodeName == "SPAN" && (arrowRight || arrowDown)) {
+        if (current && (current.nodeName === "SPAN" || current.nodeName === "A") && (arrowRight || arrowDown)) {
           var header = e.target.parentNode.parentNode;
           var item = header.nextSibling;
 
