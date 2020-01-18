@@ -76,6 +76,13 @@
           <strong> Grade:</strong> <span>{{gpa}}</span>
         </div>
         {{/if}}
+        {{#if keywords.length}}
+        <ul class="keywords">
+          {{#each keywords}}
+            <li>{{.}}</li>
+          {{/each}}
+        </ul>
+        {{/if}}
         {{#if summary}}
           <div class="summary">{{paragraphSplit summary}}</div>
         {{/if}}
