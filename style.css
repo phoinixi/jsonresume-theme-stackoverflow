@@ -687,6 +687,9 @@ section .location {
   .item-count {
     display: none;
   }
+  .download-resume {
+    display: none;
+  }
   .company::before,
   .institution::before,
   .organization::before,
