@@ -613,7 +613,7 @@ section .location {
     margin-left: 1.5em;
   }
   #resume {
-    width: 820px;
+    width: 900px;
     margin: 2rem auto;
   }
   .section > section > header .space-left {
@@ -747,7 +747,7 @@ section .location {
     font-weight: 600;
   }
   #skills .item {
-    width: calc(100% / 3);
+    width: calc(100% / 4);
     padding: 0;
   }
   .highlights {
