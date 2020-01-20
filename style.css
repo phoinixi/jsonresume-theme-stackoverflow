@@ -659,7 +659,6 @@ section .location {
   }
   .header-left {
     float: left;
-    width: 70%;
     word-break: normal;
   }
   .section header .date {
