@@ -760,6 +760,12 @@ section .location {
   #skills .keywords::before {
     content: none;
   }
+  #education .keywords::before {
+    content: none;
+  }
+  #publications .keywords::before {
+    content: none;
+  }
   .section p {
     margin: 0;
     padding: 0;
