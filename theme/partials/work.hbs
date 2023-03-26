@@ -1,7 +1,7 @@
 {{#if resume.work.length}}
 <section class="section">
   <header>
-    <h2 class='section-title'>Work Experience <span class="item-count">({{resume.work.length}})</span></h2>
+    <h2 class='section-title'>{{#if resume.localization.work.title}}{{resume.localization.work.title}}{{else}}Work Experience{{/if}} <span class="item-count">({{resume.work.length}})</span></h2>
   </header>
 
   <section id="work">
@@ -27,7 +27,13 @@
         {{#if position}}
         <div class="position">{{position}}</div>
         {{/if}}
-        <div class="company">{{name}}</div>
+        <div class="company">
+          {{#if url}}
+          <a target="_blank" href="{{url}}">{{name}}</a>
+          {{else}}
+          {{name}}
+          {{/if}}
+        </div>
       </header>
       {{/if}}
 
@@ -35,11 +41,7 @@
       <span class="fas fa-map-marker-alt"></span>
       <span class="location">{{location}}</span>
       {{/if}}
-      {{#if url}}
-      <span class="url">
-        <span class="fas fa-external-link-alt"></span>
-        <a target="_blank" href="{{url}}">{{url}}</a>
-      </span> {{/if}} {{#if keywords.length}}
+      {{#if keywords.length}}
       <ul class="keywords">
         {{#each keywords}}
         <li>{{.}}</li>

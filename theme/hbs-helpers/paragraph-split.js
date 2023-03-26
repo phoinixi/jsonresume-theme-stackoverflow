@@ -1,5 +1,6 @@
 const { SafeString } = require('handlebars');
-const markdown = require('markdown-it')();
+const markdown = require('markdown-it')()
+                    .use(require('markdown-it-mark'));
 
 const paragraphSplit = (text) => {
   const expr = /\r\n|\r|\n/g;

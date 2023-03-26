@@ -1,7 +1,7 @@
 {{#if resume.languages.length}}
 <section class="section">
   <header>
-    <h2 class='section-title'>Languages</h2>
+    <h2 class='section-title'>{{#if resume.localization.languages.title}}{{resume.localization.languages.title}}{{else}}Languages{{/if}}</h2>
   </header>
   <section id="languages">
     {{#each resume.languages}}

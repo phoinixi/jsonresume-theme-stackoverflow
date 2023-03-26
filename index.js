@@ -21,6 +21,15 @@ Handlebars.registerHelper('toLowerCase', toLowerCase);
 Handlebars.registerHelper('spaceToDash', spaceToDash);
 
 function render(resume) {
+  if (resume.offer != null && resume.offer.highlights != null) {
+    var resumeString = JSON.stringify(resume);
+    resume.offer.highlights.forEach(keyword =>
+      resumeString = resumeString.replaceAll(new RegExp(keyword, "ig"), function replacer(match, offset, string, groups) {
+        return "==" + match + "==";
+      }));
+    resume = JSON.parse(resumeString);
+  }
+
   const css = readFileSync(`${__dirname}/style.css`, 'utf-8');
   const tpl = readFileSync(`${__dirname}/resume.hbs`, 'utf-8');
   const partialsDir = join(__dirname, 'theme/partials');
@@ -35,7 +44,7 @@ function render(resume) {
     Handlebars.registerPartial(name, template);
   });
 
-  return Handlebars.compile(tpl)({
+  return Handlebars.compile(tpl, {noEscape: true})({
     css,
     resume,
   });

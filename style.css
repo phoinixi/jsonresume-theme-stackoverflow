@@ -182,10 +182,6 @@ em {
   color: #757575;
 }
 
-blockquote {
-  margin-bottom: 1em;
-}
-
 strong {
   font-weight: 700;
 }
@@ -199,7 +195,7 @@ strong {
 /* every section wrapper */
 
 .section {
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 section .location {
@@ -336,11 +332,15 @@ section .location {
 
 .position,
 .studyType,
-.area,
 .title,
 .language,
 .name {
   font-weight: 600;
+}
+
+
+.area {
+  font-weight: 400;
 }
 
 .company::before,
@@ -522,6 +522,7 @@ section .location {
 
 .level .bar {
   border: 1px solid #ddd;
+  border-radius: 5px;
   display: block;
   width: 10em;
   height: 5px;
@@ -561,11 +562,21 @@ section .location {
 
 #references .item {
   padding-left: 0.5em;
-  border-left: 5px solid #ff6d1f;
+  border-left: 3px solid #ff6d1f;
+  margin-bottom: 1rem;
 }
 
 .section > section > section {
   margin-bottom: 1rem;
+}
+
+li:has(ul) {
+  list-style-type: none;
+}
+
+mark {
+  background: linear-gradient(-50deg, rgba(250, 160, 133, 0.1), rgba(250, 160, 133, .3) 95%, rgba(250, 160, 133, .1));
+  border-radius: 1em 0;
 }
 
 /******************
@@ -753,5 +764,20 @@ section .location {
   }
   .fa-map-marker-alt:before {
     padding-left: 0.1em;
+  }
+  .work-item,
+  .volunteer-item {
+    break-inside: avoid;
+  }
+  /* section:has(#references) {
+    display: none;
+  } */
+  li:has(ul) {
+    list-style-type: none;
+  }
+  mark {
+    border: 0.1em;
+    border-radius: 1em;
+    border-color: #faa085;
   }
 }
