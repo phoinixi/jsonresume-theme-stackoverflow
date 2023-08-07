@@ -28,7 +28,13 @@ git clone https://github.com/francescoes/jsonresume-theme-stackoverflow.git
 
 Create a 'resume.json' file in the current folder and follow the [json resume schema](https://jsonresume.org/schema/)
 
-Simply run:
+Install dependencies:
+
+```
+npm install
+```
+
+and simply run:
 
 ```
 resume serve --theme .
