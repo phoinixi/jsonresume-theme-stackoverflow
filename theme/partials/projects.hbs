@@ -49,6 +49,14 @@
         <a target="_blank" href="{{url}}">{{url}}</a>
       </span>
       {{/if}}
+      {{# if urls.length}}
+          {{# each urls}}
+            <span class="website">
+              <span class="fas fa-external-link-alt"></span>
+              <a target="_blank" href="{{.}}">{{.}}</a>
+            </span>
+          {{/each}}
+      {{/if}}
       {{#if keywords.length}}
       <ul class="keywords">
         {{#each keywords}}
