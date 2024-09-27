@@ -34,17 +34,12 @@
           {{/if}}
         </header>
 
-      {{#location}}
+      {{#if location}}
       <span class="location">
         <span class="fa-solid fa-location-dot"></span>
-        {{#if city}}
-        <span class="city">{{city}}</span>
-        {{/if}}
-        {{#if region}}
-        <span class="region">{{region}}</span>
-        {{/if}}
+        {{location}}
       </span>
-      {{/location}}
+      {{/if}}
       {{#if url}}
       <span class="url">
         <span class="fa-solid fa-up-right-from-square"></span>
