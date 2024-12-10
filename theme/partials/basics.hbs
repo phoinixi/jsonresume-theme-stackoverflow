@@ -28,7 +28,7 @@
 			<span class="region">{{region}}</span>
 			{{/if}}
 			{{#if countryCode}}
-			<span class="countryCode">{{countryCode}}</span>
+			<span class="countryCode">({{countryCode}})</span>
 			{{/if}}
 		</span>
 		{{/location}}
@@ -66,7 +66,7 @@
 					<span class="fa-brands fa-{{spaceToDash network}} {{spaceToDash network}} social"></span>
 					{{#if url}}
 					<span class="url">
-						<a target="_blank" href="{{url}}">{{username}}</a>
+						<a target="_blank" href="{{url}}"><span class="show-only-url-print">{{username}}</span></a>
 					</span>
 					{{else}}
 					<span>{{username}}</span>
@@ -80,7 +80,10 @@
 	</header>
 
 	{{#if summary}}
-	<section class="section">
+	<section class="section summary">
+    <header>
+      <h2 class="section-title">summary</h2>
+    </header>
 		<section class="main-summary">
 			<div>{{paragraphSplit summary}}</div>
 		</section>
