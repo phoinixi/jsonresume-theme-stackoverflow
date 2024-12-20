@@ -9,21 +9,11 @@
       {{#if summary}}
         <label for="project-item-{{@index}}"></label>
       {{/if}}
-
       {{#if name}}
       <header class="clear">
+        {{> date startDate=startDate endDate=endDate }}
         {{#if name}}
         <div class="position">{{name}}</div>
-        {{/if}}
-        {{#if startDate}}
-        <div class="date">
-          <span class="startDate">{{MY startDate}}</span>
-          {{#if endDate}}
-          <span class="endDate">- {{MY endDate}}</span>
-          {{else}}
-          <span class="endDate">- Current</span>
-          {{/if}}
-        </div>
         {{/if}}
       </header>
       {{/if}}
