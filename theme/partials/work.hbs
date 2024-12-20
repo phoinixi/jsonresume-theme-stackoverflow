@@ -10,18 +10,8 @@
         {{#if summary}}
         <label for="work-item-{{@index}}"></label>
         {{/if}}
-
         <header class="clear">
-          <div class="date">
-            {{#if startDate}}
-            <span class="startDate">{{MY startDate}}</span>
-            {{/if}}
-            {{#if endDate}}
-            <span class="endDate">- {{MY endDate}}</span>
-            {{else}}
-            <span class="endDate">- Current</span>
-            {{/if}}
-          </div>
+          {{> date startDate=startDate endDate=endDate }}
           {{#if position}}
           <div class="position">{{position}}</div>
           {{/if}}
@@ -33,7 +23,6 @@
             <div class="company">{{company}}</div>
           {{/if}}
         </header>
-
       {{#if location}}
       <span class="location">
         <span class="fa-solid fa-location-dot"></span>
