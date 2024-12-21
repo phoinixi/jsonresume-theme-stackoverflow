@@ -825,7 +825,7 @@ section .location {
       
       <section class="section">
       	<header>
-      		<h2 class='section-title'>Skills</h2>
+      		<h2 class='section-title'>Skills <span class="item-count">(2)</span></h2>
       	</header>
       	<section id="skills">
       		<div class="item">
@@ -868,16 +868,14 @@ section .location {
         <section id="work">
           <section class="work-item">
               <label for="work-item-0"></label>
-      
               <header class="clear">
-                <div class="date">
-                  <span class="startDate">Dec 2013</span>
-                  <span class="endDate">- Dec 2014</span>
-                </div>
+                  <div class="date">
+                    <span class="startDate">Dec 2013</span>
+                      <span class="endDate">- Dec 2014</span>
+                  </div>
                 <div class="position">CEO/President</div>
-                  <div class="company"></div>
+                  <div class="company">Pied Piper</div>
               </header>
-      
             <span class="location">
               <span class="fa-solid fa-location-dot"></span>
               Palo Alto, CA
@@ -903,11 +901,11 @@ section .location {
         <section id="projects">
           <section class="project-item">
             <header class="clear">
+                <div class="date">
+                  <span class="startDate">Aug 2016</span>
+                    <span class="endDate">- Aug 2016</span>
+                </div>
               <div class="position">Miss Direction</div>
-              <div class="date">
-                <span class="startDate">Aug 2016</span>
-                <span class="endDate">- Aug 2016</span>
-              </div>
             </header>
             <span class="website">
               <span class="fa-solid fa-up-right-from-square"></span>
@@ -938,14 +936,10 @@ section .location {
             <label for="volunteer-item-0"></label>
       
             <header class="clear">
-               <div class="date">
-                <span class="startDate">
-                  Jan 2012
-                </span>
-                <span class="endDate">
-                  - Jan 2013
-                </span>
-              </div>
+                <div class="date">
+                  <span class="startDate">Jan 2012</span>
+                    <span class="endDate">- Jan 2013</span>
+                </div>
               <div class="header-left">
                 <div class="position">
                   Teacher
@@ -973,14 +967,10 @@ section .location {
         <section id="education">
           <section class="education-item">
             <header class="clear">
-              <div class="date">
-                <span class="startDate">
-                2011
-                </span>
-                <span class="endDate">
-                - 2014
-                </span>
-              </div>
+                <div class="date">
+                  <span class="startDate">Jun 2011</span>
+                    <span class="endDate">- Jan 2014</span>
+                </div>
               <div class="header-left">
                 <div class="studyType">
                   Bachelor
@@ -1007,7 +997,7 @@ section .location {
       </section>
         <section class="section">
           <header>
-            <h2 class="section-title">Awards</h2>
+            <h2 class="section-title">Awards <span class="item-count">(1)</span></h2>
           </header>
           <section id="awards">
               <section class="award-item">
@@ -1015,7 +1005,7 @@ section .location {
       
                 <header class="clear">
                     <div class="date">
-                      2014
+                      Nov 2014
                     </div>
                   <div class="header-left">
                       <div class="title">
@@ -1064,7 +1054,7 @@ section .location {
       </section>
       <section class="section">
         <header>
-          <h2 class='section-title'>Languages</h2>
+          <h2 class='section-title'>Languages <span class="item-count">(1)</span></h2>
         </header>
         <section id="languages">
           <div class="display">
@@ -1082,7 +1072,7 @@ section .location {
       </section>
       <section class="section">
         <header>
-          <h2 class='section-title' class='section-title'>Interests</h2>
+          <h2 class='section-title'>Interests <span class="item-count">(1)</span></h2>
         </header>
         <section id="interests">
           <div class="item">
