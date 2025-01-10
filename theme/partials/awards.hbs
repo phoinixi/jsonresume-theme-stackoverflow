@@ -1,7 +1,7 @@
 {{#if resume.awards.length}}
   <section class="section">
     <header>
-      <h2 class="section-title">Awards</h2>
+      <h2 class="section-title">Awards <span class="item-count">({{resume.awards.length}})</span></h2>
     </header>
     <section id="awards">
       {{#each resume.awards}}
@@ -13,7 +13,7 @@
           <header class="clear">
             {{#if date}}
               <div class="date">
-                {{Y date}}
+                {{MY date}}
               </div>
             {{/if}}
             <div class="header-left">

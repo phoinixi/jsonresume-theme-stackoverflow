@@ -13,8 +13,8 @@ const { spaceToDash } = require(join(HELPERS, 'space-to-dash.js'));
 const { MY, Y, DMY } = dateHelpers;
 
 Handlebars.registerHelper('birthDate', birthDate);
-Handlebars.registerHelper('MY', MY);
-Handlebars.registerHelper('Y', Y);
+Handlebars.registerHelper('MY', MY);  // Date: Month year eg. "Jul 2020"
+Handlebars.registerHelper('Y', Y);  // Date: Year eg. "2020"
 Handlebars.registerHelper('DMY', DMY);
 Handlebars.registerHelper('paragraphSplit', paragraphSplit);
 Handlebars.registerHelper('toLowerCase', toLowerCase);
@@ -22,20 +22,20 @@ Handlebars.registerHelper('spaceToDash', spaceToDash);
 
 function render(resume) {
   const css = readFileSync(`${__dirname}/style.css`, 'utf-8');
-  const tpl = readFileSync(`${__dirname}/resume.hbs`, 'utf-8');
+  const template = readFileSync(`${__dirname}/resume.hbs`, 'utf-8');
   const partialsDir = join(__dirname, 'theme/partials');
-  const filenames = readdirSync(partialsDir);
+  const filenamePartial = readdirSync(partialsDir);
 
-  filenames.forEach((filename) => {
-    const matches = /^([^.]+).hbs$/.exec(filename);
+  filenamePartial.forEach((filenamePartial) => {
+    const matches = /^([^.]+).hbs$/.exec(filenamePartial);
     if (!matches) return;
     const name = matches[1];
-    const filepath = join(partialsDir, filename);
+    const filepath = join(partialsDir, filenamePartial);
     const template = readFileSync(filepath, 'utf8');
     Handlebars.registerPartial(name, template);
   });
 
-  return Handlebars.compile(tpl)({
+  return Handlebars.compile(template)({
     css,
     resume,
   });
