@@ -23,7 +23,7 @@ npm install -g resume-cli
 Clone the repository
 
 ```
-git clone https://github.com/francescoes/jsonresume-theme-stackoverflow.git
+git clone https://github.com/phoinixi/jsonresume-theme-stackoverflow.git
 ```
 
 Create a 'resume.json' file in the current folder and follow the [json resume schema](https://jsonresume.org/schema/)
@@ -72,7 +72,7 @@ example of the extra `birth` object:
 
 Fork the project, add your feature (or fix your bug) and open a pull request OR
 
-[Open an issue](https://github.com/francescoes/jsonresume-theme-stackoverflow/issues/new) if you find find or if you would like to have extra fields or changes 
+[Open an issue](https://github.com/phoinixi/jsonresume-theme-stackoverflow/issues/new) if you find find or if you would like to have extra fields or changes 
 
 ## License
 
