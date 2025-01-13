@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SimpleTests If current rendered HTML has changed from previous taken snapshot 1`] = `
+exports[`SimpleTests Snapshot-test english translation 1`] = `
 "<!doctype html>
 <html>
   <head>
@@ -227,6 +227,10 @@ section .location {
   padding: 0;
 }
 
+#header {
+  margin-bottom: 1rem;
+}
+
 #header > #profiles,
 #header > #contact,
 #skills,
@@ -398,10 +402,6 @@ section .location {
 .keywords li:hover,
 .courses li:hover {
   background: #dfeaf0;
-}
-
-.highlights {
-  margin: 1em 0 0 0;
 }
 
 .highlights > li > p {
@@ -928,7 +928,7 @@ section .location {
       </section>
       <section class="section">
         <header>
-          <h2 class='section-title'>Volunteer</h2>
+          <h2 class='section-title'>Volunteer <span class="item-count">(1</h2>
         </header>
         <section id="volunteer">
           <section class="volunteer-item">
@@ -1025,7 +1025,7 @@ section .location {
         </section>
       <section class="section">
         <header>
-          <h2 class='section-title'>Publications</h2>
+          <h2 class='section-title'>Publications  <span class="item-count">(1)</span></h2>
         </header>
         <section id="publications">
           <section class="publication-item">
@@ -1088,7 +1088,7 @@ section .location {
       </section>
       <section class="section">
         <header>
-          <h2 class='section-title'>References</h2>
+          <h2 class='section-title'>References <span class="item-count">(1)</span></h2>
         </header>
         <section id="references">
           <div class="item">
@@ -1977,8 +1977,8 @@ section .location {
               <label for="work-item-0"></label>
               <header class="clear">
                   <div class="date">
-                    <span class="startDate">Dec 2013</span>
-                      <span class="endDate">- Dec 2014</span>
+                    <span class="startDate">Dez. 2013</span>
+                      <span class="endDate">- Dez. 2014</span>
                   </div>
                 <div class="position">CEO/President</div>
                   <div class="company">Pied Piper</div>
@@ -2009,8 +2009,8 @@ section .location {
           <section class="project-item">
             <header class="clear">
                 <div class="date">
-                  <span class="startDate">Aug 2016</span>
-                    <span class="endDate">- Aug 2016</span>
+                  <span class="startDate">Aug. 2016</span>
+                    <span class="endDate">- Aug. 2016</span>
                 </div>
               <div class="position">Miss Direction</div>
             </header>
@@ -2044,8 +2044,8 @@ section .location {
       
             <header class="clear">
                 <div class="date">
-                  <span class="startDate">Jan 2012</span>
-                    <span class="endDate">- Jan 2013</span>
+                  <span class="startDate">Jan. 2012</span>
+                    <span class="endDate">- Jan. 2013</span>
                 </div>
               <div class="header-left">
                 <div class="position">
@@ -2075,8 +2075,8 @@ section .location {
           <section class="education-item">
             <header class="clear">
                 <div class="date">
-                  <span class="startDate">Jun 2011</span>
-                    <span class="endDate">- Jan 2014</span>
+                  <span class="startDate">Juni 2011</span>
+                    <span class="endDate">- Jan. 2014</span>
                 </div>
               <div class="header-left">
                 <div class="studyType">
@@ -2112,7 +2112,7 @@ section .location {
       
                 <header class="clear">
                     <div class="date">
-                      Nov 2014
+                      Nov. 2014
                     </div>
                   <div class="header-left">
                       <div class="title">
@@ -2140,7 +2140,7 @@ section .location {
       
             <header class="clear">
               <span class="date">
-                1 Oct 2014
+                1. Okt. 2014
               </span>
               <div class="header-left">
                 <span class="name">
