@@ -10,7 +10,7 @@ const birthDate = (birth) => {
     if (birth.place && birth.state) {
       out.push(`, ${birth.state}`);
     }
-    const year = birth.date ? moment(birth.date.toString(), ['YYYY-MM-DD']).format('YYYY') : '';
+    const year = birth.date ? new Date(birth.date).toLocaleDateString({year: "numeric"}) : '';
     if (year && birth.place && birth.state) {
       out.push(` in ${year}</div>`);
     } else if (year && (!birth.place || birth.state)) {
