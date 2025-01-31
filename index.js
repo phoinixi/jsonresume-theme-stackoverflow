@@ -26,6 +26,7 @@ i18next.init({
     en: {   // Should be british english
       translation: {
         resume: {
+          summary: "Summary",
           skills: "Skills",
           workExperience: "Work Experience",
           projects: "Projects",
@@ -44,6 +45,7 @@ i18next.init({
     de: {
       translation: {
         resume: {
+          summary: "Übersicht",
           skills: "Kenntnisse",
           workExperience: "Berufserfahrung",
           projects: "Projekte",

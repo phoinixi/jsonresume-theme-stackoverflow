@@ -4,9 +4,6 @@ const fs = require('node:fs');
 const {isHTMLValid} = require("./TestHelpers/HTMLValidate");
 
 
-
-
-
 function writeToTestOutput(result, filename) {
   const testOutPutPath = `${__dirname}/TestOutput`;
   fs.writeFileSync(`${testOutPutPath}/${filename}`, result);
