@@ -8,7 +8,7 @@
 
 **Printable version with custom CSS**
 
-[DEMO](https://francesco.netlify.app/)
+[DEMO](https://phoinixi.github.io/)
 
 ## Getting started
 
