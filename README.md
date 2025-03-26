@@ -1,6 +1,6 @@
 # Stack Overflow theme for jsonresume [![npm version](https://badge.fury.io/js/jsonresume-theme-stackoverflow.svg)](http://badge.fury.io/js/jsonresume-theme-stackoverflow)
 
-<span style="color:red">**I offer tailored career coaching on MentorCruise. You can also book one-off for resume feedback or a mock interview.**</span>
+<span style="color:red">**I offer tailored career coaching on MentorCruise. You can also book one-off resume feedback or a mock interview.**</span>
 
 <a href="https://mentorcruise.com/mentor/francescoesposito/">
 <img src="https://cdn.mentorcruise.com/img/banner/navy-booking-badge.svg" width="240" alt="MentorCruise">
