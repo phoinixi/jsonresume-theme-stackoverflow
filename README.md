@@ -8,7 +8,7 @@
 
 **Printable version with custom CSS**
 
-[DEMO](https://phoinixi.github.io/)
+[DEMO](https://francescoesposito.dev/jsonresume-theme-stackoverflow/)
 
 ## Getting started
 
