@@ -15,9 +15,9 @@
           {{#if position}}
           <div class="position">{{position}}</div>
           {{/if}}
-          {{#if website}}
+          {{#if url}}
             <span class="company">
-              <a target="_blank" href="{{website}}">{{name}}</a>
+              <a target="_blank" href="{{url}}">{{name}}</a>
             </span>
           {{else}}
             <div class="company">{{name}}</div>
@@ -29,11 +29,7 @@
         {{location}}
       </span>
       {{/if}}
-      {{#if url}}
-      <span class="url">
-        <span class="fa-solid fa-up-right-from-square"></span>
-        <a target="_blank" href="{{url}}">{{url}}</a>
-      </span> {{/if}} {{#if keywords.length}}
+      {{#if keywords.length}}
       <ul class="keywords">
         {{#each keywords}}
         <li>{{.}}</li>

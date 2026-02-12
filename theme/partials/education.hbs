@@ -25,7 +25,11 @@
           {{/if}}
           {{#if institution}}
           <div class="institution">
-            {{institution}}
+            {{#if url}}
+              <a target="_blank" href="{{url}}">{{institution}}</a>
+            {{else}}
+              {{institution}}
+            {{/if}}
           </div>
           {{/if}}
         </div>
