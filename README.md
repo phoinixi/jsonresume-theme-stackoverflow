@@ -4,7 +4,7 @@
 
 [![npm version](https://img.shields.io/npm/v/jsonresume-theme-stackoverflow)](https://www.npmjs.com/package/jsonresume-theme-stackoverflow)
 [![npm downloads](https://img.shields.io/npm/dm/jsonresume-theme-stackoverflow)](https://www.npmjs.com/package/jsonresume-theme-stackoverflow)
-[![license](https://img.shields.io/npm/l/jsonresume-theme-stackoverflow)](https://github.com/phoinixi/jsonresume-theme-stackoverflow/blob/develop/LICENSE)
+[![license](https://img.shields.io/npm/l/jsonresume-theme-stackoverflow)](https://github.com/phoinixi/jsonresume-theme-stackoverflow/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/phoinixi/jsonresume-theme-stackoverflow)](https://github.com/phoinixi/jsonresume-theme-stackoverflow)
 [![Node version](https://img.shields.io/node/v/jsonresume-theme-stackoverflow)](https://nodejs.org)
 
@@ -28,7 +28,7 @@
 
 | Light Mode | Dark Mode |
 |:---:|:---:|
-| ![Light mode](https://raw.githubusercontent.com/phoinixi/jsonresume-theme-stackoverflow/develop/docs/light.png) | ![Dark mode](https://raw.githubusercontent.com/phoinixi/jsonresume-theme-stackoverflow/develop/docs/dark.png) |
+| ![Light mode](https://raw.githubusercontent.com/phoinixi/jsonresume-theme-stackoverflow/main/docs/light.png) | ![Dark mode](https://raw.githubusercontent.com/phoinixi/jsonresume-theme-stackoverflow/main/docs/dark.png) |
 
 ## 📦 Installation
 
