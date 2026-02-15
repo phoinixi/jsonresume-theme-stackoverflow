@@ -1,85 +1,127 @@
-# Stack Overflow theme for jsonresume [![npm version](https://badge.fury.io/js/jsonresume-theme-stackoverflow.svg)](http://badge.fury.io/js/jsonresume-theme-stackoverflow)
+# jsonresume-theme-stackoverflow
 
-<span style="color:red">**I offer tailored career coaching on MentorCruise. You can also book one-off resume feedback or a mock interview.**</span>
+> 🚀 A Svelte-powered Stack Overflow theme for [JSON Resume](https://jsonresume.org/)
 
-<a href="https://mentorcruise.com/mentor/francescoesposito/">
-<img src="https://cdn.mentorcruise.com/img/banner/navy-booking-badge.svg" width="240" alt="MentorCruise">
-</a>
+[![npm version](https://img.shields.io/npm/v/jsonresume-theme-stackoverflow)](https://www.npmjs.com/package/jsonresume-theme-stackoverflow)
+[![npm downloads](https://img.shields.io/npm/dm/jsonresume-theme-stackoverflow)](https://www.npmjs.com/package/jsonresume-theme-stackoverflow)
+[![license](https://img.shields.io/npm/l/jsonresume-theme-stackoverflow)](https://github.com/phoinixi/jsonresume-theme-stackoverflow/blob/develop/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/phoinixi/jsonresume-theme-stackoverflow)](https://github.com/phoinixi/jsonresume-theme-stackoverflow)
+[![Node version](https://img.shields.io/node/v/jsonresume-theme-stackoverflow)](https://nodejs.org)
 
-**Printable version with custom CSS**
+## ✨ Features
 
-[DEMO](https://francescoesposito.dev/jsonresume-theme-stackoverflow/)
+- **Svelte SSR** — Server-side rendered with Svelte 5 for fast, clean HTML output
+- **Dark mode** — Automatic light/dark theme via `prefers-color-scheme`
+- **Internationalization** — 12 languages supported out of the box
+- **Customizable themes** — Override colors and fonts via `resume.json` meta field
+- **Override CSS** — Drop in an `override.css` for full control
+- **PDF-ready** — Built-in PDF render options with sensible margins
+- **Zero runtime JS** — Pure HTML + CSS output, no client-side JavaScript
 
-## Getting started
+## 📸 Screenshots
 
-### Install the command line
+| Light Mode | Dark Mode |
+|:---:|:---:|
+| ![Light mode](https://raw.githubusercontent.com/phoinixi/jsonresume-theme-stackoverflow/develop/docs/light.png) | ![Dark mode](https://raw.githubusercontent.com/phoinixi/jsonresume-theme-stackoverflow/develop/docs/dark.png) |
 
-Create your resume in json on [jsonresume](https://jsonresume.org)
+## 📦 Installation
 
-The official [resume-cli](https://github.com/jsonresume/resume-cli) to run the development server.
-
-Go ahead and install it:
-
+```bash
+npm install jsonresume-theme-stackoverflow
 ```
+
+### With the JSON Resume CLI
+
+```bash
 npm install -g resume-cli
+resume export resume.html --theme stackoverflow
+resume export resume.pdf --theme stackoverflow
 ```
 
-### Install and serve theme
+### Programmatic Usage
 
-Clone the repository
+```js
+const theme = require('jsonresume-theme-stackoverflow');
+const resume = require('./resume.json');
 
-```
-git clone https://github.com/phoinixi/jsonresume-theme-stackoverflow.git
-```
+// Optional: set language (default: "en-gb")
+theme.changeLanguage('de');
 
-Create a 'resume.json' file in the current folder and follow the [json resume schema](https://jsonresume.org/schema/)
-
-Install dependencies:
-
-```
-npm install
+const html = theme.render(resume);
 ```
 
-and simply run:
+## 🌍 Supported Languages
 
+| Code | Language |
+|------|----------|
+| `en-gb` / `en` | English (default) |
+| `de` | German / Deutsch |
+| `fr` | French / Français |
+| `es` | Spanish / Español |
+| `it` | Italian / Italiano |
+| `pt` | Portuguese / Português |
+| `zh` | Chinese / 中文 |
+| `ja` | Japanese / 日本語 |
+| `ko` | Korean / 한국어 |
+| `nl` | Dutch / Nederlands |
+| `pl` | Polish / Polski |
+| `ru` | Russian / Русский |
+
+```js
+const theme = require('jsonresume-theme-stackoverflow');
+theme.changeLanguage('fr'); // Set before calling render()
+const html = theme.render(resume);
 ```
-resume serve --theme .
-```
 
-### Social Profiles Icons
+## 🎨 Theme Customization
 
-**Profiles supported with brand colors:**
+Customize colors and fonts by adding a `theme` object inside `meta` in your `resume.json`:
 
-Please note that all the [Font awesome brands icons](https://fontawesome.com/search?s=brands) are supported. Although only the ones listed below have a color code associated with it in my CSS file:
-
-github, stack-overflow, linkedin, dribbble, twitter, facebook, pinterest, instagram, soundcloud, wordpress, youtube, flickr, google plus, tumblr, foursquare.
-
-To have a social icon close the social link profile (or username) it is enough to set a `network` the name of the Social Network (es: 'Stack Overflow'). I am replacing spaces with dashes (`-`) and transforming all the network name to all lowercase to match the Font awesome naming convention for brands icons.
-
-#### Support to extra fields
-
-With stackoverflow theme it is possible to add:
-
-- `keywords` to each 'work', 'publication' and 'volunteer' item
-- `summary` to each 'interests' and 'education' item
-- `birth` to 'basics' (might be commonly used in Europe)
-
-example of the extra `birth` object:
-
-```
-"birth": {
-  "place": "New York",
-  "state": "USA",
-  "date": "1988"
+```json
+{
+  "meta": {
+    "theme": {
+      "primaryColor": "#2563eb",
+      "textColor": "#1e293b",
+      "backgroundColor": "#ffffff",
+      "fontFamily": "\"Inter\", sans-serif",
+      "linkColor": "#2563eb",
+      "headingColor": "#0f172a"
+    }
+  }
 }
 ```
 
-## Contribution
+### Available theme properties
 
-Fork the project, add your feature (or fix your bug) and open a pull request OR
+| Property | CSS Variable | Description |
+|----------|-------------|-------------|
+| `primaryColor` | `--color-accent` | Section titles, accents |
+| `textColor` | `--color-text` | Main body text |
+| `textSecondaryColor` | `--color-text-secondary` | Secondary text (companies, dates) |
+| `headingColor` | `--color-heading` | Heading color |
+| `linkColor` | `--color-link` | Link color |
+| `backgroundColor` | `--color-background` | Page background |
+| `backgroundAltColor` | `--color-background-alt` | Summary section background |
+| `borderColor` | `--color-border` | Border colors |
+| `keywordTextColor` | `--color-keyword-text` | Skill/keyword tag text |
+| `keywordBgColor` | `--color-keyword-bg` | Skill/keyword tag background |
+| `fontFamily` | `--font-family` | Base font family |
 
-[Open an issue](https://github.com/phoinixi/jsonresume-theme-stackoverflow/issues/new) if you find find or if you would like to have extra fields or changes 
+### Override CSS
 
-## License
+For full CSS control, create an `override.css` file alongside your resume. The theme automatically loads it via `<link rel="stylesheet" href="./override.css">`.
 
-Available under the [MIT license](http://opensource.org/licenses/mit-license.php).
+## 🛠 Development
+
+```bash
+git clone https://github.com/phoinixi/jsonresume-theme-stackoverflow.git
+cd jsonresume-theme-stackoverflow
+npm install
+npm run build
+npm test
+```
+
+## 📄 License
+
+MIT
