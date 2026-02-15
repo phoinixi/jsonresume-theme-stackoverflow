@@ -5475,124 +5475,64 @@ function birthDateHtml(birth) {
   return out.join("");
 }
 
-// .build/components/Basics.js
+// .build/components/ContactInfo.js
 var $$css = {
-  hash: "svelte-10f9ycp",
-  code: '#header.svelte-10f9ycp {margin-bottom:1rem;}#header.svelte-10f9ycp > #profiles,\n  #header.svelte-10f9ycp > #contact {display:flex;flex-flow:row wrap;justify-content:flex-start;}#header.svelte-10f9ycp > div {line-height:1.5;}#header.svelte-10f9ycp > div > div {margin-right:1.2em;}#header.svelte-10f9ycp h1.name {font-size:2.8rem;font-weight:100;line-height:100%;}#header.svelte-10f9ycp h2.label {color:var(--color-heading);font-size:1.47rem;font-weight:300;}#header.svelte-10f9ycp .image {width:11em;float:right;border-radius:4px;}#contact.svelte-10f9ycp {margin-top:0.5rem;}#profiles .item {padding:0;margin-right:0.8em;}.fa {margin-right:0.25em;}.fa.social {font-size:1.1em;}.google-plus {color:#dd4b39;}.tumblr {color:#32506d;}.foursquare {color:#0072b1;}.facebook {color:#3b5998;}.linkedin {color:#007bb6;}.pinterest {color:#cb2027;}.dribbble {color:#ea4c89;}.instagram {color:#517fa4;}.twitter {color:#00aced;}.soundcloud {color:#ff3a00;}.wordpress {color:#21759b;}.youtube {color:#bb0000;}.github {color:#171515;}.stack-overflow {color:#828386;position:relative;}.flickr {color:#ff0084;}.reddit {color:#ff4500;}.hacker-news {color:#ff6600;}.stack-overflow::after {position:absolute;left:0;content:"\\f16c";color:#f68a1f;overflow:hidden;height:100%;}.telegram {color:#2291c3;}\n\n  /* Summary section styling */.section.svelte-10f9ycp {margin-bottom:1rem;}.section.svelte-10f9ycp > header {position:relative;}.section.svelte-10f9ycp > header::after {position:absolute;left:0;top:0.7em;height:1px;background:var(--color-border);content:"";width:100%;z-index:-100;display:block;}.section.svelte-10f9ycp .section-title {display:inline-block;background:var(--color-section-title-bg);padding:0 1em 0.3em 0;color:var(--color-accent);text-transform:uppercase;font-weight:600;border:none;font-size:0.9rem;}'
+  hash: "svelte-121pvxs",
+  code: ".contact.svelte-121pvxs {display:flex;flex-flow:row wrap;justify-content:flex-start;margin-top:0.5rem;}.contact-item.svelte-121pvxs {margin-right:1.2em;line-height:1.5;}.icon.svelte-121pvxs {margin-right:0.25em;}"
 };
-function Basics($$renderer, $$props) {
+function ContactInfo($$renderer, $$props) {
   $$renderer.global.css.add($$css);
+  let { website, email, phone } = $$props;
+  if (website || email || phone) {
+    $$renderer.push("<!--[-->");
+    $$renderer.push(`<div class="contact svelte-121pvxs">`);
+    if (email) {
+      $$renderer.push("<!--[-->");
+      $$renderer.push(`<div class="contact-item svelte-121pvxs"><span class="fa-regular fa-envelope icon svelte-121pvxs"></span> <a class="hide-href-print"${attr("href", `mailto:${stringify(email)}`)}>${escape_html(email)}</a></div>`);
+    } else {
+      $$renderer.push("<!--[!-->");
+    }
+    $$renderer.push(`<!--]--> `);
+    if (phone) {
+      $$renderer.push("<!--[-->");
+      $$renderer.push(`<div class="contact-item svelte-121pvxs"><span class="fa-solid fa-mobile-screen-button icon svelte-121pvxs"></span> <a class="hide-href-print"${attr("href", `tel:${stringify(phone)}`)}>${escape_html(phone)}</a></div>`);
+    } else {
+      $$renderer.push("<!--[!-->");
+    }
+    $$renderer.push(`<!--]--> `);
+    if (website) {
+      $$renderer.push("<!--[-->");
+      $$renderer.push(`<div class="contact-item svelte-121pvxs"><span class="fa-solid fa-up-right-from-square icon svelte-121pvxs"></span> <a class="hide-href-print" target="_blank"${attr("href", website)}>${escape_html(website)}</a></div>`);
+    } else {
+      $$renderer.push("<!--[!-->");
+    }
+    $$renderer.push(`<!--]--></div>`);
+  } else {
+    $$renderer.push("<!--[!-->");
+  }
+  $$renderer.push(`<!--]-->`);
+}
+
+// .build/components/SocialProfile.js
+var $$css2 = {
+  hash: "svelte-a76edc",
+  code: '.item.svelte-a76edc {padding:0;margin-right:0.8em;}.social.svelte-a76edc {font-size:1.1em;margin-right:0.25em;}\n\n  /* Social Media Brand Colors */.google-plus {color:#dd4b39;}.tumblr {color:#32506d;}.foursquare {color:#0072b1;}.facebook {color:#3b5998;}.linkedin {color:#007bb6;}.pinterest {color:#cb2027;}.dribbble {color:#ea4c89;}.instagram {color:#517fa4;}.twitter {color:#00aced;}.soundcloud {color:#ff3a00;}.wordpress {color:#21759b;}.youtube {color:#bb0000;}.github {color:#171515;}.stack-overflow {color:#828386;position:relative;}.flickr {color:#ff0084;}.reddit {color:#ff4500;}.hacker-news {color:#ff6600;}.stack-overflow::after {position:absolute;left:0;content:"\\f16c";color:#f68a1f;overflow:hidden;height:100%;}.telegram {color:#2291c3;}'
+};
+function SocialProfile($$renderer, $$props) {
+  $$renderer.global.css.add($$css2);
   $$renderer.component(($$renderer2) => {
-    let { basics } = $$props;
-    if (basics) {
+    let { profile } = $$props;
+    if (profile.network) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<header id="header" class="clear svelte-10f9ycp">`);
-      if (basics.image) {
+      $$renderer2.push(`<div class="item svelte-a76edc"><div class="username"><span${attr_class(`fa-brands fa-${stringify(spaceToDash(profile.network))} ${stringify(spaceToDash(profile.network))} social`, "svelte-a76edc")}></span> `);
+      if (profile.url) {
         $$renderer2.push("<!--[-->");
-        $$renderer2.push(`<img class="image"${attr("src", basics.image)}${attr("alt", basics.name)}/> <div class="middle"><h1 class="name">${escape_html(basics.name)}</h1> <h2 class="label">${escape_html(basics.label)}</h2></div>`);
+        $$renderer2.push(`<span class="url"><a target="_blank"${attr("href", profile.url)}><span class="show-only-url-print">${escape_html(profile.username)}</span></a></span>`);
       } else {
         $$renderer2.push("<!--[!-->");
-        $$renderer2.push(`<div><h1 class="name">${escape_html(basics.name)}</h1> <h2 class="label">${escape_html(basics.label)}</h2></div>`);
+        $$renderer2.push(`<span>${escape_html(profile.username)}</span>`);
       }
-      $$renderer2.push(`<!--]--> `);
-      if (basics.location) {
-        $$renderer2.push("<!--[-->");
-        $$renderer2.push(`<span class="location">`);
-        if (basics.location.address) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="address">${escape_html(basics.location.address)},</span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (basics.location.postalCode) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="postalCode">${escape_html(basics.location.postalCode)},</span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (basics.location.city) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="city">${escape_html(basics.location.city)},</span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (basics.location.region) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="region">${escape_html(basics.location.region)}</span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (basics.location.countryCode) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="countryCode">(${escape_html(basics.location.countryCode)})</span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></span>`);
-      } else {
-        $$renderer2.push("<!--[!-->");
-      }
-      $$renderer2.push(`<!--]--> ${html2(birthDateHtml(basics.birth))} <div id="contact" class="svelte-10f9ycp">`);
-      if (basics.website) {
-        $$renderer2.push("<!--[-->");
-        $$renderer2.push(`<div class="website"><span class="fa-solid fa-up-right-from-square"></span> <a class="hide-href-print" target="_blank"${attr("href", basics.website)}>${escape_html(basics.website)}</a></div>`);
-      } else {
-        $$renderer2.push("<!--[!-->");
-      }
-      $$renderer2.push(`<!--]--> `);
-      if (basics.email) {
-        $$renderer2.push("<!--[-->");
-        $$renderer2.push(`<div class="email"><span class="fa-regular fa-envelope"></span> <a class="hide-href-print"${attr("href", `mailto:${stringify(basics.email)}`)}>${escape_html(basics.email)}</a></div>`);
-      } else {
-        $$renderer2.push("<!--[!-->");
-      }
-      $$renderer2.push(`<!--]--> `);
-      if (basics.phone) {
-        $$renderer2.push("<!--[-->");
-        $$renderer2.push(`<div class="phone"><span class="fa-solid fa-mobile-screen-button"></span> <a class="hide-href-print"${attr("href", `tel:${stringify(basics.phone)}`)}>${escape_html(basics.phone)}</a></div>`);
-      } else {
-        $$renderer2.push("<!--[!-->");
-      }
-      $$renderer2.push(`<!--]--></div> `);
-      if (basics.profiles?.length) {
-        $$renderer2.push("<!--[-->");
-        $$renderer2.push(`<nav id="profiles" aria-label="Social profiles"><!--[-->`);
-        const each_array = ensure_array_like(basics.profiles);
-        for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
-          let profile = each_array[$$index];
-          $$renderer2.push(`<div class="item">`);
-          if (profile.network) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<div class="username"><span${attr_class(`fa-brands fa-${stringify(spaceToDash(profile.network))} ${stringify(spaceToDash(profile.network))} social`, "svelte-10f9ycp")}></span> `);
-            if (profile.url) {
-              $$renderer2.push("<!--[-->");
-              $$renderer2.push(`<span class="url"><a target="_blank"${attr("href", profile.url)}><span class="show-only-url-print">${escape_html(profile.username)}</span></a></span>`);
-            } else {
-              $$renderer2.push("<!--[!-->");
-              $$renderer2.push(`<span>${escape_html(profile.username)}</span>`);
-            }
-            $$renderer2.push(`<!--]--></div>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-          }
-          $$renderer2.push(`<!--]--></div>`);
-        }
-        $$renderer2.push(`<!--]--></nav>`);
-      } else {
-        $$renderer2.push("<!--[!-->");
-      }
-      $$renderer2.push(`<!--]--></header> `);
-      if (basics.summary) {
-        $$renderer2.push("<!--[-->");
-        $$renderer2.push(`<section class="section summary svelte-10f9ycp"><header><h2 class="section-title">${escape_html(t("resume.summary"))}</h2></header> <section class="main-summary"><div>${html2(paragraphSplit(basics.summary))}</div></section></section>`);
-      } else {
-        $$renderer2.push("<!--[!-->");
-      }
-      $$renderer2.push(`<!--]-->`);
+      $$renderer2.push(`<!--]--></div></div>`);
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -5601,12 +5541,12 @@ function Basics($$renderer, $$props) {
 }
 
 // .build/components/SectionHeader.js
-var $$css2 = {
+var $$css3 = {
   hash: "svelte-1lncexq",
   code: '.section.svelte-1lncexq {margin-bottom:1rem;}.section.svelte-1lncexq > header {position:relative;}.section.svelte-1lncexq > header::after {position:absolute;left:0;top:0.7em;height:1px;background:var(--color-border);content:"";width:100%;z-index:-100;display:block;}.section.svelte-1lncexq .section-title {display:inline-block;background:var(--color-section-title-bg);padding:0 1em 0.3em 0;color:var(--color-accent);text-transform:uppercase;font-weight:600;border:none;font-size:0.9rem;}.section.svelte-1lncexq > section > header {font-size:1.38rem;position:relative;margin-top:0.7em;}.section.svelte-1lncexq > section > header:first-of-type {margin:0;}.section.svelte-1lncexq > section > header .space-left {position:absolute;left:-1.56rem;top:5px;color:#aaa;line-height:1;opacity:0;}.section.svelte-1lncexq > section > section {margin-bottom:1rem;}'
 };
 function SectionHeader($$renderer, $$props) {
-  $$renderer.global.css.add($$css2);
+  $$renderer.global.css.add($$css3);
   let { title, count = void 0, children } = $$props;
   $$renderer.push(`<section class="section svelte-1lncexq"><header><h2 class="section-title">${escape_html(title)}`);
   if (count !== void 0) {
@@ -5620,13 +5560,114 @@ function SectionHeader($$renderer, $$props) {
   $$renderer.push(`<!----></section>`);
 }
 
+// .build/components/Basics.js
+var $$css4 = {
+  hash: "svelte-10f9ycp",
+  code: "#header.svelte-10f9ycp {margin-bottom:1rem;}.name.svelte-10f9ycp {font-size:2.8rem;font-weight:100;line-height:100%;}.label.svelte-10f9ycp {color:var(--color-heading);font-size:1.47rem;font-weight:300;}.image.svelte-10f9ycp {width:11em;float:right;border-radius:4px;}.profiles.svelte-10f9ycp {display:flex;flex-flow:row wrap;justify-content:flex-start;}"
+};
+function Basics($$renderer, $$props) {
+  $$renderer.global.css.add($$css4);
+  $$renderer.component(($$renderer2) => {
+    let { basics } = $$props;
+    if (basics) {
+      $$renderer2.push("<!--[-->");
+      $$renderer2.push(`<header id="header" class="clear svelte-10f9ycp">`);
+      if (basics.image) {
+        $$renderer2.push("<!--[-->");
+        $$renderer2.push(`<img class="image svelte-10f9ycp"${attr("src", basics.image)}${attr("alt", basics.name)}/> <div class="middle"><h1 class="name svelte-10f9ycp">${escape_html(basics.name)}</h1> <h2 class="label svelte-10f9ycp">${escape_html(basics.label)}</h2></div>`);
+      } else {
+        $$renderer2.push("<!--[!-->");
+        $$renderer2.push(`<div><h1 class="name svelte-10f9ycp">${escape_html(basics.name)}</h1> <h2 class="label svelte-10f9ycp">${escape_html(basics.label)}</h2></div>`);
+      }
+      $$renderer2.push(`<!--]--> `);
+      if (basics.location) {
+        $$renderer2.push("<!--[-->");
+        $$renderer2.push(`<span class="location">`);
+        if (basics.location.address) {
+          $$renderer2.push("<!--[-->");
+          $$renderer2.push(`<span>${escape_html(basics.location.address)},</span>`);
+        } else {
+          $$renderer2.push("<!--[!-->");
+        }
+        $$renderer2.push(`<!--]--> `);
+        if (basics.location.postalCode) {
+          $$renderer2.push("<!--[-->");
+          $$renderer2.push(`<span>${escape_html(basics.location.postalCode)},</span>`);
+        } else {
+          $$renderer2.push("<!--[!-->");
+        }
+        $$renderer2.push(`<!--]--> `);
+        if (basics.location.city) {
+          $$renderer2.push("<!--[-->");
+          $$renderer2.push(`<span>${escape_html(basics.location.city)},</span>`);
+        } else {
+          $$renderer2.push("<!--[!-->");
+        }
+        $$renderer2.push(`<!--]--> `);
+        if (basics.location.region) {
+          $$renderer2.push("<!--[-->");
+          $$renderer2.push(`<span>${escape_html(basics.location.region)}</span>`);
+        } else {
+          $$renderer2.push("<!--[!-->");
+        }
+        $$renderer2.push(`<!--]--> `);
+        if (basics.location.countryCode) {
+          $$renderer2.push("<!--[-->");
+          $$renderer2.push(`<span>(${escape_html(basics.location.countryCode)})</span>`);
+        } else {
+          $$renderer2.push("<!--[!-->");
+        }
+        $$renderer2.push(`<!--]--></span>`);
+      } else {
+        $$renderer2.push("<!--[!-->");
+      }
+      $$renderer2.push(`<!--]--> ${html2(birthDateHtml(basics.birth))} `);
+      ContactInfo($$renderer2, {
+        website: basics.website,
+        email: basics.email,
+        phone: basics.phone
+      });
+      $$renderer2.push(`<!----> `);
+      if (basics.profiles?.length) {
+        $$renderer2.push("<!--[-->");
+        $$renderer2.push(`<nav class="profiles svelte-10f9ycp" aria-label="Social profiles"><!--[-->`);
+        const each_array = ensure_array_like(basics.profiles);
+        for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+          let profile = each_array[$$index];
+          SocialProfile($$renderer2, { profile });
+        }
+        $$renderer2.push(`<!--]--></nav>`);
+      } else {
+        $$renderer2.push("<!--[!-->");
+      }
+      $$renderer2.push(`<!--]--></header> `);
+      if (basics.summary) {
+        $$renderer2.push("<!--[-->");
+        SectionHeader($$renderer2, {
+          title: t("resume.summary"),
+          children: ($$renderer3) => {
+            $$renderer3.push(`<section class="main-summary"><div>${html2(paragraphSplit(basics.summary))}</div></section>`);
+          },
+          $$slots: { default: true }
+        });
+      } else {
+        $$renderer2.push("<!--[!-->");
+      }
+      $$renderer2.push(`<!--]-->`);
+    } else {
+      $$renderer2.push("<!--[!-->");
+    }
+    $$renderer2.push(`<!--]-->`);
+  });
+}
+
 // .build/components/LevelBar.js
-var $$css3 = {
+var $$css5 = {
   hash: "svelte-10tjtrd",
   code: '.level.svelte-10tjtrd {margin-bottom:0.5em;}.level.svelte-10tjtrd em:where(.svelte-10tjtrd) {padding-left:0.2em;}.level.svelte-10tjtrd .bar:where(.svelte-10tjtrd) {border:1px solid var(--color-border-light);display:block;width:10em;height:5px;position:relative;}.level.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {position:absolute;content:" ";top:0;left:0;background:black;height:5px;}.level.beginner.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-beginner);width:2.5em;}.level.intermediate.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-intermediate);width:5em;}.level.advanced.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after,\n  .level.fluent.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-advanced);width:7.5em;}.level.master.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after,\n  .level.expert.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after,\n  .level.native.speaker.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-master);width:10em;}'
 };
 function LevelBar($$renderer, $$props) {
-  $$renderer.global.css.add($$css3);
+  $$renderer.global.css.add($$css5);
   $$renderer.component(($$renderer2) => {
     let { level, displayText = void 0, name = "" } = $$props;
     const normalized = normalizeLevel(level);
@@ -5636,12 +5677,12 @@ function LevelBar($$renderer, $$props) {
 }
 
 // .build/components/KeywordList.js
-var $$css4 = {
+var $$css6 = {
   hash: "svelte-1615qzb",
   code: "ul.svelte-1615qzb {margin:0.5em 0;}li.svelte-1615qzb {display:inline-block;margin:2px 2px 2px 0;padding:4px 5px 5px;font-size:0.9rem;line-height:1;color:var(--color-keyword-text);background-color:var(--color-keyword-bg);border:0 solid var(--color-keyword-border);white-space:nowrap;}li.svelte-1615qzb:hover {background:var(--color-keyword-bg);}"
 };
 function KeywordList($$renderer, $$props) {
-  $$renderer.global.css.add($$css4);
+  $$renderer.global.css.add($$css6);
   $$renderer.component(($$renderer2) => {
     let { keywords = [], cssClass = "keywords" } = $$props;
     if (keywords?.length) {
@@ -5661,12 +5702,12 @@ function KeywordList($$renderer, $$props) {
 }
 
 // .build/components/Skills.js
-var $$css5 = {
+var $$css7 = {
   hash: "svelte-18p2gu6",
   code: "#skills.svelte-18p2gu6 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#skills.svelte-18p2gu6 .item {width:16em;padding:0 0.5em 0.5em 0;border-bottom:none;}#skills.svelte-18p2gu6 .item .keywords {width:15em;}"
 };
 function Skills($$renderer, $$props) {
-  $$renderer.global.css.add($$css5);
+  $$renderer.global.css.add($$css7);
   $$renderer.component(($$renderer2) => {
     let { skills = [] } = $$props;
     if (skills?.length) {
@@ -5744,12 +5785,12 @@ function DateRange($$renderer, $$props) {
 }
 
 // .build/components/TimelineItem.js
-var $$css6 = {
+var $$css8 = {
   hash: "svelte-g3qng",
   code: '.timeline-item.svelte-g3qng .position,\n  .timeline-item.svelte-g3qng .company,\n  .timeline-item.svelte-g3qng .organization,\n  .timeline-item.svelte-g3qng .institution,\n  .timeline-item.svelte-g3qng .date,\n  .timeline-item.svelte-g3qng .area,\n  .timeline-item.svelte-g3qng .studyType,\n  .timeline-item.svelte-g3qng .title,\n  .timeline-item.svelte-g3qng .awarder {display:inline;}.timeline-item.svelte-g3qng .position,\n  .timeline-item.svelte-g3qng .studyType,\n  .timeline-item.svelte-g3qng .area,\n  .timeline-item.svelte-g3qng .title {font-weight:600;}.timeline-item.svelte-g3qng .company::before,\n  .timeline-item.svelte-g3qng .institution::before,\n  .timeline-item.svelte-g3qng .organization::before,\n  .timeline-item.svelte-g3qng .awarder::before {content:"at ";}.timeline-item.svelte-g3qng .company,\n  .timeline-item.svelte-g3qng .institution,\n  .timeline-item.svelte-g3qng .organization,\n  .timeline-item.svelte-g3qng .awarder {color:var(--color-text-secondary);font-weight:400;}.timeline-item.svelte-g3qng header .date {display:block;font-size:1rem;padding:0.1em 0;color:var(--color-text-secondary);font-weight:400;}.timeline-item.svelte-g3qng .item {overflow:hidden;}.timeline-item.svelte-g3qng .highlights > li > p {margin-bottom:0.5em;}.timeline-item.svelte-g3qng .clear::after {content:"";display:table;clear:both;}.timeline-item.svelte-g3qng .location {margin-right:0.5em;color:var(--color-text-secondary);font-weight:700;}'
 };
 function TimelineItem($$renderer, $$props) {
-  $$renderer.global.css.add($$css6);
+  $$renderer.global.css.add($$css8);
   $$renderer.component(($$renderer2) => {
     let {
       title = "",
@@ -5992,12 +6033,12 @@ function Volunteer($$renderer, $$props) {
 }
 
 // .build/components/Education.js
-var $$css7 = {
+var $$css9 = {
   hash: "svelte-rbv6q6",
   code: ".gpa {clear:both;padding-bottom:0.5em;}"
 };
 function Education($$renderer, $$props) {
-  $$renderer.global.css.add($$css7);
+  $$renderer.global.css.add($$css9);
   $$renderer.component(($$renderer2) => {
     let { education = [], language: language2 = "en-gb" } = $$props;
     if (education?.length) {
@@ -6167,12 +6208,12 @@ function Publications($$renderer, $$props) {
 }
 
 // .build/components/Languages.js
-var $$css8 = {
+var $$css10 = {
   hash: "svelte-2dygc7",
   code: "#languages.svelte-2dygc7 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#languages.svelte-2dygc7 .item {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}"
 };
 function Languages($$renderer, $$props) {
-  $$renderer.global.css.add($$css8);
+  $$renderer.global.css.add($$css10);
   $$renderer.component(($$renderer2) => {
     let { languages = [] } = $$props;
     if (languages?.length) {
@@ -6213,12 +6254,12 @@ function Languages($$renderer, $$props) {
 }
 
 // .build/components/Interests.js
-var $$css9 = {
+var $$css11 = {
   hash: "svelte-1bnc9h3",
   code: "#interests.svelte-1bnc9h3 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#interests.svelte-1bnc9h3 .item {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}"
 };
 function Interests($$renderer, $$props) {
-  $$renderer.global.css.add($$css9);
+  $$renderer.global.css.add($$css11);
   $$renderer.component(($$renderer2) => {
     let { interests = [] } = $$props;
     if (interests?.length) {
@@ -6261,12 +6302,12 @@ function Interests($$renderer, $$props) {
 }
 
 // .build/components/References.js
-var $$css10 = {
+var $$css12 = {
   hash: "svelte-1y7ope6",
   code: "#references.svelte-1y7ope6 .item {padding-left:0.5em;margin-bottom:1em;border-left:5px solid var(--color-reference-border);}"
 };
 function References($$renderer, $$props) {
-  $$renderer.global.css.add($$css10);
+  $$renderer.global.css.add($$css12);
   $$renderer.component(($$renderer2) => {
     let { references = [] } = $$props;
     if (references?.length) {
@@ -6307,12 +6348,12 @@ function References($$renderer, $$props) {
 }
 
 // .build/components/Resume.js
-var $$css11 = {
+var $$css13 = {
   hash: "svelte-rssu9l",
   code: "#resume.svelte-rssu9l {padding:1.5rem;}\n\n  /* Summary section (used by Basics) */.section.summary header {margin-top:1rem;}.main-summary {background:var(--color-background-alt);padding:1.2em 1em;}.main-summary p {margin:0;}.display {display:block;opacity:1 !important;}.name {font-weight:600;}.language {font-weight:600;}"
 };
 function Resume($$renderer, $$props) {
-  $$renderer.global.css.add($$css11);
+  $$renderer.global.css.add($$css13);
   $$renderer.component(($$renderer2) => {
     let { resume, language: language2 = "en-gb" } = $$props;
     $$renderer2.push(`<a class="skip-to-content" href="#resume">Skip to content</a> <main id="resume" class="svelte-rssu9l">`);
