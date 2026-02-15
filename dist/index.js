@@ -11796,7 +11796,10 @@ function buildThemeOverrides(meta) {
   if (overrides.length === 0) return "";
   return ":root {\n" + overrides.join("\n") + "\n}";
 }
-function render2(resume) {
+function render2(resume, options) {
+  if (options && options.language) {
+    changeLanguage(options.language);
+  }
   const stylePath = (0, import_path.join)(__dirname, "..", "style.css");
   const css = (0, import_fs.readFileSync)(stylePath, "utf-8");
   const result = render(Resume, {
@@ -11807,7 +11810,7 @@ function render2(resume) {
   const name = resume.basics?.name || "";
   const themeOverrides = buildThemeOverrides(resume.meta);
   return `<!doctype html>
-<html lang="en">
+<html lang="__LANG__">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -11821,7 +11824,7 @@ function render2(resume) {
   <body>
     ${body}
   </body>
-</html>`;
+</html>`.replace("__LANG__", language);
 }
 var marginValue = "0.8 cm";
 var pdfRenderOptions = {

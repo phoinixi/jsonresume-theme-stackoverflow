@@ -136,7 +136,10 @@ function buildThemeOverrides(meta) {
   return ':root {\\n' + overrides.join('\\n') + '\\n}';
 }
 
-export function render(resume) {
+export function render(resume, options) {
+  if (options && options.language) {
+    changeLanguage(options.language);
+  }
   const stylePath = join(__dirname, '..', 'style.css');
   const css = readFileSync(stylePath, 'utf-8');
   
@@ -152,7 +155,7 @@ export function render(resume) {
   const themeOverrides = buildThemeOverrides(resume.meta);
 
   return \`<!doctype html>
-<html lang="en">
+<html lang="__LANG__">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -166,7 +169,7 @@ export function render(resume) {
   <body>
     \${body}
   </body>
-</html>\`;
+</html>\`.replace('__LANG__', language);
 }
 
 const marginValue = '0.8 cm';
