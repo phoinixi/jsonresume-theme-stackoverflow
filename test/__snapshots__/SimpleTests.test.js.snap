@@ -2,7 +2,7 @@
 
 exports[`SimpleTests Snapshot-test english translation 1`] = `
 "<!doctype html>
-<html lang="en">
+<html lang="en-gb">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -863,7 +863,7 @@ section .location {
 
 exports[`SimpleTests Snapshot-test german translation 1`] = `
 "<!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
