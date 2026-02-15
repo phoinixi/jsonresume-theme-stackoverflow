@@ -2,35 +2,30 @@ import MarkdownIt from "markdown-it";
 
 const md = new MarkdownIt();
 
-export function paragraphSplit(text: string | null | undefined): string {
+export function paragraphSplit(text) {
   if (text == null) return "";
   return md.render(text).trim();
 }
 
-export function toLowerCase(str: string): string {
+export function toLowerCase(str) {
   return str.toLowerCase();
 }
 
-export function spaceToDash(str: string): string {
+export function spaceToDash(str) {
   return str.replace(/\s/g, "-").toLowerCase();
 }
 
-export interface Birth {
-  place?: string;
-  state?: string;
-  date?: string;
-}
 
-export function birthDateHtml(birth: Birth | undefined): string {
+export function birthDateHtml(birth) {
   if (!birth || !Object.keys(birth).length) return "";
-  const out: string[] = [];
+  const out = [];
   if (birth.place) {
     out.push(`<div> Born in ${birth.place}`);
   }
   if (birth.place && birth.state) {
     out.push(`, ${birth.state}`);
   }
-  const year = birth.date ? new Date(birth.date).toLocaleDateString({ year: "numeric" } as any) : "";
+  const year = birth.date ? new Date(birth.date).toLocaleDateString({ year: "numeric" }) : "";
   if (year && birth.place && birth.state) {
     out.push(` in ${year}</div>`);
   } else if (year && (!birth.place || birth.state)) {
@@ -39,13 +34,8 @@ export function birthDateHtml(birth: Birth | undefined): string {
   return out.join("");
 }
 
-export interface I18nResources {
-  [lang: string]: {
-    [key: string]: string;
-  };
-}
 
-const resources: I18nResources = {
+const resources = {
   en: {
     "resume.summary": "Summary",
     "resume.skills": "Skills",
@@ -312,7 +302,7 @@ const levelMap: Record<string, string> = {
   fluente: "advanced",
 };
 
-export function normalizeLevel(level: string): string {
+export function normalizeLevel(level) {
   const lower = level.toLowerCase().trim();
   if (levelMap[lower]) return levelMap[lower];
 
@@ -326,7 +316,7 @@ export function normalizeLevel(level: string): string {
 
 let currentLang = "en";
 
-export function setI18nLanguage(lang: string): void {
+export function setI18nLanguage(lang) {
   switch (lang) {
     case "en-gb":
       currentLang = "en";
@@ -336,7 +326,7 @@ export function setI18nLanguage(lang: string): void {
   }
 }
 
-export function t(key: string): string {
+export function t(key) {
   const lang = resources[currentLang] || resources["en"];
   return lang[key] || resources["en"][key] || key;
 }

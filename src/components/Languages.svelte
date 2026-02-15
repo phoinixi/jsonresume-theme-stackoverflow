@@ -1,5 +1,5 @@
 <script>
-  import { toLowerCase, t } from '../utils/helpers.ts';
+  import { normalizeLevel, t } from '../utils/helpers.ts';
 
   let { languages = [] } = $props();
 </script>
@@ -17,7 +17,7 @@
           {/if}
           <div class="item">
             {#if lang.fluency}
-              <div class="level fluency {toLowerCase(lang.fluency)}">
+              <div class="level fluency {normalizeLevel(lang.fluency)}">
                 {#if lang.fluencyDisplay}
                   <em>{lang.fluencyDisplay}</em>
                 {:else}

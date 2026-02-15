@@ -1,5 +1,5 @@
 <script>
-  import { toLowerCase, t } from '../utils/helpers.ts';
+  import { normalizeLevel, t } from '../utils/helpers.ts';
 
   let { skills = [] } = $props();
 </script>
@@ -16,7 +16,7 @@
             <h3 class="name">{skill.name}</h3>
           {/if}
           {#if skill.level}
-            <div class="level {toLowerCase(skill.level)}">
+            <div class="level {normalizeLevel(skill.level)}">
               {#if skill.levelDisplay}
                 <em>{skill.levelDisplay}</em>
               {:else}

@@ -620,6 +620,7 @@ section .location {
 }
 
 .level.master .bar::after,
+.level.expert .bar::after,
 .level.native.speaker .bar::after {
   background: var(--color-bar-master);
   width: 10em;
@@ -1481,6 +1482,7 @@ section .location {
 }
 
 .level.master .bar::after,
+.level.expert .bar::after,
 .level.native.speaker .bar::after {
   background: var(--color-bar-master);
   width: 10em;
