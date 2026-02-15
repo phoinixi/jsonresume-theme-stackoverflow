@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.0.0...v3.0.1) (2026-02-15)
+
+
+### Bug Fixes
+
+* use npm license badge on landing page ([1cc1fa9](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/1cc1fa91a19440f80282539fe6e2c51d0538d931))
+
 # [3.0.0](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v2.1.0...v3.0.0) (2026-02-15)
 
 
