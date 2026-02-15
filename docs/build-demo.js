@@ -13,26 +13,38 @@ if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 // Render the resume
 const html = renderer.render(resume);
 
-// Write the rendered resume
-fs.writeFileSync(path.join(outDir, 'index.html'), html);
+// Write the rendered resume — force light mode by overriding dark media query
+const lightHtml = html.replace('</head>', `<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #3d4767;
+    --color-text-secondary: #72778a;
+    --color-text-muted: #6a737c;
+    --color-heading: #2d333a;
+    --color-accent: #f48024;
+    --color-link: #0077cc;
+    --color-link-hover: #0095ff;
+    --color-background: #ffffff;
+    --color-background-alt: #f8f9fa;
+    --color-border: #e4e6e8;
+    --color-border-light: #eff0f1;
+    --color-keyword-text: #39739d;
+    --color-keyword-bg: #e1ecf4;
+    --color-keyword-border: #e1ecf4;
+    --color-reference-border: #f48024;
+    --color-bar-beginner: #eb5f51;
+    --color-bar-intermediate: #ffdf1f;
+    --color-bar-advanced: #5cb85c;
+    --color-bar-master: #59c596;
+    --color-section-title-bg: #ffffff;
+  }
+}
+</style></head>`);
+fs.writeFileSync(path.join(outDir, 'index.html'), lightHtml);
 
 // Also render a dark mode version by injecting meta override
-const darkResume = JSON.parse(JSON.stringify(resume));
-darkResume.meta = {
-  theme: {
-    primaryColor: '#60a5fa',
-    textColor: '#e2e8f0',
-    textSecondaryColor: '#94a3b8',
-    headingColor: '#f1f5f9',
-    linkColor: '#60a5fa',
-    backgroundColor: '#0f172a',
-    backgroundAltColor: '#1e293b',
-    borderColor: '#334155',
-    keywordTextColor: '#e2e8f0',
-    keywordBgColor: '#334155',
-  }
-};
-const darkHtml = renderer.render(darkResume);
+// Dark mode: force dark scheme so the CSS media query kicks in
+const darkHtml = html.replace('</head>', `<meta name="color-scheme" content="dark">\n</head>`);
 fs.writeFileSync(path.join(outDir, 'dark.html'), darkHtml);
 
 // Create a landing page
@@ -110,7 +122,7 @@ const landing = `<!doctype html>
       <button class="tab active" onclick="switchTheme('light')">☀️ Light</button>
       <button class="tab" onclick="switchTheme('dark')">🌙 Dark</button>
     </div>
-    <iframe id="preview-frame" src="./index.html" title="Resume Preview"></iframe>
+    <iframe id="preview-frame" src="./resume.html" title="Resume Preview"></iframe>
   </div>
 
   <footer>
@@ -122,7 +134,7 @@ const landing = `<!doctype html>
   <script>
     function switchTheme(theme) {
       const frame = document.getElementById('preview-frame');
-      frame.src = theme === 'dark' ? './dark.html' : './index.html';
+      frame.src = theme === 'dark' ? './dark.html' : './resume.html';
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       event.target.classList.add('active');
     }
@@ -132,7 +144,7 @@ const landing = `<!doctype html>
 
 fs.writeFileSync(path.join(outDir, 'landing.html'), landing);
 
-// Make landing the actual index
+// Copy light resume to resume.html, then overwrite index with landing
 fs.copyFileSync(path.join(outDir, 'index.html'), path.join(outDir, 'resume.html'));
 fs.writeFileSync(path.join(outDir, 'index.html'), landing);
 
