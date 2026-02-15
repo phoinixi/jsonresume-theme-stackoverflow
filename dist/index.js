@@ -11771,6 +11771,31 @@ function changeLanguage(lang) {
   setI18nLanguage(i18nLang);
   language = lang;
 }
+function buildThemeOverrides(meta) {
+  if (!meta || !meta.theme) return "";
+  const theme = meta.theme;
+  const mapping = {
+    primaryColor: "--color-accent",
+    textColor: "--color-text",
+    textSecondaryColor: "--color-text-secondary",
+    headingColor: "--color-heading",
+    linkColor: "--color-link",
+    backgroundColor: "--color-background",
+    backgroundAltColor: "--color-background-alt",
+    borderColor: "--color-border",
+    keywordTextColor: "--color-keyword-text",
+    keywordBgColor: "--color-keyword-bg",
+    fontFamily: "--font-family"
+  };
+  const overrides = [];
+  for (const [key2, cssVar] of Object.entries(mapping)) {
+    if (theme[key2]) {
+      overrides.push("  " + cssVar + ": " + theme[key2] + ";");
+    }
+  }
+  if (overrides.length === 0) return "";
+  return ":root {\n" + overrides.join("\n") + "\n}";
+}
 function render2(resume) {
   const stylePath = (0, import_path.join)(__dirname, "..", "style.css");
   const css = (0, import_fs.readFileSync)(stylePath, "utf-8");
@@ -11780,6 +11805,7 @@ function render2(resume) {
   let body = result.body;
   body = body.replace(/<!--\[-->/g, "").replace(/<!--\]-->/g, "");
   const name = resume.basics?.name || "";
+  const themeOverrides = buildThemeOverrides(resume.meta);
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -11790,7 +11816,7 @@ function render2(resume) {
     <link rel="stylesheet" href="./override.css">
     <style>
       ${css}
-    </style>
+    </style>${themeOverrides ? "\n    <style>\n      " + themeOverrides + "\n    </style>" : ""}
   </head>
   <body>
     ${body}

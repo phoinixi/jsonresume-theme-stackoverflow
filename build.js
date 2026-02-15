@@ -110,6 +110,32 @@ export function changeLanguage(lang) {
   language = lang;
 }
 
+function buildThemeOverrides(meta) {
+  if (!meta || !meta.theme) return '';
+  const theme = meta.theme;
+  const mapping = {
+    primaryColor: '--color-accent',
+    textColor: '--color-text',
+    textSecondaryColor: '--color-text-secondary',
+    headingColor: '--color-heading',
+    linkColor: '--color-link',
+    backgroundColor: '--color-background',
+    backgroundAltColor: '--color-background-alt',
+    borderColor: '--color-border',
+    keywordTextColor: '--color-keyword-text',
+    keywordBgColor: '--color-keyword-bg',
+    fontFamily: '--font-family',
+  };
+  const overrides = [];
+  for (const [key, cssVar] of Object.entries(mapping)) {
+    if (theme[key]) {
+      overrides.push('  ' + cssVar + ': ' + theme[key] + ';');
+    }
+  }
+  if (overrides.length === 0) return '';
+  return ':root {\\n' + overrides.join('\\n') + '\\n}';
+}
+
 export function render(resume) {
   const stylePath = join(__dirname, '..', 'style.css');
   const css = readFileSync(stylePath, 'utf-8');
@@ -123,6 +149,7 @@ export function render(resume) {
   body = body.replace(/<!--\\[-->/g, '').replace(/<!--\\]-->/g, '');
 
   const name = resume.basics?.name || '';
+  const themeOverrides = buildThemeOverrides(resume.meta);
 
   return \`<!doctype html>
 <html lang="en">
@@ -134,7 +161,7 @@ export function render(resume) {
     <link rel="stylesheet" href="./override.css">
     <style>
       \${css}
-    </style>
+    </style>\${themeOverrides ? '\\n    <style>\\n      ' + themeOverrides + '\\n    </style>' : ''}
   </head>
   <body>
     \${body}
