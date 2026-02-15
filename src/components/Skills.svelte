@@ -9,9 +9,9 @@
 
 {#if skills?.length}
   <SectionHeader title={t('resume.skills')}>
-    <section id="skills">
+    <section class="skills-grid">
       {#each skills as skill}
-        <div class="item">
+        <div class="skill-item">
           {#if skill.name}
             <h3 class="name">{skill.name}</h3>
           {/if}
@@ -26,19 +26,19 @@
 {/if}
 
 <style>
-  #skills {
+  .skills-grid {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
   }
 
-  #skills :global(.item) {
+  .skill-item {
     width: 16em;
     padding: 0 0.5em 0.5em 0;
     border-bottom: none;
   }
 
-  #skills :global(.item .keywords) {
-    width: 15em;
+  .name {
+    font-weight: 600;
   }
 </style>

@@ -1,5 +1,5 @@
 <script>
-  import { paragraphSplit, t } from '../utils/helpers.ts';
+  import { t } from '../utils/helpers.ts';
   import SectionHeader from './SectionHeader.svelte';
   import TimelineItem from './TimelineItem.svelte';
   import KeywordList from './KeywordList.svelte';
@@ -37,7 +37,7 @@
 {/if}
 
 <style>
-  :global(.gpa) {
+  .gpa {
     clear: both;
     padding-bottom: 0.5em;
   }

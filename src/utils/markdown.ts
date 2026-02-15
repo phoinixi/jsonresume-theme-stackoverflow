@@ -38,8 +38,8 @@ export function paragraphSplit(text: string | null | undefined): string {
   const paragraphs = escaped.split(/\n\n+/).filter((p) => p.trim());
 
   if (paragraphs.length <= 1) {
-    return `<p>${formatInline(escaped.trim())}</p>`;
+    return `<p style="margin:0">${formatInline(escaped.trim())}</p>`;
   }
 
-  return paragraphs.map((p) => `<p>${formatInline(p.trim())}</p>`).join("\n");
+  return paragraphs.map((p) => `<p style="margin:0">${formatInline(p.trim())}</p>`).join("\n");
 }

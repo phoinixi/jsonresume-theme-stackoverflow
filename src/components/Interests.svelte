@@ -1,22 +1,25 @@
 <script>
-  import { paragraphSplit, t } from '../utils/helpers.ts';
+  import { t } from '../utils/helpers.ts';
   import SectionHeader from './SectionHeader.svelte';
   import KeywordList from './KeywordList.svelte';
+  import FormattedText from './FormattedText.svelte';
 
   let { interests = [] } = $props();
 </script>
 
 {#if interests?.length}
   <SectionHeader title={t('resume.interests')} count={interests.length}>
-    <section id="interests">
+    <section class="interests-grid">
       {#each interests as interest}
-        <div class="item">
+        <div class="interest-item">
           {#if interest.name}
             <h3 class="name">{interest.name}</h3>
           {/if}
           <KeywordList keywords={interest.keywords} />
           {#if interest.summary}
-            <div class="summary">{@html paragraphSplit(interest.summary)}</div>
+            <div class="summary">
+              <FormattedText text={interest.summary} />
+            </div>
           {/if}
         </div>
       {/each}
@@ -25,13 +28,13 @@
 {/if}
 
 <style>
-  #interests {
+  .interests-grid {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
   }
 
-  #interests :global(.item) {
+  .interest-item {
     width: 15em;
     padding: 0 0.5em 0.5em 0;
     border-bottom: none;

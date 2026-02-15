@@ -16,7 +16,7 @@
 </script>
 
 <a class="skip-to-content" href="#resume">Skip to content</a>
-<main id="resume">
+<main id="resume" class="resume">
   <Basics basics={resume.basics} />
   <Skills skills={resume.skills} />
   <Work work={resume.work} {language} />
@@ -32,34 +32,7 @@
 </main>
 
 <style>
-  #resume {
+  .resume {
     padding: 1.5rem;
-  }
-
-  /* Summary section (used by Basics) */
-  :global(.section.summary header) {
-    margin-top: 1rem;
-  }
-
-  :global(.main-summary) {
-    background: var(--color-background-alt);
-    padding: 1.2em 1em;
-  }
-
-  :global(.main-summary p) {
-    margin: 0;
-  }
-
-  :global(.display) {
-    display: block;
-    opacity: 1 !important;
-  }
-
-  :global(.name) {
-    font-weight: 600;
-  }
-
-  :global(.language) {
-    font-weight: 600;
   }
 </style>

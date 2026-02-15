@@ -5149,6 +5149,10 @@ function attr_class(value, hash2, directives) {
   var result = to_class(value, hash2, directives);
   return result ? ` class="${escape_html(result, true)}"` : "";
 }
+function attr_style(value, directives) {
+  var result = to_style(value, directives);
+  return result ? ` style="${escape_html(result, true)}"` : "";
+}
 function ensure_array_like(array_like_or_iterator) {
   if (array_like_or_iterator) {
     return array_like_or_iterator.length !== void 0 ? array_like_or_iterator : Array.from(array_like_or_iterator);
@@ -5169,9 +5173,9 @@ function paragraphSplit(text2) {
   const escaped2 = escapeHtml(text2);
   const paragraphs = escaped2.split(/\n\n+/).filter((p) => p.trim());
   if (paragraphs.length <= 1) {
-    return `<p>${formatInline(escaped2.trim())}</p>`;
+    return `<p style="margin:0">${formatInline(escaped2.trim())}</p>`;
   }
-  return paragraphs.map((p) => `<p>${formatInline(p.trim())}</p>`).join("\n");
+  return paragraphs.map((p) => `<p style="margin:0">${formatInline(p.trim())}</p>`).join("\n");
 }
 
 // .build/utils/levels.js
@@ -5456,24 +5460,6 @@ function t(key2) {
 function spaceToDash(str) {
   return str.replace(/\s/g, "-").toLowerCase();
 }
-function birthDateHtml(birth) {
-  if (!birth || !Object.keys(birth).length)
-    return "";
-  const out = [];
-  if (birth.place) {
-    out.push(`<div> Born in ${birth.place}`);
-  }
-  if (birth.place && birth.state) {
-    out.push(`, ${birth.state}`);
-  }
-  const year = birth.date ? new Date(birth.date).toLocaleDateString({ year: "numeric" }) : "";
-  if (year && birth.place && birth.state) {
-    out.push(` in ${year}</div>`);
-  } else if (year && (!birth.place || birth.state)) {
-    out.push(`<div> Born in ${year}</div>`);
-  }
-  return out.join("");
-}
 
 // .build/components/ContactInfo.js
 var $$css = {
@@ -5516,15 +5502,39 @@ function ContactInfo($$renderer, $$props) {
 // .build/components/SocialProfile.js
 var $$css2 = {
   hash: "svelte-a76edc",
-  code: '.item.svelte-a76edc {padding:0;margin-right:0.8em;}.social.svelte-a76edc {font-size:1.1em;margin-right:0.25em;}\n\n  /* Social Media Brand Colors */.google-plus {color:#dd4b39;}.tumblr {color:#32506d;}.foursquare {color:#0072b1;}.facebook {color:#3b5998;}.linkedin {color:#007bb6;}.pinterest {color:#cb2027;}.dribbble {color:#ea4c89;}.instagram {color:#517fa4;}.twitter {color:#00aced;}.soundcloud {color:#ff3a00;}.wordpress {color:#21759b;}.youtube {color:#bb0000;}.github {color:#171515;}.stack-overflow {color:#828386;position:relative;}.flickr {color:#ff0084;}.reddit {color:#ff4500;}.hacker-news {color:#ff6600;}.stack-overflow::after {position:absolute;left:0;content:"\\f16c";color:#f68a1f;overflow:hidden;height:100%;}.telegram {color:#2291c3;}'
+  code: ".item.svelte-a76edc {padding:0;margin-right:0.8em;}.social.svelte-a76edc {font-size:1.1em;margin-right:0.25em;}"
 };
 function SocialProfile($$renderer, $$props) {
   $$renderer.global.css.add($$css2);
   $$renderer.component(($$renderer2) => {
+    const FA_BRAND_PREFIX = "fa-brands";
+    const brandColors = {
+      "google-plus": "#dd4b39",
+      "tumblr": "#32506d",
+      "foursquare": "#0072b1",
+      "facebook": "#3b5998",
+      "linkedin": "#007bb6",
+      "pinterest": "#cb2027",
+      "dribbble": "#ea4c89",
+      "instagram": "#517fa4",
+      "twitter": "#00aced",
+      "soundcloud": "#ff3a00",
+      "wordpress": "#21759b",
+      "youtube": "#bb0000",
+      "github": "#171515",
+      "stack-overflow": "#828386",
+      "flickr": "#ff0084",
+      "reddit": "#ff4500",
+      "hacker-news": "#ff6600",
+      "telegram": "#2291c3"
+    };
     let { profile } = $$props;
+    const network = spaceToDash(profile.network);
+    const color = brandColors[network] || "inherit";
+    const iconClass = `${FA_BRAND_PREFIX} fa-${network}`;
     if (profile.network) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<div class="item svelte-a76edc"><div class="username"><span${attr_class(`fa-brands fa-${stringify(spaceToDash(profile.network))} ${stringify(spaceToDash(profile.network))} social`, "svelte-a76edc")}></span> `);
+      $$renderer2.push(`<div class="item svelte-a76edc"><div class="username"><span${attr_class(`${stringify(iconClass)} social`, "svelte-a76edc")}${attr_style(`color: ${stringify(color)}`)}></span> `);
       if (profile.url) {
         $$renderer2.push("<!--[-->");
         $$renderer2.push(`<span class="url"><a target="_blank"${attr("href", profile.url)}><span class="show-only-url-print">${escape_html(profile.username)}</span></a></span>`);
@@ -5543,12 +5553,12 @@ function SocialProfile($$renderer, $$props) {
 // .build/components/SectionHeader.js
 var $$css3 = {
   hash: "svelte-1lncexq",
-  code: '.section.svelte-1lncexq {margin-bottom:1rem;}.section.svelte-1lncexq > header {position:relative;}.section.svelte-1lncexq > header::after {position:absolute;left:0;top:0.7em;height:1px;background:var(--color-border);content:"";width:100%;z-index:-100;display:block;}.section.svelte-1lncexq .section-title {display:inline-block;background:var(--color-section-title-bg);padding:0 1em 0.3em 0;color:var(--color-accent);text-transform:uppercase;font-weight:600;border:none;font-size:0.9rem;}.section.svelte-1lncexq > section > header {font-size:1.38rem;position:relative;margin-top:0.7em;}.section.svelte-1lncexq > section > header:first-of-type {margin:0;}.section.svelte-1lncexq > section > header .space-left {position:absolute;left:-1.56rem;top:5px;color:#aaa;line-height:1;opacity:0;}.section.svelte-1lncexq > section > section {margin-bottom:1rem;}'
+  code: '.section.svelte-1lncexq {margin-bottom:1rem;}header.svelte-1lncexq {position:relative;}header.svelte-1lncexq::after {position:absolute;left:0;top:0.7em;height:1px;background:var(--color-border);content:"";width:100%;z-index:-100;display:block;}.section-title.svelte-1lncexq {display:inline-block;background:var(--color-section-title-bg);padding:0 1em 0.3em 0;color:var(--color-accent);text-transform:uppercase;font-weight:600;border:none;font-size:0.9rem;}'
 };
 function SectionHeader($$renderer, $$props) {
   $$renderer.global.css.add($$css3);
   let { title, count = void 0, children } = $$props;
-  $$renderer.push(`<section class="section svelte-1lncexq"><header><h2 class="section-title">${escape_html(title)}`);
+  $$renderer.push(`<section class="section svelte-1lncexq"><header class="svelte-1lncexq"><h2 class="section-title svelte-1lncexq">${escape_html(title)}`);
   if (count !== void 0) {
     $$renderer.push("<!--[-->");
     $$renderer.push(`<span class="item-count">(${escape_html(count)})</span>`);
@@ -5560,10 +5570,62 @@ function SectionHeader($$renderer, $$props) {
   $$renderer.push(`<!----></section>`);
 }
 
+// .build/components/BirthDate.js
+function BirthDate($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { birth } = $$props;
+    if (birth && Object.keys(birth).length) {
+      $$renderer2.push("<!--[-->");
+      $$renderer2.push(`<div class="birth-date">`);
+      if (birth.place) {
+        $$renderer2.push("<!--[-->");
+        $$renderer2.push(`Born in ${escape_html(birth.place)}`);
+        if (birth.state) {
+          $$renderer2.push("<!--[-->");
+          $$renderer2.push(`, ${escape_html(birth.state)}`);
+        } else {
+          $$renderer2.push("<!--[!-->");
+        }
+        $$renderer2.push(`<!--]-->`);
+        if (birth.date) {
+          $$renderer2.push("<!--[-->");
+          $$renderer2.push(`in ${escape_html(new Date(birth.date).toLocaleDateString("en", { year: "numeric" }))}`);
+        } else {
+          $$renderer2.push("<!--[!-->");
+        }
+        $$renderer2.push(`<!--]-->`);
+      } else if (birth.date) {
+        $$renderer2.push("<!--[1-->");
+        $$renderer2.push(`Born in ${escape_html(new Date(birth.date).toLocaleDateString("en", { year: "numeric" }))}`);
+      } else {
+        $$renderer2.push("<!--[!-->");
+      }
+      $$renderer2.push(`<!--]--></div>`);
+    } else {
+      $$renderer2.push("<!--[!-->");
+    }
+    $$renderer2.push(`<!--]-->`);
+  });
+}
+
+// .build/components/FormattedText.js
+function FormattedText($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { text: text2 } = $$props;
+    if (text2) {
+      $$renderer2.push("<!--[-->");
+      $$renderer2.push(`${html2(paragraphSplit(text2))}`);
+    } else {
+      $$renderer2.push("<!--[!-->");
+    }
+    $$renderer2.push(`<!--]-->`);
+  });
+}
+
 // .build/components/Basics.js
 var $$css4 = {
   hash: "svelte-10f9ycp",
-  code: "#header.svelte-10f9ycp {margin-bottom:1rem;}.name.svelte-10f9ycp {font-size:2.8rem;font-weight:100;line-height:100%;}.label.svelte-10f9ycp {color:var(--color-heading);font-size:1.47rem;font-weight:300;}.image.svelte-10f9ycp {width:11em;float:right;border-radius:4px;}.profiles.svelte-10f9ycp {display:flex;flex-flow:row wrap;justify-content:flex-start;}"
+  code: ".header.svelte-10f9ycp {margin-bottom:1rem;}.name.svelte-10f9ycp {font-size:2.8rem;font-weight:100;line-height:100%;}.label.svelte-10f9ycp {color:var(--color-heading);font-size:1.47rem;font-weight:300;}.image.svelte-10f9ycp {width:11em;float:right;border-radius:4px;}.profiles.svelte-10f9ycp {display:flex;flex-flow:row wrap;justify-content:flex-start;}.main-summary.svelte-10f9ycp {background:var(--color-background-alt);padding:1.2em 1em;}\n\n  /* p margin reset handled by summary wrapper */"
 };
 function Basics($$renderer, $$props) {
   $$renderer.global.css.add($$css4);
@@ -5571,7 +5633,7 @@ function Basics($$renderer, $$props) {
     let { basics } = $$props;
     if (basics) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<header id="header" class="clear svelte-10f9ycp">`);
+      $$renderer2.push(`<header class="header clear svelte-10f9ycp">`);
       if (basics.image) {
         $$renderer2.push("<!--[-->");
         $$renderer2.push(`<img class="image svelte-10f9ycp"${attr("src", basics.image)}${attr("alt", basics.name)}/> <div class="middle"><h1 class="name svelte-10f9ycp">${escape_html(basics.name)}</h1> <h2 class="label svelte-10f9ycp">${escape_html(basics.label)}</h2></div>`);
@@ -5621,7 +5683,9 @@ function Basics($$renderer, $$props) {
       } else {
         $$renderer2.push("<!--[!-->");
       }
-      $$renderer2.push(`<!--]--> ${html2(birthDateHtml(basics.birth))} `);
+      $$renderer2.push(`<!--]--> `);
+      BirthDate($$renderer2, { birth: basics.birth });
+      $$renderer2.push(`<!----> `);
       ContactInfo($$renderer2, {
         website: basics.website,
         email: basics.email,
@@ -5646,7 +5710,9 @@ function Basics($$renderer, $$props) {
         SectionHeader($$renderer2, {
           title: t("resume.summary"),
           children: ($$renderer3) => {
-            $$renderer3.push(`<section class="main-summary"><div>${html2(paragraphSplit(basics.summary))}</div></section>`);
+            $$renderer3.push(`<section class="main-summary svelte-10f9ycp"><div>`);
+            FormattedText($$renderer3, { text: basics.summary });
+            $$renderer3.push(`<!----></div></section>`);
           },
           $$slots: { default: true }
         });
@@ -5704,7 +5770,7 @@ function KeywordList($$renderer, $$props) {
 // .build/components/Skills.js
 var $$css7 = {
   hash: "svelte-18p2gu6",
-  code: "#skills.svelte-18p2gu6 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#skills.svelte-18p2gu6 .item {width:16em;padding:0 0.5em 0.5em 0;border-bottom:none;}#skills.svelte-18p2gu6 .item .keywords {width:15em;}"
+  code: ".skills-grid.svelte-18p2gu6 {display:flex;flex-flow:row wrap;justify-content:flex-start;}.skill-item.svelte-18p2gu6 {width:16em;padding:0 0.5em 0.5em 0;border-bottom:none;}.name.svelte-18p2gu6 {font-weight:600;}"
 };
 function Skills($$renderer, $$props) {
   $$renderer.global.css.add($$css7);
@@ -5715,14 +5781,14 @@ function Skills($$renderer, $$props) {
       SectionHeader($$renderer2, {
         title: t("resume.skills"),
         children: ($$renderer3) => {
-          $$renderer3.push(`<section id="skills" class="svelte-18p2gu6"><!--[-->`);
+          $$renderer3.push(`<section class="skills-grid svelte-18p2gu6"><!--[-->`);
           const each_array = ensure_array_like(skills);
           for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
             let skill = each_array[$$index];
-            $$renderer3.push(`<div class="item">`);
+            $$renderer3.push(`<div class="skill-item svelte-18p2gu6">`);
             if (skill.name) {
               $$renderer3.push("<!--[-->");
-              $$renderer3.push(`<h3 class="name">${escape_html(skill.name)}</h3>`);
+              $$renderer3.push(`<h3 class="name svelte-18p2gu6">${escape_html(skill.name)}</h3>`);
             } else {
               $$renderer3.push("<!--[!-->");
             }
@@ -5787,7 +5853,7 @@ function DateRange($$renderer, $$props) {
 // .build/components/TimelineItem.js
 var $$css8 = {
   hash: "svelte-g3qng",
-  code: '.timeline-item.svelte-g3qng .position,\n  .timeline-item.svelte-g3qng .company,\n  .timeline-item.svelte-g3qng .organization,\n  .timeline-item.svelte-g3qng .institution,\n  .timeline-item.svelte-g3qng .date,\n  .timeline-item.svelte-g3qng .area,\n  .timeline-item.svelte-g3qng .studyType,\n  .timeline-item.svelte-g3qng .title,\n  .timeline-item.svelte-g3qng .awarder {display:inline;}.timeline-item.svelte-g3qng .position,\n  .timeline-item.svelte-g3qng .studyType,\n  .timeline-item.svelte-g3qng .area,\n  .timeline-item.svelte-g3qng .title {font-weight:600;}.timeline-item.svelte-g3qng .company::before,\n  .timeline-item.svelte-g3qng .institution::before,\n  .timeline-item.svelte-g3qng .organization::before,\n  .timeline-item.svelte-g3qng .awarder::before {content:"at ";}.timeline-item.svelte-g3qng .company,\n  .timeline-item.svelte-g3qng .institution,\n  .timeline-item.svelte-g3qng .organization,\n  .timeline-item.svelte-g3qng .awarder {color:var(--color-text-secondary);font-weight:400;}.timeline-item.svelte-g3qng header .date {display:block;font-size:1rem;padding:0.1em 0;color:var(--color-text-secondary);font-weight:400;}.timeline-item.svelte-g3qng .item {overflow:hidden;}.timeline-item.svelte-g3qng .highlights > li > p {margin-bottom:0.5em;}.timeline-item.svelte-g3qng .clear::after {content:"";display:table;clear:both;}.timeline-item.svelte-g3qng .location {margin-right:0.5em;color:var(--color-text-secondary);font-weight:700;}'
+  code: '.timeline-item.svelte-g3qng {margin-top:0.7em;}.timeline-item.svelte-g3qng:first-of-type {margin-top:0;}.position.svelte-g3qng,\n  .company.svelte-g3qng,\n  .organization.svelte-g3qng,\n  .institution.svelte-g3qng,\n  .date.svelte-g3qng,\n  .area.svelte-g3qng,\n  .studyType.svelte-g3qng,\n  .title.svelte-g3qng,\n  .awarder.svelte-g3qng,\n  .publisher.svelte-g3qng,\n  .issuer.svelte-g3qng {display:inline;}.position.svelte-g3qng,\n  .studyType.svelte-g3qng,\n  .area.svelte-g3qng,\n  .title.svelte-g3qng {font-weight:600;}.company.svelte-g3qng::before,\n  .institution.svelte-g3qng::before,\n  .organization.svelte-g3qng::before,\n  .awarder.svelte-g3qng::before {content:"at ";}.company.svelte-g3qng,\n  .institution.svelte-g3qng,\n  .organization.svelte-g3qng,\n  .awarder.svelte-g3qng {color:var(--color-text-secondary);font-weight:400;}header.svelte-g3qng .date:where(.svelte-g3qng) {display:block;font-size:1rem;padding:0.1em 0;color:var(--color-text-secondary);font-weight:400;}.item.svelte-g3qng {overflow:hidden;}\n\n  /* p margin handled via inline styles in paragraphSplit */.clear.svelte-g3qng::after {content:"";display:table;clear:both;}.location.svelte-g3qng {margin-right:0.5em;color:var(--color-text-secondary);font-weight:700;}header.svelte-g3qng {font-size:1.38rem;position:relative;}.header-left.svelte-g3qng .position:where(.svelte-g3qng) + .company:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .institution:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .organization:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .awarder:where(.svelte-g3qng)::before {content:"at ";}'
 };
 function TimelineItem($$renderer, $$props) {
   $$renderer.global.css.add($$css8);
@@ -5807,20 +5873,20 @@ function TimelineItem($$renderer, $$props) {
       location = void 0,
       children = void 0
     } = $$props;
-    $$renderer2.push(`<section class="timeline-item svelte-g3qng"><header class="clear">`);
+    $$renderer2.push(`<section class="timeline-item svelte-g3qng"><header class="clear svelte-g3qng">`);
     if (startDate) {
       $$renderer2.push("<!--[-->");
       DateRange($$renderer2, { startDate, endDate, language: language2 });
     } else if (singleDate) {
       $$renderer2.push("<!--[1-->");
-      $$renderer2.push(`<div class="date">${escape_html(singleDate)}</div>`);
+      $$renderer2.push(`<div class="date svelte-g3qng">${escape_html(singleDate)}</div>`);
     } else {
       $$renderer2.push("<!--[!-->");
     }
-    $$renderer2.push(`<!--]--> <div class="header-left">`);
+    $$renderer2.push(`<!--]--> <div class="header-left svelte-g3qng">`);
     if (title) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<div class="position">${escape_html(title)}</div>`);
+      $$renderer2.push(`<div class="position svelte-g3qng">${escape_html(title)}</div>`);
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -5842,7 +5908,7 @@ function TimelineItem($$renderer, $$props) {
     $$renderer2.push(`<!--]--></div></header> `);
     if (location) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<span class="location"><span class="fa-solid fa-location-dot"></span> `);
+      $$renderer2.push(`<span class="location svelte-g3qng"><span class="fa-solid fa-location-dot"></span> `);
       if (typeof location === "string") {
         $$renderer2.push("<!--[-->");
         $$renderer2.push(`${escape_html(location)}`);
@@ -5884,10 +5950,12 @@ function TimelineItem($$renderer, $$props) {
     } else {
       $$renderer2.push("<!--[!-->");
     }
-    $$renderer2.push(`<!--]--> <div class="item">`);
+    $$renderer2.push(`<!--]--> <div class="item svelte-g3qng">`);
     if (summary) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<div class="summary">${html2(paragraphSplit(summary))}</div>`);
+      $$renderer2.push(`<div class="summary">`);
+      FormattedText($$renderer2, { text: summary });
+      $$renderer2.push(`<!----></div>`);
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -5898,7 +5966,9 @@ function TimelineItem($$renderer, $$props) {
       const each_array = ensure_array_like(highlights);
       for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
         let highlight = each_array[$$index];
-        $$renderer2.push(`<li>${html2(paragraphSplit(highlight))}</li>`);
+        $$renderer2.push(`<li>`);
+        FormattedText($$renderer2, { text: highlight });
+        $$renderer2.push(`<!----></li>`);
       }
       $$renderer2.push(`<!--]--></ul>`);
     } else {
@@ -6035,7 +6105,7 @@ function Volunteer($$renderer, $$props) {
 // .build/components/Education.js
 var $$css9 = {
   hash: "svelte-rbv6q6",
-  code: ".gpa {clear:both;padding-bottom:0.5em;}"
+  code: ".gpa.svelte-rbv6q6 {clear:both;padding-bottom:0.5em;}"
 };
 function Education($$renderer, $$props) {
   $$renderer.global.css.add($$css9);
@@ -6071,7 +6141,7 @@ function Education($$renderer, $$props) {
                 $$renderer4.push(`<!--]--> `);
                 if (edu.gpa) {
                   $$renderer4.push("<!--[-->");
-                  $$renderer4.push(`<div class="gpa"><strong>Grade:</strong> <span>${escape_html(edu.gpa)}</span></div>`);
+                  $$renderer4.push(`<div class="gpa svelte-rbv6q6"><strong>Grade:</strong> <span>${escape_html(edu.gpa)}</span></div>`);
                 } else {
                   $$renderer4.push("<!--[!-->");
                 }
@@ -6210,7 +6280,7 @@ function Publications($$renderer, $$props) {
 // .build/components/Languages.js
 var $$css10 = {
   hash: "svelte-2dygc7",
-  code: "#languages.svelte-2dygc7 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#languages.svelte-2dygc7 .item {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}"
+  code: ".languages-grid.svelte-2dygc7 {display:flex;flex-flow:row wrap;justify-content:flex-start;}.language-item.svelte-2dygc7 {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}.language.svelte-2dygc7 {font-weight:600;}.display.svelte-2dygc7 {display:block;opacity:1 !important;}"
 };
 function Languages($$renderer, $$props) {
   $$renderer.global.css.add($$css10);
@@ -6222,18 +6292,18 @@ function Languages($$renderer, $$props) {
         title: t("resume.languages"),
         count: languages.length,
         children: ($$renderer3) => {
-          $$renderer3.push(`<section id="languages" class="svelte-2dygc7"><!--[-->`);
+          $$renderer3.push(`<section class="languages-grid svelte-2dygc7"><!--[-->`);
           const each_array = ensure_array_like(languages);
           for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
             let lang = each_array[$$index];
-            $$renderer3.push(`<div class="display">`);
+            $$renderer3.push(`<div class="language-entry display svelte-2dygc7">`);
             if (lang.language) {
               $$renderer3.push("<!--[-->");
-              $$renderer3.push(`<h3 class="language">${escape_html(lang.language)}</h3>`);
+              $$renderer3.push(`<h3 class="language svelte-2dygc7">${escape_html(lang.language)}</h3>`);
             } else {
               $$renderer3.push("<!--[!-->");
             }
-            $$renderer3.push(`<!--]--> <div class="item">`);
+            $$renderer3.push(`<!--]--> <div class="language-item svelte-2dygc7">`);
             if (lang.fluency) {
               $$renderer3.push("<!--[-->");
               LevelBar($$renderer3, { level: lang.fluency, displayText: lang.fluencyDisplay });
@@ -6256,7 +6326,7 @@ function Languages($$renderer, $$props) {
 // .build/components/Interests.js
 var $$css11 = {
   hash: "svelte-1bnc9h3",
-  code: "#interests.svelte-1bnc9h3 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#interests.svelte-1bnc9h3 .item {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}"
+  code: ".interests-grid.svelte-1bnc9h3 {display:flex;flex-flow:row wrap;justify-content:flex-start;}.interest-item.svelte-1bnc9h3 {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}"
 };
 function Interests($$renderer, $$props) {
   $$renderer.global.css.add($$css11);
@@ -6268,11 +6338,11 @@ function Interests($$renderer, $$props) {
         title: t("resume.interests"),
         count: interests.length,
         children: ($$renderer3) => {
-          $$renderer3.push(`<section id="interests" class="svelte-1bnc9h3"><!--[-->`);
+          $$renderer3.push(`<section class="interests-grid svelte-1bnc9h3"><!--[-->`);
           const each_array = ensure_array_like(interests);
           for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
             let interest = each_array[$$index];
-            $$renderer3.push(`<div class="item">`);
+            $$renderer3.push(`<div class="interest-item svelte-1bnc9h3">`);
             if (interest.name) {
               $$renderer3.push("<!--[-->");
               $$renderer3.push(`<h3 class="name">${escape_html(interest.name)}</h3>`);
@@ -6284,7 +6354,9 @@ function Interests($$renderer, $$props) {
             $$renderer3.push(`<!----> `);
             if (interest.summary) {
               $$renderer3.push("<!--[-->");
-              $$renderer3.push(`<div class="summary">${html2(paragraphSplit(interest.summary))}</div>`);
+              $$renderer3.push(`<div class="summary">`);
+              FormattedText($$renderer3, { text: interest.summary });
+              $$renderer3.push(`<!----></div>`);
             } else {
               $$renderer3.push("<!--[!-->");
             }
@@ -6304,7 +6376,7 @@ function Interests($$renderer, $$props) {
 // .build/components/References.js
 var $$css12 = {
   hash: "svelte-1y7ope6",
-  code: "#references.svelte-1y7ope6 .item {padding-left:0.5em;margin-bottom:1em;border-left:5px solid var(--color-reference-border);}"
+  code: ".reference-item.svelte-1y7ope6 {padding-left:0.5em;margin-bottom:1em;border-left:5px solid var(--color-reference-border);}.name.svelte-1y7ope6 {font-weight:600;}"
 };
 function References($$renderer, $$props) {
   $$renderer.global.css.add($$css12);
@@ -6316,11 +6388,11 @@ function References($$renderer, $$props) {
         title: t("resume.references"),
         count: references.length,
         children: ($$renderer3) => {
-          $$renderer3.push(`<section id="references" class="svelte-1y7ope6"><!--[-->`);
+          $$renderer3.push(`<section class="references-list"><!--[-->`);
           const each_array = ensure_array_like(references);
           for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
             let ref = each_array[$$index];
-            $$renderer3.push(`<div class="item">`);
+            $$renderer3.push(`<div class="reference-item svelte-1y7ope6">`);
             if (ref.reference) {
               $$renderer3.push("<!--[-->");
               $$renderer3.push(`<blockquote class="reference">\u201C ${escape_html(ref.reference)} \u201D</blockquote>`);
@@ -6330,7 +6402,7 @@ function References($$renderer, $$props) {
             $$renderer3.push(`<!--]--> `);
             if (ref.name) {
               $$renderer3.push("<!--[-->");
-              $$renderer3.push(`<div class="name">${escape_html(ref.name)}</div>`);
+              $$renderer3.push(`<div class="name svelte-1y7ope6">${escape_html(ref.name)}</div>`);
             } else {
               $$renderer3.push("<!--[!-->");
             }
@@ -6350,13 +6422,13 @@ function References($$renderer, $$props) {
 // .build/components/Resume.js
 var $$css13 = {
   hash: "svelte-rssu9l",
-  code: "#resume.svelte-rssu9l {padding:1.5rem;}\n\n  /* Summary section (used by Basics) */.section.summary header {margin-top:1rem;}.main-summary {background:var(--color-background-alt);padding:1.2em 1em;}.main-summary p {margin:0;}.display {display:block;opacity:1 !important;}.name {font-weight:600;}.language {font-weight:600;}"
+  code: ".resume.svelte-rssu9l {padding:1.5rem;}"
 };
 function Resume($$renderer, $$props) {
   $$renderer.global.css.add($$css13);
   $$renderer.component(($$renderer2) => {
     let { resume, language: language2 = "en-gb" } = $$props;
-    $$renderer2.push(`<a class="skip-to-content" href="#resume">Skip to content</a> <main id="resume" class="svelte-rssu9l">`);
+    $$renderer2.push(`<a class="skip-to-content" href="#resume">Skip to content</a> <main id="resume" class="resume svelte-rssu9l">`);
     Basics($$renderer2, { basics: resume.basics });
     $$renderer2.push(`<!----> `);
     Skills($$renderer2, { skills: resume.skills });

@@ -14,11 +14,11 @@
     margin-bottom: 1rem;
   }
 
-  .section > :global(header) {
+  header {
     position: relative;
   }
 
-  .section > :global(header::after) {
+  header::after {
     position: absolute;
     left: 0;
     top: 0.7em;
@@ -30,7 +30,7 @@
     display: block;
   }
 
-  .section :global(.section-title) {
+  .section-title {
     display: inline-block;
     background: var(--color-section-title-bg);
     padding: 0 1em 0.3em 0;
@@ -39,28 +39,5 @@
     font-weight: 600;
     border: none;
     font-size: 0.9rem;
-  }
-
-  .section > :global(section > header) {
-    font-size: 1.38rem;
-    position: relative;
-    margin-top: 0.7em;
-  }
-
-  .section > :global(section > header:first-of-type) {
-    margin: 0;
-  }
-
-  .section > :global(section > header .space-left) {
-    position: absolute;
-    left: -1.56rem;
-    top: 5px;
-    color: #aaa;
-    line-height: 1;
-    opacity: 0;
-  }
-
-  .section > :global(section > section) {
-    margin-bottom: 1rem;
   }
 </style>

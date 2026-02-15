@@ -1,14 +1,16 @@
 <script>
-  import { paragraphSplit, birthDateHtml, t } from '../utils/helpers.ts';
+  import { t } from '../utils/helpers.ts';
   import ContactInfo from './ContactInfo.svelte';
   import SocialProfile from './SocialProfile.svelte';
   import SectionHeader from './SectionHeader.svelte';
+  import BirthDate from './BirthDate.svelte';
+  import FormattedText from './FormattedText.svelte';
 
   let { basics } = $props();
 </script>
 
 {#if basics}
-  <header id="header" class="clear">
+  <header class="header clear">
     {#if basics.image}
       <img class="image" src={basics.image} alt={basics.name}>
       <div class="middle">
@@ -42,7 +44,7 @@
       </span>
     {/if}
 
-    {@html birthDateHtml(basics.birth)}
+    <BirthDate birth={basics.birth} />
 
     <ContactInfo website={basics.website} email={basics.email} phone={basics.phone} />
 
@@ -58,14 +60,14 @@
   {#if basics.summary}
     <SectionHeader title={t('resume.summary')}>
       <section class="main-summary">
-        <div>{@html paragraphSplit(basics.summary)}</div>
+        <div><FormattedText text={basics.summary} /></div>
       </section>
     </SectionHeader>
   {/if}
 {/if}
 
 <style>
-  #header {
+  .header {
     margin-bottom: 1rem;
   }
 
@@ -96,4 +98,11 @@
   .section {
     margin-bottom: 1rem;
   }
+
+  .main-summary {
+    background: var(--color-background-alt);
+    padding: 1.2em 1em;
+  }
+
+  /* p margin reset handled by summary wrapper */
 </style>

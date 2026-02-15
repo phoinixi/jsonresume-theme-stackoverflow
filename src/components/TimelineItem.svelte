@@ -1,5 +1,5 @@
 <script>
-  import { paragraphSplit } from '../utils/helpers.ts';
+  import FormattedText from './FormattedText.svelte';
   import DateRange from './DateRange.svelte';
   import KeywordList from './KeywordList.svelte';
 
@@ -70,12 +70,14 @@
 
   <div class="item">
     {#if summary}
-      <div class="summary">{@html paragraphSplit(summary)}</div>
+      <div class="summary">
+        <FormattedText text={summary} />
+      </div>
     {/if}
     {#if highlights?.length}
       <ul class="highlights">
         {#each highlights as highlight}
-          <li>{@html paragraphSplit(highlight)}</li>
+          <li><FormattedText text={highlight} /></li>
         {/each}
       </ul>
     {/if}
@@ -83,41 +85,51 @@
 </section>
 
 <style>
-  .timeline-item :global(.position),
-  .timeline-item :global(.company),
-  .timeline-item :global(.organization),
-  .timeline-item :global(.institution),
-  .timeline-item :global(.date),
-  .timeline-item :global(.area),
-  .timeline-item :global(.studyType),
-  .timeline-item :global(.title),
-  .timeline-item :global(.awarder) {
+  .timeline-item {
+    margin-top: 0.7em;
+  }
+
+  .timeline-item:first-of-type {
+    margin-top: 0;
+  }
+
+  .position,
+  .company,
+  .organization,
+  .institution,
+  .date,
+  .area,
+  .studyType,
+  .title,
+  .awarder,
+  .publisher,
+  .issuer {
     display: inline;
   }
 
-  .timeline-item :global(.position),
-  .timeline-item :global(.studyType),
-  .timeline-item :global(.area),
-  .timeline-item :global(.title) {
+  .position,
+  .studyType,
+  .area,
+  .title {
     font-weight: 600;
   }
 
-  .timeline-item :global(.company::before),
-  .timeline-item :global(.institution::before),
-  .timeline-item :global(.organization::before),
-  .timeline-item :global(.awarder::before) {
+  .company::before,
+  .institution::before,
+  .organization::before,
+  .awarder::before {
     content: "at ";
   }
 
-  .timeline-item :global(.company),
-  .timeline-item :global(.institution),
-  .timeline-item :global(.organization),
-  .timeline-item :global(.awarder) {
+  .company,
+  .institution,
+  .organization,
+  .awarder {
     color: var(--color-text-secondary);
     font-weight: 400;
   }
 
-  .timeline-item :global(header .date) {
+  header .date {
     display: block;
     font-size: 1rem;
     padding: 0.1em 0;
@@ -125,23 +137,33 @@
     font-weight: 400;
   }
 
-  .timeline-item :global(.item) {
+  .item {
     overflow: hidden;
   }
 
-  .timeline-item :global(.highlights > li > p) {
-    margin-bottom: 0.5em;
-  }
+  /* p margin handled via inline styles in paragraphSplit */
 
-  .timeline-item :global(.clear::after) {
+  .clear::after {
     content: "";
     display: table;
     clear: both;
   }
 
-  .timeline-item :global(.location) {
+  .location {
     margin-right: 0.5em;
     color: var(--color-text-secondary);
     font-weight: 700;
+  }
+
+  header {
+    font-size: 1.38rem;
+    position: relative;
+  }
+
+  .header-left .position + .company::before,
+  .header-left .position + .institution::before,
+  .header-left .position + .organization::before,
+  .header-left .position + .awarder::before {
+    content: "at ";
   }
 </style>
