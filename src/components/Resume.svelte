@@ -15,7 +15,8 @@
   let { resume, language = 'en-gb' } = $props();
 </script>
 
-<div id="resume">
+<a class="skip-to-content" href="#resume">Skip to content</a>
+<main id="resume">
   <Basics basics={resume.basics} />
   <Skills skills={resume.skills} />
   <Work work={resume.work} {language} />
@@ -28,4 +29,4 @@
   <Languages languages={resume.languages} />
   <Interests interests={resume.interests} />
   <References references={resume.references} />
-</div>
+</main>

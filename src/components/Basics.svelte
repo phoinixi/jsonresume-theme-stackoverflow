@@ -63,7 +63,7 @@
     </div>
 
     {#if basics.profiles?.length}
-      <div id="profiles">
+      <nav id="profiles" aria-label="Social profiles">
         {#each basics.profiles as profile}
           <div class="item">
             {#if profile.network}
@@ -80,7 +80,7 @@
             {/if}
           </div>
         {/each}
-      </div>
+      </nav>
     {/if}
   </header>
 

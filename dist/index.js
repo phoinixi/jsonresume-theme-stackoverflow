@@ -10948,7 +10948,7 @@ function Basics($$renderer, $$props) {
       $$renderer2.push(`<!--]--></div> `);
       if (basics.profiles?.length) {
         $$renderer2.push("<!--[-->");
-        $$renderer2.push(`<div id="profiles"><!--[-->`);
+        $$renderer2.push(`<nav id="profiles" aria-label="Social profiles"><!--[-->`);
         const each_array = ensure_array_like(basics.profiles);
         for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
           let profile = each_array[$$index];
@@ -10969,7 +10969,7 @@ function Basics($$renderer, $$props) {
           }
           $$renderer2.push(`<!--]--></div>`);
         }
-        $$renderer2.push(`<!--]--></div>`);
+        $$renderer2.push(`<!--]--></nav>`);
       } else {
         $$renderer2.push("<!--[!-->");
       }
@@ -11008,7 +11008,7 @@ function Skills($$renderer, $$props) {
         $$renderer2.push(`<!--]--> `);
         if (skill.level) {
           $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div${attr_class(`level ${stringify(normalizeLevel(skill.level))}`)}>`);
+          $$renderer2.push(`<div${attr_class(`level ${stringify(normalizeLevel(skill.level))}`)} role="meter"${attr("aria-label", `${stringify(skill.name)} skill level: ${stringify(skill.levelDisplay || skill.level)}`)} aria-valuemin="0" aria-valuemax="100"${attr("aria-valuenow", normalizeLevel(skill.level) === "beginner" ? 25 : normalizeLevel(skill.level) === "intermediate" ? 50 : normalizeLevel(skill.level) === "advanced" || normalizeLevel(skill.level) === "fluent" ? 75 : 100)}>`);
           if (skill.levelDisplay) {
             $$renderer2.push("<!--[-->");
             $$renderer2.push(`<em>${escape_html(skill.levelDisplay)}</em>`);
@@ -11016,7 +11016,7 @@ function Skills($$renderer, $$props) {
             $$renderer2.push("<!--[!-->");
             $$renderer2.push(`<em>${escape_html(skill.level)}</em>`);
           }
-          $$renderer2.push(`<!--]--> <div class="bar"></div></div>`);
+          $$renderer2.push(`<!--]--> <div class="bar" aria-hidden="true"></div></div>`);
         } else {
           $$renderer2.push("<!--[!-->");
         }
@@ -11813,7 +11813,7 @@ function References($$renderer, $$props) {
 function Resume($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let { resume, language: language2 = "en-gb" } = $$props;
-    $$renderer2.push(`<div id="resume">`);
+    $$renderer2.push(`<a class="skip-to-content" href="#resume">Skip to content</a> <main id="resume">`);
     Basics($$renderer2, { basics: resume.basics });
     $$renderer2.push(`<!----> `);
     Skills($$renderer2, { skills: resume.skills });
@@ -11837,7 +11837,7 @@ function Resume($$renderer, $$props) {
     Interests($$renderer2, { interests: resume.interests });
     $$renderer2.push(`<!----> `);
     References($$renderer2, { references: resume.references });
-    $$renderer2.push(`<!----></div>`);
+    $$renderer2.push(`<!----></main>`);
   });
 }
 

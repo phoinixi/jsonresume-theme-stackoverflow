@@ -16,13 +16,13 @@
             <h3 class="name">{skill.name}</h3>
           {/if}
           {#if skill.level}
-            <div class="level {normalizeLevel(skill.level)}">
+            <div class="level {normalizeLevel(skill.level)}" role="meter" aria-label="{skill.name} skill level: {skill.levelDisplay || skill.level}" aria-valuemin="0" aria-valuemax="100" aria-valuenow={normalizeLevel(skill.level) === 'beginner' ? 25 : normalizeLevel(skill.level) === 'intermediate' ? 50 : normalizeLevel(skill.level) === 'advanced' || normalizeLevel(skill.level) === 'fluent' ? 75 : 100}>
               {#if skill.levelDisplay}
                 <em>{skill.levelDisplay}</em>
               {:else}
                 <em>{skill.level}</em>
               {/if}
-              <div class="bar"></div>
+              <div class="bar" aria-hidden="true"></div>
             </div>
           {/if}
           {#if skill.keywords?.length}
