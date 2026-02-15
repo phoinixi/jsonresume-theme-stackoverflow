@@ -5478,7 +5478,7 @@ function birthDateHtml(birth) {
 // .build/components/Basics.js
 var $$css = {
   hash: "svelte-10f9ycp",
-  code: '#header.svelte-10f9ycp {margin-bottom:1rem;}#header.svelte-10f9ycp > #profiles,\n  #header.svelte-10f9ycp > #contact {display:flex;flex-flow:row wrap;justify-content:flex-start;}#header.svelte-10f9ycp > div {line-height:1.5;}#header.svelte-10f9ycp > div > div {margin-right:1.2em;}#header.svelte-10f9ycp h1.name {font-size:2.8rem;font-weight:100;line-height:100%;}#header.svelte-10f9ycp h2.label {color:var(--color-heading);font-size:1.47rem;font-weight:300;}#header.svelte-10f9ycp .image {width:11em;float:right;border-radius:4px;}#contact.svelte-10f9ycp {margin-top:0.5rem;}#profiles .item {padding:0;margin-right:0.8em;}.fa {margin-right:0.25em;}.fa.social {font-size:1.1em;}.google-plus {color:#dd4b39;}.tumblr {color:#32506d;}.foursquare {color:#0072b1;}.facebook {color:#3b5998;}.linkedin {color:#007bb6;}.pinterest {color:#cb2027;}.dribbble {color:#ea4c89;}.instagram {color:#517fa4;}.twitter {color:#00aced;}.soundcloud {color:#ff3a00;}.wordpress {color:#21759b;}.youtube {color:#bb0000;}.github {color:#171515;}.stack-overflow {color:#828386;position:relative;}.flickr {color:#ff0084;}.reddit {color:#ff4500;}.hacker-news {color:#ff6600;}.stack-overflow::after {position:absolute;left:0;content:"\\f16c";color:#f68a1f;overflow:hidden;height:100%;}.telegram {color:#2291c3;}'
+  code: '#header.svelte-10f9ycp {margin-bottom:1rem;}#header.svelte-10f9ycp > #profiles,\n  #header.svelte-10f9ycp > #contact {display:flex;flex-flow:row wrap;justify-content:flex-start;}#header.svelte-10f9ycp > div {line-height:1.5;}#header.svelte-10f9ycp > div > div {margin-right:1.2em;}#header.svelte-10f9ycp h1.name {font-size:2.8rem;font-weight:100;line-height:100%;}#header.svelte-10f9ycp h2.label {color:var(--color-heading);font-size:1.47rem;font-weight:300;}#header.svelte-10f9ycp .image {width:11em;float:right;border-radius:4px;}#contact.svelte-10f9ycp {margin-top:0.5rem;}#profiles .item {padding:0;margin-right:0.8em;}.fa {margin-right:0.25em;}.fa.social {font-size:1.1em;}.google-plus {color:#dd4b39;}.tumblr {color:#32506d;}.foursquare {color:#0072b1;}.facebook {color:#3b5998;}.linkedin {color:#007bb6;}.pinterest {color:#cb2027;}.dribbble {color:#ea4c89;}.instagram {color:#517fa4;}.twitter {color:#00aced;}.soundcloud {color:#ff3a00;}.wordpress {color:#21759b;}.youtube {color:#bb0000;}.github {color:#171515;}.stack-overflow {color:#828386;position:relative;}.flickr {color:#ff0084;}.reddit {color:#ff4500;}.hacker-news {color:#ff6600;}.stack-overflow::after {position:absolute;left:0;content:"\\f16c";color:#f68a1f;overflow:hidden;height:100%;}.telegram {color:#2291c3;}\n\n  /* Summary section styling */.section.svelte-10f9ycp {margin-bottom:1rem;}.section.svelte-10f9ycp > header {position:relative;}.section.svelte-10f9ycp > header::after {position:absolute;left:0;top:0.7em;height:1px;background:var(--color-border);content:"";width:100%;z-index:-100;display:block;}.section.svelte-10f9ycp .section-title {display:inline-block;background:var(--color-section-title-bg);padding:0 1em 0.3em 0;color:var(--color-accent);text-transform:uppercase;font-weight:600;border:none;font-size:0.9rem;}'
 };
 function Basics($$renderer, $$props) {
   $$renderer.global.css.add($$css);
@@ -5567,7 +5567,7 @@ function Basics($$renderer, $$props) {
           $$renderer2.push(`<div class="item">`);
           if (profile.network) {
             $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<div class="username"><span${attr_class(`fa-brands fa-${stringify(spaceToDash(profile.network))} ${stringify(spaceToDash(profile.network))} social`)}></span> `);
+            $$renderer2.push(`<div class="username"><span${attr_class(`fa-brands fa-${stringify(spaceToDash(profile.network))} ${stringify(spaceToDash(profile.network))} social`, "svelte-10f9ycp")}></span> `);
             if (profile.url) {
               $$renderer2.push("<!--[-->");
               $$renderer2.push(`<span class="url"><a target="_blank"${attr("href", profile.url)}><span class="show-only-url-print">${escape_html(profile.username)}</span></a></span>`);
@@ -5588,7 +5588,7 @@ function Basics($$renderer, $$props) {
       $$renderer2.push(`<!--]--></header> `);
       if (basics.summary) {
         $$renderer2.push("<!--[-->");
-        $$renderer2.push(`<section class="section summary"><header><h2 class="section-title">${escape_html(t("resume.summary"))}</h2></header> <section class="main-summary"><div>${html2(paragraphSplit(basics.summary))}</div></section></section>`);
+        $$renderer2.push(`<section class="section summary svelte-10f9ycp"><header><h2 class="section-title">${escape_html(t("resume.summary"))}</h2></header> <section class="main-summary"><div>${html2(paragraphSplit(basics.summary))}</div></section></section>`);
       } else {
         $$renderer2.push("<!--[!-->");
       }
