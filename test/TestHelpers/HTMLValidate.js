@@ -8,6 +8,7 @@ const isHTMLValid = async (html, logResults = true) => {
       "attr-quotes": "off",
       "no-trailing-whitespace": "off",
       "void-style": "warn",
+      "tel-non-breaking": "off",
     },
   });
 

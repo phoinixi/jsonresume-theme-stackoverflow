@@ -1,4 +1,4 @@
-const renderer = require("../index")
+const renderer = require("../dist/index")
 const exampleCVJSON = require("@jsonresume/schema/sample.resume.json")
 const fs = require('node:fs');
 const {isHTMLValid} = require("./TestHelpers/HTMLValidate");
