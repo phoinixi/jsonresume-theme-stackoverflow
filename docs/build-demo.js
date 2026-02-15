@@ -89,7 +89,7 @@ const landing = `<!doctype html>
       <img src="https://img.shields.io/npm/v/jsonresume-theme-stackoverflow.svg?style=flat-square" alt="npm version">
       <img src="https://img.shields.io/npm/dm/jsonresume-theme-stackoverflow.svg?style=flat-square" alt="npm downloads">
       <img src="https://img.shields.io/github/stars/phoinixi/jsonresume-theme-stackoverflow?style=flat-square" alt="GitHub stars">
-      <img src="https://img.shields.io/github/license/phoinixi/jsonresume-theme-stackoverflow?style=flat-square" alt="License">
+      <img src="https://img.shields.io/npm/l/jsonresume-theme-stackoverflow?style=flat-square" alt="License">
     </div>
     <div class="buttons">
       <a href="https://github.com/phoinixi/jsonresume-theme-stackoverflow" class="btn btn-primary">⭐ GitHub</a>
