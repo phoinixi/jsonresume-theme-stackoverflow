@@ -8,6 +8,12 @@
 [![GitHub stars](https://img.shields.io/github/stars/phoinixi/jsonresume-theme-stackoverflow)](https://github.com/phoinixi/jsonresume-theme-stackoverflow)
 [![Node version](https://img.shields.io/node/v/jsonresume-theme-stackoverflow)](https://nodejs.org)
 
+## 🔗 Related
+
+- **[resuml CLI](https://github.com/phoinixi/resuml)** — Use with resuml CLI for building, previewing, and exporting resumes
+- **[jsonresume-theme-react](https://github.com/phoinixi/jsonresume-theme-react)** — React-based JSON Resume theme
+- **[JSON Resume](https://jsonresume.org)** — The open standard for resume data
+
 ## ✨ Features
 
 - **Svelte SSR** — Server-side rendered with Svelte 5 for fast, clean HTML output
