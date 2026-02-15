@@ -36,12 +36,14 @@
 npm install jsonresume-theme-stackoverflow
 ```
 
-### With the JSON Resume CLI
+### With resuml (recommended)
 
 ```bash
-npm install -g resume-cli
-resume export resume.html --theme stackoverflow
-resume export resume.pdf --theme stackoverflow
+npm install -g resuml
+resuml init                          # Create a resume.yaml
+resuml build -t stackoverflow        # Build HTML
+resuml pdf -t stackoverflow          # Export PDF
+resuml serve -t stackoverflow        # Live preview
 ```
 
 ### Programmatic Usage
