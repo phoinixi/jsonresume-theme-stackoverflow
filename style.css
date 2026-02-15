@@ -303,6 +303,7 @@ section .location {
 
 #profiles .item {
   padding: 0;
+  margin-right: 0.8em;
 }
 
 #header {
