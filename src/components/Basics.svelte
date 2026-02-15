@@ -95,3 +95,86 @@
     </section>
   {/if}
 {/if}
+
+<style>
+  #header {
+    margin-bottom: 1rem;
+  }
+
+  #header > :global(#profiles),
+  #header > :global(#contact) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+
+  #header > :global(div) {
+    line-height: 1.5;
+  }
+
+  #header > :global(div > div) {
+    margin-right: 1.2em;
+  }
+
+  #header :global(h1.name) {
+    font-size: 2.8rem;
+    font-weight: 100;
+    line-height: 100%;
+  }
+
+  #header :global(h2.label) {
+    color: var(--color-heading);
+    font-size: 1.47rem;
+    font-weight: 300;
+  }
+
+  #header :global(.image) {
+    width: 11em;
+    float: right;
+    border-radius: 4px;
+  }
+
+  #contact {
+    margin-top: 0.5rem;
+  }
+
+  :global(#profiles .item) {
+    padding: 0;
+    margin-right: 0.8em;
+  }
+
+  :global(.fa) {
+    margin-right: 0.25em;
+  }
+
+  :global(.fa.social) {
+    font-size: 1.1em;
+  }
+
+  :global(.google-plus) { color: #dd4b39; }
+  :global(.tumblr) { color: #32506d; }
+  :global(.foursquare) { color: #0072b1; }
+  :global(.facebook) { color: #3b5998; }
+  :global(.linkedin) { color: #007bb6; }
+  :global(.pinterest) { color: #cb2027; }
+  :global(.dribbble) { color: #ea4c89; }
+  :global(.instagram) { color: #517fa4; }
+  :global(.twitter) { color: #00aced; }
+  :global(.soundcloud) { color: #ff3a00; }
+  :global(.wordpress) { color: #21759b; }
+  :global(.youtube) { color: #bb0000; }
+  :global(.github) { color: #171515; }
+  :global(.stack-overflow) { color: #828386; position: relative; }
+  :global(.flickr) { color: #ff0084; }
+  :global(.reddit) { color: #ff4500; }
+  :global(.hacker-news) { color: #ff6600; }
+  :global(.stack-overflow::after) {
+    position: absolute;
+    left: 0;
+    content: "\f16c";
+    color: #f68a1f;
+    overflow: hidden;
+    height: 100%;
+  }
+  :global(.telegram) { color: #2291c3; }
+</style>

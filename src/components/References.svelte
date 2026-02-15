@@ -23,3 +23,11 @@
     </section>
   </section>
 {/if}
+
+<style>
+  #references :global(.item) {
+    padding-left: 0.5em;
+    margin-bottom: 1em;
+    border-left: 5px solid var(--color-reference-border);
+  }
+</style>

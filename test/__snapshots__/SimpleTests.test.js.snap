@@ -291,587 +291,9 @@ a:focus-visible {
   border-radius: 2px;
 }
 
-/* Header: name, contact, profiles */
-
-#header {
-  margin-bottom: 1rem;
-}
-
-#header > #profiles,
-#header > #contact {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-}
-
-#header > div {
-  line-height: 1.5;
-}
-
-#header > div > div {
-  margin-right: 1.2em;
-}
-
-#header h1.name {
-  font-size: 2.8rem;
-  font-weight: 100;
-  line-height: 100%;
-}
-
-#header h2.label {
-  color: var(--color-heading);
-  font-size: 1.47rem;
-  font-weight: 300;
-}
-
-#header .image {
-  width: 11em;
-  float: right;
-  border-radius: 4px;
-}
-
-#contact {
-  margin-top: 0.5rem;
-}
-
-#profiles .item {
-  padding: 0;
-  margin-right: 0.8em;
-}
-
-.fa {
-  margin-right: 0.25em;
-}
-
-.fa.social {
-  font-size: 1.1em;
-}
-
-/* Social Media Brand Colors */
-
-.google-plus {
-  color: #dd4b39;
-}
-
-.tumblr {
-  color: #32506d;
-}
-
-.foursquare {
-  color: #0072b1;
-}
-
-.facebook {
-  color: #3b5998;
-}
-
-.linkedin {
-  color: #007bb6;
-}
-
-.pinterest {
-  color: #cb2027;
-}
-
-.dribbble {
-  color: #ea4c89;
-}
-
-.instagram {
-  color: #517fa4;
-}
-
-.twitter {
-  color: #00aced;
-}
-
-.soundcloud {
-  color: #ff3a00;
-}
-
-.wordpress {
-  color: #21759b;
-}
-
-.youtube {
-  color: #bb0000;
-}
-
-.github {
-  color: #171515;
-}
-
-.stack-overflow {
-  color: #828386;
-  position: relative;
-}
-
-.flickr {
-  color: #ff0084;
-}
-
-.reddit {
-  color: #ff4500;
-}
-
-.hacker-news {
-  color: #ff6600;
-}
-
-.stack-overflow::after {
-  position: absolute;
-  left: 0;
-  content: "\\f16c";
-  color: #f68a1f;
-  overflow: hidden;
-  height: 100%;
-}
-
-.telegram {
-  color: #2291c3;
-}
-
-/* Section titles, common section layout */
-
-/* main container */
-
-#resume {
-  padding: 1.5rem;
-}
-
-/* every section wrapper */
-
-.section {
-  margin-bottom: 1rem;
-}
-
-section .location {
-  margin-right: 0.5em;
-  color: var(--color-text-secondary);
-  font-weight: 700;
-}
-
-.section.summary header {
-  margin-top: 1rem;
-}
-
-.main-summary {
-  background: var(--color-background-alt);
-  padding: 1.2em 1em;
-}
-
-.main-summary p {
-  margin: 0;
-}
-
-.section-title {
-  display: inline-block;
-  background: var(--color-section-title-bg);
-  padding: 0 1em 0.3em 0;
-  color: var(--color-accent);
-  text-transform: uppercase;
-  font-weight: 600;
-  border: none;
-  font-size: 0.9rem;
-}
-
-.section > header {
-  position: relative;
-}
-
-.section > header::after {
-  position: absolute;
-  left: 0;
-  top: 0.7em;
-  height: 1px;
-  background: var(--color-border);
-  content: "";
-  width: 100%;
-  z-index: -100;
-  display: block;
-}
-
-.section.main-summary > section {
-  margin: 0;
-}
-
-.section > section > header {
-  font-size: 1.38rem;
-  position: relative;
-  margin-top: 0.7em;
-}
-
-.section > section > header:first-of-type {
-  margin: 0;
-}
-
-.section > section > header .space-left {
-  position: absolute;
-  left: -1.56rem;
-  top: 5px;
-  color: #aaa;
-  line-height: 1;
-  opacity: 0;
-}
-
-.section > section > section {
-  margin-bottom: 1rem;
-}
-
-.item {
-  overflow: hidden;
-}
-
-.keywords,
-.courses {
-  margin: 0.5em 0;
-}
-
-.keywords li,
-.courses li {
-  display: inline-block;
-  margin: 2px 2px 2px 0;
-  padding: 4px 5px 5px;
-  font-size: 0.9rem;
-  line-height: 1;
-  color: var(--color-keyword-text);
-  background-color: var(--color-keyword-bg);
-  border: 0 solid var(--color-keyword-border);
-  white-space: nowrap;
-}
-
-.keywords li:hover,
-.courses li:hover {
-  background: var(--color-keyword-bg);
-}
-
-.highlights > li > p {
-  margin-bottom: 0.5em;
-}
-
-#references .item {
-  padding-left: 0.5em;
-  margin-bottom: 1em;
-  border-left: 5px solid var(--color-reference-border);
-}
-
-/******************
-*	HELPER CLASSES
-******************/
-
-.clear::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.display {
-  display: block;
-  opacity: 1 !important;
-}
-
-/* Timeline: work, education, volunteer, projects (date + content layout) */
-
-.position,
-.company,
-.organization,
-.institution,
-.date,
-.area,
-.studyType,
-.title,
-.awarder {
-  display: inline;
-}
-
-.position,
-.studyType,
-.area,
-.title,
-.language,
-.name {
-  font-weight: 600;
-}
-
-.company::before,
-.institution::before,
-.organization::before,
-.awarder::before {
-  content: "at ";
-}
-
-.company,
-.institution,
-.organization,
-.awarder {
-  color: var(--color-text-secondary);
-  font-weight: 400;
-}
-
-.section header .date {
-  display: block;
-  font-size: 1rem;
-  padding: 0.1em 0;
-  color: var(--color-text-secondary);
-  font-weight: 400;
-}
-
-.gpa {
-  clear: both;
-  padding-bottom: 0.5em;
-}
-
-/* Skill cards, level bars, keywords */
-
-#skills {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-}
-
-#skills .item {
-  width: 16em;
-  padding: 0 0.5em 0.5em 0;
-  border-bottom: none;
-}
-
-#skills .item .keywords {
-  width: 15em;
-}
-
-/* Skill chart */
-
-.level {
-  margin-bottom: 0.5em;
-}
-
-.level em {
-  padding-left: 0.2em;
-}
-
-.level .bar {
-  border: 1px solid var(--color-border-light);
-  display: block;
-  width: 10em;
-  height: 5px;
-  position: relative;
-}
-
-.level .bar::after {
-  position: absolute;
-  content: " ";
-  top: 0;
-  left: 0;
-  background: black;
-  height: 5px;
-}
-
-.level.beginner .bar::after {
-  background: var(--color-bar-beginner);
-  width: 2.5em;
-}
-
-.level.intermediate .bar::after {
-  background: var(--color-bar-intermediate);
-  width: 5em;
-}
-
-.level.advanced .bar::after,
-.level.fluent .bar::after {
-  background: var(--color-bar-advanced);
-  width: 7.5em;
-}
-
-.level.master .bar::after,
-.level.expert .bar::after,
-.level.native.speaker .bar::after {
-  background: var(--color-bar-master);
-  width: 10em;
-}
-
-/* Language cards with fluency bars */
-
-#languages {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-}
-
-#languages .item {
-  width: 15em;
-  padding: 0 0.5em 0.5em 0;
-  border-bottom: none;
-}
-
-#interests {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-}
-
-#interests .item {
-  width: 15em;
-  padding: 0 0.5em 0.5em 0;
-  border-bottom: none;
-}
-
 /****************
-*		MOBILE
+*	PRINT
 ****************/
-
-@media screen and (max-width: 601px) {
-  #resume {
-    width: 100%;
-    padding: 1rem;
-    box-sizing: border-box;
-  }
-
-  #skills,
-  #languages,
-  #interests {
-    flex-direction: column;
-  }
-
-  #skills .item,
-  #languages .item,
-  #interests .item {
-    width: 100%;
-    padding-right: 0;
-  }
-
-  #skills .item .keywords {
-    width: 100%;
-  }
-
-  #header > #profiles,
-  #header > #contact {
-    flex-wrap: wrap;
-  }
-
-  #header > div > div {
-    margin-right: 0.8em;
-    margin-bottom: 0.3em;
-  }
-
-  #header h1.name {
-    font-size: 2rem;
-  }
-
-  #header h2.label {
-    font-size: 1.2rem;
-  }
-
-  #header .image {
-    float: none;
-    display: block;
-    margin: 0 auto 1rem;
-    width: 8em;
-  }
-
-  .section header .date {
-    display: block;
-    float: none;
-    font-size: 0.9rem;
-    margin-top: 0.2em;
-  }
-
-  .section > section > header {
-    font-size: 1.15rem;
-  }
-}
-
-@media screen and (min-width: 480px) and (max-width: 601px) {
-  #skills {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  #skills .item {
-    width: 48%;
-    padding-right: 2%;
-  }
-}
-
-/****************
-*		TABLET
-****************/
-
-@media screen and (min-width: 602px) {
-  #resume {
-    width: 80%;
-    margin: 0 auto;
-  }
-  .section header .date {
-    float: right;
-    font-weight: 600;
-    color: #000;
-  }
-}
-
-/****************
-*		LAPTOP
-****************/
-
-@media screen and (min-width: 1025px) {
-  li {
-    margin-left: 1.5em;
-  }
-  #resume {
-    width: 820px;
-    margin: 2rem auto;
-  }
-  .section > section > header .space-left {
-    opacity: 1;
-    cursor: pointer;
-  }
-  .section > section:not(.main-summary) {
-    margin-left: 1.67rem;
-  }
-  .company::before,
-  .institution::before,
-  .organization::before,
-  .awarder::before {
-    content: "| ";
-  }
-  .header-left {
-    float: left;
-    width: 70%;
-    word-break: normal;
-  }
-  .section header .date {
-    padding: 0.2em;
-  }
-  .display {
-    display: none;
-  }
-  .display:not(.none) {
-    display: block;
-  }
-}
 
 @media print {
   #profiles a:not(.hide-href-print)::after{
@@ -1019,10 +441,168 @@ section .location {
   }
 }
 
+/****************
+*	RESPONSIVE
+****************/
+
+@media screen and (max-width: 601px) {
+  #resume {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  #skills,
+  #languages,
+  #interests {
+    flex-direction: column;
+  }
+
+  #skills .item,
+  #languages .item,
+  #interests .item {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  #skills .item .keywords {
+    width: 100%;
+  }
+
+  #header > #profiles,
+  #header > #contact {
+    flex-wrap: wrap;
+  }
+
+  #header > div > div {
+    margin-right: 0.8em;
+    margin-bottom: 0.3em;
+  }
+
+  #header h1.name {
+    font-size: 2rem;
+  }
+
+  #header h2.label {
+    font-size: 1.2rem;
+  }
+
+  #header .image {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem;
+    width: 8em;
+  }
+
+  .section header .date {
+    display: block;
+    float: none;
+    font-size: 0.9rem;
+    margin-top: 0.2em;
+  }
+
+  .section > section > header {
+    font-size: 1.15rem;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 601px) {
+  #skills {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #skills .item {
+    width: 48%;
+    padding-right: 2%;
+  }
+}
+
+@media screen and (min-width: 602px) {
+  #resume {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .section header .date {
+    float: right;
+    font-weight: 600;
+    color: #000;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  li {
+    margin-left: 1.5em;
+  }
+  #resume {
+    width: 820px;
+    margin: 2rem auto;
+  }
+  .section > section > header .space-left {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .section > section:not(.main-summary) {
+    margin-left: 1.67rem;
+  }
+  .company::before,
+  .institution::before,
+  .organization::before,
+  .awarder::before {
+    content: "| ";
+  }
+  .header-left {
+    float: left;
+    width: 70%;
+    word-break: normal;
+  }
+  .section header .date {
+    padding: 0.2em;
+  }
+  .display {
+    display: none;
+  }
+  .display:not(.none) {
+    display: block;
+  }
+}
+
     </style>
+    <style id="svelte-rssu9l">
+  /* Main container */#resume.svelte-rssu9l {padding:1.5rem;}
+
+  /* Every section wrapper */.section {margin-bottom:1rem;}section .location {margin-right:0.5em;color:var(--color-text-secondary);font-weight:700;}.section.summary header {margin-top:1rem;}.main-summary {background:var(--color-background-alt);padding:1.2em 1em;}.main-summary p {margin:0;}.section-title {display:inline-block;background:var(--color-section-title-bg);padding:0 1em 0.3em 0;color:var(--color-accent);text-transform:uppercase;font-weight:600;border:none;font-size:0.9rem;}.section > header {position:relative;}.section > header::after {position:absolute;left:0;top:0.7em;height:1px;background:var(--color-border);content:"";width:100%;z-index:-100;display:block;}.section.main-summary > section {margin:0;}.section > section > header {font-size:1.38rem;position:relative;margin-top:0.7em;}.section > section > header:first-of-type {margin:0;}.section > section > header .space-left {position:absolute;left:-1.56rem;top:5px;color:#aaa;line-height:1;opacity:0;}.section > section > section {margin-bottom:1rem;}.item {overflow:hidden;}.keywords,
+  .courses {margin:0.5em 0;}.keywords li,
+  .courses li {display:inline-block;margin:2px 2px 2px 0;padding:4px 5px 5px;font-size:0.9rem;line-height:1;color:var(--color-keyword-text);background-color:var(--color-keyword-bg);border:0 solid var(--color-keyword-border);white-space:nowrap;}.keywords li:hover,
+  .courses li:hover {background:var(--color-keyword-bg);}.highlights > li > p {margin-bottom:0.5em;}.clear::after {content:"";display:table;clear:both;}.display {display:block;opacity:1 !important;}
+
+  /* Timeline shared styles */.position,
+  .company,
+  .organization,
+  .institution,
+  .date,
+  .area,
+  .studyType,
+  .title,
+  .awarder {display:inline;}.position,
+  .studyType,
+  .area,
+  .title,
+  .language,
+  .name {font-weight:600;}.company::before,
+  .institution::before,
+  .organization::before,
+  .awarder::before {content:"at ";}.company,
+  .institution,
+  .organization,
+  .awarder {color:var(--color-text-secondary);font-weight:400;}.section header .date {display:block;font-size:1rem;padding:0.1em 0;color:var(--color-text-secondary);font-weight:400;}.gpa {clear:both;padding-bottom:0.5em;}</style><style id="svelte-10f9ycp">#header.svelte-10f9ycp {margin-bottom:1rem;}#header.svelte-10f9ycp > #profiles,
+  #header.svelte-10f9ycp > #contact {display:flex;flex-flow:row wrap;justify-content:flex-start;}#header.svelte-10f9ycp > div {line-height:1.5;}#header.svelte-10f9ycp > div > div {margin-right:1.2em;}#header.svelte-10f9ycp h1.name {font-size:2.8rem;font-weight:100;line-height:100%;}#header.svelte-10f9ycp h2.label {color:var(--color-heading);font-size:1.47rem;font-weight:300;}#header.svelte-10f9ycp .image {width:11em;float:right;border-radius:4px;}#contact.svelte-10f9ycp {margin-top:0.5rem;}#profiles .item {padding:0;margin-right:0.8em;}.fa {margin-right:0.25em;}.fa.social {font-size:1.1em;}.google-plus {color:#dd4b39;}.tumblr {color:#32506d;}.foursquare {color:#0072b1;}.facebook {color:#3b5998;}.linkedin {color:#007bb6;}.pinterest {color:#cb2027;}.dribbble {color:#ea4c89;}.instagram {color:#517fa4;}.twitter {color:#00aced;}.soundcloud {color:#ff3a00;}.wordpress {color:#21759b;}.youtube {color:#bb0000;}.github {color:#171515;}.stack-overflow {color:#828386;position:relative;}.flickr {color:#ff0084;}.reddit {color:#ff4500;}.hacker-news {color:#ff6600;}.stack-overflow::after {position:absolute;left:0;content:"\\f16c";color:#f68a1f;overflow:hidden;height:100%;}.telegram {color:#2291c3;}</style><style id="svelte-18p2gu6">#skills.svelte-18p2gu6 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#skills.svelte-18p2gu6 .item {width:16em;padding:0 0.5em 0.5em 0;border-bottom:none;}#skills.svelte-18p2gu6 .item .keywords {width:15em;}.level {margin-bottom:0.5em;}.level em {padding-left:0.2em;}.level .bar {border:1px solid var(--color-border-light);display:block;width:10em;height:5px;position:relative;}.level .bar::after {position:absolute;content:" ";top:0;left:0;background:black;height:5px;}.level.beginner .bar::after {background:var(--color-bar-beginner);width:2.5em;}.level.intermediate .bar::after {background:var(--color-bar-intermediate);width:5em;}.level.advanced .bar::after,
+  .level.fluent .bar::after {background:var(--color-bar-advanced);width:7.5em;}.level.master .bar::after,
+  .level.expert .bar::after,
+  .level.native.speaker .bar::after {background:var(--color-bar-master);width:10em;}</style><style id="svelte-2dygc7">#languages.svelte-2dygc7 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#languages.svelte-2dygc7 .item {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}</style><style id="svelte-1bnc9h3">#interests.svelte-1bnc9h3 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#interests.svelte-1bnc9h3 .item {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}</style><style id="svelte-1y7ope6">#references.svelte-1y7ope6 .item {padding-left:0.5em;margin-bottom:1em;border-left:5px solid var(--color-reference-border);}</style>
   </head>
   <body>
-    <a class="skip-to-content" href="#resume">Skip to content</a> <main id="resume"><header id="header" class="clear"><!--[!--><div><h1 class="name">Richard Hendriks</h1> <h2 class="label">Programmer</h2></div> <span class="location"><span class="address">2712 Broadway St,</span> <span class="postalCode">CA 94115,</span> <span class="city">San Francisco,</span> <span class="region">California</span> <span class="countryCode">(US)</span></span> <!--45h--><!----> <div id="contact"><!--[!--> <div class="email"><span class="fa-regular fa-envelope"></span> <a class="hide-href-print" href="mailto:richard.hendriks@mail.com">richard.hendriks@mail.com</a></div> <div class="phone"><span class="fa-solid fa-mobile-screen-button"></span> <a class="hide-href-print" href="tel:(912) 555-4321">(912) 555-4321</a></div></div> <nav id="profiles" aria-label="Social profiles"><div class="item"><div class="username"><span class="fa-brands fa-twitter twitter social"></span> <span class="url"><a target="_blank" href="https://www.twitter.com"><span class="show-only-url-print">neutralthoughts</span></a></span></div></div><div class="item"><div class="username"><span class="fa-brands fa-soundcloud soundcloud social"></span> <span class="url"><a target="_blank" href="https://soundcloud.example.com/dandymusicnl"><span class="show-only-url-print">dandymusicnl</span></a></span></div></div></nav></header> <section class="section summary"><header><h2 class="section-title">Summary</h2></header> <section class="main-summary"><div><!--1f3sa2a--><p>Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinal!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!</p><!----></div></section></section><!----> <section class="section"><header><h2 class="section-title">Skills</h2></header> <section id="skills"><div class="item"><h3 class="name">Web Development</h3> <div class="level master" role="meter" aria-label="Web Development skill level: Master" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><!--[!--><em>Master</em> <div class="bar" aria-hidden="true"></div></div> <ul class="keywords"><li>HTML</li><li>CSS</li><li>Javascript</li></ul></div><div class="item"><h3 class="name">Compression</h3> <div class="level master" role="meter" aria-label="Compression skill level: Master" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><!--[!--><em>Master</em> <div class="bar" aria-hidden="true"></div></div> <ul class="keywords"><li>Mpeg</li><li>MP4</li><li>GIF</li></ul></div></section></section><!----> <section class="section"><header><h2 class="section-title">Work Experience <span class="item-count">(1)</span></h2></header> <section id="work"><section class="work-item"><label for="work-item-0"></label> <header class="clear"><div class="date"><span class="startDate">Dec 2013</span> <span class="endDate">- Dec 2014</span></div><!----> <div class="position">CEO/President</div> <span class="company"><a target="_blank" href="http://piedpiper.example.com">Pied Piper</a></span></header> <span class="location"><span class="fa-solid fa-location-dot"></span> Palo Alto, CA</span> <!--[!--> <div class="item" id="work-item"><div class="summary"><!--v5uqjn--><p>Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.</p><!----></div> <ul class="highlights"><li><!--qm28m2--><p>Build an algorithm for artist to detect if their music was violating copy right infringement laws</p><!----></li><li><!--1qyo6ij--><p>Successfully won Techcrunch Disrupt</p><!----></li><li><!--1kp3ugn--><p>Optimized an algorithm that holds the current world record for Weisman Scores</p><!----></li></ul></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Projects <span class="item-count">(1)</span></h2></header> <section id="projects"><section class="project-item"><!--[!--> <header class="clear"><div class="date"><span class="startDate">Aug 2016</span> <span class="endDate">- Aug 2016</span></div><!----> <div class="position">Miss Direction</div></header> <!--[!--> <span class="website"><span class="fa-solid fa-up-right-from-square"></span> <a target="_blank" href="http://missdirection.example.com">http://missdirection.example.com</a></span> <ul class="keywords"><li>GoogleMaps</li><li>Chrome Extension</li><li>Javascript</li></ul> <div class="item"><div class="summary"><!--1cp9q5b--><p>A mapping engine that misguides you</p><!----></div> <ul class="highlights"><li><!--hs6hsv--><p>Won award at AIHacks 2016</p><!----></li><li><!--17zwi6h--><p>Built by all women team of newbie programmers</p><!----></li><li><!--1o64v9n--><p>Using modern technologies such as GoogleMaps, Chrome Extension and Javascript</p><!----></li></ul></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Volunteer <span class="item-count">(1)</span></h2></header> <section id="volunteer"><section class="volunteer-item"><label for="volunteer-item-0"></label> <header class="clear"><div class="date"><span class="startDate">Jan 2012</span> <span class="endDate">- Jan 2013</span></div><!----> <div class="header-left"><div class="position">Teacher</div> <div class="organization"><a target="_blank" href="http://coderdojo.example.com/">CoderDojo</a></div></div></header> <!--[!--> <!--[!--> <div class="item"><div class="summary"><!--1up0pas--><p>Global movement of free coding clubs for young people.</p><!----></div> <ul class="highlights"><li><!--182q74g--><p>Awarded 'Teacher of the Month'</p><!----></li></ul></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Education <span class="item-count">(1)</span></h2></header> <section id="education"><section class="education-item"><!--[!--> <header class="clear"><div class="date"><span class="startDate">Jun 2011</span> <span class="endDate">- Jan 2014</span></div><!----> <div class="header-left"><div class="studyType">Bachelor</div> <div class="area">Information Technology</div> <div class="institution"><a target="_blank" href="https://www.ou.edu/">University of Oklahoma</a></div></div></header> <!--[!--> <ul class="courses"><li>DB1101 - Basic SQL</li><li>CS2011 - Java Introduction</li></ul> <div class="item"><!--[!--> <!--[!--></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Awards <span class="item-count">(1)</span></h2></header> <section id="awards"><section class="award-item"><label for="award-item-0"></label> <header class="clear"><div class="date">Nov 2014</div> <div class="header-left"><div class="title">Digital Compression Pioneer Award</div> <div class="awarder">Techcrunch</div></div></header> <div class="item"><div class="summary"><!--1ohb1sm--><p>There is no spoon.</p><!----></div></div></section></section></section><!----> <!--[!--><!----> <section class="section"><header><h2 class="section-title">Publications <span class="item-count">(1)</span></h2></header> <section id="publications"><section class="publication-item"><label for="publication-item-0"></label> <header class="clear"><span class="date">Oct 2014</span> <div class="header-left"><span class="name"><!--[!-->Video compression for 3d media</span> <span class="publisher">in Hooli</span></div></header> <!--[!--> <div class="item"><div class="summary"><!--117xwux--><p>Innovative middle-out compression algorithm that changes the way we store data.</p><!----></div></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Languages <span class="item-count">(1)</span></h2></header> <section id="languages"><div class="display"><h3 class="language">English</h3> <div class="item"><div class="level fluency master"><!--[!--><em>Native speaker</em> <div class="bar"></div></div></div></div></section></section><!----> <section class="section"><header><h2 class="section-title">Interests <span class="item-count">(1)</span></h2></header> <section id="interests"><div class="item"><h3 class="name">Wildlife</h3> <ul class="keywords"><li>Ferrets</li><li>Unicorns</li></ul> <!--[!--></div></section></section><!----> <section class="section"><header><h2 class="section-title">References <span class="item-count">(1)</span></h2></header> <section id="references"><div class="item"><blockquote class="reference">“ It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company. ”</blockquote> <div class="name">Erlich Bachman</div></div></section></section><!----></main>
+    <a class="skip-to-content" href="#resume">Skip to content</a> <main id="resume" class="svelte-rssu9l"><header id="header" class="clear svelte-10f9ycp"><!--[!--><div><h1 class="name">Richard Hendriks</h1> <h2 class="label">Programmer</h2></div> <span class="location"><span class="address">2712 Broadway St,</span> <span class="postalCode">CA 94115,</span> <span class="city">San Francisco,</span> <span class="region">California</span> <span class="countryCode">(US)</span></span> <!--45h--><!----> <div id="contact" class="svelte-10f9ycp"><!--[!--> <div class="email"><span class="fa-regular fa-envelope"></span> <a class="hide-href-print" href="mailto:richard.hendriks@mail.com">richard.hendriks@mail.com</a></div> <div class="phone"><span class="fa-solid fa-mobile-screen-button"></span> <a class="hide-href-print" href="tel:(912) 555-4321">(912) 555-4321</a></div></div> <nav id="profiles" aria-label="Social profiles"><div class="item"><div class="username"><span class="fa-brands fa-twitter twitter social"></span> <span class="url"><a target="_blank" href="https://www.twitter.com"><span class="show-only-url-print">neutralthoughts</span></a></span></div></div><div class="item"><div class="username"><span class="fa-brands fa-soundcloud soundcloud social"></span> <span class="url"><a target="_blank" href="https://soundcloud.example.com/dandymusicnl"><span class="show-only-url-print">dandymusicnl</span></a></span></div></div></nav></header> <section class="section summary"><header><h2 class="section-title">Summary</h2></header> <section class="main-summary"><div><!--1f3sa2a--><p>Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinal!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!</p><!----></div></section></section><!----> <section class="section"><header><h2 class="section-title">Skills</h2></header> <section id="skills" class="svelte-18p2gu6"><div class="item"><h3 class="name">Web Development</h3> <div class="level master" role="meter" aria-label="Web Development skill level: Master" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><!--[!--><em>Master</em> <div class="bar" aria-hidden="true"></div></div> <ul class="keywords"><li>HTML</li><li>CSS</li><li>Javascript</li></ul></div><div class="item"><h3 class="name">Compression</h3> <div class="level master" role="meter" aria-label="Compression skill level: Master" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><!--[!--><em>Master</em> <div class="bar" aria-hidden="true"></div></div> <ul class="keywords"><li>Mpeg</li><li>MP4</li><li>GIF</li></ul></div></section></section><!----> <section class="section"><header><h2 class="section-title">Work Experience <span class="item-count">(1)</span></h2></header> <section id="work"><section class="work-item"><label for="work-item-0"></label> <header class="clear"><div class="date"><span class="startDate">Dec 2013</span> <span class="endDate">- Dec 2014</span></div><!----> <div class="position">CEO/President</div> <span class="company"><a target="_blank" href="http://piedpiper.example.com">Pied Piper</a></span></header> <span class="location"><span class="fa-solid fa-location-dot"></span> Palo Alto, CA</span> <!--[!--> <div class="item" id="work-item"><div class="summary"><!--v5uqjn--><p>Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.</p><!----></div> <ul class="highlights"><li><!--qm28m2--><p>Build an algorithm for artist to detect if their music was violating copy right infringement laws</p><!----></li><li><!--1qyo6ij--><p>Successfully won Techcrunch Disrupt</p><!----></li><li><!--1kp3ugn--><p>Optimized an algorithm that holds the current world record for Weisman Scores</p><!----></li></ul></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Projects <span class="item-count">(1)</span></h2></header> <section id="projects"><section class="project-item"><!--[!--> <header class="clear"><div class="date"><span class="startDate">Aug 2016</span> <span class="endDate">- Aug 2016</span></div><!----> <div class="position">Miss Direction</div></header> <!--[!--> <span class="website"><span class="fa-solid fa-up-right-from-square"></span> <a target="_blank" href="http://missdirection.example.com">http://missdirection.example.com</a></span> <ul class="keywords"><li>GoogleMaps</li><li>Chrome Extension</li><li>Javascript</li></ul> <div class="item"><div class="summary"><!--1cp9q5b--><p>A mapping engine that misguides you</p><!----></div> <ul class="highlights"><li><!--hs6hsv--><p>Won award at AIHacks 2016</p><!----></li><li><!--17zwi6h--><p>Built by all women team of newbie programmers</p><!----></li><li><!--1o64v9n--><p>Using modern technologies such as GoogleMaps, Chrome Extension and Javascript</p><!----></li></ul></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Volunteer <span class="item-count">(1)</span></h2></header> <section id="volunteer"><section class="volunteer-item"><label for="volunteer-item-0"></label> <header class="clear"><div class="date"><span class="startDate">Jan 2012</span> <span class="endDate">- Jan 2013</span></div><!----> <div class="header-left"><div class="position">Teacher</div> <div class="organization"><a target="_blank" href="http://coderdojo.example.com/">CoderDojo</a></div></div></header> <!--[!--> <!--[!--> <div class="item"><div class="summary"><!--1up0pas--><p>Global movement of free coding clubs for young people.</p><!----></div> <ul class="highlights"><li><!--182q74g--><p>Awarded 'Teacher of the Month'</p><!----></li></ul></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Education <span class="item-count">(1)</span></h2></header> <section id="education"><section class="education-item"><!--[!--> <header class="clear"><div class="date"><span class="startDate">Jun 2011</span> <span class="endDate">- Jan 2014</span></div><!----> <div class="header-left"><div class="studyType">Bachelor</div> <div class="area">Information Technology</div> <div class="institution"><a target="_blank" href="https://www.ou.edu/">University of Oklahoma</a></div></div></header> <!--[!--> <ul class="courses"><li>DB1101 - Basic SQL</li><li>CS2011 - Java Introduction</li></ul> <div class="item"><!--[!--> <!--[!--></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Awards <span class="item-count">(1)</span></h2></header> <section id="awards"><section class="award-item"><label for="award-item-0"></label> <header class="clear"><div class="date">Nov 2014</div> <div class="header-left"><div class="title">Digital Compression Pioneer Award</div> <div class="awarder">Techcrunch</div></div></header> <div class="item"><div class="summary"><!--1ohb1sm--><p>There is no spoon.</p><!----></div></div></section></section></section><!----> <!--[!--><!----> <section class="section"><header><h2 class="section-title">Publications <span class="item-count">(1)</span></h2></header> <section id="publications"><section class="publication-item"><label for="publication-item-0"></label> <header class="clear"><span class="date">Oct 2014</span> <div class="header-left"><span class="name"><!--[!-->Video compression for 3d media</span> <span class="publisher">in Hooli</span></div></header> <!--[!--> <div class="item"><div class="summary"><!--117xwux--><p>Innovative middle-out compression algorithm that changes the way we store data.</p><!----></div></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Languages <span class="item-count">(1)</span></h2></header> <section id="languages" class="svelte-2dygc7"><div class="display"><h3 class="language">English</h3> <div class="item"><div class="level fluency master"><!--[!--><em>Native speaker</em> <div class="bar"></div></div></div></div></section></section><!----> <section class="section"><header><h2 class="section-title">Interests <span class="item-count">(1)</span></h2></header> <section id="interests" class="svelte-1bnc9h3"><div class="item"><h3 class="name">Wildlife</h3> <ul class="keywords"><li>Ferrets</li><li>Unicorns</li></ul> <!--[!--></div></section></section><!----> <section class="section"><header><h2 class="section-title">References <span class="item-count">(1)</span></h2></header> <section id="references" class="svelte-1y7ope6"><div class="item"><blockquote class="reference">“ It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company. ”</blockquote> <div class="name">Erlich Bachman</div></div></section></section><!----></main>
   </body>
 </html>"
 `;
@@ -1318,587 +898,9 @@ a:focus-visible {
   border-radius: 2px;
 }
 
-/* Header: name, contact, profiles */
-
-#header {
-  margin-bottom: 1rem;
-}
-
-#header > #profiles,
-#header > #contact {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-}
-
-#header > div {
-  line-height: 1.5;
-}
-
-#header > div > div {
-  margin-right: 1.2em;
-}
-
-#header h1.name {
-  font-size: 2.8rem;
-  font-weight: 100;
-  line-height: 100%;
-}
-
-#header h2.label {
-  color: var(--color-heading);
-  font-size: 1.47rem;
-  font-weight: 300;
-}
-
-#header .image {
-  width: 11em;
-  float: right;
-  border-radius: 4px;
-}
-
-#contact {
-  margin-top: 0.5rem;
-}
-
-#profiles .item {
-  padding: 0;
-  margin-right: 0.8em;
-}
-
-.fa {
-  margin-right: 0.25em;
-}
-
-.fa.social {
-  font-size: 1.1em;
-}
-
-/* Social Media Brand Colors */
-
-.google-plus {
-  color: #dd4b39;
-}
-
-.tumblr {
-  color: #32506d;
-}
-
-.foursquare {
-  color: #0072b1;
-}
-
-.facebook {
-  color: #3b5998;
-}
-
-.linkedin {
-  color: #007bb6;
-}
-
-.pinterest {
-  color: #cb2027;
-}
-
-.dribbble {
-  color: #ea4c89;
-}
-
-.instagram {
-  color: #517fa4;
-}
-
-.twitter {
-  color: #00aced;
-}
-
-.soundcloud {
-  color: #ff3a00;
-}
-
-.wordpress {
-  color: #21759b;
-}
-
-.youtube {
-  color: #bb0000;
-}
-
-.github {
-  color: #171515;
-}
-
-.stack-overflow {
-  color: #828386;
-  position: relative;
-}
-
-.flickr {
-  color: #ff0084;
-}
-
-.reddit {
-  color: #ff4500;
-}
-
-.hacker-news {
-  color: #ff6600;
-}
-
-.stack-overflow::after {
-  position: absolute;
-  left: 0;
-  content: "\\f16c";
-  color: #f68a1f;
-  overflow: hidden;
-  height: 100%;
-}
-
-.telegram {
-  color: #2291c3;
-}
-
-/* Section titles, common section layout */
-
-/* main container */
-
-#resume {
-  padding: 1.5rem;
-}
-
-/* every section wrapper */
-
-.section {
-  margin-bottom: 1rem;
-}
-
-section .location {
-  margin-right: 0.5em;
-  color: var(--color-text-secondary);
-  font-weight: 700;
-}
-
-.section.summary header {
-  margin-top: 1rem;
-}
-
-.main-summary {
-  background: var(--color-background-alt);
-  padding: 1.2em 1em;
-}
-
-.main-summary p {
-  margin: 0;
-}
-
-.section-title {
-  display: inline-block;
-  background: var(--color-section-title-bg);
-  padding: 0 1em 0.3em 0;
-  color: var(--color-accent);
-  text-transform: uppercase;
-  font-weight: 600;
-  border: none;
-  font-size: 0.9rem;
-}
-
-.section > header {
-  position: relative;
-}
-
-.section > header::after {
-  position: absolute;
-  left: 0;
-  top: 0.7em;
-  height: 1px;
-  background: var(--color-border);
-  content: "";
-  width: 100%;
-  z-index: -100;
-  display: block;
-}
-
-.section.main-summary > section {
-  margin: 0;
-}
-
-.section > section > header {
-  font-size: 1.38rem;
-  position: relative;
-  margin-top: 0.7em;
-}
-
-.section > section > header:first-of-type {
-  margin: 0;
-}
-
-.section > section > header .space-left {
-  position: absolute;
-  left: -1.56rem;
-  top: 5px;
-  color: #aaa;
-  line-height: 1;
-  opacity: 0;
-}
-
-.section > section > section {
-  margin-bottom: 1rem;
-}
-
-.item {
-  overflow: hidden;
-}
-
-.keywords,
-.courses {
-  margin: 0.5em 0;
-}
-
-.keywords li,
-.courses li {
-  display: inline-block;
-  margin: 2px 2px 2px 0;
-  padding: 4px 5px 5px;
-  font-size: 0.9rem;
-  line-height: 1;
-  color: var(--color-keyword-text);
-  background-color: var(--color-keyword-bg);
-  border: 0 solid var(--color-keyword-border);
-  white-space: nowrap;
-}
-
-.keywords li:hover,
-.courses li:hover {
-  background: var(--color-keyword-bg);
-}
-
-.highlights > li > p {
-  margin-bottom: 0.5em;
-}
-
-#references .item {
-  padding-left: 0.5em;
-  margin-bottom: 1em;
-  border-left: 5px solid var(--color-reference-border);
-}
-
-/******************
-*	HELPER CLASSES
-******************/
-
-.clear::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.display {
-  display: block;
-  opacity: 1 !important;
-}
-
-/* Timeline: work, education, volunteer, projects (date + content layout) */
-
-.position,
-.company,
-.organization,
-.institution,
-.date,
-.area,
-.studyType,
-.title,
-.awarder {
-  display: inline;
-}
-
-.position,
-.studyType,
-.area,
-.title,
-.language,
-.name {
-  font-weight: 600;
-}
-
-.company::before,
-.institution::before,
-.organization::before,
-.awarder::before {
-  content: "at ";
-}
-
-.company,
-.institution,
-.organization,
-.awarder {
-  color: var(--color-text-secondary);
-  font-weight: 400;
-}
-
-.section header .date {
-  display: block;
-  font-size: 1rem;
-  padding: 0.1em 0;
-  color: var(--color-text-secondary);
-  font-weight: 400;
-}
-
-.gpa {
-  clear: both;
-  padding-bottom: 0.5em;
-}
-
-/* Skill cards, level bars, keywords */
-
-#skills {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-}
-
-#skills .item {
-  width: 16em;
-  padding: 0 0.5em 0.5em 0;
-  border-bottom: none;
-}
-
-#skills .item .keywords {
-  width: 15em;
-}
-
-/* Skill chart */
-
-.level {
-  margin-bottom: 0.5em;
-}
-
-.level em {
-  padding-left: 0.2em;
-}
-
-.level .bar {
-  border: 1px solid var(--color-border-light);
-  display: block;
-  width: 10em;
-  height: 5px;
-  position: relative;
-}
-
-.level .bar::after {
-  position: absolute;
-  content: " ";
-  top: 0;
-  left: 0;
-  background: black;
-  height: 5px;
-}
-
-.level.beginner .bar::after {
-  background: var(--color-bar-beginner);
-  width: 2.5em;
-}
-
-.level.intermediate .bar::after {
-  background: var(--color-bar-intermediate);
-  width: 5em;
-}
-
-.level.advanced .bar::after,
-.level.fluent .bar::after {
-  background: var(--color-bar-advanced);
-  width: 7.5em;
-}
-
-.level.master .bar::after,
-.level.expert .bar::after,
-.level.native.speaker .bar::after {
-  background: var(--color-bar-master);
-  width: 10em;
-}
-
-/* Language cards with fluency bars */
-
-#languages {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-}
-
-#languages .item {
-  width: 15em;
-  padding: 0 0.5em 0.5em 0;
-  border-bottom: none;
-}
-
-#interests {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-}
-
-#interests .item {
-  width: 15em;
-  padding: 0 0.5em 0.5em 0;
-  border-bottom: none;
-}
-
 /****************
-*		MOBILE
+*	PRINT
 ****************/
-
-@media screen and (max-width: 601px) {
-  #resume {
-    width: 100%;
-    padding: 1rem;
-    box-sizing: border-box;
-  }
-
-  #skills,
-  #languages,
-  #interests {
-    flex-direction: column;
-  }
-
-  #skills .item,
-  #languages .item,
-  #interests .item {
-    width: 100%;
-    padding-right: 0;
-  }
-
-  #skills .item .keywords {
-    width: 100%;
-  }
-
-  #header > #profiles,
-  #header > #contact {
-    flex-wrap: wrap;
-  }
-
-  #header > div > div {
-    margin-right: 0.8em;
-    margin-bottom: 0.3em;
-  }
-
-  #header h1.name {
-    font-size: 2rem;
-  }
-
-  #header h2.label {
-    font-size: 1.2rem;
-  }
-
-  #header .image {
-    float: none;
-    display: block;
-    margin: 0 auto 1rem;
-    width: 8em;
-  }
-
-  .section header .date {
-    display: block;
-    float: none;
-    font-size: 0.9rem;
-    margin-top: 0.2em;
-  }
-
-  .section > section > header {
-    font-size: 1.15rem;
-  }
-}
-
-@media screen and (min-width: 480px) and (max-width: 601px) {
-  #skills {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  #skills .item {
-    width: 48%;
-    padding-right: 2%;
-  }
-}
-
-/****************
-*		TABLET
-****************/
-
-@media screen and (min-width: 602px) {
-  #resume {
-    width: 80%;
-    margin: 0 auto;
-  }
-  .section header .date {
-    float: right;
-    font-weight: 600;
-    color: #000;
-  }
-}
-
-/****************
-*		LAPTOP
-****************/
-
-@media screen and (min-width: 1025px) {
-  li {
-    margin-left: 1.5em;
-  }
-  #resume {
-    width: 820px;
-    margin: 2rem auto;
-  }
-  .section > section > header .space-left {
-    opacity: 1;
-    cursor: pointer;
-  }
-  .section > section:not(.main-summary) {
-    margin-left: 1.67rem;
-  }
-  .company::before,
-  .institution::before,
-  .organization::before,
-  .awarder::before {
-    content: "| ";
-  }
-  .header-left {
-    float: left;
-    width: 70%;
-    word-break: normal;
-  }
-  .section header .date {
-    padding: 0.2em;
-  }
-  .display {
-    display: none;
-  }
-  .display:not(.none) {
-    display: block;
-  }
-}
 
 @media print {
   #profiles a:not(.hide-href-print)::after{
@@ -2046,10 +1048,168 @@ section .location {
   }
 }
 
+/****************
+*	RESPONSIVE
+****************/
+
+@media screen and (max-width: 601px) {
+  #resume {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  #skills,
+  #languages,
+  #interests {
+    flex-direction: column;
+  }
+
+  #skills .item,
+  #languages .item,
+  #interests .item {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  #skills .item .keywords {
+    width: 100%;
+  }
+
+  #header > #profiles,
+  #header > #contact {
+    flex-wrap: wrap;
+  }
+
+  #header > div > div {
+    margin-right: 0.8em;
+    margin-bottom: 0.3em;
+  }
+
+  #header h1.name {
+    font-size: 2rem;
+  }
+
+  #header h2.label {
+    font-size: 1.2rem;
+  }
+
+  #header .image {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem;
+    width: 8em;
+  }
+
+  .section header .date {
+    display: block;
+    float: none;
+    font-size: 0.9rem;
+    margin-top: 0.2em;
+  }
+
+  .section > section > header {
+    font-size: 1.15rem;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 601px) {
+  #skills {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #skills .item {
+    width: 48%;
+    padding-right: 2%;
+  }
+}
+
+@media screen and (min-width: 602px) {
+  #resume {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .section header .date {
+    float: right;
+    font-weight: 600;
+    color: #000;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  li {
+    margin-left: 1.5em;
+  }
+  #resume {
+    width: 820px;
+    margin: 2rem auto;
+  }
+  .section > section > header .space-left {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .section > section:not(.main-summary) {
+    margin-left: 1.67rem;
+  }
+  .company::before,
+  .institution::before,
+  .organization::before,
+  .awarder::before {
+    content: "| ";
+  }
+  .header-left {
+    float: left;
+    width: 70%;
+    word-break: normal;
+  }
+  .section header .date {
+    padding: 0.2em;
+  }
+  .display {
+    display: none;
+  }
+  .display:not(.none) {
+    display: block;
+  }
+}
+
     </style>
+    <style id="svelte-rssu9l">
+  /* Main container */#resume.svelte-rssu9l {padding:1.5rem;}
+
+  /* Every section wrapper */.section {margin-bottom:1rem;}section .location {margin-right:0.5em;color:var(--color-text-secondary);font-weight:700;}.section.summary header {margin-top:1rem;}.main-summary {background:var(--color-background-alt);padding:1.2em 1em;}.main-summary p {margin:0;}.section-title {display:inline-block;background:var(--color-section-title-bg);padding:0 1em 0.3em 0;color:var(--color-accent);text-transform:uppercase;font-weight:600;border:none;font-size:0.9rem;}.section > header {position:relative;}.section > header::after {position:absolute;left:0;top:0.7em;height:1px;background:var(--color-border);content:"";width:100%;z-index:-100;display:block;}.section.main-summary > section {margin:0;}.section > section > header {font-size:1.38rem;position:relative;margin-top:0.7em;}.section > section > header:first-of-type {margin:0;}.section > section > header .space-left {position:absolute;left:-1.56rem;top:5px;color:#aaa;line-height:1;opacity:0;}.section > section > section {margin-bottom:1rem;}.item {overflow:hidden;}.keywords,
+  .courses {margin:0.5em 0;}.keywords li,
+  .courses li {display:inline-block;margin:2px 2px 2px 0;padding:4px 5px 5px;font-size:0.9rem;line-height:1;color:var(--color-keyword-text);background-color:var(--color-keyword-bg);border:0 solid var(--color-keyword-border);white-space:nowrap;}.keywords li:hover,
+  .courses li:hover {background:var(--color-keyword-bg);}.highlights > li > p {margin-bottom:0.5em;}.clear::after {content:"";display:table;clear:both;}.display {display:block;opacity:1 !important;}
+
+  /* Timeline shared styles */.position,
+  .company,
+  .organization,
+  .institution,
+  .date,
+  .area,
+  .studyType,
+  .title,
+  .awarder {display:inline;}.position,
+  .studyType,
+  .area,
+  .title,
+  .language,
+  .name {font-weight:600;}.company::before,
+  .institution::before,
+  .organization::before,
+  .awarder::before {content:"at ";}.company,
+  .institution,
+  .organization,
+  .awarder {color:var(--color-text-secondary);font-weight:400;}.section header .date {display:block;font-size:1rem;padding:0.1em 0;color:var(--color-text-secondary);font-weight:400;}.gpa {clear:both;padding-bottom:0.5em;}</style><style id="svelte-10f9ycp">#header.svelte-10f9ycp {margin-bottom:1rem;}#header.svelte-10f9ycp > #profiles,
+  #header.svelte-10f9ycp > #contact {display:flex;flex-flow:row wrap;justify-content:flex-start;}#header.svelte-10f9ycp > div {line-height:1.5;}#header.svelte-10f9ycp > div > div {margin-right:1.2em;}#header.svelte-10f9ycp h1.name {font-size:2.8rem;font-weight:100;line-height:100%;}#header.svelte-10f9ycp h2.label {color:var(--color-heading);font-size:1.47rem;font-weight:300;}#header.svelte-10f9ycp .image {width:11em;float:right;border-radius:4px;}#contact.svelte-10f9ycp {margin-top:0.5rem;}#profiles .item {padding:0;margin-right:0.8em;}.fa {margin-right:0.25em;}.fa.social {font-size:1.1em;}.google-plus {color:#dd4b39;}.tumblr {color:#32506d;}.foursquare {color:#0072b1;}.facebook {color:#3b5998;}.linkedin {color:#007bb6;}.pinterest {color:#cb2027;}.dribbble {color:#ea4c89;}.instagram {color:#517fa4;}.twitter {color:#00aced;}.soundcloud {color:#ff3a00;}.wordpress {color:#21759b;}.youtube {color:#bb0000;}.github {color:#171515;}.stack-overflow {color:#828386;position:relative;}.flickr {color:#ff0084;}.reddit {color:#ff4500;}.hacker-news {color:#ff6600;}.stack-overflow::after {position:absolute;left:0;content:"\\f16c";color:#f68a1f;overflow:hidden;height:100%;}.telegram {color:#2291c3;}</style><style id="svelte-18p2gu6">#skills.svelte-18p2gu6 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#skills.svelte-18p2gu6 .item {width:16em;padding:0 0.5em 0.5em 0;border-bottom:none;}#skills.svelte-18p2gu6 .item .keywords {width:15em;}.level {margin-bottom:0.5em;}.level em {padding-left:0.2em;}.level .bar {border:1px solid var(--color-border-light);display:block;width:10em;height:5px;position:relative;}.level .bar::after {position:absolute;content:" ";top:0;left:0;background:black;height:5px;}.level.beginner .bar::after {background:var(--color-bar-beginner);width:2.5em;}.level.intermediate .bar::after {background:var(--color-bar-intermediate);width:5em;}.level.advanced .bar::after,
+  .level.fluent .bar::after {background:var(--color-bar-advanced);width:7.5em;}.level.master .bar::after,
+  .level.expert .bar::after,
+  .level.native.speaker .bar::after {background:var(--color-bar-master);width:10em;}</style><style id="svelte-2dygc7">#languages.svelte-2dygc7 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#languages.svelte-2dygc7 .item {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}</style><style id="svelte-1bnc9h3">#interests.svelte-1bnc9h3 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#interests.svelte-1bnc9h3 .item {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}</style><style id="svelte-1y7ope6">#references.svelte-1y7ope6 .item {padding-left:0.5em;margin-bottom:1em;border-left:5px solid var(--color-reference-border);}</style>
   </head>
   <body>
-    <a class="skip-to-content" href="#resume">Skip to content</a> <main id="resume"><header id="header" class="clear"><!--[!--><div><h1 class="name">Richard Hendriks</h1> <h2 class="label">Programmer</h2></div> <span class="location"><span class="address">2712 Broadway St,</span> <span class="postalCode">CA 94115,</span> <span class="city">San Francisco,</span> <span class="region">California</span> <span class="countryCode">(US)</span></span> <!--45h--><!----> <div id="contact"><!--[!--> <div class="email"><span class="fa-regular fa-envelope"></span> <a class="hide-href-print" href="mailto:richard.hendriks@mail.com">richard.hendriks@mail.com</a></div> <div class="phone"><span class="fa-solid fa-mobile-screen-button"></span> <a class="hide-href-print" href="tel:(912) 555-4321">(912) 555-4321</a></div></div> <nav id="profiles" aria-label="Social profiles"><div class="item"><div class="username"><span class="fa-brands fa-twitter twitter social"></span> <span class="url"><a target="_blank" href="https://www.twitter.com"><span class="show-only-url-print">neutralthoughts</span></a></span></div></div><div class="item"><div class="username"><span class="fa-brands fa-soundcloud soundcloud social"></span> <span class="url"><a target="_blank" href="https://soundcloud.example.com/dandymusicnl"><span class="show-only-url-print">dandymusicnl</span></a></span></div></div></nav></header> <section class="section summary"><header><h2 class="section-title">Übersicht</h2></header> <section class="main-summary"><div><!--1f3sa2a--><p>Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinal!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!</p><!----></div></section></section><!----> <section class="section"><header><h2 class="section-title">Kenntnisse</h2></header> <section id="skills"><div class="item"><h3 class="name">Web Development</h3> <div class="level master" role="meter" aria-label="Web Development skill level: Master" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><!--[!--><em>Master</em> <div class="bar" aria-hidden="true"></div></div> <ul class="keywords"><li>HTML</li><li>CSS</li><li>Javascript</li></ul></div><div class="item"><h3 class="name">Compression</h3> <div class="level master" role="meter" aria-label="Compression skill level: Master" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><!--[!--><em>Master</em> <div class="bar" aria-hidden="true"></div></div> <ul class="keywords"><li>Mpeg</li><li>MP4</li><li>GIF</li></ul></div></section></section><!----> <section class="section"><header><h2 class="section-title">Berufserfahrung <span class="item-count">(1)</span></h2></header> <section id="work"><section class="work-item"><label for="work-item-0"></label> <header class="clear"><div class="date"><span class="startDate">Dez. 2013</span> <span class="endDate">- Dez. 2014</span></div><!----> <div class="position">CEO/President</div> <span class="company"><a target="_blank" href="http://piedpiper.example.com">Pied Piper</a></span></header> <span class="location"><span class="fa-solid fa-location-dot"></span> Palo Alto, CA</span> <!--[!--> <div class="item" id="work-item"><div class="summary"><!--v5uqjn--><p>Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.</p><!----></div> <ul class="highlights"><li><!--qm28m2--><p>Build an algorithm for artist to detect if their music was violating copy right infringement laws</p><!----></li><li><!--1qyo6ij--><p>Successfully won Techcrunch Disrupt</p><!----></li><li><!--1kp3ugn--><p>Optimized an algorithm that holds the current world record for Weisman Scores</p><!----></li></ul></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Projekte <span class="item-count">(1)</span></h2></header> <section id="projects"><section class="project-item"><!--[!--> <header class="clear"><div class="date"><span class="startDate">Aug. 2016</span> <span class="endDate">- Aug. 2016</span></div><!----> <div class="position">Miss Direction</div></header> <!--[!--> <span class="website"><span class="fa-solid fa-up-right-from-square"></span> <a target="_blank" href="http://missdirection.example.com">http://missdirection.example.com</a></span> <ul class="keywords"><li>GoogleMaps</li><li>Chrome Extension</li><li>Javascript</li></ul> <div class="item"><div class="summary"><!--1cp9q5b--><p>A mapping engine that misguides you</p><!----></div> <ul class="highlights"><li><!--hs6hsv--><p>Won award at AIHacks 2016</p><!----></li><li><!--17zwi6h--><p>Built by all women team of newbie programmers</p><!----></li><li><!--1o64v9n--><p>Using modern technologies such as GoogleMaps, Chrome Extension and Javascript</p><!----></li></ul></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Ehrenamtliche Tätigkeiten <span class="item-count">(1)</span></h2></header> <section id="volunteer"><section class="volunteer-item"><label for="volunteer-item-0"></label> <header class="clear"><div class="date"><span class="startDate">Jan. 2012</span> <span class="endDate">- Jan. 2013</span></div><!----> <div class="header-left"><div class="position">Teacher</div> <div class="organization"><a target="_blank" href="http://coderdojo.example.com/">CoderDojo</a></div></div></header> <!--[!--> <!--[!--> <div class="item"><div class="summary"><!--1up0pas--><p>Global movement of free coding clubs for young people.</p><!----></div> <ul class="highlights"><li><!--182q74g--><p>Awarded 'Teacher of the Month'</p><!----></li></ul></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Bildung <span class="item-count">(1)</span></h2></header> <section id="education"><section class="education-item"><!--[!--> <header class="clear"><div class="date"><span class="startDate">Juni 2011</span> <span class="endDate">- Jan. 2014</span></div><!----> <div class="header-left"><div class="studyType">Bachelor</div> <div class="area">Information Technology</div> <div class="institution"><a target="_blank" href="https://www.ou.edu/">University of Oklahoma</a></div></div></header> <!--[!--> <ul class="courses"><li>DB1101 - Basic SQL</li><li>CS2011 - Java Introduction</li></ul> <div class="item"><!--[!--> <!--[!--></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Auszeichnungen <span class="item-count">(1)</span></h2></header> <section id="awards"><section class="award-item"><label for="award-item-0"></label> <header class="clear"><div class="date">Nov. 2014</div> <div class="header-left"><div class="title">Digital Compression Pioneer Award</div> <div class="awarder">Techcrunch</div></div></header> <div class="item"><div class="summary"><!--1ohb1sm--><p>There is no spoon.</p><!----></div></div></section></section></section><!----> <!--[!--><!----> <section class="section"><header><h2 class="section-title">Veröffentlichungen <span class="item-count">(1)</span></h2></header> <section id="publications"><section class="publication-item"><label for="publication-item-0"></label> <header class="clear"><span class="date">Okt. 2014</span> <div class="header-left"><span class="name"><!--[!-->Video compression for 3d media</span> <span class="publisher">in Hooli</span></div></header> <!--[!--> <div class="item"><div class="summary"><!--117xwux--><p>Innovative middle-out compression algorithm that changes the way we store data.</p><!----></div></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Sprachkenntnisse <span class="item-count">(1)</span></h2></header> <section id="languages"><div class="display"><h3 class="language">English</h3> <div class="item"><div class="level fluency master"><!--[!--><em>Native speaker</em> <div class="bar"></div></div></div></div></section></section><!----> <section class="section"><header><h2 class="section-title">Interessen <span class="item-count">(1)</span></h2></header> <section id="interests"><div class="item"><h3 class="name">Wildlife</h3> <ul class="keywords"><li>Ferrets</li><li>Unicorns</li></ul> <!--[!--></div></section></section><!----> <section class="section"><header><h2 class="section-title">Empfehlungen <span class="item-count">(1)</span></h2></header> <section id="references"><div class="item"><blockquote class="reference">“ It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company. ”</blockquote> <div class="name">Erlich Bachman</div></div></section></section><!----></main>
+    <a class="skip-to-content" href="#resume">Skip to content</a> <main id="resume" class="svelte-rssu9l"><header id="header" class="clear svelte-10f9ycp"><!--[!--><div><h1 class="name">Richard Hendriks</h1> <h2 class="label">Programmer</h2></div> <span class="location"><span class="address">2712 Broadway St,</span> <span class="postalCode">CA 94115,</span> <span class="city">San Francisco,</span> <span class="region">California</span> <span class="countryCode">(US)</span></span> <!--45h--><!----> <div id="contact" class="svelte-10f9ycp"><!--[!--> <div class="email"><span class="fa-regular fa-envelope"></span> <a class="hide-href-print" href="mailto:richard.hendriks@mail.com">richard.hendriks@mail.com</a></div> <div class="phone"><span class="fa-solid fa-mobile-screen-button"></span> <a class="hide-href-print" href="tel:(912) 555-4321">(912) 555-4321</a></div></div> <nav id="profiles" aria-label="Social profiles"><div class="item"><div class="username"><span class="fa-brands fa-twitter twitter social"></span> <span class="url"><a target="_blank" href="https://www.twitter.com"><span class="show-only-url-print">neutralthoughts</span></a></span></div></div><div class="item"><div class="username"><span class="fa-brands fa-soundcloud soundcloud social"></span> <span class="url"><a target="_blank" href="https://soundcloud.example.com/dandymusicnl"><span class="show-only-url-print">dandymusicnl</span></a></span></div></div></nav></header> <section class="section summary"><header><h2 class="section-title">Übersicht</h2></header> <section class="main-summary"><div><!--1f3sa2a--><p>Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinal!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!</p><!----></div></section></section><!----> <section class="section"><header><h2 class="section-title">Kenntnisse</h2></header> <section id="skills" class="svelte-18p2gu6"><div class="item"><h3 class="name">Web Development</h3> <div class="level master" role="meter" aria-label="Web Development skill level: Master" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><!--[!--><em>Master</em> <div class="bar" aria-hidden="true"></div></div> <ul class="keywords"><li>HTML</li><li>CSS</li><li>Javascript</li></ul></div><div class="item"><h3 class="name">Compression</h3> <div class="level master" role="meter" aria-label="Compression skill level: Master" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><!--[!--><em>Master</em> <div class="bar" aria-hidden="true"></div></div> <ul class="keywords"><li>Mpeg</li><li>MP4</li><li>GIF</li></ul></div></section></section><!----> <section class="section"><header><h2 class="section-title">Berufserfahrung <span class="item-count">(1)</span></h2></header> <section id="work"><section class="work-item"><label for="work-item-0"></label> <header class="clear"><div class="date"><span class="startDate">Dez. 2013</span> <span class="endDate">- Dez. 2014</span></div><!----> <div class="position">CEO/President</div> <span class="company"><a target="_blank" href="http://piedpiper.example.com">Pied Piper</a></span></header> <span class="location"><span class="fa-solid fa-location-dot"></span> Palo Alto, CA</span> <!--[!--> <div class="item" id="work-item"><div class="summary"><!--v5uqjn--><p>Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.</p><!----></div> <ul class="highlights"><li><!--qm28m2--><p>Build an algorithm for artist to detect if their music was violating copy right infringement laws</p><!----></li><li><!--1qyo6ij--><p>Successfully won Techcrunch Disrupt</p><!----></li><li><!--1kp3ugn--><p>Optimized an algorithm that holds the current world record for Weisman Scores</p><!----></li></ul></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Projekte <span class="item-count">(1)</span></h2></header> <section id="projects"><section class="project-item"><!--[!--> <header class="clear"><div class="date"><span class="startDate">Aug. 2016</span> <span class="endDate">- Aug. 2016</span></div><!----> <div class="position">Miss Direction</div></header> <!--[!--> <span class="website"><span class="fa-solid fa-up-right-from-square"></span> <a target="_blank" href="http://missdirection.example.com">http://missdirection.example.com</a></span> <ul class="keywords"><li>GoogleMaps</li><li>Chrome Extension</li><li>Javascript</li></ul> <div class="item"><div class="summary"><!--1cp9q5b--><p>A mapping engine that misguides you</p><!----></div> <ul class="highlights"><li><!--hs6hsv--><p>Won award at AIHacks 2016</p><!----></li><li><!--17zwi6h--><p>Built by all women team of newbie programmers</p><!----></li><li><!--1o64v9n--><p>Using modern technologies such as GoogleMaps, Chrome Extension and Javascript</p><!----></li></ul></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Ehrenamtliche Tätigkeiten <span class="item-count">(1)</span></h2></header> <section id="volunteer"><section class="volunteer-item"><label for="volunteer-item-0"></label> <header class="clear"><div class="date"><span class="startDate">Jan. 2012</span> <span class="endDate">- Jan. 2013</span></div><!----> <div class="header-left"><div class="position">Teacher</div> <div class="organization"><a target="_blank" href="http://coderdojo.example.com/">CoderDojo</a></div></div></header> <!--[!--> <!--[!--> <div class="item"><div class="summary"><!--1up0pas--><p>Global movement of free coding clubs for young people.</p><!----></div> <ul class="highlights"><li><!--182q74g--><p>Awarded 'Teacher of the Month'</p><!----></li></ul></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Bildung <span class="item-count">(1)</span></h2></header> <section id="education"><section class="education-item"><!--[!--> <header class="clear"><div class="date"><span class="startDate">Juni 2011</span> <span class="endDate">- Jan. 2014</span></div><!----> <div class="header-left"><div class="studyType">Bachelor</div> <div class="area">Information Technology</div> <div class="institution"><a target="_blank" href="https://www.ou.edu/">University of Oklahoma</a></div></div></header> <!--[!--> <ul class="courses"><li>DB1101 - Basic SQL</li><li>CS2011 - Java Introduction</li></ul> <div class="item"><!--[!--> <!--[!--></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Auszeichnungen <span class="item-count">(1)</span></h2></header> <section id="awards"><section class="award-item"><label for="award-item-0"></label> <header class="clear"><div class="date">Nov. 2014</div> <div class="header-left"><div class="title">Digital Compression Pioneer Award</div> <div class="awarder">Techcrunch</div></div></header> <div class="item"><div class="summary"><!--1ohb1sm--><p>There is no spoon.</p><!----></div></div></section></section></section><!----> <!--[!--><!----> <section class="section"><header><h2 class="section-title">Veröffentlichungen <span class="item-count">(1)</span></h2></header> <section id="publications"><section class="publication-item"><label for="publication-item-0"></label> <header class="clear"><span class="date">Okt. 2014</span> <div class="header-left"><span class="name"><!--[!-->Video compression for 3d media</span> <span class="publisher">in Hooli</span></div></header> <!--[!--> <div class="item"><div class="summary"><!--117xwux--><p>Innovative middle-out compression algorithm that changes the way we store data.</p><!----></div></div></section></section></section><!----> <section class="section"><header><h2 class="section-title">Sprachkenntnisse <span class="item-count">(1)</span></h2></header> <section id="languages" class="svelte-2dygc7"><div class="display"><h3 class="language">English</h3> <div class="item"><div class="level fluency master"><!--[!--><em>Native speaker</em> <div class="bar"></div></div></div></div></section></section><!----> <section class="section"><header><h2 class="section-title">Interessen <span class="item-count">(1)</span></h2></header> <section id="interests" class="svelte-1bnc9h3"><div class="item"><h3 class="name">Wildlife</h3> <ul class="keywords"><li>Ferrets</li><li>Unicorns</li></ul> <!--[!--></div></section></section><!----> <section class="section"><header><h2 class="section-title">Empfehlungen <span class="item-count">(1)</span></h2></header> <section id="references" class="svelte-1y7ope6"><div class="item"><blockquote class="reference">“ It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company. ”</blockquote> <div class="name">Erlich Bachman</div></div></section></section><!----></main>
   </body>
 </html>"
 `;

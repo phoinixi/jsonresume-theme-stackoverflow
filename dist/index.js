@@ -5476,12 +5476,17 @@ function birthDateHtml(birth) {
 }
 
 // .build/components/Basics.js
+var $$css = {
+  hash: "svelte-10f9ycp",
+  code: '#header.svelte-10f9ycp {margin-bottom:1rem;}#header.svelte-10f9ycp > #profiles,\n  #header.svelte-10f9ycp > #contact {display:flex;flex-flow:row wrap;justify-content:flex-start;}#header.svelte-10f9ycp > div {line-height:1.5;}#header.svelte-10f9ycp > div > div {margin-right:1.2em;}#header.svelte-10f9ycp h1.name {font-size:2.8rem;font-weight:100;line-height:100%;}#header.svelte-10f9ycp h2.label {color:var(--color-heading);font-size:1.47rem;font-weight:300;}#header.svelte-10f9ycp .image {width:11em;float:right;border-radius:4px;}#contact.svelte-10f9ycp {margin-top:0.5rem;}#profiles .item {padding:0;margin-right:0.8em;}.fa {margin-right:0.25em;}.fa.social {font-size:1.1em;}.google-plus {color:#dd4b39;}.tumblr {color:#32506d;}.foursquare {color:#0072b1;}.facebook {color:#3b5998;}.linkedin {color:#007bb6;}.pinterest {color:#cb2027;}.dribbble {color:#ea4c89;}.instagram {color:#517fa4;}.twitter {color:#00aced;}.soundcloud {color:#ff3a00;}.wordpress {color:#21759b;}.youtube {color:#bb0000;}.github {color:#171515;}.stack-overflow {color:#828386;position:relative;}.flickr {color:#ff0084;}.reddit {color:#ff4500;}.hacker-news {color:#ff6600;}.stack-overflow::after {position:absolute;left:0;content:"\\f16c";color:#f68a1f;overflow:hidden;height:100%;}.telegram {color:#2291c3;}'
+};
 function Basics($$renderer, $$props) {
+  $$renderer.global.css.add($$css);
   $$renderer.component(($$renderer2) => {
     let { basics } = $$props;
     if (basics) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<header id="header" class="clear">`);
+      $$renderer2.push(`<header id="header" class="clear svelte-10f9ycp">`);
       if (basics.image) {
         $$renderer2.push("<!--[-->");
         $$renderer2.push(`<img class="image"${attr("src", basics.image)}${attr("alt", basics.name)}/> <div class="middle"><h1 class="name">${escape_html(basics.name)}</h1> <h2 class="label">${escape_html(basics.label)}</h2></div>`);
@@ -5531,7 +5536,7 @@ function Basics($$renderer, $$props) {
       } else {
         $$renderer2.push("<!--[!-->");
       }
-      $$renderer2.push(`<!--]--> ${html2(birthDateHtml(basics.birth))} <div id="contact">`);
+      $$renderer2.push(`<!--]--> ${html2(birthDateHtml(basics.birth))} <div id="contact" class="svelte-10f9ycp">`);
       if (basics.website) {
         $$renderer2.push("<!--[-->");
         $$renderer2.push(`<div class="website"><span class="fa-solid fa-up-right-from-square"></span> <a class="hide-href-print" target="_blank"${attr("href", basics.website)}>${escape_html(basics.website)}</a></div>`);
@@ -5596,12 +5601,17 @@ function Basics($$renderer, $$props) {
 }
 
 // .build/components/Skills.js
+var $$css2 = {
+  hash: "svelte-18p2gu6",
+  code: '#skills.svelte-18p2gu6 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#skills.svelte-18p2gu6 .item {width:16em;padding:0 0.5em 0.5em 0;border-bottom:none;}#skills.svelte-18p2gu6 .item .keywords {width:15em;}.level {margin-bottom:0.5em;}.level em {padding-left:0.2em;}.level .bar {border:1px solid var(--color-border-light);display:block;width:10em;height:5px;position:relative;}.level .bar::after {position:absolute;content:" ";top:0;left:0;background:black;height:5px;}.level.beginner .bar::after {background:var(--color-bar-beginner);width:2.5em;}.level.intermediate .bar::after {background:var(--color-bar-intermediate);width:5em;}.level.advanced .bar::after,\n  .level.fluent .bar::after {background:var(--color-bar-advanced);width:7.5em;}.level.master .bar::after,\n  .level.expert .bar::after,\n  .level.native.speaker .bar::after {background:var(--color-bar-master);width:10em;}'
+};
 function Skills($$renderer, $$props) {
+  $$renderer.global.css.add($$css2);
   $$renderer.component(($$renderer2) => {
     let { skills = [] } = $$props;
     if (skills?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.skills"))}</h2></header> <section id="skills"><!--[-->`);
+      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.skills"))}</h2></header> <section id="skills" class="svelte-18p2gu6"><!--[-->`);
       const each_array = ensure_array_like(skills);
       for (let $$index_1 = 0, $$length = each_array.length; $$index_1 < $$length; $$index_1++) {
         let skill = each_array[$$index_1];
@@ -6294,12 +6304,17 @@ function Publications($$renderer, $$props) {
 }
 
 // .build/components/Languages.js
+var $$css3 = {
+  hash: "svelte-2dygc7",
+  code: "#languages.svelte-2dygc7 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#languages.svelte-2dygc7 .item {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}"
+};
 function Languages($$renderer, $$props) {
+  $$renderer.global.css.add($$css3);
   $$renderer.component(($$renderer2) => {
     let { languages = [] } = $$props;
     if (languages?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.languages"))} <span class="item-count">(${escape_html(languages.length)})</span></h2></header> <section id="languages"><!--[-->`);
+      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.languages"))} <span class="item-count">(${escape_html(languages.length)})</span></h2></header> <section id="languages" class="svelte-2dygc7"><!--[-->`);
       const each_array = ensure_array_like(languages);
       for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
         let lang = each_array[$$index];
@@ -6336,12 +6351,17 @@ function Languages($$renderer, $$props) {
 }
 
 // .build/components/Interests.js
+var $$css4 = {
+  hash: "svelte-1bnc9h3",
+  code: "#interests.svelte-1bnc9h3 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#interests.svelte-1bnc9h3 .item {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}"
+};
 function Interests($$renderer, $$props) {
+  $$renderer.global.css.add($$css4);
   $$renderer.component(($$renderer2) => {
     let { interests = [] } = $$props;
     if (interests?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.interests"))} <span class="item-count">(${escape_html(interests.length)})</span></h2></header> <section id="interests"><!--[-->`);
+      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.interests"))} <span class="item-count">(${escape_html(interests.length)})</span></h2></header> <section id="interests" class="svelte-1bnc9h3"><!--[-->`);
       const each_array = ensure_array_like(interests);
       for (let $$index_1 = 0, $$length = each_array.length; $$index_1 < $$length; $$index_1++) {
         let interest = each_array[$$index_1];
@@ -6383,12 +6403,17 @@ function Interests($$renderer, $$props) {
 }
 
 // .build/components/References.js
+var $$css5 = {
+  hash: "svelte-1y7ope6",
+  code: "#references.svelte-1y7ope6 .item {padding-left:0.5em;margin-bottom:1em;border-left:5px solid var(--color-reference-border);}"
+};
 function References($$renderer, $$props) {
+  $$renderer.global.css.add($$css5);
   $$renderer.component(($$renderer2) => {
     let { references = [] } = $$props;
     if (references?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.references"))} <span class="item-count">(${escape_html(references.length)})</span></h2></header> <section id="references"><!--[-->`);
+      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.references"))} <span class="item-count">(${escape_html(references.length)})</span></h2></header> <section id="references" class="svelte-1y7ope6"><!--[-->`);
       const each_array = ensure_array_like(references);
       for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
         let ref = each_array[$$index];
@@ -6417,10 +6442,15 @@ function References($$renderer, $$props) {
 }
 
 // .build/components/Resume.js
+var $$css6 = {
+  hash: "svelte-rssu9l",
+  code: '\n  /* Main container */#resume.svelte-rssu9l {padding:1.5rem;}\n\n  /* Every section wrapper */.section {margin-bottom:1rem;}section .location {margin-right:0.5em;color:var(--color-text-secondary);font-weight:700;}.section.summary header {margin-top:1rem;}.main-summary {background:var(--color-background-alt);padding:1.2em 1em;}.main-summary p {margin:0;}.section-title {display:inline-block;background:var(--color-section-title-bg);padding:0 1em 0.3em 0;color:var(--color-accent);text-transform:uppercase;font-weight:600;border:none;font-size:0.9rem;}.section > header {position:relative;}.section > header::after {position:absolute;left:0;top:0.7em;height:1px;background:var(--color-border);content:"";width:100%;z-index:-100;display:block;}.section.main-summary > section {margin:0;}.section > section > header {font-size:1.38rem;position:relative;margin-top:0.7em;}.section > section > header:first-of-type {margin:0;}.section > section > header .space-left {position:absolute;left:-1.56rem;top:5px;color:#aaa;line-height:1;opacity:0;}.section > section > section {margin-bottom:1rem;}.item {overflow:hidden;}.keywords,\n  .courses {margin:0.5em 0;}.keywords li,\n  .courses li {display:inline-block;margin:2px 2px 2px 0;padding:4px 5px 5px;font-size:0.9rem;line-height:1;color:var(--color-keyword-text);background-color:var(--color-keyword-bg);border:0 solid var(--color-keyword-border);white-space:nowrap;}.keywords li:hover,\n  .courses li:hover {background:var(--color-keyword-bg);}.highlights > li > p {margin-bottom:0.5em;}.clear::after {content:"";display:table;clear:both;}.display {display:block;opacity:1 !important;}\n\n  /* Timeline shared styles */.position,\n  .company,\n  .organization,\n  .institution,\n  .date,\n  .area,\n  .studyType,\n  .title,\n  .awarder {display:inline;}.position,\n  .studyType,\n  .area,\n  .title,\n  .language,\n  .name {font-weight:600;}.company::before,\n  .institution::before,\n  .organization::before,\n  .awarder::before {content:"at ";}.company,\n  .institution,\n  .organization,\n  .awarder {color:var(--color-text-secondary);font-weight:400;}.section header .date {display:block;font-size:1rem;padding:0.1em 0;color:var(--color-text-secondary);font-weight:400;}.gpa {clear:both;padding-bottom:0.5em;}'
+};
 function Resume($$renderer, $$props) {
+  $$renderer.global.css.add($$css6);
   $$renderer.component(($$renderer2) => {
     let { resume, language: language2 = "en-gb" } = $$props;
-    $$renderer2.push(`<a class="skip-to-content" href="#resume">Skip to content</a> <main id="resume">`);
+    $$renderer2.push(`<a class="skip-to-content" href="#resume">Skip to content</a> <main id="resume" class="svelte-rssu9l">`);
     Basics($$renderer2, { basics: resume.basics });
     $$renderer2.push(`<!----> `);
     Skills($$renderer2, { skills: resume.skills });
@@ -6492,12 +6522,13 @@ function render2(resume, options) {
   if (options && options.language) {
     changeLanguage(options.language);
   }
-  const stylePath = (0, import_path.join)(__dirname, "..", "style.css");
+  const stylePath = (0, import_path.join)(__dirname, "..", "styles", "global.css");
   const css = (0, import_fs.readFileSync)(stylePath, "utf-8");
   const result = render(Resume, {
     props: { resume, language }
   });
   let body = result.body;
+  let head2 = result.head || "";
   body = body.replace(/<!--\[-->/g, "").replace(/<!--\]-->/g, "");
   const name = resume.basics?.name || "";
   const themeOverrides = buildThemeOverrides(resume.meta);
@@ -6511,7 +6542,8 @@ function render2(resume, options) {
     <link rel="stylesheet" href="./override.css">
     <style>
       ${css}
-    </style>${themeOverrides ? "\n    <style>\n      " + themeOverrides + "\n    </style>" : ""}
+    </style>
+    ${head2}${themeOverrides ? "\n    <style>\n      " + themeOverrides + "\n    </style>" : ""}
   </head>
   <body>
     ${body}

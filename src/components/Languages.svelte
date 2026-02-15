@@ -32,3 +32,17 @@
     </section>
   </section>
 {/if}
+
+<style>
+  #languages {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+
+  #languages :global(.item) {
+    width: 15em;
+    padding: 0 0.5em 0.5em 0;
+    border-bottom: none;
+  }
+</style>

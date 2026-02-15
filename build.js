@@ -10,8 +10,6 @@
 const { compile } = require('svelte/compiler');
 const ts = require('typescript');
 const esbuild = require('esbuild');
-const postcss = require('postcss');
-const postcssImport = require('postcss-import');
 const fs = require('fs');
 const path = require('path');
 
@@ -90,7 +88,7 @@ function build() {
       generate: 'server',
       name: path.basename(file, '.svelte'),
       filename: file,
-      css: 'external',
+      css: 'injected',
     });
 
     const relPath = path.relative(SRC_DIR, file).replace('.svelte', '.js');
@@ -170,7 +168,7 @@ export function render(resume, options) {
   if (options && options.language) {
     changeLanguage(options.language);
   }
-  const stylePath = join(__dirname, '..', 'style.css');
+  const stylePath = join(__dirname, '..', 'styles', 'global.css');
   const css = readFileSync(stylePath, 'utf-8');
   
   const result = svelteRender(Resume, {
@@ -178,6 +176,7 @@ export function render(resume, options) {
   });
 
   let body = result.body;
+  let head = result.head || '';
   // Remove Svelte SSR comment markers
   body = body.replace(/<!--\\[-->/g, '').replace(/<!--\\]-->/g, '');
 
@@ -194,7 +193,8 @@ export function render(resume, options) {
     <link rel="stylesheet" href="./override.css">
     <style>
       \${css}
-    </style>\${themeOverrides ? '\\n    <style>\\n      ' + themeOverrides + '\\n    </style>' : ''}
+    </style>
+    \${head}\${themeOverrides ? '\\n    <style>\\n      ' + themeOverrides + '\\n    </style>' : ''}
   </head>
   <body>
     \${body}
@@ -236,14 +236,11 @@ export const pdfRenderOptions = {
   const stat = fs.statSync(path.join(DIST_DIR, 'index.js'));
   console.log(`Built dist/index.js (${(stat.size / 1024).toFixed(1)}KB)`);
 
-  // Concatenate CSS from styles/ into root style.css
-  const cssEntry = path.join(__dirname, 'styles', 'index.css');
-  if (fs.existsSync(cssEntry)) {
-    const cssSource = fs.readFileSync(cssEntry, 'utf-8');
-    return postcss([postcssImport]).process(cssSource, { from: cssEntry }).then(result => {
-      fs.writeFileSync(path.join(__dirname, 'style.css'), result.css);
-      console.log('Built style.css from styles/');
-    });
+  // Copy global.css to root style.css (kept for backward compat)
+  const globalCssPath = path.join(__dirname, 'styles', 'global.css');
+  if (fs.existsSync(globalCssPath)) {
+    fs.copyFileSync(globalCssPath, path.join(__dirname, 'style.css'));
+    console.log('Copied global.css to style.css');
   }
 }
 

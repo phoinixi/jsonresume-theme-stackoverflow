@@ -37,3 +37,69 @@
     </section>
   </section>
 {/if}
+
+<style>
+  #skills {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+
+  #skills :global(.item) {
+    width: 16em;
+    padding: 0 0.5em 0.5em 0;
+    border-bottom: none;
+  }
+
+  #skills :global(.item .keywords) {
+    width: 15em;
+  }
+
+  :global(.level) {
+    margin-bottom: 0.5em;
+  }
+
+  :global(.level em) {
+    padding-left: 0.2em;
+  }
+
+  :global(.level .bar) {
+    border: 1px solid var(--color-border-light);
+    display: block;
+    width: 10em;
+    height: 5px;
+    position: relative;
+  }
+
+  :global(.level .bar::after) {
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 0;
+    background: black;
+    height: 5px;
+  }
+
+  :global(.level.beginner .bar::after) {
+    background: var(--color-bar-beginner);
+    width: 2.5em;
+  }
+
+  :global(.level.intermediate .bar::after) {
+    background: var(--color-bar-intermediate);
+    width: 5em;
+  }
+
+  :global(.level.advanced .bar::after),
+  :global(.level.fluent .bar::after) {
+    background: var(--color-bar-advanced);
+    width: 7.5em;
+  }
+
+  :global(.level.master .bar::after),
+  :global(.level.expert .bar::after),
+  :global(.level.native.speaker .bar::after) {
+    background: var(--color-bar-master);
+    width: 10em;
+  }
+</style>
