@@ -1,8 +1,21 @@
 {
   "name": "jsonresume-theme-stackoverflow",
   "version": "2.1.0",
-  "description": "Stack Overflow theme for JSON Resume",
+  "description": "A Stack Overflow inspired theme for JSON Resume — clean, professional, and developer-friendly",
+  "keywords": [
+    "jsonresume",
+    "theme",
+    "resume",
+    "cv",
+    "stackoverflow",
+    "handlebars",
+    "career",
+    "portfolio"
+  ],
   "author": "Francesco Esposito",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "test": "jest --coverage --verbose",
     "updateTestSnapshots": "jest --updateSnapshot"
