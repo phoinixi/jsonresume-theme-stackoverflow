@@ -1,14 +1,13 @@
 <script>
-  import { normalizeLevel, t } from '../utils/helpers.ts';
+  import { t } from '../utils/helpers.ts';
+  import SectionHeader from './SectionHeader.svelte';
+  import LevelBar from './LevelBar.svelte';
 
   let { languages = [] } = $props();
 </script>
 
 {#if languages?.length}
-  <section class="section">
-    <header>
-      <h2 class="section-title">{t('resume.languages')} <span class="item-count">({languages.length})</span></h2>
-    </header>
+  <SectionHeader title={t('resume.languages')} count={languages.length}>
     <section id="languages">
       {#each languages as lang}
         <div class="display">
@@ -17,20 +16,13 @@
           {/if}
           <div class="item">
             {#if lang.fluency}
-              <div class="level fluency {normalizeLevel(lang.fluency)}">
-                {#if lang.fluencyDisplay}
-                  <em>{lang.fluencyDisplay}</em>
-                {:else}
-                  <em>{lang.fluency}</em>
-                {/if}
-                <div class="bar"></div>
-              </div>
+              <LevelBar level={lang.fluency} displayText={lang.fluencyDisplay} />
             {/if}
           </div>
         </div>
       {/each}
     </section>
-  </section>
+  </SectionHeader>
 {/if}
 
 <style>

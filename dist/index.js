@@ -5600,59 +5600,110 @@ function Basics($$renderer, $$props) {
   });
 }
 
-// .build/components/Skills.js
+// .build/components/SectionHeader.js
 var $$css2 = {
+  hash: "svelte-1lncexq",
+  code: '.section.svelte-1lncexq {margin-bottom:1rem;}.section.svelte-1lncexq > header {position:relative;}.section.svelte-1lncexq > header::after {position:absolute;left:0;top:0.7em;height:1px;background:var(--color-border);content:"";width:100%;z-index:-100;display:block;}.section.svelte-1lncexq .section-title {display:inline-block;background:var(--color-section-title-bg);padding:0 1em 0.3em 0;color:var(--color-accent);text-transform:uppercase;font-weight:600;border:none;font-size:0.9rem;}.section.svelte-1lncexq > section > header {font-size:1.38rem;position:relative;margin-top:0.7em;}.section.svelte-1lncexq > section > header:first-of-type {margin:0;}.section.svelte-1lncexq > section > header .space-left {position:absolute;left:-1.56rem;top:5px;color:#aaa;line-height:1;opacity:0;}.section.svelte-1lncexq > section > section {margin-bottom:1rem;}'
+};
+function SectionHeader($$renderer, $$props) {
+  $$renderer.global.css.add($$css2);
+  let { title, count = void 0, children } = $$props;
+  $$renderer.push(`<section class="section svelte-1lncexq"><header><h2 class="section-title">${escape_html(title)}`);
+  if (count !== void 0) {
+    $$renderer.push("<!--[-->");
+    $$renderer.push(`<span class="item-count">(${escape_html(count)})</span>`);
+  } else {
+    $$renderer.push("<!--[!-->");
+  }
+  $$renderer.push(`<!--]--></h2></header> `);
+  children($$renderer);
+  $$renderer.push(`<!----></section>`);
+}
+
+// .build/components/LevelBar.js
+var $$css3 = {
+  hash: "svelte-10tjtrd",
+  code: '.level.svelte-10tjtrd {margin-bottom:0.5em;}.level.svelte-10tjtrd em:where(.svelte-10tjtrd) {padding-left:0.2em;}.level.svelte-10tjtrd .bar:where(.svelte-10tjtrd) {border:1px solid var(--color-border-light);display:block;width:10em;height:5px;position:relative;}.level.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {position:absolute;content:" ";top:0;left:0;background:black;height:5px;}.level.beginner.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-beginner);width:2.5em;}.level.intermediate.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-intermediate);width:5em;}.level.advanced.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after,\n  .level.fluent.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-advanced);width:7.5em;}.level.master.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after,\n  .level.expert.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after,\n  .level.native.speaker.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-master);width:10em;}'
+};
+function LevelBar($$renderer, $$props) {
+  $$renderer.global.css.add($$css3);
+  $$renderer.component(($$renderer2) => {
+    let { level, displayText = void 0, name = "" } = $$props;
+    const normalized = normalizeLevel(level);
+    const valueNow = normalized === "beginner" ? 25 : normalized === "intermediate" ? 50 : normalized === "advanced" || normalized === "fluent" ? 75 : 100;
+    $$renderer2.push(`<div${attr_class(`level ${stringify(normalized)}`, "svelte-10tjtrd")} role="meter"${attr("aria-label", `${stringify(name ? name + " level: " : "")}${stringify(displayText || level)}`)} aria-valuemin="0" aria-valuemax="100"${attr("aria-valuenow", valueNow)}><em class="svelte-10tjtrd">${escape_html(displayText || level)}</em> <div class="bar svelte-10tjtrd" aria-hidden="true"></div></div>`);
+  });
+}
+
+// .build/components/KeywordList.js
+var $$css4 = {
+  hash: "svelte-1615qzb",
+  code: "ul.svelte-1615qzb {margin:0.5em 0;}li.svelte-1615qzb {display:inline-block;margin:2px 2px 2px 0;padding:4px 5px 5px;font-size:0.9rem;line-height:1;color:var(--color-keyword-text);background-color:var(--color-keyword-bg);border:0 solid var(--color-keyword-border);white-space:nowrap;}li.svelte-1615qzb:hover {background:var(--color-keyword-bg);}"
+};
+function KeywordList($$renderer, $$props) {
+  $$renderer.global.css.add($$css4);
+  $$renderer.component(($$renderer2) => {
+    let { keywords = [], cssClass = "keywords" } = $$props;
+    if (keywords?.length) {
+      $$renderer2.push("<!--[-->");
+      $$renderer2.push(`<ul${attr_class(clsx2(cssClass), "svelte-1615qzb")}><!--[-->`);
+      const each_array = ensure_array_like(keywords);
+      for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+        let keyword = each_array[$$index];
+        $$renderer2.push(`<li class="svelte-1615qzb">${escape_html(keyword)}</li>`);
+      }
+      $$renderer2.push(`<!--]--></ul>`);
+    } else {
+      $$renderer2.push("<!--[!-->");
+    }
+    $$renderer2.push(`<!--]-->`);
+  });
+}
+
+// .build/components/Skills.js
+var $$css5 = {
   hash: "svelte-18p2gu6",
-  code: '#skills.svelte-18p2gu6 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#skills.svelte-18p2gu6 .item {width:16em;padding:0 0.5em 0.5em 0;border-bottom:none;}#skills.svelte-18p2gu6 .item .keywords {width:15em;}.level {margin-bottom:0.5em;}.level em {padding-left:0.2em;}.level .bar {border:1px solid var(--color-border-light);display:block;width:10em;height:5px;position:relative;}.level .bar::after {position:absolute;content:" ";top:0;left:0;background:black;height:5px;}.level.beginner .bar::after {background:var(--color-bar-beginner);width:2.5em;}.level.intermediate .bar::after {background:var(--color-bar-intermediate);width:5em;}.level.advanced .bar::after,\n  .level.fluent .bar::after {background:var(--color-bar-advanced);width:7.5em;}.level.master .bar::after,\n  .level.expert .bar::after,\n  .level.native.speaker .bar::after {background:var(--color-bar-master);width:10em;}'
+  code: "#skills.svelte-18p2gu6 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#skills.svelte-18p2gu6 .item {width:16em;padding:0 0.5em 0.5em 0;border-bottom:none;}#skills.svelte-18p2gu6 .item .keywords {width:15em;}"
 };
 function Skills($$renderer, $$props) {
-  $$renderer.global.css.add($$css2);
+  $$renderer.global.css.add($$css5);
   $$renderer.component(($$renderer2) => {
     let { skills = [] } = $$props;
     if (skills?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.skills"))}</h2></header> <section id="skills" class="svelte-18p2gu6"><!--[-->`);
-      const each_array = ensure_array_like(skills);
-      for (let $$index_1 = 0, $$length = each_array.length; $$index_1 < $$length; $$index_1++) {
-        let skill = each_array[$$index_1];
-        $$renderer2.push(`<div class="item">`);
-        if (skill.name) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<h3 class="name">${escape_html(skill.name)}</h3>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (skill.level) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div${attr_class(`level ${stringify(normalizeLevel(skill.level))}`)} role="meter"${attr("aria-label", `${stringify(skill.name)} skill level: ${stringify(skill.levelDisplay || skill.level)}`)} aria-valuemin="0" aria-valuemax="100"${attr("aria-valuenow", normalizeLevel(skill.level) === "beginner" ? 25 : normalizeLevel(skill.level) === "intermediate" ? 50 : normalizeLevel(skill.level) === "advanced" || normalizeLevel(skill.level) === "fluent" ? 75 : 100)}>`);
-          if (skill.levelDisplay) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<em>${escape_html(skill.levelDisplay)}</em>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-            $$renderer2.push(`<em>${escape_html(skill.level)}</em>`);
+      SectionHeader($$renderer2, {
+        title: t("resume.skills"),
+        children: ($$renderer3) => {
+          $$renderer3.push(`<section id="skills" class="svelte-18p2gu6"><!--[-->`);
+          const each_array = ensure_array_like(skills);
+          for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+            let skill = each_array[$$index];
+            $$renderer3.push(`<div class="item">`);
+            if (skill.name) {
+              $$renderer3.push("<!--[-->");
+              $$renderer3.push(`<h3 class="name">${escape_html(skill.name)}</h3>`);
+            } else {
+              $$renderer3.push("<!--[!-->");
+            }
+            $$renderer3.push(`<!--]--> `);
+            if (skill.level) {
+              $$renderer3.push("<!--[-->");
+              LevelBar($$renderer3, {
+                level: skill.level,
+                displayText: skill.levelDisplay,
+                name: skill.name
+              });
+            } else {
+              $$renderer3.push("<!--[!-->");
+            }
+            $$renderer3.push(`<!--]--> `);
+            KeywordList($$renderer3, { keywords: skill.keywords });
+            $$renderer3.push(`<!----></div>`);
           }
-          $$renderer2.push(`<!--]--> <div class="bar" aria-hidden="true"></div></div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (skill.keywords?.length) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<ul class="keywords"><!--[-->`);
-          const each_array_1 = ensure_array_like(skill.keywords);
-          for (let $$index = 0, $$length2 = each_array_1.length; $$index < $$length2; $$index++) {
-            let keyword = each_array_1[$$index];
-            $$renderer2.push(`<li>${escape_html(keyword)}</li>`);
-          }
-          $$renderer2.push(`<!--]--></ul>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div>`);
-      }
-      $$renderer2.push(`<!--]--></section></section>`);
+          $$renderer3.push(`<!--]--></section>`);
+        },
+        $$slots: { default: true }
+      });
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -5692,86 +5743,162 @@ function DateRange($$renderer, $$props) {
   });
 }
 
+// .build/components/TimelineItem.js
+var $$css6 = {
+  hash: "svelte-g3qng",
+  code: '.timeline-item.svelte-g3qng .position,\n  .timeline-item.svelte-g3qng .company,\n  .timeline-item.svelte-g3qng .organization,\n  .timeline-item.svelte-g3qng .institution,\n  .timeline-item.svelte-g3qng .date,\n  .timeline-item.svelte-g3qng .area,\n  .timeline-item.svelte-g3qng .studyType,\n  .timeline-item.svelte-g3qng .title,\n  .timeline-item.svelte-g3qng .awarder {display:inline;}.timeline-item.svelte-g3qng .position,\n  .timeline-item.svelte-g3qng .studyType,\n  .timeline-item.svelte-g3qng .area,\n  .timeline-item.svelte-g3qng .title {font-weight:600;}.timeline-item.svelte-g3qng .company::before,\n  .timeline-item.svelte-g3qng .institution::before,\n  .timeline-item.svelte-g3qng .organization::before,\n  .timeline-item.svelte-g3qng .awarder::before {content:"at ";}.timeline-item.svelte-g3qng .company,\n  .timeline-item.svelte-g3qng .institution,\n  .timeline-item.svelte-g3qng .organization,\n  .timeline-item.svelte-g3qng .awarder {color:var(--color-text-secondary);font-weight:400;}.timeline-item.svelte-g3qng header .date {display:block;font-size:1rem;padding:0.1em 0;color:var(--color-text-secondary);font-weight:400;}.timeline-item.svelte-g3qng .item {overflow:hidden;}.timeline-item.svelte-g3qng .highlights > li > p {margin-bottom:0.5em;}.timeline-item.svelte-g3qng .clear::after {content:"";display:table;clear:both;}.timeline-item.svelte-g3qng .location {margin-right:0.5em;color:var(--color-text-secondary);font-weight:700;}'
+};
+function TimelineItem($$renderer, $$props) {
+  $$renderer.global.css.add($$css6);
+  $$renderer.component(($$renderer2) => {
+    let {
+      title = "",
+      subtitle = "",
+      subtitleClass = "company",
+      url = "",
+      startDate = void 0,
+      endDate = void 0,
+      singleDate = void 0,
+      language: language2 = "en-gb",
+      summary = "",
+      highlights = [],
+      keywords = [],
+      location = void 0,
+      children = void 0
+    } = $$props;
+    $$renderer2.push(`<section class="timeline-item svelte-g3qng"><header class="clear">`);
+    if (startDate) {
+      $$renderer2.push("<!--[-->");
+      DateRange($$renderer2, { startDate, endDate, language: language2 });
+    } else if (singleDate) {
+      $$renderer2.push("<!--[1-->");
+      $$renderer2.push(`<div class="date">${escape_html(singleDate)}</div>`);
+    } else {
+      $$renderer2.push("<!--[!-->");
+    }
+    $$renderer2.push(`<!--]--> <div class="header-left">`);
+    if (title) {
+      $$renderer2.push("<!--[-->");
+      $$renderer2.push(`<div class="position">${escape_html(title)}</div>`);
+    } else {
+      $$renderer2.push("<!--[!-->");
+    }
+    $$renderer2.push(`<!--]--> `);
+    if (subtitle) {
+      $$renderer2.push("<!--[-->");
+      $$renderer2.push(`<div${attr_class(clsx2(subtitleClass), "svelte-g3qng")}>`);
+      if (url) {
+        $$renderer2.push("<!--[-->");
+        $$renderer2.push(`<a target="_blank"${attr("href", url)}>${escape_html(subtitle)}</a>`);
+      } else {
+        $$renderer2.push("<!--[!-->");
+        $$renderer2.push(`${escape_html(subtitle)}`);
+      }
+      $$renderer2.push(`<!--]--></div>`);
+    } else {
+      $$renderer2.push("<!--[!-->");
+    }
+    $$renderer2.push(`<!--]--></div></header> `);
+    if (location) {
+      $$renderer2.push("<!--[-->");
+      $$renderer2.push(`<span class="location"><span class="fa-solid fa-location-dot"></span> `);
+      if (typeof location === "string") {
+        $$renderer2.push("<!--[-->");
+        $$renderer2.push(`${escape_html(location)}`);
+      } else {
+        $$renderer2.push("<!--[!-->");
+        if (location.city) {
+          $$renderer2.push("<!--[-->");
+          $$renderer2.push(`<span class="city">${escape_html(location.city)}</span>`);
+        } else {
+          $$renderer2.push("<!--[!-->");
+        }
+        $$renderer2.push(`<!--]--> `);
+        if (location.countryCode) {
+          $$renderer2.push("<!--[-->");
+          $$renderer2.push(`<span class="countryCode">(${escape_html(location.countryCode)})</span>`);
+        } else {
+          $$renderer2.push("<!--[!-->");
+        }
+        $$renderer2.push(`<!--]--> `);
+        if (location.region) {
+          $$renderer2.push("<!--[-->");
+          $$renderer2.push(`<span class="region">${escape_html(location.region)}</span>`);
+        } else {
+          $$renderer2.push("<!--[!-->");
+        }
+        $$renderer2.push(`<!--]-->`);
+      }
+      $$renderer2.push(`<!--]--></span>`);
+    } else {
+      $$renderer2.push("<!--[!-->");
+    }
+    $$renderer2.push(`<!--]--> `);
+    KeywordList($$renderer2, { keywords });
+    $$renderer2.push(`<!----> `);
+    if (children) {
+      $$renderer2.push("<!--[-->");
+      children($$renderer2);
+      $$renderer2.push(`<!---->`);
+    } else {
+      $$renderer2.push("<!--[!-->");
+    }
+    $$renderer2.push(`<!--]--> <div class="item">`);
+    if (summary) {
+      $$renderer2.push("<!--[-->");
+      $$renderer2.push(`<div class="summary">${html2(paragraphSplit(summary))}</div>`);
+    } else {
+      $$renderer2.push("<!--[!-->");
+    }
+    $$renderer2.push(`<!--]--> `);
+    if (highlights?.length) {
+      $$renderer2.push("<!--[-->");
+      $$renderer2.push(`<ul class="highlights"><!--[-->`);
+      const each_array = ensure_array_like(highlights);
+      for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+        let highlight = each_array[$$index];
+        $$renderer2.push(`<li>${html2(paragraphSplit(highlight))}</li>`);
+      }
+      $$renderer2.push(`<!--]--></ul>`);
+    } else {
+      $$renderer2.push("<!--[!-->");
+    }
+    $$renderer2.push(`<!--]--></div></section>`);
+  });
+}
+
 // .build/components/Work.js
 function Work($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let { work = [], language: language2 = "en-gb" } = $$props;
     if (work?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.workExperience"))} <span class="item-count">(${escape_html(work.length)})</span></h2></header> <section id="work"><!--[-->`);
-      const each_array = ensure_array_like(work);
-      for (let index2 = 0, $$length = each_array.length; index2 < $$length; index2++) {
-        let job = each_array[index2];
-        $$renderer2.push(`<section class="work-item">`);
-        if (job.summary) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<label${attr("for", `work-item-${stringify(index2)}`)}></label>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> <header class="clear">`);
-        DateRange($$renderer2, { startDate: job.startDate, endDate: job.endDate, language: language2 });
-        $$renderer2.push(`<!----> `);
-        if (job.position) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="position">${escape_html(job.position)}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (job.url) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="company"><a target="_blank"${attr("href", job.url)}>${escape_html(job.name)}</a></span>`);
-        } else if (job.website) {
-          $$renderer2.push("<!--[1-->");
-          $$renderer2.push(`<span class="company"><a target="_blank"${attr("href", job.website)}>${escape_html(job.name)}</a></span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-          $$renderer2.push(`<div class="company">${escape_html(job.name)}</div>`);
-        }
-        $$renderer2.push(`<!--]--></header> `);
-        if (job.location) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="location"><span class="fa-solid fa-location-dot"></span> ${escape_html(job.location)}</span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (job.keywords?.length) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<ul class="keywords"><!--[-->`);
-          const each_array_1 = ensure_array_like(job.keywords);
-          for (let $$index = 0, $$length2 = each_array_1.length; $$index < $$length2; $$index++) {
-            let keyword = each_array_1[$$index];
-            $$renderer2.push(`<li>${escape_html(keyword)}</li>`);
+      SectionHeader($$renderer2, {
+        title: t("resume.workExperience"),
+        count: work.length,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<section id="work"><!--[-->`);
+          const each_array = ensure_array_like(work);
+          for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+            let job = each_array[$$index];
+            TimelineItem($$renderer3, {
+              title: job.position,
+              subtitle: job.name,
+              subtitleClass: "company",
+              url: job.url || job.website,
+              startDate: job.startDate,
+              endDate: job.endDate,
+              language: language2,
+              summary: job.summary,
+              highlights: job.highlights,
+              keywords: job.keywords,
+              location: job.location
+            });
           }
-          $$renderer2.push(`<!--]--></ul>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> <div class="item" id="work-item">`);
-        if (job.summary) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="summary">${html2(paragraphSplit(job.summary))}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (job.highlights?.length) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<ul class="highlights"><!--[-->`);
-          const each_array_2 = ensure_array_like(job.highlights);
-          for (let $$index_1 = 0, $$length2 = each_array_2.length; $$index_1 < $$length2; $$index_1++) {
-            let highlight = each_array_2[$$index_1];
-            $$renderer2.push(`<li>${html2(paragraphSplit(highlight))}</li>`);
-          }
-          $$renderer2.push(`<!--]--></ul>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div></section>`);
-      }
-      $$renderer2.push(`<!--]--></section></section>`);
+          $$renderer3.push(`<!--]--></section>`);
+        },
+        $$slots: { default: true }
+      });
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -5785,108 +5912,39 @@ function Projects($$renderer, $$props) {
     let { projects = [], language: language2 = "en-gb" } = $$props;
     if (projects?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.projects"))} <span class="item-count">(${escape_html(projects.length)})</span></h2></header> <section id="projects"><!--[-->`);
-      const each_array = ensure_array_like(projects);
-      for (let index2 = 0, $$length = each_array.length; index2 < $$length; index2++) {
-        let project = each_array[index2];
-        $$renderer2.push(`<section class="project-item">`);
-        if (project.summary) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<label${attr("for", `project-item-${stringify(index2)}`)}></label>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (project.name) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<header class="clear">`);
-          DateRange($$renderer2, {
-            startDate: project.startDate,
-            endDate: project.endDate,
-            language: language2
-          });
-          $$renderer2.push(`<!----> `);
-          if (project.name) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<div class="position">${escape_html(project.name)}</div>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
+      SectionHeader($$renderer2, {
+        title: t("resume.projects"),
+        count: projects.length,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<section id="projects"><!--[-->`);
+          const each_array = ensure_array_like(projects);
+          for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+            let project = each_array[$$index];
+            TimelineItem($$renderer3, {
+              title: project.name,
+              startDate: project.startDate,
+              endDate: project.endDate,
+              language: language2,
+              summary: project.description,
+              highlights: project.highlights,
+              keywords: project.keywords,
+              location: project.location,
+              children: ($$renderer4) => {
+                if (project.url) {
+                  $$renderer4.push("<!--[-->");
+                  $$renderer4.push(`<span class="website"><span class="fa-solid fa-up-right-from-square"></span> <a target="_blank"${attr("href", project.url)}>${escape_html(project.url)}</a></span>`);
+                } else {
+                  $$renderer4.push("<!--[!-->");
+                }
+                $$renderer4.push(`<!--]-->`);
+              },
+              $$slots: { default: true }
+            });
           }
-          $$renderer2.push(`<!--]--></header>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (project.location) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="location"><span class="fa-solid fa-location-dot"></span> `);
-          if (project.location.city) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<span class="city">${escape_html(project.location.city)},</span>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-          }
-          $$renderer2.push(`<!--]--> `);
-          if (project.location.countryCode) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<span class="countryCode">(${escape_html(project.location.countryCode)})</span>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-          }
-          $$renderer2.push(`<!--]--> `);
-          if (project.location.region) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<span class="region">${escape_html(project.location.region)}</span>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-          }
-          $$renderer2.push(`<!--]--></span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (project.url) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="website"><span class="fa-solid fa-up-right-from-square"></span> <a target="_blank"${attr("href", project.url)}>${escape_html(project.url)}</a></span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (project.keywords?.length) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<ul class="keywords"><!--[-->`);
-          const each_array_1 = ensure_array_like(project.keywords);
-          for (let $$index = 0, $$length2 = each_array_1.length; $$index < $$length2; $$index++) {
-            let keyword = each_array_1[$$index];
-            $$renderer2.push(`<li>${escape_html(keyword)}</li>`);
-          }
-          $$renderer2.push(`<!--]--></ul>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> <div class="item">`);
-        if (project.description) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="summary">${html2(paragraphSplit(project.description))}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (project.highlights?.length) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<ul class="highlights"><!--[-->`);
-          const each_array_2 = ensure_array_like(project.highlights);
-          for (let $$index_1 = 0, $$length2 = each_array_2.length; $$index_1 < $$length2; $$index_1++) {
-            let highlight = each_array_2[$$index_1];
-            $$renderer2.push(`<li>${html2(paragraphSplit(highlight))}</li>`);
-          }
-          $$renderer2.push(`<!--]--></ul>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div></section>`);
-      }
-      $$renderer2.push(`<!--]--></section></section>`);
+          $$renderer3.push(`<!--]--></section>`);
+        },
+        $$slots: { default: true }
+      });
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -5900,107 +5958,32 @@ function Volunteer($$renderer, $$props) {
     let { volunteer = [], language: language2 = "en-gb" } = $$props;
     if (volunteer?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.volunteer"))} <span class="item-count">(${escape_html(volunteer.length)})</span></h2></header> <section id="volunteer"><!--[-->`);
-      const each_array = ensure_array_like(volunteer);
-      for (let index2 = 0, $$length = each_array.length; index2 < $$length; index2++) {
-        let vol = each_array[index2];
-        $$renderer2.push(`<section class="volunteer-item">`);
-        if (vol.organization) {
-          $$renderer2.push("<!--[-->");
-          if (vol.summary) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<label${attr("for", `volunteer-item-${stringify(index2)}`)}></label>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
+      SectionHeader($$renderer2, {
+        title: t("resume.volunteer"),
+        count: volunteer.length,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<section id="volunteer"><!--[-->`);
+          const each_array = ensure_array_like(volunteer);
+          for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+            let vol = each_array[$$index];
+            TimelineItem($$renderer3, {
+              title: vol.position,
+              subtitle: vol.organization,
+              subtitleClass: "organization",
+              url: vol.url || vol.website,
+              startDate: vol.startDate,
+              endDate: vol.endDate,
+              language: language2,
+              summary: vol.summary,
+              highlights: vol.highlights,
+              keywords: vol.keywords,
+              location: vol.location
+            });
           }
-          $$renderer2.push(`<!--]--> <header class="clear">`);
-          DateRange($$renderer2, { startDate: vol.startDate, endDate: vol.endDate, language: language2 });
-          $$renderer2.push(`<!----> <div class="header-left">`);
-          if (vol.position) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<div class="position">${escape_html(vol.position)}</div>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-          }
-          $$renderer2.push(`<!--]--> <div class="organization">`);
-          if (vol.url) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<a target="_blank"${attr("href", vol.url)}>${escape_html(vol.organization)}</a>`);
-          } else if (vol.website) {
-            $$renderer2.push("<!--[1-->");
-            $$renderer2.push(`<a target="_blank"${attr("href", vol.website)}>${escape_html(vol.organization)}</a>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-            $$renderer2.push(`${escape_html(vol.organization)}`);
-          }
-          $$renderer2.push(`<!--]--></div></div></header>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (vol.location) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="location"><span class="fa-solid fa-location-dot"></span> `);
-          if (vol.location.city) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<span class="city">${escape_html(vol.location.city)},</span>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-          }
-          $$renderer2.push(`<!--]--> `);
-          if (vol.location.countryCode) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<span class="countryCode">(${escape_html(vol.location.countryCode)})</span>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-          }
-          $$renderer2.push(`<!--]--> `);
-          if (vol.location.region) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<span class="region">${escape_html(vol.location.region)}</span>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-          }
-          $$renderer2.push(`<!--]--></span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (vol.keywords?.length) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<ul class="keywords"><!--[-->`);
-          const each_array_1 = ensure_array_like(vol.keywords);
-          for (let $$index = 0, $$length2 = each_array_1.length; $$index < $$length2; $$index++) {
-            let keyword = each_array_1[$$index];
-            $$renderer2.push(`<li>${escape_html(keyword)}</li>`);
-          }
-          $$renderer2.push(`<!--]--></ul>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> <div class="item">`);
-        if (vol.summary) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="summary">${html2(paragraphSplit(vol.summary))}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (vol.highlights?.length) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<ul class="highlights"><!--[-->`);
-          const each_array_2 = ensure_array_like(vol.highlights);
-          for (let $$index_1 = 0, $$length2 = each_array_2.length; $$index_1 < $$length2; $$index_1++) {
-            let highlight = each_array_2[$$index_1];
-            $$renderer2.push(`<li>${html2(paragraphSplit(highlight))}</li>`);
-          }
-          $$renderer2.push(`<!--]--></ul>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div></section>`);
-      }
-      $$renderer2.push(`<!--]--></section></section>`);
+          $$renderer3.push(`<!--]--></section>`);
+        },
+        $$slots: { default: true }
+      });
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -6009,111 +5992,57 @@ function Volunteer($$renderer, $$props) {
 }
 
 // .build/components/Education.js
+var $$css7 = {
+  hash: "svelte-rbv6q6",
+  code: ".gpa {clear:both;padding-bottom:0.5em;}"
+};
 function Education($$renderer, $$props) {
+  $$renderer.global.css.add($$css7);
   $$renderer.component(($$renderer2) => {
     let { education = [], language: language2 = "en-gb" } = $$props;
     if (education?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.education"))} <span class="item-count">(${escape_html(education.length)})</span></h2></header> <section id="education"><!--[-->`);
-      const each_array = ensure_array_like(education);
-      for (let index2 = 0, $$length = each_array.length; index2 < $$length; index2++) {
-        let edu = each_array[index2];
-        $$renderer2.push(`<section class="education-item">`);
-        if (edu.summary) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<label${attr("for", `education-item-${stringify(index2)}`)}></label>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> <header class="clear">`);
-        DateRange($$renderer2, { startDate: edu.startDate, endDate: edu.endDate, language: language2 });
-        $$renderer2.push(`<!----> <div class="header-left">`);
-        if (edu.studyType) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="studyType">${escape_html(edu.studyType)}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (edu.area) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="area">${escape_html(edu.area)}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (edu.institution) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="institution">`);
-          if (edu.url) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<a target="_blank"${attr("href", edu.url)}>${escape_html(edu.institution)}</a>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-            $$renderer2.push(`${escape_html(edu.institution)}`);
+      SectionHeader($$renderer2, {
+        title: t("resume.education"),
+        count: education.length,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<section id="education"><!--[-->`);
+          const each_array = ensure_array_like(education);
+          for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+            let edu = each_array[$$index];
+            TimelineItem($$renderer3, {
+              title: [edu.studyType, edu.area].filter(Boolean).join(" "),
+              subtitle: edu.institution,
+              subtitleClass: "institution",
+              url: edu.url,
+              startDate: edu.startDate,
+              endDate: edu.endDate,
+              language: language2,
+              summary: edu.summary,
+              location: edu.location,
+              children: ($$renderer4) => {
+                if (edu.courses?.length) {
+                  $$renderer4.push("<!--[-->");
+                  KeywordList($$renderer4, { keywords: edu.courses, cssClass: "courses" });
+                } else {
+                  $$renderer4.push("<!--[!-->");
+                }
+                $$renderer4.push(`<!--]--> `);
+                if (edu.gpa) {
+                  $$renderer4.push("<!--[-->");
+                  $$renderer4.push(`<div class="gpa"><strong>Grade:</strong> <span>${escape_html(edu.gpa)}</span></div>`);
+                } else {
+                  $$renderer4.push("<!--[!-->");
+                }
+                $$renderer4.push(`<!--]-->`);
+              },
+              $$slots: { default: true }
+            });
           }
-          $$renderer2.push(`<!--]--></div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div></header> `);
-        if (edu.location) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="location"><span class="fa-solid fa-location-dot"></span> `);
-          if (edu.location.city) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<span class="city">${escape_html(edu.location.city)}</span>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-          }
-          $$renderer2.push(`<!--]--> `);
-          if (edu.location.countryCode) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<span class="countryCode">(${escape_html(edu.location.countryCode)})</span>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-          }
-          $$renderer2.push(`<!--]--> `);
-          if (edu.location.region) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<span class="region">${escape_html(edu.location.region)}</span>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-          }
-          $$renderer2.push(`<!--]--></span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (edu.courses?.length) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<ul class="courses"><!--[-->`);
-          const each_array_1 = ensure_array_like(edu.courses);
-          for (let $$index = 0, $$length2 = each_array_1.length; $$index < $$length2; $$index++) {
-            let course = each_array_1[$$index];
-            $$renderer2.push(`<li>${escape_html(course)}</li>`);
-          }
-          $$renderer2.push(`<!--]--></ul>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> <div class="item">`);
-        if (edu.gpa) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="gpa"><strong>Grade:</strong> <span>${escape_html(edu.gpa)}</span></div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (edu.summary) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="summary">${html2(paragraphSplit(edu.summary))}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div></section>`);
-      }
-      $$renderer2.push(`<!--]--></section></section>`);
+          $$renderer3.push(`<!--]--></section>`);
+        },
+        $$slots: { default: true }
+      });
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -6128,48 +6057,27 @@ function Awards($$renderer, $$props) {
     const { MY } = getDateHelpers(language2);
     if (awards?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.awards"))} <span class="item-count">(${escape_html(awards.length)})</span></h2></header> <section id="awards"><!--[-->`);
-      const each_array = ensure_array_like(awards);
-      for (let index2 = 0, $$length = each_array.length; index2 < $$length; index2++) {
-        let award = each_array[index2];
-        $$renderer2.push(`<section class="award-item">`);
-        if (award.summary) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<label${attr("for", `award-item-${stringify(index2)}`)}></label>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> <header class="clear">`);
-        if (award.date) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="date">${escape_html(MY(award.date))}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> <div class="header-left">`);
-        if (award.title) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="title">${escape_html(award.title)}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (award.awarder) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="awarder">${escape_html(award.awarder)}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div></header> <div class="item">`);
-        if (award.summary) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="summary">${html2(paragraphSplit(award.summary))}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div></section>`);
-      }
-      $$renderer2.push(`<!--]--></section></section>`);
+      SectionHeader($$renderer2, {
+        title: t("resume.awards"),
+        count: awards.length,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<section id="awards"><!--[-->`);
+          const each_array = ensure_array_like(awards);
+          for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+            let award = each_array[$$index];
+            TimelineItem($$renderer3, {
+              title: award.title,
+              subtitle: award.awarder,
+              subtitleClass: "awarder",
+              singleDate: award.date ? MY(award.date) : void 0,
+              language: language2,
+              summary: award.summary
+            });
+          }
+          $$renderer3.push(`<!--]--></section>`);
+        },
+        $$slots: { default: true }
+      });
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -6184,41 +6092,36 @@ function Certificates($$renderer, $$props) {
     const { MY } = getDateHelpers(language2);
     if (certificates?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.certificates"))} <span class="item-count">(${escape_html(certificates.length)})</span></h2></header> <section id="certificates"><!--[-->`);
-      const each_array = ensure_array_like(certificates);
-      for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
-        let cert = each_array[$$index];
-        $$renderer2.push(`<section class="certificate-item"><header class="clear">`);
-        if (cert.date) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="date">${escape_html(MY(cert.date))}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> <div class="header-left">`);
-        if (cert.name) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="name">${escape_html(cert.name)}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (cert.issuer) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="issuer">${escape_html(cert.issuer)}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div></header> <div class="item">`);
-        if (cert.url) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="url"><span class="fa-solid fa-up-right-from-square"></span> <a target="_blank"${attr("href", cert.url)}>${escape_html(cert.url)}</a></span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div></section>`);
-      }
-      $$renderer2.push(`<!--]--></section></section>`);
+      SectionHeader($$renderer2, {
+        title: t("resume.certificates"),
+        count: certificates.length,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<section id="certificates"><!--[-->`);
+          const each_array = ensure_array_like(certificates);
+          for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+            let cert = each_array[$$index];
+            TimelineItem($$renderer3, {
+              title: cert.name,
+              subtitle: cert.issuer,
+              subtitleClass: "issuer",
+              singleDate: cert.date ? MY(cert.date) : void 0,
+              language: language2,
+              children: ($$renderer4) => {
+                if (cert.url) {
+                  $$renderer4.push("<!--[-->");
+                  $$renderer4.push(`<span class="url"><span class="fa-solid fa-up-right-from-square"></span> <a target="_blank"${attr("href", cert.url)}>${escape_html(cert.url)}</a></span>`);
+                } else {
+                  $$renderer4.push("<!--[!-->");
+                }
+                $$renderer4.push(`<!--]-->`);
+              },
+              $$slots: { default: true }
+            });
+          }
+          $$renderer3.push(`<!--]--></section>`);
+        },
+        $$slots: { default: true }
+      });
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -6233,69 +6136,29 @@ function Publications($$renderer, $$props) {
     const { MY } = getDateHelpers(language2);
     if (publications?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.publications"))} <span class="item-count">(${escape_html(publications.length)})</span></h2></header> <section id="publications"><!--[-->`);
-      const each_array = ensure_array_like(publications);
-      for (let index2 = 0, $$length = each_array.length; index2 < $$length; index2++) {
-        let pub = each_array[index2];
-        $$renderer2.push(`<section class="publication-item">`);
-        if (pub.summary) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<label${attr("for", `publication-item-${stringify(index2)}`)}></label>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> <header class="clear">`);
-        if (pub.releaseDate) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="date">${escape_html(MY(pub.releaseDate))}</span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> <div class="header-left">`);
-        if (pub.name) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="name">`);
-          if (pub.website) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<span class="website"><span class="fa-solid fa-up-right-from-square"></span> <a target="_blank"${attr("href", pub.website)}>${escape_html(pub.name)}</a></span>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-            $$renderer2.push(`${escape_html(pub.name)}`);
+      SectionHeader($$renderer2, {
+        title: t("resume.publications"),
+        count: publications.length,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<section id="publications"><!--[-->`);
+          const each_array = ensure_array_like(publications);
+          for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+            let pub = each_array[$$index];
+            TimelineItem($$renderer3, {
+              title: pub.name,
+              subtitle: pub.publisher ? "in " + pub.publisher : "",
+              subtitleClass: "publisher",
+              url: pub.website,
+              singleDate: pub.releaseDate ? MY(pub.releaseDate) : void 0,
+              language: language2,
+              summary: pub.summary,
+              keywords: pub.keywords
+            });
           }
-          $$renderer2.push(`<!--]--></span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (pub.publisher) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<span class="publisher">in ${escape_html(pub.publisher)}</span>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div></header> `);
-        if (pub.keywords?.length) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<ul class="keywords"><!--[-->`);
-          const each_array_1 = ensure_array_like(pub.keywords);
-          for (let $$index = 0, $$length2 = each_array_1.length; $$index < $$length2; $$index++) {
-            let keyword = each_array_1[$$index];
-            $$renderer2.push(`<li>${escape_html(keyword)}</li>`);
-          }
-          $$renderer2.push(`<!--]--></ul>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> <div class="item">`);
-        if (pub.summary) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="summary">${html2(paragraphSplit(pub.summary))}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div></section>`);
-      }
-      $$renderer2.push(`<!--]--></section></section>`);
+          $$renderer3.push(`<!--]--></section>`);
+        },
+        $$slots: { default: true }
+      });
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -6304,45 +6167,44 @@ function Publications($$renderer, $$props) {
 }
 
 // .build/components/Languages.js
-var $$css3 = {
+var $$css8 = {
   hash: "svelte-2dygc7",
   code: "#languages.svelte-2dygc7 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#languages.svelte-2dygc7 .item {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}"
 };
 function Languages($$renderer, $$props) {
-  $$renderer.global.css.add($$css3);
+  $$renderer.global.css.add($$css8);
   $$renderer.component(($$renderer2) => {
     let { languages = [] } = $$props;
     if (languages?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.languages"))} <span class="item-count">(${escape_html(languages.length)})</span></h2></header> <section id="languages" class="svelte-2dygc7"><!--[-->`);
-      const each_array = ensure_array_like(languages);
-      for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
-        let lang = each_array[$$index];
-        $$renderer2.push(`<div class="display">`);
-        if (lang.language) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<h3 class="language">${escape_html(lang.language)}</h3>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> <div class="item">`);
-        if (lang.fluency) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div${attr_class(`level fluency ${stringify(normalizeLevel(lang.fluency))}`)}>`);
-          if (lang.fluencyDisplay) {
-            $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<em>${escape_html(lang.fluencyDisplay)}</em>`);
-          } else {
-            $$renderer2.push("<!--[!-->");
-            $$renderer2.push(`<em>${escape_html(lang.fluency)}</em>`);
+      SectionHeader($$renderer2, {
+        title: t("resume.languages"),
+        count: languages.length,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<section id="languages" class="svelte-2dygc7"><!--[-->`);
+          const each_array = ensure_array_like(languages);
+          for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+            let lang = each_array[$$index];
+            $$renderer3.push(`<div class="display">`);
+            if (lang.language) {
+              $$renderer3.push("<!--[-->");
+              $$renderer3.push(`<h3 class="language">${escape_html(lang.language)}</h3>`);
+            } else {
+              $$renderer3.push("<!--[!-->");
+            }
+            $$renderer3.push(`<!--]--> <div class="item">`);
+            if (lang.fluency) {
+              $$renderer3.push("<!--[-->");
+              LevelBar($$renderer3, { level: lang.fluency, displayText: lang.fluencyDisplay });
+            } else {
+              $$renderer3.push("<!--[!-->");
+            }
+            $$renderer3.push(`<!--]--></div></div>`);
           }
-          $$renderer2.push(`<!--]--> <div class="bar"></div></div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div></div>`);
-      }
-      $$renderer2.push(`<!--]--></section></section>`);
+          $$renderer3.push(`<!--]--></section>`);
+        },
+        $$slots: { default: true }
+      });
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -6351,50 +6213,46 @@ function Languages($$renderer, $$props) {
 }
 
 // .build/components/Interests.js
-var $$css4 = {
+var $$css9 = {
   hash: "svelte-1bnc9h3",
   code: "#interests.svelte-1bnc9h3 {display:flex;flex-flow:row wrap;justify-content:flex-start;}#interests.svelte-1bnc9h3 .item {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}"
 };
 function Interests($$renderer, $$props) {
-  $$renderer.global.css.add($$css4);
+  $$renderer.global.css.add($$css9);
   $$renderer.component(($$renderer2) => {
     let { interests = [] } = $$props;
     if (interests?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.interests"))} <span class="item-count">(${escape_html(interests.length)})</span></h2></header> <section id="interests" class="svelte-1bnc9h3"><!--[-->`);
-      const each_array = ensure_array_like(interests);
-      for (let $$index_1 = 0, $$length = each_array.length; $$index_1 < $$length; $$index_1++) {
-        let interest = each_array[$$index_1];
-        $$renderer2.push(`<div class="item">`);
-        if (interest.name) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<h3 class="name">${escape_html(interest.name)}</h3>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (interest.keywords?.length) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<ul class="keywords"><!--[-->`);
-          const each_array_1 = ensure_array_like(interest.keywords);
-          for (let $$index = 0, $$length2 = each_array_1.length; $$index < $$length2; $$index++) {
-            let keyword = each_array_1[$$index];
-            $$renderer2.push(`<li>${escape_html(keyword)}</li>`);
+      SectionHeader($$renderer2, {
+        title: t("resume.interests"),
+        count: interests.length,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<section id="interests" class="svelte-1bnc9h3"><!--[-->`);
+          const each_array = ensure_array_like(interests);
+          for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+            let interest = each_array[$$index];
+            $$renderer3.push(`<div class="item">`);
+            if (interest.name) {
+              $$renderer3.push("<!--[-->");
+              $$renderer3.push(`<h3 class="name">${escape_html(interest.name)}</h3>`);
+            } else {
+              $$renderer3.push("<!--[!-->");
+            }
+            $$renderer3.push(`<!--]--> `);
+            KeywordList($$renderer3, { keywords: interest.keywords });
+            $$renderer3.push(`<!----> `);
+            if (interest.summary) {
+              $$renderer3.push("<!--[-->");
+              $$renderer3.push(`<div class="summary">${html2(paragraphSplit(interest.summary))}</div>`);
+            } else {
+              $$renderer3.push("<!--[!-->");
+            }
+            $$renderer3.push(`<!--]--></div>`);
           }
-          $$renderer2.push(`<!--]--></ul>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (interest.summary) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="summary">${html2(paragraphSplit(interest.summary))}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div>`);
-      }
-      $$renderer2.push(`<!--]--></section></section>`);
+          $$renderer3.push(`<!--]--></section>`);
+        },
+        $$slots: { default: true }
+      });
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -6403,37 +6261,44 @@ function Interests($$renderer, $$props) {
 }
 
 // .build/components/References.js
-var $$css5 = {
+var $$css10 = {
   hash: "svelte-1y7ope6",
   code: "#references.svelte-1y7ope6 .item {padding-left:0.5em;margin-bottom:1em;border-left:5px solid var(--color-reference-border);}"
 };
 function References($$renderer, $$props) {
-  $$renderer.global.css.add($$css5);
+  $$renderer.global.css.add($$css10);
   $$renderer.component(($$renderer2) => {
     let { references = [] } = $$props;
     if (references?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<section class="section"><header><h2 class="section-title">${escape_html(t("resume.references"))} <span class="item-count">(${escape_html(references.length)})</span></h2></header> <section id="references" class="svelte-1y7ope6"><!--[-->`);
-      const each_array = ensure_array_like(references);
-      for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
-        let ref = each_array[$$index];
-        $$renderer2.push(`<div class="item">`);
-        if (ref.reference) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<blockquote class="reference">\u201C ${escape_html(ref.reference)} \u201D</blockquote>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--> `);
-        if (ref.name) {
-          $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div class="name">${escape_html(ref.name)}</div>`);
-        } else {
-          $$renderer2.push("<!--[!-->");
-        }
-        $$renderer2.push(`<!--]--></div>`);
-      }
-      $$renderer2.push(`<!--]--></section></section>`);
+      SectionHeader($$renderer2, {
+        title: t("resume.references"),
+        count: references.length,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<section id="references" class="svelte-1y7ope6"><!--[-->`);
+          const each_array = ensure_array_like(references);
+          for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+            let ref = each_array[$$index];
+            $$renderer3.push(`<div class="item">`);
+            if (ref.reference) {
+              $$renderer3.push("<!--[-->");
+              $$renderer3.push(`<blockquote class="reference">\u201C ${escape_html(ref.reference)} \u201D</blockquote>`);
+            } else {
+              $$renderer3.push("<!--[!-->");
+            }
+            $$renderer3.push(`<!--]--> `);
+            if (ref.name) {
+              $$renderer3.push("<!--[-->");
+              $$renderer3.push(`<div class="name">${escape_html(ref.name)}</div>`);
+            } else {
+              $$renderer3.push("<!--[!-->");
+            }
+            $$renderer3.push(`<!--]--></div>`);
+          }
+          $$renderer3.push(`<!--]--></section>`);
+        },
+        $$slots: { default: true }
+      });
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -6442,12 +6307,12 @@ function References($$renderer, $$props) {
 }
 
 // .build/components/Resume.js
-var $$css6 = {
+var $$css11 = {
   hash: "svelte-rssu9l",
-  code: '\n  /* Main container */#resume.svelte-rssu9l {padding:1.5rem;}\n\n  /* Every section wrapper */.section {margin-bottom:1rem;}section .location {margin-right:0.5em;color:var(--color-text-secondary);font-weight:700;}.section.summary header {margin-top:1rem;}.main-summary {background:var(--color-background-alt);padding:1.2em 1em;}.main-summary p {margin:0;}.section-title {display:inline-block;background:var(--color-section-title-bg);padding:0 1em 0.3em 0;color:var(--color-accent);text-transform:uppercase;font-weight:600;border:none;font-size:0.9rem;}.section > header {position:relative;}.section > header::after {position:absolute;left:0;top:0.7em;height:1px;background:var(--color-border);content:"";width:100%;z-index:-100;display:block;}.section.main-summary > section {margin:0;}.section > section > header {font-size:1.38rem;position:relative;margin-top:0.7em;}.section > section > header:first-of-type {margin:0;}.section > section > header .space-left {position:absolute;left:-1.56rem;top:5px;color:#aaa;line-height:1;opacity:0;}.section > section > section {margin-bottom:1rem;}.item {overflow:hidden;}.keywords,\n  .courses {margin:0.5em 0;}.keywords li,\n  .courses li {display:inline-block;margin:2px 2px 2px 0;padding:4px 5px 5px;font-size:0.9rem;line-height:1;color:var(--color-keyword-text);background-color:var(--color-keyword-bg);border:0 solid var(--color-keyword-border);white-space:nowrap;}.keywords li:hover,\n  .courses li:hover {background:var(--color-keyword-bg);}.highlights > li > p {margin-bottom:0.5em;}.clear::after {content:"";display:table;clear:both;}.display {display:block;opacity:1 !important;}\n\n  /* Timeline shared styles */.position,\n  .company,\n  .organization,\n  .institution,\n  .date,\n  .area,\n  .studyType,\n  .title,\n  .awarder {display:inline;}.position,\n  .studyType,\n  .area,\n  .title,\n  .language,\n  .name {font-weight:600;}.company::before,\n  .institution::before,\n  .organization::before,\n  .awarder::before {content:"at ";}.company,\n  .institution,\n  .organization,\n  .awarder {color:var(--color-text-secondary);font-weight:400;}.section header .date {display:block;font-size:1rem;padding:0.1em 0;color:var(--color-text-secondary);font-weight:400;}.gpa {clear:both;padding-bottom:0.5em;}'
+  code: "#resume.svelte-rssu9l {padding:1.5rem;}\n\n  /* Summary section (used by Basics) */.section.summary header {margin-top:1rem;}.main-summary {background:var(--color-background-alt);padding:1.2em 1em;}.main-summary p {margin:0;}.display {display:block;opacity:1 !important;}.name {font-weight:600;}.language {font-weight:600;}"
 };
 function Resume($$renderer, $$props) {
-  $$renderer.global.css.add($$css6);
+  $$renderer.global.css.add($$css11);
   $$renderer.component(($$renderer2) => {
     let { resume, language: language2 = "en-gb" } = $$props;
     $$renderer2.push(`<a class="skip-to-content" href="#resume">Skip to content</a> <main id="resume" class="svelte-rssu9l">`);

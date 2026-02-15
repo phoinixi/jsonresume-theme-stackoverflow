@@ -1,14 +1,12 @@
 <script>
   import { t } from '../utils/helpers.ts';
+  import SectionHeader from './SectionHeader.svelte';
 
   let { references = [] } = $props();
 </script>
 
 {#if references?.length}
-  <section class="section">
-    <header>
-      <h2 class="section-title">{t('resume.references')} <span class="item-count">({references.length})</span></h2>
-    </header>
+  <SectionHeader title={t('resume.references')} count={references.length}>
     <section id="references">
       {#each references as ref}
         <div class="item">
@@ -21,7 +19,7 @@
         </div>
       {/each}
     </section>
-  </section>
+  </SectionHeader>
 {/if}
 
 <style>

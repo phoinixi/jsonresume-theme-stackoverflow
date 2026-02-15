@@ -177,4 +177,36 @@
     height: 100%;
   }
   :global(.telegram) { color: #2291c3; }
+
+  /* Summary section styling */
+  .section {
+    margin-bottom: 1rem;
+  }
+
+  .section > :global(header) {
+    position: relative;
+  }
+
+  .section > :global(header::after) {
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    height: 1px;
+    background: var(--color-border);
+    content: "";
+    width: 100%;
+    z-index: -100;
+    display: block;
+  }
+
+  .section :global(.section-title) {
+    display: inline-block;
+    background: var(--color-section-title-bg);
+    padding: 0 1em 0.3em 0;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    font-size: 0.9rem;
+  }
 </style>
