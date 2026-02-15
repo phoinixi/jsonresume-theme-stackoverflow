@@ -1,0 +1,3 @@
+*.hbs
+node_modules
+coverage

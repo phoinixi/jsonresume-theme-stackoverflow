@@ -1,13 +1,13 @@
-const HtmlValidate = require("html-validate");
+const HtmlValidate = require('html-validate');
 
 const isHTMLValid = async (html, logResults = true) => {
   const htmlvalidate = new HtmlValidate.HtmlValidate({
-    extends: ["html-validate:recommended"],
+    extends: ['html-validate:recommended'],
     rules: {
-      "doctype-style": "off",
-      "attr-quotes": "off",
-      "no-trailing-whitespace": "off",
-      "void-style": "warn",
+      'doctype-style': 'off',
+      'attr-quotes': 'off',
+      'no-trailing-whitespace': 'off',
+      'void-style': 'warn',
     },
   });
 
@@ -19,6 +19,6 @@ const isHTMLValid = async (html, logResults = true) => {
   }
 
   return validationReport.valid;
-}
+};
 
 module.exports = { isHTMLValid };

@@ -1,36 +1,37 @@
 {{#if resume.certificates.length}}
-  <section class="section">
+  <section class='section'>
     <header>
-      <h2 class="section-title">{{i18n 'resume.certificates'}} <span class="item-count">({{resume.certificates.length}})</span></h2>
+      <h2 class='section-title'>{{i18n 'resume.certificates'}}
+        <span class='item-count'>({{resume.certificates.length}})</span></h2>
     </header>
-    <section id="certificates">
+    <section id='certificates'>
       {{#each resume.certificates}}
-        <section class="certificate-item">
-          <header class="clear">
+        <section class='certificate-item'>
+          <header class='clear'>
             {{#if date}}
-              <div class="date">
+              <div class='date'>
                 {{MY date}}
               </div>
             {{/if}}
-            <div class="header-left">
+            <div class='header-left'>
               {{#if name}}
-                <div class="name">
+                <div class='name'>
                   {{name}}
                 </div>
               {{/if}}
               {{#if issuer}}
-                <div class="issuer">
+                <div class='issuer'>
                   {{issuer}}
                 </div>
               {{/if}}
             </div>
           </header>
 
-          <div class="item">
+          <div class='item'>
             {{#if url}}
-              <span class="url">
-                <span class="fa-solid fa-up-right-from-square"></span>
-                <a target="_blank" href="{{url}}">{{url}}</a>
+              <span class='url'>
+                <span class='fa-solid fa-up-right-from-square'></span>
+                <a target='_blank' href='{{url}}'>{{url}}</a>
               </span>
             {{/if}}
           </div>
