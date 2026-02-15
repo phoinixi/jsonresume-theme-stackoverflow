@@ -690,6 +690,83 @@ section .location {
 }
 
 /****************
+*		MOBILE
+****************/
+
+@media screen and (max-width: 601px) {
+  #resume {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  #skills,
+  #languages,
+  #interests {
+    flex-direction: column;
+  }
+
+  #skills .item,
+  #languages .item,
+  #interests .item {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  #skills .item .keywords {
+    width: 100%;
+  }
+
+  #header > #profiles,
+  #header > #contact {
+    flex-wrap: wrap;
+  }
+
+  #header > div > div {
+    margin-right: 0.8em;
+    margin-bottom: 0.3em;
+  }
+
+  #header h1.name {
+    font-size: 2rem;
+  }
+
+  #header h2.label {
+    font-size: 1.2rem;
+  }
+
+  #header .image {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem;
+    width: 8em;
+  }
+
+  .section header .date {
+    display: block;
+    float: none;
+    font-size: 0.9rem;
+    margin-top: 0.2em;
+  }
+
+  .section > section > header {
+    font-size: 1.15rem;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 601px) {
+  #skills {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #skills .item {
+    width: 48%;
+    padding-right: 2%;
+  }
+}
+
+/****************
 *		TABLET
 ****************/
 
@@ -1587,6 +1664,83 @@ section .location {
 .display {
   display: block;
   opacity: 1 !important;
+}
+
+/****************
+*		MOBILE
+****************/
+
+@media screen and (max-width: 601px) {
+  #resume {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  #skills,
+  #languages,
+  #interests {
+    flex-direction: column;
+  }
+
+  #skills .item,
+  #languages .item,
+  #interests .item {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  #skills .item .keywords {
+    width: 100%;
+  }
+
+  #header > #profiles,
+  #header > #contact {
+    flex-wrap: wrap;
+  }
+
+  #header > div > div {
+    margin-right: 0.8em;
+    margin-bottom: 0.3em;
+  }
+
+  #header h1.name {
+    font-size: 2rem;
+  }
+
+  #header h2.label {
+    font-size: 1.2rem;
+  }
+
+  #header .image {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem;
+    width: 8em;
+  }
+
+  .section header .date {
+    display: block;
+    float: none;
+    font-size: 0.9rem;
+    margin-top: 0.2em;
+  }
+
+  .section > section > header {
+    font-size: 1.15rem;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 601px) {
+  #skills {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #skills .item {
+    width: 48%;
+    padding-right: 2%;
+  }
 }
 
 /****************
