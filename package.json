@@ -15,9 +15,6 @@
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "dependencies": {
-    "markdown-it": "^14.1.1"
-  },
   "jest": {
     "transformIgnorePatterns": [
       "node_modules/(?!svelte)"
