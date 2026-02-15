@@ -7,7 +7,8 @@ exports[`SimpleTests Snapshot-test english translation 1`] = `
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Richard Hendriks</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./override.css">
     <style>
       /********************************************
 * 	reset from
@@ -148,7 +149,7 @@ table {
 
 body,
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
   font-size: 13px;
   color: #40484f;
   font-weight: 400;
@@ -307,7 +308,7 @@ section .location {
   top: 0.7em;
   height: 1px;
   background: #ccc;
-  content: "";
+  content: '';
   width: 100%;
   z-index: -100;
   display: block;
@@ -361,7 +362,7 @@ section .location {
 .institution::before,
 .organization::before,
 .awarder::before {
-  content: "at ";
+  content: 'at ';
 }
 
 .company,
@@ -494,7 +495,7 @@ section .location {
 .stack-overflow::after {
   position: absolute;
   left: 0;
-  content: "\\f16c";
+  content: '\\f16c';
   color: #f68a1f;
   overflow: hidden;
   height: 100%;
@@ -540,7 +541,7 @@ section .location {
 
 .level .bar::after {
   position: absolute;
-  content: " ";
+  content: ' ';
   top: 0;
   left: 0;
   background: black;
@@ -584,7 +585,7 @@ section .location {
 ******************/
 
 .clear::after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
@@ -633,7 +634,7 @@ section .location {
   .institution::before,
   .organization::before,
   .awarder::before {
-    content: "| ";
+    content: '| ';
   }
   .header-left {
     float: left;
@@ -652,8 +653,8 @@ section .location {
 }
 
 @media print {
-  #profiles a:not(.hide-href-print)::after{
-    content: " (" attr(href) ") ";
+  #profiles a:not(.hide-href-print)::after {
+    content: ' (' attr(href) ') ';
   }
   #profiles .url .show-only-url-print {
     display: none;
@@ -681,7 +682,7 @@ section .location {
   .institution::before,
   .organization::before,
   .awarder::before {
-    content: "at ";
+    content: 'at ';
   }
   .main-summary {
     padding: 0;
@@ -699,13 +700,13 @@ section .location {
   }
   .section > section > section {
     border-bottom: 1px solid #fdfdfd;
-    margin: .5em 0;
+    margin: 0.5em 0;
   }
   .section > section > section:last-of-type {
     margin: 0;
   }
   .stack-overflow::after {
-    content: "";
+    content: '';
   }
   .fa.social {
     color: #828386;
@@ -727,7 +728,7 @@ section .location {
   ul.keywords li::after,
   ul.courses li::after {
     padding: 0 0 0 0.1rem;
-    content: ", ";
+    content: ', ';
   }
   ul.keywords::before,
   ul.courses::before {
@@ -755,7 +756,7 @@ section .location {
     margin-bottom: 0.3em;
   }
   ul.keywords::before {
-    content: "Skills: ";
+    content: 'Skills: ';
     font-size: 1rem;
   }
   #skills .keywords::before {
@@ -766,7 +767,7 @@ section .location {
     padding: 0;
   }
   ul.courses::before {
-    content: "Major courses: ";
+    content: 'Major courses: ';
     font-size: 1rem;
   }
   ul.keywords li,
@@ -776,7 +777,7 @@ section .location {
   }
   ul.keywords li:last-of-type::after,
   ul.courses li:last-of-type::after {
-    content: "";
+    content: '';
   }
   .level em {
     font-style: normal;
@@ -801,60 +802,69 @@ section .location {
   </head>
   <body>
     <div id="resume">
-      	<header id="header" class="clear">
-      		<div>
-      			<h1 class="name">Richard Hendriks</h1>
-      			<h2 class="label">Programmer</h2>
-      		</div>
+        <header id='header' class='clear'>
+            <div>
+              <h1 class='name'>Richard Hendriks</h1>
+              <h2 class='label'>Programmer</h2>
+            </div>
       
-      		<span class="location">
-      			<span class="address">2712 Broadway St,</span>
-      			<span class="postalCode">CA 94115,</span>
-      			<span class="city">San Francisco,</span>
-      			<span class="region">California</span>
-      			<span class="countryCode">(US)</span>
-      		</span>
+            <span class='location'>
+                <span class='address'>2712 Broadway St,</span>
+                <span class='postalCode'>CA 94115,</span>
+                <span class='city'>San Francisco,</span>
+                <span class='region'>California</span>
+                <span class='countryCode'>(US)</span>
+            </span>
       
+          
       
-      		<div id="contact">
-      			<div class="email">
-      				<span class="fa-regular fa-envelope"></span>
-      				<a class="hide-href-print" href="mailto:richard.hendriks@mail.com">richard.hendriks@mail.com</a>
-      			</div>
-      			<div class="phone">
-      				<span class="fa-solid fa-mobile-screen-button"></span>
-      				<a class="hide-href-print" href="tel:(912) 555-4321">(912) 555-4321</a>
-      			</div>
-      		</div>
+          <div id='contact'>
+              <div class='email'>
+                <span class='fa-regular fa-envelope'></span>
+                <a class='hide-href-print' href='mailto:richard.hendriks@mail.com'>richard.hendriks@mail.com</a>
+              </div>
+              <div class='phone'>
+                <span class='fa-solid fa-mobile-screen-button'></span>
+                <a class='hide-href-print' href='tel:(912) 555-4321'>(912) 555-4321</a>
+              </div>
+          </div>
       
-      		<div id="profiles">
-      			<div class="item">
-      				<div class="username">
-      					<span class="fa-brands fa-twitter twitter social"></span>
-      					<span class="url">
-      						<a target="_blank" href="https://www.twitter.com"><span class="show-only-url-print">neutralthoughts</span></a>
-      					</span>
-      				</div>
-      			</div>
-      			<div class="item">
-      				<div class="username">
-      					<span class="fa-brands fa-soundcloud soundcloud social"></span>
-      					<span class="url">
-      						<a target="_blank" href="https://soundcloud.example.com/dandymusicnl"><span class="show-only-url-print">dandymusicnl</span></a>
-      					</span>
-      				</div>
-      			</div>
-      		</div>
-      	</header>
+            <div id='profiles'>
+                <div class='item'>
+                    <div class='username'>
+                      <span
+                        class='fa-brands fa-twitter twitter social'
+                      ></span>
+                        <span class='url'>
+                          <a target='_blank' href='https://www.twitter.com'><span
+                              class='show-only-url-print'
+                            >neutralthoughts</span></a>
+                        </span>
+                    </div>
+                </div>
+                <div class='item'>
+                    <div class='username'>
+                      <span
+                        class='fa-brands fa-soundcloud soundcloud social'
+                      ></span>
+                        <span class='url'>
+                          <a target='_blank' href='https://soundcloud.example.com/dandymusicnl'><span
+                              class='show-only-url-print'
+                            >dandymusicnl</span></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </header>
       
-      	<section class="section summary">
-          <header>
-            <h2 class="section-title">Summary</h2>
-          </header>
-      		<section class="main-summary">
-      			<div><p>Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinal!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!</p></div>
-      		</section>
-      	</section>
+          <section class='section summary'>
+            <header>
+              <h2 class='section-title'>Summary</h2>
+            </header>
+            <section class='main-summary'>
+              <div><p>Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinal!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!</p></div>
+            </section>
+          </section>
       
       <section class="section">
         <header>
@@ -900,9 +910,9 @@ section .location {
           <section class="work-item">
               <label for="work-item-0"></label>
               <header class="clear">
-                  <div class="date">
-                    <span class="startDate">Dec 2013</span>
-                      <span class="endDate">- Dec 2014</span>
+                  <div class='date'>
+                    <span class='startDate'>Dec 2013</span>
+                      <span class='endDate'>- Dec 2014</span>
                   </div>
                 <div class="position">CEO/President</div>
                   <span class="company">
@@ -931,9 +941,9 @@ section .location {
         <section id="projects">
           <section class="project-item">
             <header class="clear">
-                <div class="date">
-                  <span class="startDate">Aug 2016</span>
-                    <span class="endDate">- Aug 2016</span>
+                <div class='date'>
+                  <span class='startDate'>Aug 2016</span>
+                    <span class='endDate'>- Aug 2016</span>
                 </div>
               <div class="position">Miss Direction</div>
             </header>
@@ -967,16 +977,16 @@ section .location {
             <label for="volunteer-item-0"></label>
       
             <header class="clear">
-                <div class="date">
-                  <span class="startDate">Jan 2012</span>
-                    <span class="endDate">- Jan 2013</span>
+                <div class='date'>
+                  <span class='startDate'>Jan 2012</span>
+                    <span class='endDate'>- Jan 2013</span>
                 </div>
               <div class="header-left">
                 <div class="position">
                   Teacher
                 </div>
                 <div class="organization">
-                  CoderDojo
+                    <a target="_blank" href="http://coderdojo.example.com/">CoderDojo</a>
                 </div>
               </div>
              
@@ -998,9 +1008,9 @@ section .location {
         <section id="education">
           <section class="education-item">
             <header class="clear">
-                <div class="date">
-                  <span class="startDate">Jun 2011</span>
-                    <span class="endDate">- Jan 2014</span>
+                <div class='date'>
+                  <span class='startDate'>Jun 2011</span>
+                    <span class='endDate'>- Jan 2014</span>
                 </div>
               <div class="header-left">
                 <div class="studyType">
@@ -1010,7 +1020,7 @@ section .location {
                   Information Technology
                 </div>
                 <div class="institution">
-                  University of Oklahoma
+                    <a target="_blank" href="https://www.ou.edu/">University of Oklahoma</a>
                 </div>
               </div>
             </header>
@@ -1026,30 +1036,31 @@ section .location {
           </section>
         </section>
       </section>
-        <section class="section">
+        <section class='section'>
           <header>
-            <h2 class="section-title">Awards <span class="item-count">(1)</span></h2>
+            <h2 class='section-title'>Awards
+              <span class='item-count'>(1)</span></h2>
           </header>
-          <section id="awards">
-              <section class="award-item">
-                  <label for="award-item-0"></label>
+          <section id='awards'>
+              <section class='award-item'>
+                  <label for='award-item-0'></label>
       
-                <header class="clear">
-                    <div class="date">
+                <header class='clear'>
+                    <div class='date'>
                       Nov 2014
                     </div>
-                  <div class="header-left">
-                      <div class="title">
+                  <div class='header-left'>
+                      <div class='title'>
                         Digital Compression Pioneer Award
                       </div>
-                      <div class="awarder">
+                      <div class='awarder'>
                         Techcrunch
                       </div>
                   </div>
                 </header>
       
-                <div class="item">
-                    <div class="summary"><p>There is no spoon.</p></div>
+                <div class='item'>
+                    <div class='summary'><p>There is no spoon.</p></div>
                 </div>
               </section>
           </section>
@@ -1083,24 +1094,25 @@ section .location {
           </section>
         </section>
       </section>
-      <section class="section">
-        <header>
-          <h2 class='section-title'>Languages <span class="item-count">(1)</span></h2>
-        </header>
-        <section id="languages">
-          <div class="display">
-            <h3 class="language">
-              English
-            </h3>
-            <div class="item">
-              <div class="level fluency native speaker">
-                <em>Native speaker</em>
-                <div class="bar"></div>
+        <section class='section'>
+          <header>
+            <h2 class='section-title'>Languages
+              <span class='item-count'>(1)</span></h2>
+          </header>
+          <section id='languages'>
+              <div class='display'>
+                  <h3 class='language'>
+                    English
+                  </h3>
+                <div class='item'>
+                    <div class='level fluency native speaker'>
+                        <em>Native speaker</em>
+                      <div class='bar'></div>
+                    </div>
+                </div>
               </div>
-            </div>
-          </div>
+          </section>
         </section>
-      </section>
       <section class="section">
         <header>
           <h2 class='section-title'>Interests <span class="item-count">(1)</span></h2>
@@ -1117,21 +1129,22 @@ section .location {
           </div>
         </section>
       </section>
-      <section class="section">
-        <header>
-          <h2 class='section-title'>References <span class="item-count">(1)</span></h2>
-        </header>
-        <section id="references">
-          <div class="item">
-            <blockquote class="reference">
-              &#8220;&#32;It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company.&#32;&#8221;
-            </blockquote>
-            <div class="name">
-              Erlich Bachman
-            </div>
-          </div>
+        <section class='section'>
+          <header>
+            <h2 class='section-title'>References
+              <span class='item-count'>(1)</span></h2>
+          </header>
+          <section id='references'>
+              <div class='item'>
+                  <blockquote class='reference'>
+                    &#8220;&#32;It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company.&#32;&#8221;
+                  </blockquote>
+                  <div class='name'>
+                    Erlich Bachman
+                  </div>
+              </div>
+          </section>
         </section>
-      </section>
     </div>
   </body>
 </html>
@@ -1145,7 +1158,8 @@ exports[`SimpleTests Snapshot-test german translation 1`] = `
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Richard Hendriks</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./override.css">
     <style>
       /********************************************
 * 	reset from
@@ -1286,7 +1300,7 @@ table {
 
 body,
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
   font-size: 13px;
   color: #40484f;
   font-weight: 400;
@@ -1445,7 +1459,7 @@ section .location {
   top: 0.7em;
   height: 1px;
   background: #ccc;
-  content: "";
+  content: '';
   width: 100%;
   z-index: -100;
   display: block;
@@ -1499,7 +1513,7 @@ section .location {
 .institution::before,
 .organization::before,
 .awarder::before {
-  content: "at ";
+  content: 'at ';
 }
 
 .company,
@@ -1632,7 +1646,7 @@ section .location {
 .stack-overflow::after {
   position: absolute;
   left: 0;
-  content: "\\f16c";
+  content: '\\f16c';
   color: #f68a1f;
   overflow: hidden;
   height: 100%;
@@ -1678,7 +1692,7 @@ section .location {
 
 .level .bar::after {
   position: absolute;
-  content: " ";
+  content: ' ';
   top: 0;
   left: 0;
   background: black;
@@ -1722,7 +1736,7 @@ section .location {
 ******************/
 
 .clear::after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
@@ -1771,7 +1785,7 @@ section .location {
   .institution::before,
   .organization::before,
   .awarder::before {
-    content: "| ";
+    content: '| ';
   }
   .header-left {
     float: left;
@@ -1790,8 +1804,8 @@ section .location {
 }
 
 @media print {
-  #profiles a:not(.hide-href-print)::after{
-    content: " (" attr(href) ") ";
+  #profiles a:not(.hide-href-print)::after {
+    content: ' (' attr(href) ') ';
   }
   #profiles .url .show-only-url-print {
     display: none;
@@ -1819,7 +1833,7 @@ section .location {
   .institution::before,
   .organization::before,
   .awarder::before {
-    content: "at ";
+    content: 'at ';
   }
   .main-summary {
     padding: 0;
@@ -1837,13 +1851,13 @@ section .location {
   }
   .section > section > section {
     border-bottom: 1px solid #fdfdfd;
-    margin: .5em 0;
+    margin: 0.5em 0;
   }
   .section > section > section:last-of-type {
     margin: 0;
   }
   .stack-overflow::after {
-    content: "";
+    content: '';
   }
   .fa.social {
     color: #828386;
@@ -1865,7 +1879,7 @@ section .location {
   ul.keywords li::after,
   ul.courses li::after {
     padding: 0 0 0 0.1rem;
-    content: ", ";
+    content: ', ';
   }
   ul.keywords::before,
   ul.courses::before {
@@ -1893,7 +1907,7 @@ section .location {
     margin-bottom: 0.3em;
   }
   ul.keywords::before {
-    content: "Skills: ";
+    content: 'Skills: ';
     font-size: 1rem;
   }
   #skills .keywords::before {
@@ -1904,7 +1918,7 @@ section .location {
     padding: 0;
   }
   ul.courses::before {
-    content: "Major courses: ";
+    content: 'Major courses: ';
     font-size: 1rem;
   }
   ul.keywords li,
@@ -1914,7 +1928,7 @@ section .location {
   }
   ul.keywords li:last-of-type::after,
   ul.courses li:last-of-type::after {
-    content: "";
+    content: '';
   }
   .level em {
     font-style: normal;
@@ -1939,60 +1953,69 @@ section .location {
   </head>
   <body>
     <div id="resume">
-      	<header id="header" class="clear">
-      		<div>
-      			<h1 class="name">Richard Hendriks</h1>
-      			<h2 class="label">Programmer</h2>
-      		</div>
+        <header id='header' class='clear'>
+            <div>
+              <h1 class='name'>Richard Hendriks</h1>
+              <h2 class='label'>Programmer</h2>
+            </div>
       
-      		<span class="location">
-      			<span class="address">2712 Broadway St,</span>
-      			<span class="postalCode">CA 94115,</span>
-      			<span class="city">San Francisco,</span>
-      			<span class="region">California</span>
-      			<span class="countryCode">(US)</span>
-      		</span>
+            <span class='location'>
+                <span class='address'>2712 Broadway St,</span>
+                <span class='postalCode'>CA 94115,</span>
+                <span class='city'>San Francisco,</span>
+                <span class='region'>California</span>
+                <span class='countryCode'>(US)</span>
+            </span>
       
+          
       
-      		<div id="contact">
-      			<div class="email">
-      				<span class="fa-regular fa-envelope"></span>
-      				<a class="hide-href-print" href="mailto:richard.hendriks@mail.com">richard.hendriks@mail.com</a>
-      			</div>
-      			<div class="phone">
-      				<span class="fa-solid fa-mobile-screen-button"></span>
-      				<a class="hide-href-print" href="tel:(912) 555-4321">(912) 555-4321</a>
-      			</div>
-      		</div>
+          <div id='contact'>
+              <div class='email'>
+                <span class='fa-regular fa-envelope'></span>
+                <a class='hide-href-print' href='mailto:richard.hendriks@mail.com'>richard.hendriks@mail.com</a>
+              </div>
+              <div class='phone'>
+                <span class='fa-solid fa-mobile-screen-button'></span>
+                <a class='hide-href-print' href='tel:(912) 555-4321'>(912) 555-4321</a>
+              </div>
+          </div>
       
-      		<div id="profiles">
-      			<div class="item">
-      				<div class="username">
-      					<span class="fa-brands fa-twitter twitter social"></span>
-      					<span class="url">
-      						<a target="_blank" href="https://www.twitter.com"><span class="show-only-url-print">neutralthoughts</span></a>
-      					</span>
-      				</div>
-      			</div>
-      			<div class="item">
-      				<div class="username">
-      					<span class="fa-brands fa-soundcloud soundcloud social"></span>
-      					<span class="url">
-      						<a target="_blank" href="https://soundcloud.example.com/dandymusicnl"><span class="show-only-url-print">dandymusicnl</span></a>
-      					</span>
-      				</div>
-      			</div>
-      		</div>
-      	</header>
+            <div id='profiles'>
+                <div class='item'>
+                    <div class='username'>
+                      <span
+                        class='fa-brands fa-twitter twitter social'
+                      ></span>
+                        <span class='url'>
+                          <a target='_blank' href='https://www.twitter.com'><span
+                              class='show-only-url-print'
+                            >neutralthoughts</span></a>
+                        </span>
+                    </div>
+                </div>
+                <div class='item'>
+                    <div class='username'>
+                      <span
+                        class='fa-brands fa-soundcloud soundcloud social'
+                      ></span>
+                        <span class='url'>
+                          <a target='_blank' href='https://soundcloud.example.com/dandymusicnl'><span
+                              class='show-only-url-print'
+                            >dandymusicnl</span></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </header>
       
-      	<section class="section summary">
-          <header>
-            <h2 class="section-title">Übersicht</h2>
-          </header>
-      		<section class="main-summary">
-      			<div><p>Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinal!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!</p></div>
-      		</section>
-      	</section>
+          <section class='section summary'>
+            <header>
+              <h2 class='section-title'>Übersicht</h2>
+            </header>
+            <section class='main-summary'>
+              <div><p>Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinal!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!</p></div>
+            </section>
+          </section>
       
       <section class="section">
         <header>
@@ -2038,9 +2061,9 @@ section .location {
           <section class="work-item">
               <label for="work-item-0"></label>
               <header class="clear">
-                  <div class="date">
-                    <span class="startDate">Dez. 2013</span>
-                      <span class="endDate">- Dez. 2014</span>
+                  <div class='date'>
+                    <span class='startDate'>Dez. 2013</span>
+                      <span class='endDate'>- Dez. 2014</span>
                   </div>
                 <div class="position">CEO/President</div>
                   <span class="company">
@@ -2069,9 +2092,9 @@ section .location {
         <section id="projects">
           <section class="project-item">
             <header class="clear">
-                <div class="date">
-                  <span class="startDate">Aug. 2016</span>
-                    <span class="endDate">- Aug. 2016</span>
+                <div class='date'>
+                  <span class='startDate'>Aug. 2016</span>
+                    <span class='endDate'>- Aug. 2016</span>
                 </div>
               <div class="position">Miss Direction</div>
             </header>
@@ -2105,16 +2128,16 @@ section .location {
             <label for="volunteer-item-0"></label>
       
             <header class="clear">
-                <div class="date">
-                  <span class="startDate">Jan. 2012</span>
-                    <span class="endDate">- Jan. 2013</span>
+                <div class='date'>
+                  <span class='startDate'>Jan. 2012</span>
+                    <span class='endDate'>- Jan. 2013</span>
                 </div>
               <div class="header-left">
                 <div class="position">
                   Teacher
                 </div>
                 <div class="organization">
-                  CoderDojo
+                    <a target="_blank" href="http://coderdojo.example.com/">CoderDojo</a>
                 </div>
               </div>
              
@@ -2136,9 +2159,9 @@ section .location {
         <section id="education">
           <section class="education-item">
             <header class="clear">
-                <div class="date">
-                  <span class="startDate">Juni 2011</span>
-                    <span class="endDate">- Jan. 2014</span>
+                <div class='date'>
+                  <span class='startDate'>Juni 2011</span>
+                    <span class='endDate'>- Jan. 2014</span>
                 </div>
               <div class="header-left">
                 <div class="studyType">
@@ -2148,7 +2171,7 @@ section .location {
                   Information Technology
                 </div>
                 <div class="institution">
-                  University of Oklahoma
+                    <a target="_blank" href="https://www.ou.edu/">University of Oklahoma</a>
                 </div>
               </div>
             </header>
@@ -2164,30 +2187,31 @@ section .location {
           </section>
         </section>
       </section>
-        <section class="section">
+        <section class='section'>
           <header>
-            <h2 class="section-title">Auszeichnungen <span class="item-count">(1)</span></h2>
+            <h2 class='section-title'>Auszeichnungen
+              <span class='item-count'>(1)</span></h2>
           </header>
-          <section id="awards">
-              <section class="award-item">
-                  <label for="award-item-0"></label>
+          <section id='awards'>
+              <section class='award-item'>
+                  <label for='award-item-0'></label>
       
-                <header class="clear">
-                    <div class="date">
+                <header class='clear'>
+                    <div class='date'>
                       Nov. 2014
                     </div>
-                  <div class="header-left">
-                      <div class="title">
+                  <div class='header-left'>
+                      <div class='title'>
                         Digital Compression Pioneer Award
                       </div>
-                      <div class="awarder">
+                      <div class='awarder'>
                         Techcrunch
                       </div>
                   </div>
                 </header>
       
-                <div class="item">
-                    <div class="summary"><p>There is no spoon.</p></div>
+                <div class='item'>
+                    <div class='summary'><p>There is no spoon.</p></div>
                 </div>
               </section>
           </section>
@@ -2221,24 +2245,25 @@ section .location {
           </section>
         </section>
       </section>
-      <section class="section">
-        <header>
-          <h2 class='section-title'>Sprachkenntnisse <span class="item-count">(1)</span></h2>
-        </header>
-        <section id="languages">
-          <div class="display">
-            <h3 class="language">
-              English
-            </h3>
-            <div class="item">
-              <div class="level fluency native speaker">
-                <em>Native speaker</em>
-                <div class="bar"></div>
+        <section class='section'>
+          <header>
+            <h2 class='section-title'>Sprachkenntnisse
+              <span class='item-count'>(1)</span></h2>
+          </header>
+          <section id='languages'>
+              <div class='display'>
+                  <h3 class='language'>
+                    English
+                  </h3>
+                <div class='item'>
+                    <div class='level fluency native speaker'>
+                        <em>Native speaker</em>
+                      <div class='bar'></div>
+                    </div>
+                </div>
               </div>
-            </div>
-          </div>
+          </section>
         </section>
-      </section>
       <section class="section">
         <header>
           <h2 class='section-title'>Interessen <span class="item-count">(1)</span></h2>
@@ -2255,21 +2280,22 @@ section .location {
           </div>
         </section>
       </section>
-      <section class="section">
-        <header>
-          <h2 class='section-title'>Empfehlungen <span class="item-count">(1)</span></h2>
-        </header>
-        <section id="references">
-          <div class="item">
-            <blockquote class="reference">
-              &#8220;&#32;It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company.&#32;&#8221;
-            </blockquote>
-            <div class="name">
-              Erlich Bachman
-            </div>
-          </div>
+        <section class='section'>
+          <header>
+            <h2 class='section-title'>Empfehlungen
+              <span class='item-count'>(1)</span></h2>
+          </header>
+          <section id='references'>
+              <div class='item'>
+                  <blockquote class='reference'>
+                    &#8220;&#32;It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company.&#32;&#8221;
+                  </blockquote>
+                  <div class='name'>
+                    Erlich Bachman
+                  </div>
+              </div>
+          </section>
         </section>
-      </section>
     </div>
   </body>
 </html>
