@@ -21,17 +21,17 @@
           </div>
           {{/if}}
           <div class="organization">
-            {{organization}}
+            {{#if url}}
+              <a target="_blank" href="{{url}}">{{organization}}</a>
+            {{else if website}}
+              <a target="_blank" href="{{website}}">{{organization}}</a>
+            {{else}}
+              {{organization}}
+            {{/if}}
           </div>
         </div>
        
       </header>
-      {{/if}}
-      {{#if website}}
-      <div class="website">
-        <span class="fa-solid fa-up-right-from-square"></span>
-        <a target="_blank" href="{{website}}">{{website}}</a>
-      </div>
       {{/if}}
       {{#location}}
       <span class="location">
