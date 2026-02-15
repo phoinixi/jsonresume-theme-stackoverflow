@@ -292,8 +292,7 @@ const levelMap: any = {
   nativo: "master",
   dominio: "master",
 
-  // Italian
-  principiante: "beginner",
+  // Italian (principiante already defined in Spanish)
   base: "beginner",
   "livello base": "beginner",
   "livello intermedio": "intermediate",

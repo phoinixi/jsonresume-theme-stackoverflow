@@ -8,3 +8,5 @@ resume.json
 index.html
 .DS_Store
 /coverage/
+/.build/
+docs/dist/

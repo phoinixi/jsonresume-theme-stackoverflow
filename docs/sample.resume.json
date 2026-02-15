@@ -1,0 +1,213 @@
+{
+  "basics": {
+    "name": "Richard Hendriks",
+    "label": "Full Stack Developer",
+    "image": "",
+    "email": "richard.hendriks@mail.com",
+    "phone": "(912) 555-4321",
+    "url": "https://richardhendriks.dev",
+    "summary": "Full stack developer with 8+ years of experience building scalable web applications. Passionate about clean code, performance optimization, and open source. Led teams of 5-10 engineers at multiple startups. Strong background in distributed systems and real-time data processing.",
+    "location": {
+      "address": "2712 Broadway St",
+      "postalCode": "CA 94115",
+      "city": "San Francisco",
+      "countryCode": "US",
+      "region": "California"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "richardhendriks",
+        "url": "https://github.com/richardhendriks"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "richardhendriks",
+        "url": "https://linkedin.com/in/richardhendriks"
+      },
+      {
+        "network": "Twitter",
+        "username": "richardhendriks",
+        "url": "https://twitter.com/richardhendriks"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Pied Piper",
+      "position": "Senior Full Stack Developer",
+      "url": "https://piedpiper.com",
+      "startDate": "2019-01-01",
+      "endDate": "",
+      "summary": "Leading development of a revolutionary middle-out compression platform serving 2M+ daily active users.",
+      "highlights": [
+        "Architected microservices migration reducing deployment time by 70%",
+        "Built real-time data pipeline processing 500K events/second",
+        "Mentored team of 5 junior developers, improving code review throughput by 40%",
+        "Implemented CI/CD pipeline with 95% test coverage requirement"
+      ]
+    },
+    {
+      "name": "Hooli",
+      "position": "Software Engineer",
+      "url": "https://hooli.com",
+      "startDate": "2016-06-01",
+      "endDate": "2018-12-31",
+      "summary": "Developed and maintained core platform features for enterprise cloud services.",
+      "highlights": [
+        "Reduced API response times by 60% through caching and query optimization",
+        "Designed and implemented OAuth2 authentication system for 10M+ users",
+        "Led migration from monolithic architecture to event-driven microservices"
+      ]
+    },
+    {
+      "name": "Raviga Capital",
+      "position": "Junior Developer",
+      "url": "",
+      "startDate": "2014-09-01",
+      "endDate": "2016-05-31",
+      "summary": "Built internal tools and dashboards for portfolio management.",
+      "highlights": [
+        "Developed real-time portfolio tracking dashboard using React and D3.js",
+        "Automated reporting pipeline saving 20 hours/week of manual work"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Code for America",
+      "position": "Volunteer Developer",
+      "url": "https://codeforamerica.org",
+      "startDate": "2020-01-01",
+      "endDate": "2023-12-31",
+      "summary": "Built civic tech tools for local government transparency.",
+      "highlights": [
+        "Developed open-source budget visualization tool used by 15 municipalities"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Stanford University",
+      "url": "https://stanford.edu",
+      "area": "Computer Science",
+      "studyType": "Bachelor of Science",
+      "startDate": "2010-09-01",
+      "endDate": "2014-06-15",
+      "score": "3.8 GPA",
+      "courses": [
+        "CS 144 - Introduction to Computer Networking",
+        "CS 229 - Machine Learning",
+        "CS 161 - Design and Analysis of Algorithms"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "TechCrunch Disrupt Winner",
+      "date": "2019-09-15",
+      "awarder": "TechCrunch",
+      "summary": "Won first place for middle-out compression algorithm demonstration"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "AWS Solutions Architect Professional",
+      "date": "2022-03-01",
+      "issuer": "Amazon Web Services",
+      "url": "https://aws.amazon.com/certification/"
+    },
+    {
+      "name": "Kubernetes Administrator (CKA)",
+      "date": "2021-11-15",
+      "issuer": "Cloud Native Computing Foundation",
+      "url": "https://www.cncf.io/certification/cka/"
+    }
+  ],
+  "publications": [
+    {
+      "name": "Optimal Lossless Compression for Distributed Systems",
+      "publisher": "ACM Computing Surveys",
+      "releaseDate": "2020-06-01",
+      "url": "https://example.com/paper",
+      "summary": "A novel approach to middle-out compression achieving 3x better ratios than existing algorithms."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Frontend",
+      "level": "Senior",
+      "keywords": ["React", "TypeScript", "Next.js", "Tailwind CSS", "Svelte"]
+    },
+    {
+      "name": "Backend",
+      "level": "Expert",
+      "keywords": ["Node.js", "Python", "Go", "PostgreSQL", "Redis"]
+    },
+    {
+      "name": "DevOps",
+      "level": "Advanced",
+      "keywords": ["AWS", "Docker", "Kubernetes", "Terraform", "GitHub Actions"]
+    },
+    {
+      "name": "Architecture",
+      "level": "Senior",
+      "keywords": ["Microservices", "Event-driven", "REST", "GraphQL", "gRPC"]
+    },
+    {
+      "name": "Testing",
+      "level": "Proficient",
+      "keywords": ["Jest", "Cypress", "Playwright", "Load Testing"]
+    },
+    {
+      "name": "Machine Learning",
+      "level": "Intermediate",
+      "keywords": ["PyTorch", "scikit-learn", "NLP", "Computer Vision"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "Spanish",
+      "fluency": "Professional working"
+    },
+    {
+      "language": "Mandarin",
+      "fluency": "Elementary"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Open Source",
+      "keywords": ["Linux", "Svelte", "Rust"]
+    },
+    {
+      "name": "Rock Climbing",
+      "keywords": ["Bouldering", "Lead Climbing"]
+    }
+  ],
+  "references": [
+    {
+      "name": "Erlich Bachman",
+      "reference": "Richard is the most talented developer I've ever worked with. His compression algorithm literally changed the industry. I would hire him again in a heartbeat — if I still had a company."
+    }
+  ],
+  "projects": [
+    {
+      "name": "PiperNet",
+      "description": "Decentralized internet platform built on middle-out compression",
+      "highlights": [
+        "Scaled to 2M+ users in first 6 months",
+        "Open-sourced core compression library (5K+ GitHub stars)"
+      ],
+      "keywords": ["Go", "WebRTC", "Distributed Systems"],
+      "startDate": "2019-03-01",
+      "url": "https://github.com/richardhendriks/pipernet",
+      "roles": ["Lead Developer", "Architect"],
+      "type": "application"
+    }
+  ]
+}

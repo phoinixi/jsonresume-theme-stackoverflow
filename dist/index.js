@@ -10828,8 +10828,7 @@ var levelMap = {
   experto: "master",
   nativo: "master",
   dominio: "master",
-  // Italian
-  principiante: "beginner",
+  // Italian (principiante already defined in Spanish)
   base: "beginner",
   "livello base": "beginner",
   "livello intermedio": "intermediate",
