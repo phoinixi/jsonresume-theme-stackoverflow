@@ -1,7 +1,7 @@
 {{#if resume.skills.length}}
 <section class="section">
   <header>
-    <h2 class='section-title'>Skills</h2>
+    <h2 class='section-title'>{{i18n 'resume.skills'}}</h2>
   </header>
   <section id="skills">
     {{#each resume.skills}}
@@ -10,7 +10,7 @@
       <h3 class="name">
         {{name}}
       </h3>
-      {{/if}} 
+      {{/if}}
       {{#if level}}
         <div class="level {{toLowerCase level}}">
           {{#if levelDisplay}}
