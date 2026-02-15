@@ -222,7 +222,7 @@ const resources: I18nResources = {
  * Supports synonyms in multiple languages. Falls back to fuzzy matching.
  * Returns the original string lowercased if no match (bar won't render).
  */
-const levelMap: Record<string, string> = {
+const levelMap: any = {
   // English
   beginner: "beginner",
   novice: "beginner",

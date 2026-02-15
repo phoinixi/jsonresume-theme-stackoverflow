@@ -10575,9 +10575,6 @@ function paragraphSplit(text3) {
   if (text3 == null) return "";
   return md.render(text3).trim();
 }
-function toLowerCase(str) {
-  return str.toLowerCase();
-}
 function spaceToDash(str) {
   return str.replace(/\s/g, "-").toLowerCase();
 }
@@ -10768,6 +10765,95 @@ var resources = {
     "resume.references": "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438"
   }
 };
+var levelMap = {
+  // English
+  beginner: "beginner",
+  novice: "beginner",
+  "entry level": "beginner",
+  "entry-level": "beginner",
+  junior: "beginner",
+  elementary: "beginner",
+  basic: "beginner",
+  fundamental: "beginner",
+  starter: "beginner",
+  intermediate: "intermediate",
+  moderate: "intermediate",
+  "mid-level": "intermediate",
+  mid: "intermediate",
+  competent: "intermediate",
+  proficient: "intermediate",
+  "working knowledge": "intermediate",
+  "limited working": "intermediate",
+  advanced: "advanced",
+  senior: "advanced",
+  experienced: "advanced",
+  "highly proficient": "advanced",
+  "professional working": "advanced",
+  "full professional": "advanced",
+  fluent: "advanced",
+  strong: "advanced",
+  master: "master",
+  expert: "master",
+  "native speaker": "master",
+  native: "master",
+  "native or bilingual": "master",
+  mastery: "master",
+  lead: "master",
+  principal: "master",
+  specialist: "master",
+  authority: "master",
+  // German
+  anf\u00E4nger: "beginner",
+  grundkenntnisse: "beginner",
+  fortgeschritten: "advanced",
+  "sehr gut": "advanced",
+  flie\u00DFend: "advanced",
+  experte: "master",
+  muttersprache: "master",
+  muttersprachlich: "master",
+  verhandlungssicher: "advanced",
+  // French
+  d\u00E9butant: "beginner",
+  interm\u00E9diaire: "intermediate",
+  avanc\u00E9: "advanced",
+  courant: "advanced",
+  bilingue: "master",
+  ma\u00EEtrise: "master",
+  notions: "beginner",
+  // Spanish
+  principiante: "beginner",
+  b\u00E1sico: "beginner",
+  intermedio: "intermediate",
+  avanzado: "advanced",
+  experto: "master",
+  nativo: "master",
+  dominio: "master",
+  // Italian
+  principiante: "beginner",
+  base: "beginner",
+  "livello base": "beginner",
+  "livello intermedio": "intermediate",
+  "livello avanzato": "advanced",
+  madrelingua: "master",
+  esperto: "master",
+  ottimo: "advanced",
+  buono: "intermediate",
+  discreto: "intermediate",
+  // Portuguese
+  iniciante: "beginner",
+  intermedi\u00E1rio: "intermediate",
+  avan\u00E7ado: "advanced",
+  especialista: "master",
+  fluente: "advanced"
+};
+function normalizeLevel(level) {
+  const lower = level.toLowerCase().trim();
+  if (levelMap[lower]) return levelMap[lower];
+  for (const [key2, tier] of Object.entries(levelMap)) {
+    if (lower.includes(key2) || key2.includes(lower)) return tier;
+  }
+  return lower;
+}
 var currentLang = "en";
 function setI18nLanguage(lang) {
   switch (lang) {
@@ -10923,7 +11009,7 @@ function Skills($$renderer, $$props) {
         $$renderer2.push(`<!--]--> `);
         if (skill.level) {
           $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div${attr_class(`level ${stringify(toLowerCase(skill.level))}`)}>`);
+          $$renderer2.push(`<div${attr_class(`level ${stringify(normalizeLevel(skill.level))}`)}>`);
           if (skill.levelDisplay) {
             $$renderer2.push("<!--[-->");
             $$renderer2.push(`<em>${escape_html(skill.levelDisplay)}</em>`);
@@ -11621,7 +11707,7 @@ function Languages($$renderer, $$props) {
         $$renderer2.push(`<!--]--> <div class="item">`);
         if (lang.fluency) {
           $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<div${attr_class(`level fluency ${stringify(toLowerCase(lang.fluency))}`)}>`);
+          $$renderer2.push(`<div${attr_class(`level fluency ${stringify(normalizeLevel(lang.fluency))}`)}>`);
           if (lang.fluencyDisplay) {
             $$renderer2.push("<!--[-->");
             $$renderer2.push(`<em>${escape_html(lang.fluencyDisplay)}</em>`);
