@@ -10571,7 +10571,7 @@ MarkdownIt.prototype.renderInline = function(src, env) {
 var lib_default = MarkdownIt;
 
 // .build/utils/markdown.js
-var md = new lib_default();
+var md = new lib_default({ html: false, linkify: true });
 function paragraphSplit(text3) {
   if (text3 == null)
     return "";
