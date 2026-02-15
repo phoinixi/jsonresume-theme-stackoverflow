@@ -10570,34 +10570,107 @@ MarkdownIt.prototype.renderInline = function(src, env) {
 };
 var lib_default = MarkdownIt;
 
-// .build/utils/helpers.js
+// .build/utils/markdown.js
 var md = new lib_default();
 function paragraphSplit(text3) {
   if (text3 == null)
     return "";
   return md.render(text3).trim();
 }
-function spaceToDash(str) {
-  return str.replace(/\s/g, "-").toLowerCase();
+
+// .build/utils/levels.js
+var levelMap = {
+  // English
+  beginner: "beginner",
+  novice: "beginner",
+  "entry level": "beginner",
+  "entry-level": "beginner",
+  junior: "beginner",
+  elementary: "beginner",
+  basic: "beginner",
+  fundamental: "beginner",
+  starter: "beginner",
+  intermediate: "intermediate",
+  moderate: "intermediate",
+  "mid-level": "intermediate",
+  mid: "intermediate",
+  competent: "intermediate",
+  proficient: "intermediate",
+  "working knowledge": "intermediate",
+  "limited working": "intermediate",
+  advanced: "advanced",
+  senior: "advanced",
+  experienced: "advanced",
+  "highly proficient": "advanced",
+  "professional working": "advanced",
+  "full professional": "advanced",
+  fluent: "advanced",
+  strong: "advanced",
+  master: "master",
+  expert: "master",
+  "native speaker": "master",
+  native: "master",
+  "native or bilingual": "master",
+  mastery: "master",
+  lead: "master",
+  principal: "master",
+  specialist: "master",
+  authority: "master",
+  // German
+  anf\u00E4nger: "beginner",
+  grundkenntnisse: "beginner",
+  fortgeschritten: "advanced",
+  "sehr gut": "advanced",
+  flie\u00DFend: "advanced",
+  experte: "master",
+  muttersprache: "master",
+  muttersprachlich: "master",
+  verhandlungssicher: "advanced",
+  // French
+  d\u00E9butant: "beginner",
+  interm\u00E9diaire: "intermediate",
+  avanc\u00E9: "advanced",
+  courant: "advanced",
+  bilingue: "master",
+  ma\u00EEtrise: "master",
+  notions: "beginner",
+  // Spanish
+  principiante: "beginner",
+  b\u00E1sico: "beginner",
+  intermedio: "intermediate",
+  avanzado: "advanced",
+  experto: "master",
+  nativo: "master",
+  dominio: "master",
+  // Italian
+  base: "beginner",
+  "livello base": "beginner",
+  "livello intermedio": "intermediate",
+  "livello avanzato": "advanced",
+  madrelingua: "master",
+  esperto: "master",
+  ottimo: "advanced",
+  buono: "intermediate",
+  discreto: "intermediate",
+  // Portuguese
+  iniciante: "beginner",
+  intermedi\u00E1rio: "intermediate",
+  avan\u00E7ado: "advanced",
+  especialista: "master",
+  fluente: "advanced"
+};
+function normalizeLevel(level) {
+  const lower = level.toLowerCase().trim();
+  if (levelMap[lower])
+    return levelMap[lower];
+  for (const [key2, tier] of Object.entries(levelMap)) {
+    if (lower.includes(key2) || key2.includes(lower))
+      return tier;
+  }
+  return lower;
 }
-function birthDateHtml(birth) {
-  if (!birth || !Object.keys(birth).length)
-    return "";
-  const out = [];
-  if (birth.place) {
-    out.push(`<div> Born in ${birth.place}`);
-  }
-  if (birth.place && birth.state) {
-    out.push(`, ${birth.state}`);
-  }
-  const year = birth.date ? new Date(birth.date).toLocaleDateString({ year: "numeric" }) : "";
-  if (year && birth.place && birth.state) {
-    out.push(` in ${year}</div>`);
-  } else if (year && (!birth.place || birth.state)) {
-    out.push(`<div> Born in ${year}</div>`);
-  }
-  return out.join("");
-}
+
+// .build/utils/i18n.js
 var resources = {
   en: {
     "resume.summary": "Summary",
@@ -10768,96 +10841,6 @@ var resources = {
     "resume.references": "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438"
   }
 };
-var levelMap = {
-  // English
-  beginner: "beginner",
-  novice: "beginner",
-  "entry level": "beginner",
-  "entry-level": "beginner",
-  junior: "beginner",
-  elementary: "beginner",
-  basic: "beginner",
-  fundamental: "beginner",
-  starter: "beginner",
-  intermediate: "intermediate",
-  moderate: "intermediate",
-  "mid-level": "intermediate",
-  mid: "intermediate",
-  competent: "intermediate",
-  proficient: "intermediate",
-  "working knowledge": "intermediate",
-  "limited working": "intermediate",
-  advanced: "advanced",
-  senior: "advanced",
-  experienced: "advanced",
-  "highly proficient": "advanced",
-  "professional working": "advanced",
-  "full professional": "advanced",
-  fluent: "advanced",
-  strong: "advanced",
-  master: "master",
-  expert: "master",
-  "native speaker": "master",
-  native: "master",
-  "native or bilingual": "master",
-  mastery: "master",
-  lead: "master",
-  principal: "master",
-  specialist: "master",
-  authority: "master",
-  // German
-  anf\u00E4nger: "beginner",
-  grundkenntnisse: "beginner",
-  fortgeschritten: "advanced",
-  "sehr gut": "advanced",
-  flie\u00DFend: "advanced",
-  experte: "master",
-  muttersprache: "master",
-  muttersprachlich: "master",
-  verhandlungssicher: "advanced",
-  // French
-  d\u00E9butant: "beginner",
-  interm\u00E9diaire: "intermediate",
-  avanc\u00E9: "advanced",
-  courant: "advanced",
-  bilingue: "master",
-  ma\u00EEtrise: "master",
-  notions: "beginner",
-  // Spanish
-  principiante: "beginner",
-  b\u00E1sico: "beginner",
-  intermedio: "intermediate",
-  avanzado: "advanced",
-  experto: "master",
-  nativo: "master",
-  dominio: "master",
-  // Italian (principiante already defined in Spanish)
-  base: "beginner",
-  "livello base": "beginner",
-  "livello intermedio": "intermediate",
-  "livello avanzato": "advanced",
-  madrelingua: "master",
-  esperto: "master",
-  ottimo: "advanced",
-  buono: "intermediate",
-  discreto: "intermediate",
-  // Portuguese
-  iniciante: "beginner",
-  intermedi\u00E1rio: "intermediate",
-  avan\u00E7ado: "advanced",
-  especialista: "master",
-  fluente: "advanced"
-};
-function normalizeLevel(level) {
-  const lower = level.toLowerCase().trim();
-  if (levelMap[lower])
-    return levelMap[lower];
-  for (const [key2, tier] of Object.entries(levelMap)) {
-    if (lower.includes(key2) || key2.includes(lower))
-      return tier;
-  }
-  return lower;
-}
 var currentLang = "en";
 function setI18nLanguage(lang) {
   switch (lang) {
@@ -10871,6 +10854,29 @@ function setI18nLanguage(lang) {
 function t(key2) {
   const lang = resources[currentLang] || resources["en"];
   return lang[key2] || resources["en"][key2] || key2;
+}
+
+// .build/utils/helpers.js
+function spaceToDash(str) {
+  return str.replace(/\s/g, "-").toLowerCase();
+}
+function birthDateHtml(birth) {
+  if (!birth || !Object.keys(birth).length)
+    return "";
+  const out = [];
+  if (birth.place) {
+    out.push(`<div> Born in ${birth.place}`);
+  }
+  if (birth.place && birth.state) {
+    out.push(`, ${birth.state}`);
+  }
+  const year = birth.date ? new Date(birth.date).toLocaleDateString({ year: "numeric" }) : "";
+  if (year && birth.place && birth.state) {
+    out.push(` in ${year}</div>`);
+  } else if (year && (!birth.place || birth.state)) {
+    out.push(`<div> Born in ${year}</div>`);
+  }
+  return out.join("");
 }
 
 // .build/components/Basics.js
