@@ -1,0 +1,133 @@
+/****************
+*		MOBILE
+****************/
+
+@media screen and (max-width: 601px) {
+  #resume {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  #skills,
+  #languages,
+  #interests {
+    flex-direction: column;
+  }
+
+  #skills .item,
+  #languages .item,
+  #interests .item {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  #skills .item .keywords {
+    width: 100%;
+  }
+
+  #header > #profiles,
+  #header > #contact {
+    flex-wrap: wrap;
+  }
+
+  #header > div > div {
+    margin-right: 0.8em;
+    margin-bottom: 0.3em;
+  }
+
+  #header h1.name {
+    font-size: 2rem;
+  }
+
+  #header h2.label {
+    font-size: 1.2rem;
+  }
+
+  #header .image {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem;
+    width: 8em;
+  }
+
+  .section header .date {
+    display: block;
+    float: none;
+    font-size: 0.9rem;
+    margin-top: 0.2em;
+  }
+
+  .section > section > header {
+    font-size: 1.15rem;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 601px) {
+  #skills {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #skills .item {
+    width: 48%;
+    padding-right: 2%;
+  }
+}
+
+/****************
+*		TABLET
+****************/
+
+@media screen and (min-width: 602px) {
+  #resume {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .section header .date {
+    float: right;
+    font-weight: 600;
+    color: #000;
+  }
+}
+
+/****************
+*		LAPTOP
+****************/
+
+@media screen and (min-width: 1025px) {
+  li {
+    margin-left: 1.5em;
+  }
+  #resume {
+    width: 820px;
+    margin: 2rem auto;
+  }
+  .section > section > header .space-left {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .section > section:not(.main-summary) {
+    margin-left: 1.67rem;
+  }
+  .company::before,
+  .institution::before,
+  .organization::before,
+  .awarder::before {
+    content: "| ";
+  }
+  .header-left {
+    float: left;
+    width: 70%;
+    word-break: normal;
+  }
+  .section header .date {
+    padding: 0.2em;
+  }
+  .display {
+    display: none;
+  }
+  .display:not(.none) {
+    display: block;
+  }
+}

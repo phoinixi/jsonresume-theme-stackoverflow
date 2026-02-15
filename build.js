@@ -10,6 +10,8 @@
 const { compile } = require('svelte/compiler');
 const ts = require('typescript');
 const esbuild = require('esbuild');
+const postcss = require('postcss');
+const postcssImport = require('postcss-import');
 const fs = require('fs');
 const path = require('path');
 
@@ -233,6 +235,16 @@ export const pdfRenderOptions = {
 
   const stat = fs.statSync(path.join(DIST_DIR, 'index.js'));
   console.log(`Built dist/index.js (${(stat.size / 1024).toFixed(1)}KB)`);
+
+  // Concatenate CSS from styles/ into root style.css
+  const cssEntry = path.join(__dirname, 'styles', 'index.css');
+  if (fs.existsSync(cssEntry)) {
+    const cssSource = fs.readFileSync(cssEntry, 'utf-8');
+    return postcss([postcssImport]).process(cssSource, { from: cssEntry }).then(result => {
+      fs.writeFileSync(path.join(__dirname, 'style.css'), result.css);
+      console.log('Built style.css from styles/');
+    });
+  }
 }
 
 build();
