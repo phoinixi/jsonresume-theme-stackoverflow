@@ -1,39 +1,58 @@
 <script>
-  import { normalizeLevel, t } from '../utils/helpers.ts';
+  import { t } from '../utils/helpers.ts';
+  import SectionHeader from './SectionHeader.svelte';
+  import LevelBar from './LevelBar.svelte';
+  import KeywordList from './KeywordList.svelte';
 
   let { skills = [] } = $props();
 </script>
 
 {#if skills?.length}
-  <section class="section">
-    <header>
-      <h2 class="section-title">{t('resume.skills')}</h2>
-    </header>
-    <section id="skills">
+  <SectionHeader title={t('resume.skills')}>
+    <section class="skills-grid">
       {#each skills as skill}
-        <div class="item">
+        <div class="skill-item">
           {#if skill.name}
             <h3 class="name">{skill.name}</h3>
           {/if}
           {#if skill.level}
-            <div class="level {normalizeLevel(skill.level)}" role="meter" aria-label="{skill.name} skill level: {skill.levelDisplay || skill.level}" aria-valuemin="0" aria-valuemax="100" aria-valuenow={normalizeLevel(skill.level) === 'beginner' ? 25 : normalizeLevel(skill.level) === 'intermediate' ? 50 : normalizeLevel(skill.level) === 'advanced' || normalizeLevel(skill.level) === 'fluent' ? 75 : 100}>
-              {#if skill.levelDisplay}
-                <em>{skill.levelDisplay}</em>
-              {:else}
-                <em>{skill.level}</em>
-              {/if}
-              <div class="bar" aria-hidden="true"></div>
-            </div>
+            <LevelBar level={skill.level} displayText={skill.levelDisplay} name={skill.name} />
           {/if}
-          {#if skill.keywords?.length}
-            <ul class="keywords">
-              {#each skill.keywords as keyword}
-                <li>{keyword}</li>
-              {/each}
-            </ul>
-          {/if}
+          <KeywordList keywords={skill.keywords} />
         </div>
       {/each}
     </section>
-  </section>
+  </SectionHeader>
 {/if}
+
+<style>
+  .skills-grid {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+
+  .skill-item {
+    width: 16em;
+    padding: 0 0.5em 0.5em 0;
+    border-bottom: none;
+  }
+
+  .name {
+    font-weight: 600;
+  }
+
+  @media print {
+    .skills-grid .skill-item { display: flex; flex-direction: column; margin: 0.3rem 0; padding: 0; }
+  }
+
+  @media screen and (max-width: 601px) {
+    .skills-grid { flex-direction: column; }
+    .skill-item { width: 100%; padding-right: 0; }
+  }
+
+  @media screen and (min-width: 480px) and (max-width: 601px) {
+    .skills-grid { flex-direction: row; flex-wrap: wrap; }
+    .skill-item { width: 48%; padding-right: 2%; }
+  }
+</style>

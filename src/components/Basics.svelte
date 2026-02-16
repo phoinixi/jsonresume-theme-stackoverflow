@@ -1,11 +1,16 @@
 <script>
-  import { paragraphSplit, spaceToDash, birthDateHtml, t } from '../utils/helpers.ts';
+  import { t } from '../utils/helpers.ts';
+  import ContactInfo from './ContactInfo.svelte';
+  import SocialProfile from './SocialProfile.svelte';
+  import SectionHeader from './SectionHeader.svelte';
+  import BirthDate from './BirthDate.svelte';
+  import FormattedText from './FormattedText.svelte';
 
   let { basics } = $props();
 </script>
 
 {#if basics}
-  <header id="header" class="clear">
+  <header class="header clear">
     {#if basics.image}
       <img class="image" src={basics.image} alt={basics.name}>
       <div class="middle">
@@ -22,76 +27,100 @@
     {#if basics.location}
       <span class="location">
         {#if basics.location.address}
-          <span class="address">{basics.location.address},</span>
+          <span>{basics.location.address},</span>
         {/if}
         {#if basics.location.postalCode}
-          <span class="postalCode">{basics.location.postalCode},</span>
+          <span>{basics.location.postalCode},</span>
         {/if}
         {#if basics.location.city}
-          <span class="city">{basics.location.city},</span>
+          <span>{basics.location.city},</span>
         {/if}
         {#if basics.location.region}
-          <span class="region">{basics.location.region}</span>
+          <span>{basics.location.region}</span>
         {/if}
         {#if basics.location.countryCode}
-          <span class="countryCode">({basics.location.countryCode})</span>
+          <span>({basics.location.countryCode})</span>
         {/if}
       </span>
     {/if}
 
-    {@html birthDateHtml(basics.birth)}
+    <BirthDate birth={basics.birth} />
 
-    <div id="contact">
-      {#if basics.website}
-        <div class="website">
-          <span class="fa-solid fa-up-right-from-square"></span>
-          <a class="hide-href-print" target="_blank" href={basics.website}>{basics.website}</a>
-        </div>
-      {/if}
-      {#if basics.email}
-        <div class="email">
-          <span class="fa-regular fa-envelope"></span>
-          <a class="hide-href-print" href="mailto:{basics.email}">{basics.email}</a>
-        </div>
-      {/if}
-      {#if basics.phone}
-        <div class="phone">
-          <span class="fa-solid fa-mobile-screen-button"></span>
-          <a class="hide-href-print" href="tel:{basics.phone}">{basics.phone}</a>
-        </div>
-      {/if}
-    </div>
+    <ContactInfo website={basics.website} email={basics.email} phone={basics.phone} />
 
     {#if basics.profiles?.length}
-      <nav id="profiles" aria-label="Social profiles">
+      <nav class="profiles" aria-label="Social profiles">
         {#each basics.profiles as profile}
-          <div class="item">
-            {#if profile.network}
-              <div class="username">
-                <span class="fa-brands fa-{spaceToDash(profile.network)} {spaceToDash(profile.network)} social"></span>
-                {#if profile.url}
-                  <span class="url">
-                    <a target="_blank" href={profile.url}><span class="show-only-url-print">{profile.username}</span></a>
-                  </span>
-                {:else}
-                  <span>{profile.username}</span>
-                {/if}
-              </div>
-            {/if}
-          </div>
+          <SocialProfile {profile} />
         {/each}
       </nav>
     {/if}
   </header>
 
   {#if basics.summary}
-    <section class="section summary">
-      <header>
-        <h2 class="section-title">{t('resume.summary')}</h2>
-      </header>
+    <SectionHeader title={t('resume.summary')}>
       <section class="main-summary">
-        <div>{@html paragraphSplit(basics.summary)}</div>
+        <div><FormattedText text={basics.summary} /></div>
       </section>
-    </section>
+    </SectionHeader>
   {/if}
 {/if}
+
+<style>
+  .header {
+    margin-bottom: 1rem;
+  }
+
+  .name {
+    font-size: 2.8rem;
+    font-weight: 100;
+    line-height: 100%;
+  }
+
+  .label {
+    color: var(--color-heading);
+    font-size: 1.47rem;
+    font-weight: 300;
+  }
+
+  .image {
+    width: 11em;
+    float: right;
+    border-radius: 4px;
+  }
+
+  .profiles {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+
+  .section {
+    margin-bottom: 1rem;
+  }
+
+  .main-summary {
+    background: var(--color-background-alt);
+    padding: 1.2em 1em;
+  }
+
+  /* p margin reset handled by summary wrapper */
+
+  @media print {
+    .profiles :global(a:not(.hide-href-print))::after {
+      content: " (" attr(href) ") ";
+    }
+    .profiles .url :global(.show-only-url-print) { display: none; }
+    .profiles .url :global(a)::after { content: attr(href); }
+    .profiles :global(.item) { padding: 0; }
+    .main-summary { padding: 0; background: transparent; }
+  }
+
+  @media screen and (max-width: 601px) {
+    .header .profiles, .header :global(.contact) { flex-wrap: wrap; }
+    .header > div > div { margin-right: 0.8em; margin-bottom: 0.3em; }
+    .name { font-size: 2rem; }
+    .label { font-size: 1.2rem; }
+    .image { float: none; display: block; margin: 0 auto 1rem; width: 8em; }
+  }
+</style>

@@ -2,12 +2,13 @@
  * Build script: compiles Svelte components and bundles into dist/index.js (CJS)
  * 
  * 1. Compile .svelte files → .js with svelte/compiler (server mode)
- * 2. Strip TypeScript from .ts files → .js
+ * 2. Transpile TypeScript from .ts files using the TypeScript compiler
  * 3. Create ESM entry point
  * 4. Bundle with esbuild into CJS
  */
 
 const { compile } = require('svelte/compiler');
+const ts = require('typescript');
 const esbuild = require('esbuild');
 const fs = require('fs');
 const path = require('path');
@@ -16,14 +17,35 @@ const SRC_DIR = path.join(__dirname, 'src');
 const BUILD_DIR = path.join(__dirname, '.build');
 const DIST_DIR = path.join(__dirname, 'dist');
 
-// Simple TypeScript type stripping
-function stripTypes(code) {
-  code = code.replace(/import\s+type\s+\{[^}]*\}\s+from\s+['"][^'"]*['"];?\n?/g, '');
-  code = code.replace(/\s+as\s+\w+/g, '');
-  code = code.replace(/export\s+interface\s+\w+\s*\{(?:[^{}]*|\{[^{}]*\})*\}\n?/g, '');
-  code = code.replace(/:\s*(?:string|number|boolean|any|void|undefined|null|I18nResources|Birth)(?:\s*\[\s*\])?(?:\s*\|\s*(?:string|number|boolean|any|void|undefined|null)(?:\s*\[\s*\])?)*(?=\s*[,)=}])/g, '');
-  code = code.replace(/\)\s*:\s*(?:string|number|boolean|void|any)\s*\{/g, ') {');
-  return code;
+const tsCompilerOptions = {
+  target: ts.ScriptTarget.ES2020,
+  module: ts.ModuleKind.ESNext,
+  moduleResolution: ts.ModuleResolutionKind.Bundler,
+  esModuleInterop: true,
+  strict: true,
+  skipLibCheck: true,
+  verbatimModuleSyntax: false,
+};
+
+/**
+ * Transpile TypeScript to JavaScript using the TypeScript compiler API.
+ * Handles all TS syntax properly (generics, Record<K,V>, interfaces, etc.)
+ */
+function transpileTS(code, fileName = 'file.ts') {
+  const result = ts.transpileModule(code, {
+    compilerOptions: tsCompilerOptions,
+    fileName,
+    reportDiagnostics: true,
+  });
+
+  if (result.diagnostics && result.diagnostics.length > 0) {
+    for (const diag of result.diagnostics) {
+      const msg = ts.flattenDiagnosticMessageText(diag.messageText, '\n');
+      console.warn(`TS warning in ${fileName}: ${msg}`);
+    }
+  }
+
+  return result.outputText;
 }
 
 function collectFiles(dir, exts, files = []) {
@@ -50,17 +72,23 @@ function build() {
   for (const file of svelteFiles) {
     const source = fs.readFileSync(file, 'utf-8');
     
-    // Strip TS from script blocks
+    // Transpile TS in script blocks using the TypeScript compiler
     const processed = source.replace(
       /<script([^>]*)>([\s\S]*?)<\/script>/g,
-      (match, attrs, content) => `<script${attrs.replace(/\s*lang=["']ts["']/, '')}>${stripTypes(content)}</script>`
+      (match, attrs, content) => {
+        if (attrs.includes('lang="ts"') || attrs.includes("lang='ts'")) {
+          const jsContent = transpileTS(content, file);
+          return `<script${attrs.replace(/\s*lang=["']ts["']/, '')}>${jsContent}</script>`;
+        }
+        return match;
+      }
     );
 
     const result = compile(processed, {
       generate: 'server',
       name: path.basename(file, '.svelte'),
       filename: file,
-      css: 'external',
+      css: 'injected',
     });
 
     const relPath = path.relative(SRC_DIR, file).replace('.svelte', '.js');
@@ -77,8 +105,8 @@ function build() {
   // Compile TS files
   const tsFiles = collectFiles(SRC_DIR, ['.ts']);
   for (const file of tsFiles) {
-    let code = fs.readFileSync(file, 'utf-8');
-    code = stripTypes(code);
+    const source = fs.readFileSync(file, 'utf-8');
+    let code = transpileTS(source, file);
     // Fix import paths
     code = code.replace(/(from\s+['"][^'"]*)\.(ts)(['"])/g, '$1.js$3');
     
@@ -140,7 +168,7 @@ export function render(resume, options) {
   if (options && options.language) {
     changeLanguage(options.language);
   }
-  const stylePath = join(__dirname, '..', 'style.css');
+  const stylePath = join(__dirname, '..', 'styles', 'global.css');
   const css = readFileSync(stylePath, 'utf-8');
   
   const result = svelteRender(Resume, {
@@ -148,6 +176,7 @@ export function render(resume, options) {
   });
 
   let body = result.body;
+  let head = result.head || '';
   // Remove Svelte SSR comment markers
   body = body.replace(/<!--\\[-->/g, '').replace(/<!--\\]-->/g, '');
 
@@ -164,7 +193,8 @@ export function render(resume, options) {
     <link rel="stylesheet" href="./override.css">
     <style>
       \${css}
-    </style>\${themeOverrides ? '\\n    <style>\\n      ' + themeOverrides + '\\n    </style>' : ''}
+    </style>
+    \${head}\${themeOverrides ? '\\n    <style>\\n      ' + themeOverrides + '\\n    </style>' : ''}
   </head>
   <body>
     \${body}
@@ -194,7 +224,9 @@ export const pdfRenderOptions = {
     outfile: path.join(DIST_DIR, 'index.js'),
     external: ['fs', 'path', 'url'],
     target: 'node18',
-    // Define __dirname for the bundled code
+    treeShaking: true,
+    minifySyntax: true,
+    minifyWhitespace: true,
     define: {},
     banner: {
       js: '// Auto-generated by build.js — do not edit\n',

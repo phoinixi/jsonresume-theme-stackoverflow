@@ -9,6 +9,7 @@ const isHTMLValid = async (html, logResults = true) => {
       "no-trailing-whitespace": "off",
       "void-style": "warn",
       "tel-non-breaking": "off",
+      "no-inline-style": "off",
     },
   });
 

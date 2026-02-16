@@ -1,34 +1,54 @@
 <script>
-  import { normalizeLevel, t } from '../utils/helpers.ts';
+  import { t } from '../utils/helpers.ts';
+  import SectionHeader from './SectionHeader.svelte';
+  import LevelBar from './LevelBar.svelte';
 
   let { languages = [] } = $props();
 </script>
 
 {#if languages?.length}
-  <section class="section">
-    <header>
-      <h2 class="section-title">{t('resume.languages')} <span class="item-count">({languages.length})</span></h2>
-    </header>
-    <section id="languages">
+  <SectionHeader title={t('resume.languages')} count={languages.length}>
+    <section class="languages-grid">
       {#each languages as lang}
-        <div class="display">
+        <div class="language-entry display">
           {#if lang.language}
             <h3 class="language">{lang.language}</h3>
           {/if}
-          <div class="item">
+          <div class="language-item">
             {#if lang.fluency}
-              <div class="level fluency {normalizeLevel(lang.fluency)}">
-                {#if lang.fluencyDisplay}
-                  <em>{lang.fluencyDisplay}</em>
-                {:else}
-                  <em>{lang.fluency}</em>
-                {/if}
-                <div class="bar"></div>
-              </div>
+              <LevelBar level={lang.fluency} displayText={lang.fluencyDisplay} />
             {/if}
           </div>
         </div>
       {/each}
     </section>
-  </section>
+  </SectionHeader>
 {/if}
+
+<style>
+  .languages-grid {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+
+  .language-item {
+    width: 15em;
+    padding: 0 0.5em 0.5em 0;
+    border-bottom: none;
+  }
+
+  .language {
+    font-weight: 600;
+  }
+
+  .display {
+    display: block;
+    opacity: 1 !important;
+  }
+
+  @media screen and (max-width: 601px) {
+    .languages-grid { flex-direction: column; }
+    .language-item { width: 100%; padding-right: 0; }
+  }
+</style>

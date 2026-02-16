@@ -20,6 +20,7 @@
 - **Dark mode** — Automatic light/dark theme via `prefers-color-scheme`
 - **Internationalization** — 12 languages supported out of the box
 - **Customizable themes** — Override colors and fonts via `resume.json` meta field
+- **Section ordering** — Reorder resume sections via `meta.theme.sectionOrder`
 - **Override CSS** — Drop in an `override.css` for full control
 - **PDF-ready** — Built-in PDF render options with sensible margins
 - **Zero runtime JS** — Pure HTML + CSS output, no client-side JavaScript
@@ -120,6 +121,28 @@ Customize colors and fonts by adding a `theme` object inside `meta` in your `res
 
 For full CSS control, create an `override.css` file alongside your resume. The theme automatically loads it via `<link rel="stylesheet" href="./override.css">`.
 
+## 📑 Section Ordering
+
+Control the order of resume sections by adding a `sectionOrder` array to `meta.theme`:
+
+```json
+{
+  "meta": {
+    "theme": {
+      "sectionOrder": ["basics", "work", "skills", "education", "projects"]
+    }
+  }
+}
+```
+
+### Available sections
+
+`basics`, `skills`, `work`, `projects`, `volunteer`, `education`, `awards`, `certificates`, `publications`, `languages`, `interests`, `references`
+
+**Default order:** basics → skills → work → projects → volunteer → education → awards → certificates → publications → languages → interests → references
+
+Only sections listed in `sectionOrder` will be rendered. Omit sections to hide them, or include all for full control over ordering.
+
 ## 🛠 Development
 
 ```bash
@@ -128,6 +151,15 @@ cd jsonresume-theme-stackoverflow
 npm install
 npm run build
 npm test
+```
+
+### Generating Screenshots
+
+Screenshots require puppeteer (not included in devDependencies to keep installs lean):
+
+```bash
+npm install puppeteer
+node docs/screenshot.js
 ```
 
 ## 📄 License
