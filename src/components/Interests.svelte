@@ -39,4 +39,9 @@
     padding: 0 0.5em 0.5em 0;
     border-bottom: none;
   }
+
+  @media screen and (max-width: 601px) {
+    .interests-grid { flex-direction: column; }
+    .interest-item { width: 100%; padding-right: 0; }
+  }
 </style>

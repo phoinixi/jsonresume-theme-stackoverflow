@@ -105,4 +105,22 @@
   }
 
   /* p margin reset handled by summary wrapper */
+
+  @media print {
+    .profiles :global(a:not(.hide-href-print))::after {
+      content: " (" attr(href) ") ";
+    }
+    .profiles .url :global(.show-only-url-print) { display: none; }
+    .profiles .url :global(a)::after { content: attr(href); }
+    .profiles :global(.item) { padding: 0; }
+    .main-summary { padding: 0; background: transparent; }
+  }
+
+  @media screen and (max-width: 601px) {
+    .header .profiles, .header :global(.contact) { flex-wrap: wrap; }
+    .header > div > div { margin-right: 0.8em; margin-bottom: 0.3em; }
+    .name { font-size: 2rem; }
+    .label { font-size: 1.2rem; }
+    .image { float: none; display: block; margin: 0 auto 1rem; width: 8em; }
+  }
 </style>

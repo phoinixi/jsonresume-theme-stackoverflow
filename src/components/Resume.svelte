@@ -35,4 +35,26 @@
   .resume {
     padding: 1.5rem;
   }
+
+  @media print {
+    .resume {
+      margin: 0.1em;
+      padding: 0.1em;
+      -ms-word-wrap: break-word;
+      word-wrap: break-word;
+      line-height: 1.25;
+    }
+  }
+
+  @media screen and (max-width: 601px) {
+    .resume { width: 100%; padding: 1rem; box-sizing: border-box; }
+  }
+
+  @media screen and (min-width: 602px) {
+    .resume { width: 80%; margin: 0 auto; }
+  }
+
+  @media screen and (min-width: 1025px) {
+    .resume { width: 820px; margin: 2rem auto; }
+  }
 </style>

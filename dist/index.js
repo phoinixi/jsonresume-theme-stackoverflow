@@ -5553,7 +5553,7 @@ function SocialProfile($$renderer, $$props) {
 // .build/components/SectionHeader.js
 var $$css3 = {
   hash: "svelte-1lncexq",
-  code: '.section.svelte-1lncexq {margin-bottom:1rem;}header.svelte-1lncexq {position:relative;}header.svelte-1lncexq::after {position:absolute;left:0;top:0.7em;height:1px;background:var(--color-border);content:"";width:100%;z-index:-100;display:block;}.section-title.svelte-1lncexq {display:inline-block;background:var(--color-section-title-bg);padding:0 1em 0.3em 0;color:var(--color-accent);text-transform:uppercase;font-weight:600;border:none;font-size:0.9rem;}'
+  code: '.section.svelte-1lncexq {margin-bottom:1rem;}header.svelte-1lncexq {position:relative;}header.svelte-1lncexq::after {position:absolute;left:0;top:0.7em;height:1px;background:var(--color-border);content:"";width:100%;z-index:-100;display:block;}\n\n  @media print {.section.svelte-1lncexq {margin:0.8rem 0;padding:0;}header.svelte-1lncexq {padding-bottom:0.15rem;}.location {padding-bottom:0.15rem;}.section.svelte-1lncexq > section > section {border-bottom:1px solid #fdfdfd;margin:.5em 0;}.section.svelte-1lncexq > section > section:last-of-type {margin:0;}\n  }.section-title.svelte-1lncexq {display:inline-block;background:var(--color-section-title-bg);padding:0 1em 0.3em 0;color:var(--color-accent);text-transform:uppercase;font-weight:600;border:none;font-size:0.9rem;}'
 };
 function SectionHeader($$renderer, $$props) {
   $$renderer.global.css.add($$css3);
@@ -5625,7 +5625,7 @@ function FormattedText($$renderer, $$props) {
 // .build/components/Basics.js
 var $$css4 = {
   hash: "svelte-10f9ycp",
-  code: ".header.svelte-10f9ycp {margin-bottom:1rem;}.name.svelte-10f9ycp {font-size:2.8rem;font-weight:100;line-height:100%;}.label.svelte-10f9ycp {color:var(--color-heading);font-size:1.47rem;font-weight:300;}.image.svelte-10f9ycp {width:11em;float:right;border-radius:4px;}.profiles.svelte-10f9ycp {display:flex;flex-flow:row wrap;justify-content:flex-start;}.main-summary.svelte-10f9ycp {background:var(--color-background-alt);padding:1.2em 1em;}\n\n  /* p margin reset handled by summary wrapper */"
+  code: '.header.svelte-10f9ycp {margin-bottom:1rem;}.name.svelte-10f9ycp {font-size:2.8rem;font-weight:100;line-height:100%;}.label.svelte-10f9ycp {color:var(--color-heading);font-size:1.47rem;font-weight:300;}.image.svelte-10f9ycp {width:11em;float:right;border-radius:4px;}.profiles.svelte-10f9ycp {display:flex;flex-flow:row wrap;justify-content:flex-start;}.main-summary.svelte-10f9ycp {background:var(--color-background-alt);padding:1.2em 1em;}\n\n  /* p margin reset handled by summary wrapper */\n\n  @media print {.profiles.svelte-10f9ycp a:not(.hide-href-print)::after {content:" (" attr(href) ") ";}.profiles.svelte-10f9ycp .item {padding:0;}.main-summary.svelte-10f9ycp {padding:0;background:transparent;}\n  }\n\n  @media screen and (max-width: 601px) {.header.svelte-10f9ycp .profiles:where(.svelte-10f9ycp), .header.svelte-10f9ycp .contact {flex-wrap:wrap;}.name.svelte-10f9ycp {font-size:2rem;}.label.svelte-10f9ycp {font-size:1.2rem;}.image.svelte-10f9ycp {float:none;display:block;margin:0 auto 1rem;width:8em;}\n  }'
 };
 function Basics($$renderer, $$props) {
   $$renderer.global.css.add($$css4);
@@ -5730,7 +5730,7 @@ function Basics($$renderer, $$props) {
 // .build/components/LevelBar.js
 var $$css5 = {
   hash: "svelte-10tjtrd",
-  code: '.level.svelte-10tjtrd {margin-bottom:0.5em;}.level.svelte-10tjtrd em:where(.svelte-10tjtrd) {padding-left:0.2em;}.level.svelte-10tjtrd .bar:where(.svelte-10tjtrd) {border:1px solid var(--color-border-light);display:block;width:10em;height:5px;position:relative;}.level.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {position:absolute;content:" ";top:0;left:0;background:black;height:5px;}.level.beginner.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-beginner);width:2.5em;}.level.intermediate.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-intermediate);width:5em;}.level.advanced.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after,\n  .level.fluent.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-advanced);width:7.5em;}.level.master.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after,\n  .level.expert.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after,\n  .level.native.speaker.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-master);width:10em;}'
+  code: '.level.svelte-10tjtrd {margin-bottom:0.5em;}.level.svelte-10tjtrd em:where(.svelte-10tjtrd) {padding-left:0.2em;}.level.svelte-10tjtrd .bar:where(.svelte-10tjtrd) {border:1px solid var(--color-border-light);display:block;width:10em;height:5px;position:relative;}.level.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {position:absolute;content:" ";top:0;left:0;background:black;height:5px;}.level.beginner.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-beginner);width:2.5em;}.level.intermediate.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-intermediate);width:5em;}.level.advanced.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after,\n  .level.fluent.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-advanced);width:7.5em;}.level.master.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after,\n  .level.expert.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after,\n  .level.native.speaker.svelte-10tjtrd .bar:where(.svelte-10tjtrd)::after {background:var(--color-bar-master);width:10em;}\n\n  @media print {.level.svelte-10tjtrd {margin:0.1rem 0;font-weight:400;}.level.svelte-10tjtrd em:where(.svelte-10tjtrd) {font-style:normal;padding:0.1em 0;}.level.svelte-10tjtrd .bar:where(.svelte-10tjtrd) {display:none;}\n  }'
 };
 function LevelBar($$renderer, $$props) {
   $$renderer.global.css.add($$css5);
@@ -5745,7 +5745,7 @@ function LevelBar($$renderer, $$props) {
 // .build/components/KeywordList.js
 var $$css6 = {
   hash: "svelte-1615qzb",
-  code: "ul.svelte-1615qzb {margin:0.5em 0;}li.svelte-1615qzb {display:inline-block;margin:2px 2px 2px 0;padding:4px 5px 5px;font-size:0.9rem;line-height:1;color:var(--color-keyword-text);background-color:var(--color-keyword-bg);border:0 solid var(--color-keyword-border);white-space:nowrap;}li.svelte-1615qzb:hover {background:var(--color-keyword-bg);}"
+  code: 'ul.svelte-1615qzb {margin:0.5em 0;}li.svelte-1615qzb {display:inline-block;margin:2px 2px 2px 0;padding:4px 5px 5px;font-size:0.9rem;line-height:1;color:var(--color-keyword-text);background-color:var(--color-keyword-bg);border:0 solid var(--color-keyword-border);white-space:nowrap;}li.svelte-1615qzb:hover {background:var(--color-keyword-bg);}\n\n  @media print {li.svelte-1615qzb {margin:0;padding:0;font-size:0.8rem;background:transparent;}li.svelte-1615qzb::after {padding:0 0 0 0.1rem;content:", ";}li.svelte-1615qzb:last-of-type::after {content:"";}.skills-grid li.svelte-1615qzb::after {content:", ";}.skills-grid li.svelte-1615qzb:last-of-type::after {content:"";}ul.svelte-1615qzb::before {font-size:0.8rem;font-weight:600;}ul.keywords.svelte-1615qzb::before {content:"Skills: ";font-size:1rem;}.skills-grid ul.svelte-1615qzb::before {content:none;}ul.courses.svelte-1615qzb::before {content:"Major courses: ";font-size:1rem;}li.svelte-1615qzb {font-size:1rem;line-height:inherit;}.skills-grid .keywords.svelte-1615qzb {font-size:0.9rem;margin:0;}\n  }'
 };
 function KeywordList($$renderer, $$props) {
   $$renderer.global.css.add($$css6);
@@ -5770,7 +5770,7 @@ function KeywordList($$renderer, $$props) {
 // .build/components/Skills.js
 var $$css7 = {
   hash: "svelte-18p2gu6",
-  code: ".skills-grid.svelte-18p2gu6 {display:flex;flex-flow:row wrap;justify-content:flex-start;}.skill-item.svelte-18p2gu6 {width:16em;padding:0 0.5em 0.5em 0;border-bottom:none;}.name.svelte-18p2gu6 {font-weight:600;}"
+  code: ".skills-grid.svelte-18p2gu6 {display:flex;flex-flow:row wrap;justify-content:flex-start;}.skill-item.svelte-18p2gu6 {width:16em;padding:0 0.5em 0.5em 0;border-bottom:none;}.name.svelte-18p2gu6 {font-weight:600;}\n\n  @media print {.skills-grid.svelte-18p2gu6 .skill-item:where(.svelte-18p2gu6) {display:flex;flex-direction:column;margin:0.3rem 0;padding:0;}\n  }\n\n  @media screen and (max-width: 601px) {.skills-grid.svelte-18p2gu6 {flex-direction:column;}.skill-item.svelte-18p2gu6 {width:100%;padding-right:0;}\n  }\n\n  @media screen and (min-width: 480px) and (max-width: 601px) {.skills-grid.svelte-18p2gu6 {flex-direction:row;flex-wrap:wrap;}.skill-item.svelte-18p2gu6 {width:48%;padding-right:2%;}\n  }"
 };
 function Skills($$renderer, $$props) {
   $$renderer.global.css.add($$css7);
@@ -5853,7 +5853,7 @@ function DateRange($$renderer, $$props) {
 // .build/components/TimelineItem.js
 var $$css8 = {
   hash: "svelte-g3qng",
-  code: '.timeline-item.svelte-g3qng {margin-top:0.7em;}.timeline-item.svelte-g3qng:first-of-type {margin-top:0;}.position.svelte-g3qng,\n  .company.svelte-g3qng,\n  .organization.svelte-g3qng,\n  .institution.svelte-g3qng,\n  .date.svelte-g3qng,\n  .area.svelte-g3qng,\n  .studyType.svelte-g3qng,\n  .title.svelte-g3qng,\n  .awarder.svelte-g3qng,\n  .publisher.svelte-g3qng,\n  .issuer.svelte-g3qng {display:inline;}.position.svelte-g3qng,\n  .studyType.svelte-g3qng,\n  .area.svelte-g3qng,\n  .title.svelte-g3qng {font-weight:600;}.company.svelte-g3qng::before,\n  .institution.svelte-g3qng::before,\n  .organization.svelte-g3qng::before,\n  .awarder.svelte-g3qng::before {content:"at ";}.company.svelte-g3qng,\n  .institution.svelte-g3qng,\n  .organization.svelte-g3qng,\n  .awarder.svelte-g3qng {color:var(--color-text-secondary);font-weight:400;}header.svelte-g3qng .date:where(.svelte-g3qng) {display:block;font-size:1rem;padding:0.1em 0;color:var(--color-text-secondary);font-weight:400;}.item.svelte-g3qng {overflow:hidden;}\n\n  /* p margin handled via inline styles in paragraphSplit */.clear.svelte-g3qng::after {content:"";display:table;clear:both;}.location.svelte-g3qng {margin-right:0.5em;color:var(--color-text-secondary);font-weight:700;}header.svelte-g3qng {font-size:1.38rem;position:relative;}.header-left.svelte-g3qng .position:where(.svelte-g3qng) + .company:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .institution:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .organization:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .awarder:where(.svelte-g3qng)::before {content:"at ";}'
+  code: '.timeline-item.svelte-g3qng {margin-top:0.7em;}.timeline-item.svelte-g3qng:first-of-type {margin-top:0;}.position.svelte-g3qng,\n  .company.svelte-g3qng,\n  .organization.svelte-g3qng,\n  .institution.svelte-g3qng,\n  .date.svelte-g3qng,\n  .area.svelte-g3qng,\n  .studyType.svelte-g3qng,\n  .title.svelte-g3qng,\n  .awarder.svelte-g3qng,\n  .publisher.svelte-g3qng,\n  .issuer.svelte-g3qng {display:inline;}.position.svelte-g3qng,\n  .studyType.svelte-g3qng,\n  .area.svelte-g3qng,\n  .title.svelte-g3qng {font-weight:600;}.company.svelte-g3qng::before,\n  .institution.svelte-g3qng::before,\n  .organization.svelte-g3qng::before,\n  .awarder.svelte-g3qng::before {content:"at ";}.company.svelte-g3qng,\n  .institution.svelte-g3qng,\n  .organization.svelte-g3qng,\n  .awarder.svelte-g3qng {color:var(--color-text-secondary);font-weight:400;}header.svelte-g3qng .date:where(.svelte-g3qng) {display:block;font-size:1rem;padding:0.1em 0;color:var(--color-text-secondary);font-weight:400;}.item.svelte-g3qng {overflow:hidden;}\n\n  /* p margin handled via inline styles in paragraphSplit */.clear.svelte-g3qng::after {content:"";display:table;clear:both;}.location.svelte-g3qng {margin-right:0.5em;color:var(--color-text-secondary);font-weight:700;}header.svelte-g3qng {font-size:1.38rem;position:relative;}.header-left.svelte-g3qng .position:where(.svelte-g3qng) + .company:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .institution:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .organization:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .awarder:where(.svelte-g3qng)::before {content:"at ";}\n\n  @media print {.company.svelte-g3qng a:where(.svelte-g3qng) {color:#40484f;}.company.svelte-g3qng::before,\n    .institution.svelte-g3qng::before,\n    .organization.svelte-g3qng::before,\n    .awarder.svelte-g3qng::before {content:"at ";}.highlights.svelte-g3qng {margin:0.5em 0 0 0;}.highlights.svelte-g3qng > li:where(.svelte-g3qng) > p {margin-bottom:0.3em;}.section p {margin:0;padding:0;}\n  }\n\n  @media screen and (max-width: 601px) {header.svelte-g3qng .date:where(.svelte-g3qng) {display:block;float:none;font-size:0.9rem;margin-top:0.2em;}.section > section.svelte-g3qng > header:where(.svelte-g3qng) {font-size:1.15rem;}\n  }\n\n  @media screen and (min-width: 602px) {header.svelte-g3qng .date:where(.svelte-g3qng) {float:right;font-weight:600;color:#000;}\n  }\n\n  @media screen and (min-width: 1025px) {header.svelte-g3qng .date:where(.svelte-g3qng) {padding:0.2em;}.section > section.svelte-g3qng > header:where(.svelte-g3qng) .space-left:where(.svelte-g3qng) {opacity:1;cursor:pointer;}.section > section.svelte-g3qng:not(.main-summary) {margin-left:1.67rem;}.company.svelte-g3qng::before, .institution.svelte-g3qng::before, .organization.svelte-g3qng::before, .awarder.svelte-g3qng::before {content:"| ";}.header-left.svelte-g3qng {float:left;width:70%;word-break:normal;}.display.svelte-g3qng {display:none;}.display.svelte-g3qng:not(.none) {display:block;}\n  }'
 };
 function TimelineItem($$renderer, $$props) {
   $$renderer.global.css.add($$css8);
@@ -5896,7 +5896,7 @@ function TimelineItem($$renderer, $$props) {
       $$renderer2.push(`<div${attr_class(clsx2(subtitleClass), "svelte-g3qng")}>`);
       if (url) {
         $$renderer2.push("<!--[-->");
-        $$renderer2.push(`<a target="_blank"${attr("href", url)}>${escape_html(subtitle)}</a>`);
+        $$renderer2.push(`<a target="_blank"${attr("href", url)} class="svelte-g3qng">${escape_html(subtitle)}</a>`);
       } else {
         $$renderer2.push("<!--[!-->");
         $$renderer2.push(`${escape_html(subtitle)}`);
@@ -5962,11 +5962,11 @@ function TimelineItem($$renderer, $$props) {
     $$renderer2.push(`<!--]--> `);
     if (highlights?.length) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<ul class="highlights"><!--[-->`);
+      $$renderer2.push(`<ul class="highlights svelte-g3qng"><!--[-->`);
       const each_array = ensure_array_like(highlights);
       for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
         let highlight = each_array[$$index];
-        $$renderer2.push(`<li>`);
+        $$renderer2.push(`<li class="svelte-g3qng">`);
         FormattedText($$renderer2, { text: highlight });
         $$renderer2.push(`<!----></li>`);
       }
@@ -6280,7 +6280,7 @@ function Publications($$renderer, $$props) {
 // .build/components/Languages.js
 var $$css10 = {
   hash: "svelte-2dygc7",
-  code: ".languages-grid.svelte-2dygc7 {display:flex;flex-flow:row wrap;justify-content:flex-start;}.language-item.svelte-2dygc7 {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}.language.svelte-2dygc7 {font-weight:600;}.display.svelte-2dygc7 {display:block;opacity:1 !important;}"
+  code: ".languages-grid.svelte-2dygc7 {display:flex;flex-flow:row wrap;justify-content:flex-start;}.language-item.svelte-2dygc7 {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}.language.svelte-2dygc7 {font-weight:600;}.display.svelte-2dygc7 {display:block;opacity:1 !important;}\n\n  @media screen and (max-width: 601px) {.languages-grid.svelte-2dygc7 {flex-direction:column;}.language-item.svelte-2dygc7 {width:100%;padding-right:0;}\n  }"
 };
 function Languages($$renderer, $$props) {
   $$renderer.global.css.add($$css10);
@@ -6326,7 +6326,7 @@ function Languages($$renderer, $$props) {
 // .build/components/Interests.js
 var $$css11 = {
   hash: "svelte-1bnc9h3",
-  code: ".interests-grid.svelte-1bnc9h3 {display:flex;flex-flow:row wrap;justify-content:flex-start;}.interest-item.svelte-1bnc9h3 {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}"
+  code: ".interests-grid.svelte-1bnc9h3 {display:flex;flex-flow:row wrap;justify-content:flex-start;}.interest-item.svelte-1bnc9h3 {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}\n\n  @media screen and (max-width: 601px) {.interests-grid.svelte-1bnc9h3 {flex-direction:column;}.interest-item.svelte-1bnc9h3 {width:100%;padding-right:0;}\n  }"
 };
 function Interests($$renderer, $$props) {
   $$renderer.global.css.add($$css11);
@@ -6422,7 +6422,7 @@ function References($$renderer, $$props) {
 // .build/components/Resume.js
 var $$css13 = {
   hash: "svelte-rssu9l",
-  code: ".resume.svelte-rssu9l {padding:1.5rem;}"
+  code: ".resume.svelte-rssu9l {padding:1.5rem;}\n\n  @media print {.resume.svelte-rssu9l {margin:0.1em;padding:0.1em;-ms-word-wrap:break-word;word-wrap:break-word;line-height:1.25;}\n  }\n\n  @media screen and (max-width: 601px) {.resume.svelte-rssu9l {width:100%;padding:1rem;box-sizing:border-box;}\n  }\n\n  @media screen and (min-width: 602px) {.resume.svelte-rssu9l {width:80%;margin:0 auto;}\n  }\n\n  @media screen and (min-width: 1025px) {.resume.svelte-rssu9l {width:820px;margin:2rem auto;}\n  }"
 };
 function Resume($$renderer, $$props) {
   $$renderer.global.css.add($$css13);

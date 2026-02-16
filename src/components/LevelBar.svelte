@@ -60,4 +60,10 @@
     background: var(--color-bar-master);
     width: 10em;
   }
+
+  @media print {
+    .level { margin: 0.1rem 0; font-weight: 400; }
+    .level em { font-style: normal; padding: 0.1em 0; }
+    .level .bar { display: none; }
+  }
 </style>

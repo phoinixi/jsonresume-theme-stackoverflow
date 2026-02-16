@@ -46,4 +46,9 @@
     display: block;
     opacity: 1 !important;
   }
+
+  @media screen and (max-width: 601px) {
+    .languages-grid { flex-direction: column; }
+    .language-item { width: 100%; padding-right: 0; }
+  }
 </style>

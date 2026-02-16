@@ -41,4 +41,18 @@
   .name {
     font-weight: 600;
   }
+
+  @media print {
+    .skills-grid .skill-item { display: flex; flex-direction: column; margin: 0.3rem 0; padding: 0; }
+  }
+
+  @media screen and (max-width: 601px) {
+    .skills-grid { flex-direction: column; }
+    .skill-item { width: 100%; padding-right: 0; }
+  }
+
+  @media screen and (min-width: 480px) and (max-width: 601px) {
+    .skills-grid { flex-direction: row; flex-wrap: wrap; }
+    .skill-item { width: 48%; padding-right: 2%; }
+  }
 </style>
