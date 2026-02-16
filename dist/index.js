@@ -5850,13 +5850,40 @@ function DateRange($$renderer, $$props) {
   });
 }
 
-// .build/components/TimelineItem.js
+// .build/components/HighlightsList.js
 var $$css8 = {
+  hash: "svelte-hqrtpf",
+  code: "\n  @media print {.highlights.svelte-hqrtpf {margin:0.5em 0 0 0;}.highlights.svelte-hqrtpf > li:where(.svelte-hqrtpf) > p {margin-bottom:0.3em;}\n  }"
+};
+function HighlightsList($$renderer, $$props) {
+  $$renderer.global.css.add($$css8);
+  $$renderer.component(($$renderer2) => {
+    let { highlights = [] } = $$props;
+    if (highlights?.length) {
+      $$renderer2.push("<!--[-->");
+      $$renderer2.push(`<ul class="highlights svelte-hqrtpf"><!--[-->`);
+      const each_array = ensure_array_like(highlights);
+      for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+        let highlight = each_array[$$index];
+        $$renderer2.push(`<li class="svelte-hqrtpf">`);
+        FormattedText($$renderer2, { text: highlight });
+        $$renderer2.push(`<!----></li>`);
+      }
+      $$renderer2.push(`<!--]--></ul>`);
+    } else {
+      $$renderer2.push("<!--[!-->");
+    }
+    $$renderer2.push(`<!--]-->`);
+  });
+}
+
+// .build/components/TimelineItem.js
+var $$css9 = {
   hash: "svelte-g3qng",
-  code: '.timeline-item.svelte-g3qng {margin-top:0.7em;}.timeline-item.svelte-g3qng:first-of-type {margin-top:0;}.position.svelte-g3qng,\n  .company.svelte-g3qng,\n  .organization.svelte-g3qng,\n  .institution.svelte-g3qng,\n  .date.svelte-g3qng,\n  .area.svelte-g3qng,\n  .studyType.svelte-g3qng,\n  .title.svelte-g3qng,\n  .awarder.svelte-g3qng,\n  .publisher.svelte-g3qng,\n  .issuer.svelte-g3qng {display:inline;}.position.svelte-g3qng,\n  .studyType.svelte-g3qng,\n  .area.svelte-g3qng,\n  .title.svelte-g3qng {font-weight:600;}.company.svelte-g3qng::before,\n  .institution.svelte-g3qng::before,\n  .organization.svelte-g3qng::before,\n  .awarder.svelte-g3qng::before {content:"at ";}.company.svelte-g3qng,\n  .institution.svelte-g3qng,\n  .organization.svelte-g3qng,\n  .awarder.svelte-g3qng {color:var(--color-text-secondary);font-weight:400;}header.svelte-g3qng .date:where(.svelte-g3qng) {display:block;font-size:1rem;padding:0.1em 0;color:var(--color-text-secondary);font-weight:400;}.item.svelte-g3qng {overflow:hidden;}\n\n  /* p margin handled via inline styles in paragraphSplit */.clear.svelte-g3qng::after {content:"";display:table;clear:both;}.location.svelte-g3qng {margin-right:0.5em;color:var(--color-text-secondary);font-weight:700;}header.svelte-g3qng {font-size:1.38rem;position:relative;}.header-left.svelte-g3qng .position:where(.svelte-g3qng) + .company:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .institution:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .organization:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .awarder:where(.svelte-g3qng)::before {content:"at ";}\n\n  @media print {.company.svelte-g3qng a:where(.svelte-g3qng) {color:#40484f;}.company.svelte-g3qng::before,\n    .institution.svelte-g3qng::before,\n    .organization.svelte-g3qng::before,\n    .awarder.svelte-g3qng::before {content:"at ";}.highlights.svelte-g3qng {margin:0.5em 0 0 0;}.highlights.svelte-g3qng > li:where(.svelte-g3qng) > p {margin-bottom:0.3em;}.section p {margin:0;padding:0;}\n  }\n\n  @media screen and (max-width: 601px) {header.svelte-g3qng .date:where(.svelte-g3qng) {display:block;float:none;font-size:0.9rem;margin-top:0.2em;}.section > section.svelte-g3qng > header:where(.svelte-g3qng) {font-size:1.15rem;}\n  }\n\n  @media screen and (min-width: 602px) {header.svelte-g3qng .date:where(.svelte-g3qng) {float:right;font-weight:600;color:#000;}\n  }\n\n  @media screen and (min-width: 1025px) {header.svelte-g3qng .date:where(.svelte-g3qng) {padding:0.2em;}.section > section.svelte-g3qng > header:where(.svelte-g3qng) .space-left:where(.svelte-g3qng) {opacity:1;cursor:pointer;}.section > section.svelte-g3qng:not(.main-summary) {margin-left:1.67rem;}.company.svelte-g3qng::before, .institution.svelte-g3qng::before, .organization.svelte-g3qng::before, .awarder.svelte-g3qng::before {content:"| ";}.header-left.svelte-g3qng {float:left;width:70%;word-break:normal;}.display.svelte-g3qng {display:none;}.display.svelte-g3qng:not(.none) {display:block;}\n  }'
+  code: '.timeline-item.svelte-g3qng {margin-top:0.7em;}.timeline-item.svelte-g3qng:first-of-type {margin-top:0;}.position.svelte-g3qng,\n  .company.svelte-g3qng,\n  .organization.svelte-g3qng,\n  .institution.svelte-g3qng,\n  .date.svelte-g3qng,\n  .area.svelte-g3qng,\n  .studyType.svelte-g3qng,\n  .title.svelte-g3qng,\n  .awarder.svelte-g3qng,\n  .publisher.svelte-g3qng,\n  .issuer.svelte-g3qng {display:inline;}.position.svelte-g3qng,\n  .studyType.svelte-g3qng,\n  .area.svelte-g3qng,\n  .title.svelte-g3qng {font-weight:600;}.company.svelte-g3qng::before,\n  .institution.svelte-g3qng::before,\n  .organization.svelte-g3qng::before,\n  .awarder.svelte-g3qng::before {content:"at ";}.company.svelte-g3qng,\n  .institution.svelte-g3qng,\n  .organization.svelte-g3qng,\n  .awarder.svelte-g3qng {color:var(--color-text-secondary);font-weight:400;}header.svelte-g3qng .date:where(.svelte-g3qng) {display:block;font-size:1rem;padding:0.1em 0;color:var(--color-text-secondary);font-weight:400;}.item.svelte-g3qng {overflow:hidden;}\n\n  /* p margin handled via inline styles in paragraphSplit */.clear.svelte-g3qng::after {content:"";display:table;clear:both;}.location.svelte-g3qng {margin-right:0.5em;color:var(--color-text-secondary);font-weight:700;}header.svelte-g3qng {font-size:1.38rem;position:relative;}.header-left.svelte-g3qng .position:where(.svelte-g3qng) + .company:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .institution:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .organization:where(.svelte-g3qng)::before,\n  .header-left.svelte-g3qng .position:where(.svelte-g3qng) + .awarder:where(.svelte-g3qng)::before {content:"at ";}\n\n  @media print {.company.svelte-g3qng a:where(.svelte-g3qng) {color:#40484f;}.company.svelte-g3qng::before,\n    .institution.svelte-g3qng::before,\n    .organization.svelte-g3qng::before,\n    .awarder.svelte-g3qng::before {content:"at ";}.section p {margin:0;padding:0;}\n  }\n\n  @media screen and (max-width: 601px) {header.svelte-g3qng .date:where(.svelte-g3qng) {display:block;float:none;font-size:0.9rem;margin-top:0.2em;}.section > section.svelte-g3qng > header:where(.svelte-g3qng) {font-size:1.15rem;}\n  }\n\n  @media screen and (min-width: 602px) {header.svelte-g3qng .date:where(.svelte-g3qng) {float:right;font-weight:600;color:#000;}\n  }\n\n  @media screen and (min-width: 1025px) {header.svelte-g3qng .date:where(.svelte-g3qng) {padding:0.2em;}.section > section.svelte-g3qng > header:where(.svelte-g3qng) .space-left:where(.svelte-g3qng) {opacity:1;cursor:pointer;}.section > section.svelte-g3qng:not(.main-summary) {margin-left:1.67rem;}.company.svelte-g3qng::before, .institution.svelte-g3qng::before, .organization.svelte-g3qng::before, .awarder.svelte-g3qng::before {content:"| ";}.header-left.svelte-g3qng {float:left;width:70%;word-break:normal;}.display.svelte-g3qng {display:none;}.display.svelte-g3qng:not(.none) {display:block;}\n  }'
 };
 function TimelineItem($$renderer, $$props) {
-  $$renderer.global.css.add($$css8);
+  $$renderer.global.css.add($$css9);
   $$renderer.component(($$renderer2) => {
     let {
       title = "",
@@ -5960,21 +5987,8 @@ function TimelineItem($$renderer, $$props) {
       $$renderer2.push("<!--[!-->");
     }
     $$renderer2.push(`<!--]--> `);
-    if (highlights?.length) {
-      $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<ul class="highlights svelte-g3qng"><!--[-->`);
-      const each_array = ensure_array_like(highlights);
-      for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
-        let highlight = each_array[$$index];
-        $$renderer2.push(`<li class="svelte-g3qng">`);
-        FormattedText($$renderer2, { text: highlight });
-        $$renderer2.push(`<!----></li>`);
-      }
-      $$renderer2.push(`<!--]--></ul>`);
-    } else {
-      $$renderer2.push("<!--[!-->");
-    }
-    $$renderer2.push(`<!--]--></div></section>`);
+    HighlightsList($$renderer2, { highlights });
+    $$renderer2.push(`<!----></div></section>`);
   });
 }
 
@@ -6103,12 +6117,12 @@ function Volunteer($$renderer, $$props) {
 }
 
 // .build/components/Education.js
-var $$css9 = {
+var $$css10 = {
   hash: "svelte-rbv6q6",
   code: ".gpa.svelte-rbv6q6 {clear:both;padding-bottom:0.5em;}"
 };
 function Education($$renderer, $$props) {
-  $$renderer.global.css.add($$css9);
+  $$renderer.global.css.add($$css10);
   $$renderer.component(($$renderer2) => {
     let { education = [], language: language2 = "en-gb" } = $$props;
     if (education?.length) {
@@ -6278,12 +6292,12 @@ function Publications($$renderer, $$props) {
 }
 
 // .build/components/Languages.js
-var $$css10 = {
+var $$css11 = {
   hash: "svelte-2dygc7",
   code: ".languages-grid.svelte-2dygc7 {display:flex;flex-flow:row wrap;justify-content:flex-start;}.language-item.svelte-2dygc7 {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}.language.svelte-2dygc7 {font-weight:600;}.display.svelte-2dygc7 {display:block;opacity:1 !important;}\n\n  @media screen and (max-width: 601px) {.languages-grid.svelte-2dygc7 {flex-direction:column;}.language-item.svelte-2dygc7 {width:100%;padding-right:0;}\n  }"
 };
 function Languages($$renderer, $$props) {
-  $$renderer.global.css.add($$css10);
+  $$renderer.global.css.add($$css11);
   $$renderer.component(($$renderer2) => {
     let { languages = [] } = $$props;
     if (languages?.length) {
@@ -6324,12 +6338,12 @@ function Languages($$renderer, $$props) {
 }
 
 // .build/components/Interests.js
-var $$css11 = {
+var $$css12 = {
   hash: "svelte-1bnc9h3",
   code: ".interests-grid.svelte-1bnc9h3 {display:flex;flex-flow:row wrap;justify-content:flex-start;}.interest-item.svelte-1bnc9h3 {width:15em;padding:0 0.5em 0.5em 0;border-bottom:none;}\n\n  @media screen and (max-width: 601px) {.interests-grid.svelte-1bnc9h3 {flex-direction:column;}.interest-item.svelte-1bnc9h3 {width:100%;padding-right:0;}\n  }"
 };
 function Interests($$renderer, $$props) {
-  $$renderer.global.css.add($$css11);
+  $$renderer.global.css.add($$css12);
   $$renderer.component(($$renderer2) => {
     let { interests = [] } = $$props;
     if (interests?.length) {
@@ -6374,12 +6388,12 @@ function Interests($$renderer, $$props) {
 }
 
 // .build/components/References.js
-var $$css12 = {
+var $$css13 = {
   hash: "svelte-1y7ope6",
   code: ".reference-item.svelte-1y7ope6 {padding-left:0.5em;margin-bottom:1em;border-left:5px solid var(--color-reference-border);}.name.svelte-1y7ope6 {font-weight:600;}"
 };
 function References($$renderer, $$props) {
-  $$renderer.global.css.add($$css12);
+  $$renderer.global.css.add($$css13);
   $$renderer.component(($$renderer2) => {
     let { references = [] } = $$props;
     if (references?.length) {
@@ -6420,12 +6434,12 @@ function References($$renderer, $$props) {
 }
 
 // .build/components/Resume.js
-var $$css13 = {
+var $$css14 = {
   hash: "svelte-rssu9l",
   code: ".resume.svelte-rssu9l {padding:1.5rem;}\n\n  @media print {.resume.svelte-rssu9l {margin:0.1em;padding:0.1em;-ms-word-wrap:break-word;word-wrap:break-word;line-height:1.25;}\n  }\n\n  @media screen and (max-width: 601px) {.resume.svelte-rssu9l {width:100%;padding:1rem;box-sizing:border-box;}\n  }\n\n  @media screen and (min-width: 602px) {.resume.svelte-rssu9l {width:80%;margin:0 auto;}\n  }\n\n  @media screen and (min-width: 1025px) {.resume.svelte-rssu9l {width:820px;margin:2rem auto;}\n  }"
 };
 function Resume($$renderer, $$props) {
-  $$renderer.global.css.add($$css13);
+  $$renderer.global.css.add($$css14);
   $$renderer.component(($$renderer2) => {
     let { resume, language: language2 = "en-gb" } = $$props;
     $$renderer2.push(`<a class="skip-to-content" href="#resume">Skip to content</a> <main id="resume" class="resume svelte-rssu9l">`);

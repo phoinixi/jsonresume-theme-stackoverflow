@@ -2,6 +2,7 @@
   import FormattedText from './FormattedText.svelte';
   import DateRange from './DateRange.svelte';
   import KeywordList from './KeywordList.svelte';
+  import HighlightsList from './HighlightsList.svelte';
 
   let {
     title = '',
@@ -74,13 +75,7 @@
         <FormattedText text={summary} />
       </div>
     {/if}
-    {#if highlights?.length}
-      <ul class="highlights">
-        {#each highlights as highlight}
-          <li><FormattedText text={highlight} /></li>
-        {/each}
-      </ul>
-    {/if}
+    <HighlightsList {highlights} />
   </div>
 </section>
 
@@ -173,8 +168,6 @@
     .institution::before,
     .organization::before,
     .awarder::before { content: "at "; }
-    .highlights { margin: 0.5em 0 0 0; }
-    .highlights > li > :global(p) { margin-bottom: 0.3em; }
     :global(.section) :global(p) { margin: 0; padding: 0; }
   }
 
