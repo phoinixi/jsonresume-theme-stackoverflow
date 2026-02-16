@@ -5502,7 +5502,7 @@ function ContactInfo($$renderer, $$props) {
 // .build/components/SocialProfile.js
 var $$css2 = {
   hash: "svelte-a76edc",
-  code: ".item.svelte-a76edc {padding:0;margin-right:0.8em;}.social.svelte-a76edc {font-size:1.1em;margin-right:0.25em;}"
+  code: ".item.svelte-a76edc {padding:0;margin-right:0.8em;}.social.svelte-a76edc {font-size:1.1em;margin-right:0.25em;color:var(--brand-light);}\n\n  @media (prefers-color-scheme: dark) {.social.svelte-a76edc {color:var(--brand-dark);}\n  }"
 };
 function SocialProfile($$renderer, $$props) {
   $$renderer.global.css.add($$css2);
@@ -5529,12 +5529,14 @@ function SocialProfile($$renderer, $$props) {
       "telegram": "#2291c3"
     };
     let { profile } = $$props;
+    const darkBrandColors = { "github": "#c9d1d9", "tumblr": "#5a8aab" };
     const network = spaceToDash(profile.network);
-    const color = brandColors[network] || "inherit";
+    const lightColor = brandColors[network] || "inherit";
+    const darkColor = darkBrandColors[network] || lightColor;
     const iconClass = `${FA_BRAND_PREFIX} fa-${network}`;
     if (profile.network) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<div class="item svelte-a76edc"><div class="username"><span${attr_class(`${stringify(iconClass)} social`, "svelte-a76edc")}${attr_style(`color: ${stringify(color)}`)}></span> `);
+      $$renderer2.push(`<div class="item svelte-a76edc"><div class="username"><span${attr_class(`${stringify(iconClass)} social`, "svelte-a76edc")}${attr_style(`--brand-light: ${stringify(lightColor)}; --brand-dark: ${stringify(darkColor)}`)}></span> `);
       if (profile.url) {
         $$renderer2.push("<!--[-->");
         $$renderer2.push(`<span class="url"><a target="_blank"${attr("href", profile.url)}><span class="show-only-url-print">${escape_html(profile.username)}</span></a></span>`);
