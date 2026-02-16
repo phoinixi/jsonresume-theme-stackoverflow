@@ -128,8 +128,8 @@
     display: block;
     font-size: 1rem;
     padding: 0.1em 0;
-    color: var(--color-text-secondary);
-    font-weight: 400;
+    color: var(--color-heading);
+    font-weight: 600;
   }
 
   .item {
@@ -178,7 +178,7 @@
   }
 
   @media screen and (min-width: 602px) {
-    header .date { float: right; font-weight: 600; color: #000; }
+    header .date { float: right; font-weight: 600; color: var(--color-heading); }
   }
 
   @media screen and (min-width: 1025px) {
