@@ -10,3 +10,4 @@ index.html
 /coverage/
 /.build/
 docs/dist/
+pnpm-lock.yaml

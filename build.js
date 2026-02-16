@@ -168,7 +168,7 @@ export function render(resume, options) {
   if (options && options.language) {
     changeLanguage(options.language);
   }
-  const stylePath = join(__dirname, '..', 'styles', 'global.css');
+  const stylePath = join(__dirname, '..', 'style.css');
   const css = readFileSync(stylePath, 'utf-8');
   
   const result = svelteRender(Resume, {
@@ -238,13 +238,6 @@ export const pdfRenderOptions = {
 
   const stat = fs.statSync(path.join(DIST_DIR, 'index.js'));
   console.log(`Built dist/index.js (${(stat.size / 1024).toFixed(1)}KB)`);
-
-  // Copy global.css to root style.css (kept for backward compat)
-  const globalCssPath = path.join(__dirname, 'styles', 'global.css');
-  if (fs.existsSync(globalCssPath)) {
-    fs.copyFileSync(globalCssPath, path.join(__dirname, 'style.css'));
-    console.log('Copied global.css to style.css');
-  }
 }
 
 build();
