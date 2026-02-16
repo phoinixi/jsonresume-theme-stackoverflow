@@ -14,7 +14,8 @@ if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 const html = renderer.render(resume);
 
 // Write the rendered resume — force light mode by overriding dark media query
-const lightHtml = html.replace('</head>', `<style>
+const faviconTag = '<link rel="icon" type="image/svg+xml" href="./favicon.svg">';
+const lightHtml = html.replace('</head>', `${faviconTag}<style>
 @media (prefers-color-scheme: dark) {
   :root {
     --color-text: #3d4767;
@@ -43,7 +44,7 @@ const lightHtml = html.replace('</head>', `<style>
 fs.writeFileSync(path.join(outDir, 'index.html'), lightHtml);
 
 // Dark mode: inject dark CSS vars directly (media query doesn't work reliably in iframes)
-const darkHtml = html.replace('</head>', `<style>
+const darkHtml = html.replace('</head>', `${faviconTag}<style>
 :root {
   --color-text: #d4d4d8;
   --color-text-secondary: #a1a1aa;
@@ -78,6 +79,7 @@ const landing = `<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>jsonresume-theme-stackoverflow — Demo</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #18181b; color: #e4e4e7; min-height: 100vh; }
