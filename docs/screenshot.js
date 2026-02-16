@@ -1,8 +1,20 @@
 /**
  * Generate high-res screenshots of light and dark resume demos
- * Requires: npx puppeteer (uses bundled Chromium)
+ * Requires: npm install puppeteer (not included in devDependencies)
  */
-const puppeteer = require('puppeteer');
+let puppeteer;
+try {
+  puppeteer = require('puppeteer');
+} catch {
+  console.error(
+    '📸 puppeteer is not installed.\n' +
+    '   To generate screenshots, install it first:\n\n' +
+    '     npm install puppeteer\n\n' +
+    '   Then run this script again.'
+  );
+  process.exit(1);
+}
+
 const path = require('path');
 
 async function screenshot(page, file, url) {
