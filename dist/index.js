@@ -6442,31 +6442,68 @@ function Resume($$renderer, $$props) {
   $$renderer.global.css.add($$css14);
   $$renderer.component(($$renderer2) => {
     let { resume, language: language2 = "en-gb" } = $$props;
-    $$renderer2.push(`<a class="skip-to-content" href="#resume">Skip to content</a> <main id="resume" class="resume svelte-rssu9l">`);
-    Basics($$renderer2, { basics: resume.basics });
-    $$renderer2.push(`<!----> `);
-    Skills($$renderer2, { skills: resume.skills });
-    $$renderer2.push(`<!----> `);
-    Work($$renderer2, { work: resume.work, language: language2 });
-    $$renderer2.push(`<!----> `);
-    Projects($$renderer2, { projects: resume.projects, language: language2 });
-    $$renderer2.push(`<!----> `);
-    Volunteer($$renderer2, { volunteer: resume.volunteer, language: language2 });
-    $$renderer2.push(`<!----> `);
-    Education($$renderer2, { education: resume.education, language: language2 });
-    $$renderer2.push(`<!----> `);
-    Awards($$renderer2, { awards: resume.awards, language: language2 });
-    $$renderer2.push(`<!----> `);
-    Certificates($$renderer2, { certificates: resume.certificates, language: language2 });
-    $$renderer2.push(`<!----> `);
-    Publications($$renderer2, { publications: resume.publications, language: language2 });
-    $$renderer2.push(`<!----> `);
-    Languages($$renderer2, { languages: resume.languages });
-    $$renderer2.push(`<!----> `);
-    Interests($$renderer2, { interests: resume.interests });
-    $$renderer2.push(`<!----> `);
-    References($$renderer2, { references: resume.references });
-    $$renderer2.push(`<!----></main>`);
+    const defaultOrder = [
+      "basics",
+      "skills",
+      "work",
+      "projects",
+      "volunteer",
+      "education",
+      "awards",
+      "certificates",
+      "publications",
+      "languages",
+      "interests",
+      "references"
+    ];
+    const customOrder = resume.meta?.theme?.sectionOrder;
+    const sectionOrder = Array.isArray(customOrder) && customOrder.length > 0 ? customOrder.filter((s) => defaultOrder.includes(s)) : defaultOrder;
+    $$renderer2.push(`<a class="skip-to-content" href="#resume">Skip to content</a> <main id="resume" class="resume svelte-rssu9l"><!--[-->`);
+    const each_array = ensure_array_like(sectionOrder);
+    for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+      let section = each_array[$$index];
+      if (section === "basics") {
+        $$renderer2.push("<!--[-->");
+        Basics($$renderer2, { basics: resume.basics });
+      } else if (section === "skills") {
+        $$renderer2.push("<!--[1-->");
+        Skills($$renderer2, { skills: resume.skills });
+      } else if (section === "work") {
+        $$renderer2.push("<!--[2-->");
+        Work($$renderer2, { work: resume.work, language: language2 });
+      } else if (section === "projects") {
+        $$renderer2.push("<!--[3-->");
+        Projects($$renderer2, { projects: resume.projects, language: language2 });
+      } else if (section === "volunteer") {
+        $$renderer2.push("<!--[4-->");
+        Volunteer($$renderer2, { volunteer: resume.volunteer, language: language2 });
+      } else if (section === "education") {
+        $$renderer2.push("<!--[5-->");
+        Education($$renderer2, { education: resume.education, language: language2 });
+      } else if (section === "awards") {
+        $$renderer2.push("<!--[6-->");
+        Awards($$renderer2, { awards: resume.awards, language: language2 });
+      } else if (section === "certificates") {
+        $$renderer2.push("<!--[7-->");
+        Certificates($$renderer2, { certificates: resume.certificates, language: language2 });
+      } else if (section === "publications") {
+        $$renderer2.push("<!--[8-->");
+        Publications($$renderer2, { publications: resume.publications, language: language2 });
+      } else if (section === "languages") {
+        $$renderer2.push("<!--[9-->");
+        Languages($$renderer2, { languages: resume.languages });
+      } else if (section === "interests") {
+        $$renderer2.push("<!--[10-->");
+        Interests($$renderer2, { interests: resume.interests });
+      } else if (section === "references") {
+        $$renderer2.push("<!--[11-->");
+        References($$renderer2, { references: resume.references });
+      } else {
+        $$renderer2.push("<!--[!-->");
+      }
+      $$renderer2.push(`<!--]-->`);
+    }
+    $$renderer2.push(`<!--]--></main>`);
   });
 }
 

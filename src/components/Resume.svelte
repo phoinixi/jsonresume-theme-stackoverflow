@@ -13,22 +13,48 @@
   import References from './References.svelte';
 
   let { resume, language = 'en-gb' } = $props();
+
+  const defaultOrder = [
+    'basics', 'skills', 'work', 'projects', 'volunteer',
+    'education', 'awards', 'certificates', 'publications',
+    'languages', 'interests', 'references'
+  ];
+
+  const customOrder = resume.meta?.theme?.sectionOrder;
+  const sectionOrder = Array.isArray(customOrder) && customOrder.length > 0
+    ? customOrder.filter(s => defaultOrder.includes(s))
+    : defaultOrder;
 </script>
 
 <a class="skip-to-content" href="#resume">Skip to content</a>
 <main id="resume" class="resume">
-  <Basics basics={resume.basics} />
-  <Skills skills={resume.skills} />
-  <Work work={resume.work} {language} />
-  <Projects projects={resume.projects} {language} />
-  <Volunteer volunteer={resume.volunteer} {language} />
-  <Education education={resume.education} {language} />
-  <Awards awards={resume.awards} {language} />
-  <Certificates certificates={resume.certificates} {language} />
-  <Publications publications={resume.publications} {language} />
-  <Languages languages={resume.languages} />
-  <Interests interests={resume.interests} />
-  <References references={resume.references} />
+  {#each sectionOrder as section}
+    {#if section === 'basics'}
+      <Basics basics={resume.basics} />
+    {:else if section === 'skills'}
+      <Skills skills={resume.skills} />
+    {:else if section === 'work'}
+      <Work work={resume.work} {language} />
+    {:else if section === 'projects'}
+      <Projects projects={resume.projects} {language} />
+    {:else if section === 'volunteer'}
+      <Volunteer volunteer={resume.volunteer} {language} />
+    {:else if section === 'education'}
+      <Education education={resume.education} {language} />
+    {:else if section === 'awards'}
+      <Awards awards={resume.awards} {language} />
+    {:else if section === 'certificates'}
+      <Certificates certificates={resume.certificates} {language} />
+    {:else if section === 'publications'}
+      <Publications publications={resume.publications} {language} />
+    {:else if section === 'languages'}
+      <Languages languages={resume.languages} />
+    {:else if section === 'interests'}
+      <Interests interests={resume.interests} />
+    {:else if section === 'references'}
+      <References references={resume.references} />
+    {/if}
+  {/each}
 </main>
 
 <style>
