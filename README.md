@@ -29,7 +29,7 @@
 
 | Light Mode | Dark Mode |
 |:---:|:---:|
-| ![Light mode](https://raw.githubusercontent.com/phoinixi/jsonresume-theme-stackoverflow/main/docs/light.png) | ![Dark mode](https://raw.githubusercontent.com/phoinixi/jsonresume-theme-stackoverflow/main/docs/dark.png) |
+| ![Light mode](https://raw.githubusercontent.com/phoinixi/jsonresume-theme-stackoverflow/develop/docs/light.png) | ![Dark mode](https://raw.githubusercontent.com/phoinixi/jsonresume-theme-stackoverflow/develop/docs/dark.png) |
 
 ## 📦 Installation
 
