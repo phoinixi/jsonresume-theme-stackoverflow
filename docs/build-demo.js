@@ -42,9 +42,33 @@ const lightHtml = html.replace('</head>', `<style>
 </style></head>`);
 fs.writeFileSync(path.join(outDir, 'index.html'), lightHtml);
 
-// Also render a dark mode version by injecting meta override
-// Dark mode: force dark scheme so the CSS media query kicks in
-const darkHtml = html.replace('</head>', `<meta name="color-scheme" content="dark">\n</head>`);
+// Dark mode: inject dark CSS vars directly (media query doesn't work reliably in iframes)
+const darkHtml = html.replace('</head>', `<style>
+:root {
+  --color-text: #d4d4d8;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #9ca3af;
+  --color-heading: #e4e4e7;
+  --color-accent: #fb923c;
+  --color-link: #60a5fa;
+  --color-link-hover: #93c5fd;
+  --color-background: #18181b;
+  --color-background-alt: #27272a;
+  --color-border: #3f3f46;
+  --color-border-light: #3f3f46;
+  --color-keyword-text: #93c5fd;
+  --color-keyword-bg: #1e3a5f;
+  --color-keyword-border: #1e3a5f;
+  --color-reference-border: #fb923c;
+  --color-bar-beginner: #ef4444;
+  --color-bar-intermediate: #eab308;
+  --color-bar-advanced: #22c55e;
+  --color-bar-master: #34d399;
+  --color-section-title-bg: #18181b;
+  color-scheme: dark;
+}
+</style>
+</head>`);
 fs.writeFileSync(path.join(outDir, 'dark.html'), darkHtml);
 
 // Create a landing page
@@ -56,28 +80,28 @@ const landing = `<!doctype html>
   <title>jsonresume-theme-stackoverflow — Demo</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #18181b; color: #e4e4e7; min-height: 100vh; }
     .hero { text-align: center; padding: 4rem 2rem 2rem; }
     .hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
     .hero h1 span { color: #f97316; }
-    .hero p { font-size: 1.2rem; color: #94a3b8; max-width: 600px; margin: 0 auto 2rem; }
+    .hero p { font-size: 1.2rem; color: #a1a1aa; max-width: 600px; margin: 0 auto 2rem; }
     .badges { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
     .badges img { height: 20px; }
     .buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
     .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: transform 0.2s; }
     .btn:hover { transform: translateY(-2px); }
     .btn-primary { background: #f97316; color: #fff; }
-    .btn-secondary { background: #1e293b; color: #e2e8f0; border: 1px solid #334155; }
+    .btn-secondary { background: #27272a; color: #e4e4e7; border: 1px solid #3f3f46; }
     .preview { max-width: 1000px; margin: 0 auto; padding: 0 2rem 4rem; }
-    .preview iframe { width: 100%; height: 800px; border: 1px solid #334155; border-radius: 12px; background: #fff; }
+    .preview iframe { width: 100%; height: 800px; border: 1px solid #3f3f46; border-radius: 12px; background: #fff; }
     .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto 3rem; padding: 0 2rem; }
-    .feature { background: #1e293b; border-radius: 12px; padding: 1.5rem; border: 1px solid #334155; }
+    .feature { background: #27272a; border-radius: 12px; padding: 1.5rem; border: 1px solid #3f3f46; }
     .feature h3 { margin-bottom: 0.5rem; font-size: 1.1rem; }
-    .feature p { color: #94a3b8; font-size: 0.9rem; line-height: 1.5; }
+    .feature p { color: #a1a1aa; font-size: 0.9rem; line-height: 1.5; }
     .tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1rem; }
-    .tab { padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; background: #1e293b; border: 1px solid #334155; color: #e2e8f0; font-size: 0.9rem; }
+    .tab { padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; background: #27272a; border: 1px solid #3f3f46; color: #e4e4e7; font-size: 0.9rem; }
     .tab.active { background: #f97316; border-color: #f97316; color: #fff; }
-    footer { text-align: center; padding: 2rem; color: #64748b; font-size: 0.85rem; }
+    footer { text-align: center; padding: 2rem; color: #71717a; font-size: 0.85rem; }
     footer a { color: #f97316; text-decoration: none; }
   </style>
 </head>
