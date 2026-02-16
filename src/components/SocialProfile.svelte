@@ -65,6 +65,11 @@
     color: var(--brand-light);
   }
 
+  @media print {
+    .social { color: #828386; }
+    :global(.fa-stack-overflow)::after { content: ""; }
+  }
+
   @media (prefers-color-scheme: dark) {
     .social {
       color: var(--brand-dark);

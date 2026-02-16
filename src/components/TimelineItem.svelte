@@ -169,6 +169,7 @@
     .organization::before,
     .awarder::before { content: "at "; }
     :global(.section) :global(p) { margin: 0; padding: 0; }
+    :global(.fa-location-dot):before { padding-left: 0.1em; }
   }
 
   @media screen and (max-width: 601px) {

@@ -38,6 +38,10 @@
     .section > :global(section > section:last-of-type) { margin: 0; }
   }
 
+  @media print {
+    .item-count { display: none; }
+  }
+
   .section-title {
     display: inline-block;
     background: var(--color-section-title-bg);
