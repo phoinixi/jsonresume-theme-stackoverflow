@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.1.0...v3.1.1) (2026-02-16)
+
+
+### Bug Fixes
+
+* improve date readability in dark mode ([e9dad9a](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/e9dad9ade6734432f89820f0ee5e6f1d2fc466d5))
+
 # [3.1.0](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.0.1...v3.1.0) (2026-02-16)
 
 
