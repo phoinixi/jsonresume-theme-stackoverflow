@@ -1,3 +1,24 @@
+# [3.1.0](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.0.1...v3.1.0) (2026-02-16)
+
+
+### Bug Fixes
+
+* dark mode demo now renders correctly, warm zinc landing page ([616a1d4](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/616a1d400bfc7a4b07de84591acb7d48ec5c53b1))
+* GitHub icon visibility in dark mode ([3e2d997](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/3e2d9975ef228e605be9a104cb142248f45bf260))
+* README screenshot URLs point to develop branch ([b984c1c](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/b984c1c65174ede37e78e1f08c9242f1381db086))
+
+
+### Features
+
+* add section ordering support via meta.theme.sectionOrder ([ec46044](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/ec46044a7316d87a7cd87949db732ce2672dea8b))
+* add SVG favicon to demo pages ([5dd657b](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/5dd657bed78a0f826822baaa346984d3912383cd))
+* v3.1.0 — refactored Svelte components, slimmed CSS, dark mode fixes, 66 tests ([34b7d32](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/34b7d32626ca758d13cb4bdfe799e399fd481dbd))
+
+
+### Performance Improvements
+
+* reduce dist/index.js from 211KB to 137KB ([2425281](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/2425281ab2c4a27a7cadb51a8947b49ba54661a3))
+
 ## [3.0.1](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.0.0...v3.0.1) (2026-02-15)
 
 
