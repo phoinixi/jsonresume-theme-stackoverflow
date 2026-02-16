@@ -168,7 +168,7 @@ export function render(resume, options) {
   if (options && options.language) {
     changeLanguage(options.language);
   }
-  const stylePath = join(__dirname, '..', 'style.css');
+  const stylePath = join(__dirname, '..', 'styles', 'global.css');
   const css = readFileSync(stylePath, 'utf-8');
   
   const result = svelteRender(Resume, {

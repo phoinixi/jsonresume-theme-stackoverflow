@@ -11,3 +11,4 @@ index.html
 /.build/
 docs/dist/
 pnpm-lock.yaml
+style.css
