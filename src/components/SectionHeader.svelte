@@ -26,7 +26,7 @@
     background: var(--color-border);
     content: "";
     width: 100%;
-    z-index: -100;
+    z-index: 0;
     display: block;
   }
 
@@ -43,6 +43,8 @@
   }
 
   .section-title {
+    position: relative;
+    z-index: 1;
     display: inline-block;
     background: var(--color-section-title-bg);
     padding: 0 1em 0.3em 0;
