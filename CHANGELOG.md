@@ -1,3 +1,10 @@
+## [3.1.2](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.1.1...v3.1.2) (2026-04-23)
+
+
+### Bug Fixes
+
+* bump dark mode date contrast to pure white bold ([2944dff](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/2944dffc4c86fb68883d2511030d5e6373266228)), closes [#e4e4e7](https://github.com/phoinixi/jsonresume-theme-stackoverflow/issues/e4e4e7) [#202931](https://github.com/phoinixi/jsonresume-theme-stackoverflow/issues/202931) [#ffffff](https://github.com/phoinixi/jsonresume-theme-stackoverflow/issues/ffffff)
+
 ## [3.1.1](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.1.0...v3.1.1) (2026-02-16)
 
 
