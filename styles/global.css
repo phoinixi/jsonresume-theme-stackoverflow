@@ -1,7 +1,7 @@
 /* Variables (light) */
 :root {
   --color-text: #40484f; --color-text-secondary: #606d76; --color-text-muted: #757575;
-  --color-heading: #202931; --color-accent: #ff6d1f;
+  --color-heading: #202931; --color-date: #202931; --color-accent: #ff6d1f;
   --color-link: #0095ff; --color-link-hover: #0c65a5;
   --color-background: var(--color-section-title-bg); --color-background-alt: #f1f8ff;
   --color-border: #ccc; --color-border-light: #ddd;
@@ -17,7 +17,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --color-text: #d4d4d8; --color-text-secondary: #a1a1aa; --color-text-muted: #9ca3af;
-    --color-heading: #e4e4e7; --color-accent: #fb923c;
+    --color-heading: #e4e4e7; --color-date: #ffffff; --color-accent: #fb923c;
     --color-link: #60a5fa; --color-link-hover: #93c5fd;
     --color-background: #18181b; --color-background-alt: #27272a;
     --color-border: #3f3f46; --color-border-light: #3f3f46;
