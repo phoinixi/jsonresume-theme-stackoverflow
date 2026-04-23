@@ -1,3 +1,10 @@
+## [3.1.3](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.1.2...v3.1.3) (2026-04-23)
+
+
+### Bug Fixes
+
+* apply date styling consistently across all sections ([68dab83](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/68dab836bab306202266e52834089aea24438124))
+
 ## [3.1.2](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.1.1...v3.1.2) (2026-04-23)
 
 
