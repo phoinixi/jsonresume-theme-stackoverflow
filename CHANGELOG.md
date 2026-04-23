@@ -1,3 +1,10 @@
+## [3.1.4](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.1.3...v3.1.4) (2026-04-23)
+
+
+### Bug Fixes
+
+* polish PDF layout — bullet separators, tighter rhythm, letter-spacing ([b44a99c](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/b44a99c8752a6ba42da5d6d61696df9cbbef2209))
+
 ## [3.1.3](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.1.2...v3.1.3) (2026-04-23)
 
 
