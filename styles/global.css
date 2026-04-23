@@ -63,3 +63,9 @@ a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; b
 }
 
 @media screen and (min-width: 1025px) { li { margin-left: 1.5em; } }
+
+/* Timeline item dates — global so rules apply across scoped child components (DateRange, singleDate) */
+.timeline-item header .date { display: block; font-size: 1rem; padding: 0.1em 0; color: var(--color-date); font-weight: 700; }
+@media screen and (max-width: 601px) { .timeline-item header .date { float: none; font-size: 0.9rem; margin-top: 0.2em; } }
+@media screen and (min-width: 602px) { .timeline-item header .date { float: right; } }
+@media screen and (min-width: 1025px) { .timeline-item header .date { padding: 0.2em; } }

@@ -124,14 +124,6 @@
     font-weight: 400;
   }
 
-  header .date {
-    display: block;
-    font-size: 1rem;
-    padding: 0.1em 0;
-    color: var(--color-date);
-    font-weight: 700;
-  }
-
   .item {
     overflow: hidden;
   }
@@ -173,16 +165,10 @@
   }
 
   @media screen and (max-width: 601px) {
-    header .date { display: block; float: none; font-size: 0.9rem; margin-top: 0.2em; }
     :global(.section) > section > header { font-size: 1.15rem; }
   }
 
-  @media screen and (min-width: 602px) {
-    header .date { float: right; font-weight: 700; color: var(--color-date); }
-  }
-
   @media screen and (min-width: 1025px) {
-    header .date { padding: 0.2em; }
     :global(.section) > section > header .space-left { opacity: 1; cursor: pointer; }
     :global(.section) > section:not(.main-summary) { margin-left: 1.67rem; }
     .company::before, .institution::before, .organization::before, .awarder::before { content: "| "; }
