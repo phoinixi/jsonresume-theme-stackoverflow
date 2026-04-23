@@ -155,6 +155,7 @@
   }
 
   @media print {
+    .timeline-item { margin-top: 0.4em; }
     .company a { color: #40484f; }
     .company::before,
     .institution::before,

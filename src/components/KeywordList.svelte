@@ -33,9 +33,9 @@
 
   @media print {
     li { margin: 0; padding: 0; font-size: 0.8rem; background: transparent; }
-    li::after { padding: 0 0 0 0.1rem; content: ", "; }
+    li::after { padding: 0 0.25rem; content: "•"; color: var(--color-text-muted); }
     li:last-of-type::after { content: ""; }
-    :global(.skills-grid) li::after { content: ", "; }
+    :global(.skills-grid) li::after { padding: 0 0.25rem; content: "•"; color: var(--color-text-muted); }
     :global(.skills-grid) li:last-of-type::after { content: ""; }
     ul::before { font-size: 0.8rem; font-weight: 600; }
     ul.keywords::before { content: "Skills: "; font-size: 1rem; }
