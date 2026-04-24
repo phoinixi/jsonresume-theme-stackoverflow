@@ -1,3 +1,10 @@
+## [3.1.5](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.1.4...v3.1.5) (2026-04-24)
+
+
+### Bug Fixes
+
+* restore horizontal section separator ([7af0a98](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/7af0a984d917354d4f548b0920d75d3e15f55bd4))
+
 ## [3.1.4](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.1.3...v3.1.4) (2026-04-23)
 
 
