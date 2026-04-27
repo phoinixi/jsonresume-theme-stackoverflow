@@ -24,12 +24,25 @@
 
 <style>
   .reference-item {
-    padding-left: 0.5em;
-    margin-bottom: 1em;
-    border-left: 5px solid var(--color-reference-border);
+    padding-left: var(--sp-3);
+    margin-bottom: var(--sp-4);
+    border-left: 3px solid var(--color-reference-border);
+  }
+
+  .reference {
+    font-style: italic;
+    color: var(--color-text);
+    line-height: var(--lh-base);
+    margin-bottom: var(--sp-1);
   }
 
   .name {
-    font-weight: 600;
+    font-weight: 700;
+    font-size: var(--fs-meta);
+    color: var(--color-text-secondary);
+  }
+
+  .name::before {
+    content: "— ";
   }
 </style>

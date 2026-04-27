@@ -31,3 +31,17 @@
     </section>
   </SectionHeader>
 {/if}
+
+<style>
+  .website {
+    display: block;
+    margin-top: var(--sp-2);
+    font-size: var(--fs-meta);
+    line-height: var(--lh-snug);
+  }
+
+  .website :global(.fa-up-right-from-square) {
+    margin-right: 0.4em;
+    color: var(--color-text-secondary);
+  }
+</style>

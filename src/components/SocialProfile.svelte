@@ -56,12 +56,13 @@
 <style>
   .item {
     padding: 0;
-    margin-right: 0.8em;
+    margin-right: var(--sp-4);
+    line-height: var(--lh-snug);
   }
 
   .social {
     font-size: 1.1em;
-    margin-right: 0.25em;
+    margin-right: 0.4em;
     color: var(--brand-light);
   }
 

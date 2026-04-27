@@ -27,19 +27,23 @@
 
 <style>
   .languages-grid {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: var(--sp-5);
+    row-gap: var(--sp-3);
   }
 
   .language-item {
-    width: 15em;
-    padding: 0 0.5em 0.5em 0;
+    padding: 0;
     border-bottom: none;
   }
 
   .language {
-    font-weight: 600;
+    font-weight: 700;
+    font-size: var(--fs-card);
+    line-height: var(--lh-snug);
+    color: var(--color-heading);
+    margin-bottom: var(--sp-1);
   }
 
   .display {
@@ -47,8 +51,11 @@
     opacity: 1 !important;
   }
 
-  @media screen and (max-width: 601px) {
-    .languages-grid { flex-direction: column; }
-    .language-item { width: 100%; padding-right: 0; }
+  @media screen and (max-width: 479px) {
+    .languages-grid { grid-template-columns: 1fr; }
+  }
+
+  @media screen and (min-width: 480px) and (max-width: 601px) {
+    .languages-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 </style>

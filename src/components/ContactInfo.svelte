@@ -30,15 +30,16 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
-    margin-top: 0.5rem;
+    margin-top: var(--sp-2);
+    gap: 0 var(--sp-4);
   }
 
   .contact-item {
-    margin-right: 1.2em;
-    line-height: 1.5;
+    line-height: var(--lh-snug);
   }
 
   .icon {
-    margin-right: 0.25em;
+    margin-right: 0.4em;
+    color: var(--color-text-secondary);
   }
 </style>

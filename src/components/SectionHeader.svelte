@@ -11,17 +11,18 @@
 
 <style>
   .section {
-    margin-bottom: 1rem;
+    margin-bottom: var(--sp-5);
   }
 
   header {
     position: relative;
+    margin-bottom: var(--sp-3);
   }
 
   header::after {
     position: absolute;
     left: 0;
-    top: 0.7em;
+    top: 50%;
     height: 1px;
     background: var(--color-border);
     content: "";
@@ -30,16 +31,10 @@
     display: block;
   }
 
-  @media print {
-    .section { margin: 0.8rem 0; padding: 0; }
-    header { padding-bottom: 0.15rem; }
-    :global(.location) { padding-bottom: 0.15rem; }
-    .section > :global(section > section) { border-bottom: 1px solid #fdfdfd; margin: .5em 0; }
-    .section > :global(section > section:last-of-type) { margin: 0; }
-  }
-
-  @media print {
-    .item-count { display: none; }
+  .item-count {
+    margin-left: 0.5em;
+    font-weight: 500;
+    opacity: 0.65;
   }
 
   .section-title {
@@ -47,12 +42,28 @@
     z-index: 1;
     display: inline-block;
     background: var(--color-section-title-bg);
-    padding: 0 1em 0.3em 0;
+    padding-right: 0.85em;
     color: var(--color-accent);
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     border: none;
-    font-size: 0.9rem;
-    letter-spacing: 0.06em;
+    font-size: var(--fs-section);
+    line-height: var(--lh-tight);
+    letter-spacing: 0.12em;
+  }
+
+  @media print {
+    .section { margin-bottom: var(--sp-4); padding: 0; }
+    header { margin-bottom: var(--sp-2); }
+    header::after {
+      background: #d8d8d8;
+      height: 0.5px;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+    :global(.location) { padding-bottom: var(--sp-1); }
+    .section > :global(section > section) { margin: var(--sp-3) 0; }
+    .section > :global(section > section:last-of-type) { margin-bottom: 0; }
+    .item-count { display: none; }
   }
 </style>

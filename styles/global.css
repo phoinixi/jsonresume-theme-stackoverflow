@@ -11,6 +11,29 @@
   --color-bar-advanced: #5cb85c; --color-bar-master: #59c596;
   --color-section-title-bg: #fff;
   --font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+  /* Type scale — 14px base, ~1.14 ratio (subtle, professional) */
+  --fs-name: 2.143rem;       /* 30px */
+  --fs-label: 1.429rem;      /* 20px */
+  --fs-title: 1.143rem;      /* 16px */
+  --fs-card: 1.071rem;       /* 15px */
+  --fs-body: 1rem;           /* 14px */
+  --fs-meta: 0.929rem;       /* 13px (date, location, keywords) */
+  --fs-section: 0.857rem;    /* 12px caps with tracking */
+  --fs-fine: 0.786rem;       /* 11px */
+
+  /* Line heights — multiples of 4 against base */
+  --lh-tight: 1.15;
+  --lh-snug: 1.3;
+  --lh-base: 1.5;
+
+  /* Spacing — 8pt grid */
+  --sp-1: 0.286rem;  /*  4px */
+  --sp-2: 0.571rem;  /*  8px */
+  --sp-3: 0.857rem;  /* 12px */
+  --sp-4: 1.143rem;  /* 16px */
+  --sp-5: 1.714rem;  /* 24px */
+  --sp-6: 2.286rem;  /* 32px */
 }
 
 /* Variables (dark) */
@@ -37,14 +60,14 @@ a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; }
 
 /* Base typography */
-body, html { font-family: var(--font-family); font-size: 13px; color: var(--color-text); background-color: var(--color-background); font-weight: 400; line-height: 1.46153846; text-align: left; }
+body, html { font-family: var(--font-family); font-size: 14px; color: var(--color-text); background-color: var(--color-background); font-weight: 400; line-height: var(--lh-base); text-align: left; }
 p { display: block; }
 a { color: var(--color-link); text-decoration: none; }
 a:hover { color: var(--color-link-hover); text-decoration: underline; }
 li { list-style-type: square; list-style-position: outside; margin-left: 1.3em; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.67rem; }
-h3 { font-size: 1.27rem; }
+h1 { font-size: var(--fs-name); line-height: var(--lh-tight); }
+h2 { font-size: var(--fs-label); line-height: var(--lh-snug); }
+h3 { font-size: var(--fs-card); line-height: var(--lh-snug); }
 em { color: var(--color-text-muted); }
 strong { font-weight: 700; }
 
@@ -56,16 +79,16 @@ a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; b
 
 /* Print */
 @media print {
-  @page { margin: 1cm 1.4cm; }
-  body { line-height: 1.25; }
-  ul { margin-top: 0.4em; }
+  @page { margin: 1.4cm 1.4cm; }
+  body { line-height: var(--lh-snug); }
+  ul { margin-top: var(--sp-2); }
   ul, li { padding: 0; }
 }
 
 @media screen and (min-width: 1025px) { li { margin-left: 1.5em; } }
 
 /* Timeline item dates — global so rules apply across scoped child components (DateRange, singleDate) */
-.timeline-item header .date { display: block; font-size: 1rem; padding: 0.1em 0; color: var(--color-date); font-weight: 700; }
-@media screen and (max-width: 601px) { .timeline-item header .date { float: none; font-size: 0.9rem; margin-top: 0.2em; } }
-@media screen and (min-width: 602px) { .timeline-item header .date { float: right; } }
-@media screen and (min-width: 1025px) { .timeline-item header .date { padding: 0.2em; } }
+.timeline-item header .date { display: block; font-size: var(--fs-meta); padding: 0; color: var(--color-text-secondary); font-weight: 500; line-height: var(--lh-snug); letter-spacing: 0.02em; }
+@media screen and (max-width: 601px) { .timeline-item header .date { float: none; margin-top: var(--sp-1); } }
+@media screen and (min-width: 602px) { .timeline-item header .date { float: right; padding-top: 0.2em; } }
+@media print { .timeline-item header .date { float: right; padding-top: 0.2em; } }

@@ -29,19 +29,30 @@
 
 <style>
   .interests-grid {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: var(--sp-5);
+    row-gap: var(--sp-3);
   }
 
   .interest-item {
-    width: 15em;
-    padding: 0 0.5em 0.5em 0;
+    padding: 0;
     border-bottom: none;
   }
 
-  @media screen and (max-width: 601px) {
-    .interests-grid { flex-direction: column; }
-    .interest-item { width: 100%; padding-right: 0; }
+  .interest-item .name {
+    font-weight: 700;
+    font-size: var(--fs-card);
+    line-height: var(--lh-snug);
+    color: var(--color-heading);
+    margin-bottom: var(--sp-1);
+  }
+
+  @media screen and (max-width: 479px) {
+    .interests-grid { grid-template-columns: 1fr; }
+  }
+
+  @media screen and (min-width: 480px) and (max-width: 601px) {
+    .interests-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 </style>

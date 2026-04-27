@@ -13,8 +13,22 @@
 {/if}
 
 <style>
+  .highlights {
+    margin: var(--sp-2) 0 0 0;
+  }
+
+  .highlights > li {
+    margin-top: var(--sp-1);
+    line-height: var(--lh-base);
+  }
+
+  .highlights > li:first-child {
+    margin-top: 0;
+  }
+
   @media print {
-    .highlights { margin: 0.5em 0 0 0; }
-    .highlights > li > :global(p) { margin-bottom: 0.3em; }
+    .highlights { margin: var(--sp-2) 0 0 0; }
+    .highlights > li { margin-top: var(--sp-1); line-height: var(--lh-snug); }
+    .highlights > li > :global(p) { margin-bottom: var(--sp-1); }
   }
 </style>

@@ -68,19 +68,30 @@
 
 <style>
   .header {
-    margin-bottom: 1rem;
+    margin-bottom: var(--sp-5);
   }
 
   .name {
-    font-size: 2.8rem;
-    font-weight: 100;
-    line-height: 100%;
+    font-size: var(--fs-name);
+    font-weight: 200;
+    line-height: var(--lh-tight);
+    letter-spacing: -0.015em;
+    color: var(--color-heading);
   }
 
   .label {
     color: var(--color-heading);
-    font-size: 1.47rem;
+    font-size: var(--fs-label);
     font-weight: 300;
+    line-height: var(--lh-snug);
+    margin-top: var(--sp-1);
+    margin-bottom: var(--sp-3);
+  }
+
+  .location {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--sp-2);
+    display: block;
   }
 
   .image {
@@ -93,6 +104,8 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
+    margin-top: var(--sp-1);
+    gap: var(--sp-1) 0;
   }
 
   .section {
@@ -101,14 +114,20 @@
 
   .main-summary {
     background: var(--color-background-alt);
-    padding: 1.2em 1em;
+    padding: var(--sp-4);
+    line-height: var(--lh-base);
   }
 
   /* p margin reset handled by summary wrapper */
 
   @media print {
+    .header { margin-bottom: var(--sp-4); }
     .profiles :global(a:not(.hide-href-print))::after {
-      content: " (" attr(href) ") ";
+      content: " · " attr(href);
+      font-size: var(--fs-fine);
+      color: var(--color-text-muted);
+      font-weight: 400;
+      margin-left: 0.2em;
     }
     .profiles .url :global(.show-only-url-print) { display: none; }
     .profiles .url :global(a)::after { content: attr(href); }
@@ -119,8 +138,8 @@
   @media screen and (max-width: 601px) {
     .header .profiles, .header :global(.contact) { flex-wrap: wrap; }
     .header > div > div { margin-right: 0.8em; margin-bottom: 0.3em; }
-    .name { font-size: 2rem; }
-    .label { font-size: 1.2rem; }
+    .name { font-size: 1.857rem; }
+    .label { font-size: 1.286rem; }
     .image { float: none; display: block; margin: 0 auto 1rem; width: 8em; }
   }
 </style>

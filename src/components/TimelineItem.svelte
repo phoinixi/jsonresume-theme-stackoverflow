@@ -81,7 +81,7 @@
 
 <style>
   .timeline-item {
-    margin-top: 0.7em;
+    margin-top: var(--sp-4);
   }
 
   .timeline-item:first-of-type {
@@ -106,7 +106,7 @@
   .studyType,
   .area,
   .title {
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .company::before,
@@ -137,14 +137,23 @@
   }
 
   .location {
-    margin-right: 0.5em;
+    display: block;
+    margin-top: var(--sp-1);
     color: var(--color-text-secondary);
-    font-weight: 700;
+    font-weight: 500;
+    font-size: var(--fs-meta);
+    line-height: var(--lh-snug);
+  }
+
+  .item .summary {
+    margin-top: var(--sp-2);
   }
 
   header {
-    font-size: 1.38rem;
+    font-size: var(--fs-title);
     position: relative;
+    line-height: var(--lh-snug);
+    margin-bottom: 0;
   }
 
   .header-left .position + .company::before,
@@ -155,8 +164,8 @@
   }
 
   @media print {
-    .timeline-item { margin-top: 0.4em; }
-    .company a { color: #40484f; }
+    .timeline-item { margin-top: var(--sp-3); }
+    .company a { color: var(--color-text); }
     .company::before,
     .institution::before,
     .organization::before,
@@ -166,7 +175,7 @@
   }
 
   @media screen and (max-width: 601px) {
-    :global(.section) > section > header { font-size: 1.15rem; }
+    :global(.section) > section > header { font-size: 1.071rem; }
   }
 
   @media screen and (min-width: 1025px) {
