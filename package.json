@@ -1,6 +1,6 @@
 {
   "name": "jsonresume-theme-stackoverflow",
-  "version": "3.1.5",
+  "version": "3.2.0",
   "description": "Stack Overflow theme for JSON Resume — Svelte SSR",
   "author": "Francesco Esposito",
   "scripts": {

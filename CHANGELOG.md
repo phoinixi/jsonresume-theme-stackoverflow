@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.1.5...v3.2.0) (2026-04-27)
+
+
+### Features
+
+* improve spacing and font-sizes to be proportional and armouneous ([b075c0c](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/b075c0cd97b9a000c8d02bcb7f18c09cedbc0f6e))
+
 ## [3.1.5](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.1.4...v3.1.5) (2026-04-24)
 
 
