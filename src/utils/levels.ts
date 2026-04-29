@@ -91,6 +91,14 @@ const levelMap: Record<string, string> = {
   avançado: "advanced",
   especialista: "master",
   fluente: "advanced",
+
+  // Polish
+  podstawowy: "beginner",
+  "średnio-zaawansowany": "intermediate",
+  zaawansowany: "advanced",
+  ekspert: "master",
+  biegły: "advanced",
+  ojczysty: "master", // native
 };
 
 export function normalizeLevel(level: string): string {
