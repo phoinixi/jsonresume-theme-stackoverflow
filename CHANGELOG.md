@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.2.0...v3.3.0) (2026-04-30)
+
+
+### Features
+
+* add Polish translations for skill levels ([20535ed](https://github.com/phoinixi/jsonresume-theme-stackoverflow/commit/20535ed627b2681a94a9e7905f727ced7203ec70))
+
 # [3.2.0](https://github.com/phoinixi/jsonresume-theme-stackoverflow/compare/v3.1.5...v3.2.0) (2026-04-27)
 
 
