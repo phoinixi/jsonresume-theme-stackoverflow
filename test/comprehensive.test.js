@@ -407,6 +407,16 @@ describe("Basics section details", () => {
     expect(html).toContain("IT");
   });
 
+  test("birth year renders", () => {
+    const html = render({
+      basics: {
+        name: "Test",
+        birth: { date: "1990" },
+      },
+    });
+    expect(html).toContain("Born in 1990");
+  });
+
   test("summary renders with markdown", () => {
     const html = render({
       basics: { name: "Test", summary: "I am **great**" },
