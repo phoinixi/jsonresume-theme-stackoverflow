@@ -1,12 +1,10 @@
 <script>
   import { t } from '../utils/helpers.ts';
-  import { getDateHelpers } from '../utils/date-helpers.ts';
+  import { formatDate } from '../utils/date-helpers.ts';
   import SectionHeader from './SectionHeader.svelte';
   import TimelineItem from './TimelineItem.svelte';
 
   let { awards = [], language = 'en-gb' } = $props();
-
-  const { MY } = getDateHelpers(language);
 </script>
 
 {#if awards?.length}
@@ -17,7 +15,7 @@
           title={award.title}
           subtitle={award.awarder}
           subtitleClass="awarder"
-          singleDate={award.date ? MY(award.date) : undefined}
+          singleDate={award.date ? formatDate(award.date, language) : undefined}
           {language}
           summary={award.summary}
         />
