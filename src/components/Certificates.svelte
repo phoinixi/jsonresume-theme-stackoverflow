@@ -1,12 +1,10 @@
 <script>
   import { t } from '../utils/helpers.ts';
-  import { getDateHelpers } from '../utils/date-helpers.ts';
+  import { formatDate } from '../utils/date-helpers.ts';
   import SectionHeader from './SectionHeader.svelte';
   import TimelineItem from './TimelineItem.svelte';
 
   let { certificates = [], language = 'en-gb' } = $props();
-
-  const { MY } = getDateHelpers(language);
 </script>
 
 {#if certificates?.length}
@@ -17,7 +15,7 @@
           title={cert.name}
           subtitle={cert.issuer}
           subtitleClass="issuer"
-          singleDate={cert.date ? MY(cert.date) : undefined}
+          singleDate={cert.date ? formatDate(cert.date, language) : undefined}
           {language}
         >
           {#if cert.url}

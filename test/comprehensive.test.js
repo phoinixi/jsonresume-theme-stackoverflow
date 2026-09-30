@@ -407,6 +407,16 @@ describe("Basics section details", () => {
     expect(html).toContain("IT");
   });
 
+  test("birth year renders", () => {
+    const html = render({
+      basics: {
+        name: "Test",
+        birth: { date: "1990" },
+      },
+    });
+    expect(html).toContain("Born in 1990");
+  });
+
   test("summary renders with markdown", () => {
     const html = render({
       basics: { name: "Test", summary: "I am **great**" },
@@ -458,6 +468,21 @@ describe("Work section details", () => {
     });
     expect(html).toContain("Berlin");
     expect(html).toContain("DE");
+  });
+
+  test("year-only dates render as the year", () => {
+    const html = render({
+      basics: { name: "Test" },
+      work: [{
+        name: "Co",
+        position: "Dev",
+        startDate: "2013",
+        endDate: "2014",
+      }],
+    });
+    expect(html).toContain("2013");
+    expect(html).toContain("2014");
+    expect(html).not.toContain("Jan");
   });
 });
 
@@ -512,6 +537,18 @@ describe("Certificate details", () => {
       }],
     });
     expect(html).toContain("cert.aws/123");
+  });
+
+  test("year-only date renders as the year", () => {
+    const html = render({
+      basics: { name: "Test" },
+      certificates: [{
+        name: "Cert",
+        date: "2015",
+      }],
+    });
+    expect(html).toContain("2015");
+    expect(html).not.toContain("Jan");
   });
 });
 
