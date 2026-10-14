@@ -153,14 +153,26 @@ npm run build
 npm test
 ```
 
-### Generating Screenshots
+### Preview, PDF and PNG tooling
 
-Screenshots require puppeteer (not included in devDependencies to keep installs lean):
+`npm run preview` renders the bundled sample resume (`docs/sample.resume.json`) to `artifacts/sample.resume.html`. Any resume works — pass its path without the `.json` suffix:
 
 ```bash
-npm install puppeteer
-node docs/screenshot.js
+npm run preview -- path/to/resume
 ```
+
+`npm run screenshot` turns the rendered HTML into a full-page PNG and a print PDF in `artifacts/`. It requires the Playwright browser:
+
+```bash
+npx playwright install chromium
+npm run screenshot
+```
+
+When `pdftoppm` (poppler) is installed, exact per-page PNGs (`<name>-page-N.png`) are rendered from the PDF as well; the step is skipped gracefully otherwise.
+
+Artifacts follow the `<datafile>-<kind>[-<page-N>].<ext>` naming convention (e.g. `sample.resume.html`, `sample.resume.png`, `sample.resume.pdf`, `sample.resume-page-N.png`). The `artifacts/` directory is gitignored and never committed.
+
+The README light/dark screenshots are still regenerated with `node docs/screenshot.js` (puppeteer, not included in devDependencies to keep installs lean).
 
 ## 📄 License
 
