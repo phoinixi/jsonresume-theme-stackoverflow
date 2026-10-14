@@ -172,7 +172,7 @@ When `pdftoppm` (poppler) is installed, exact per-page PNGs (`<name>-page-N.png`
 
 Artifacts follow the `<datafile>-<kind>[-<page-N>].<ext>` naming convention (e.g. `sample.resume.html`, `sample.resume.png`, `sample.resume.pdf`, `sample.resume-page-N.png`). The `artifacts/` directory is gitignored and never committed.
 
-The README light/dark screenshots are still regenerated with `node docs/screenshot.js` (puppeteer, not included in devDependencies to keep installs lean).
+The README light/dark screenshots are still regenerated with `node scripts/docs-screenshot.js` (puppeteer, not included in devDependencies to keep installs lean).
 
 ## 📄 License
 

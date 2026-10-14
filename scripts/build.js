@@ -13,9 +13,9 @@ const esbuild = require('esbuild');
 const fs = require('fs');
 const path = require('path');
 
-const SRC_DIR = path.join(__dirname, 'src');
-const BUILD_DIR = path.join(__dirname, '.build');
-const DIST_DIR = path.join(__dirname, 'dist');
+const SRC_DIR = path.join(__dirname, '..', 'src');
+const BUILD_DIR = path.join(__dirname, '..', '.build');
+const DIST_DIR = path.join(__dirname, '..', 'dist');
 
 const tsCompilerOptions = {
   target: ts.ScriptTarget.ES2020,

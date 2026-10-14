@@ -27,7 +27,7 @@ jobs:
 
       - run: npm ci
       - run: npm run build
-      - run: node docs/build-demo.js
+      - run: node scripts/build-demo.js
 
       - uses: actions/upload-pages-artifact@v3
         with:

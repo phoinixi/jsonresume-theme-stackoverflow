@@ -1,5 +1,5 @@
 const http = require('http');
-const theme = require('./dist/index.js');
+const theme = require('../dist/index.js');
 const resume = require('@jsonresume/schema/sample.resume.json');
 
 const server = http.createServer((req, res) => {
