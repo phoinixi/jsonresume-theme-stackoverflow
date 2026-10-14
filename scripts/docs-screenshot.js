@@ -28,11 +28,11 @@ async function screenshot(page, file, url) {
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800, deviceScaleFactor: 2 });
 
-  const lightUrl = `file://${path.join(__dirname, 'dist', 'resume.html')}`;
-  const darkUrl = `file://${path.join(__dirname, 'dist', 'dark.html')}`;
+  const lightUrl = `file://${path.join(__dirname, '..', 'docs', 'dist', 'resume.html')}`;
+  const darkUrl = `file://${path.join(__dirname, '..', 'docs', 'dist', 'dark.html')}`;
 
-  await screenshot(page, path.join(__dirname, 'light.png'), lightUrl);
-  await screenshot(page, path.join(__dirname, 'dark.png'), darkUrl);
+  await screenshot(page, path.join(__dirname, '..', 'docs', 'light.png'), lightUrl);
+  await screenshot(page, path.join(__dirname, '..', 'docs', 'dark.png'), darkUrl);
 
   await browser.close();
   console.log('✅ Screenshots saved to docs/');

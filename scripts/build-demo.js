@@ -3,11 +3,11 @@
  * Renders sample.resume.json using the theme
  */
 const renderer = require('../dist/index');
-const resume = require('./sample.resume.json');
+const resume = require('../docs/sample.resume.json');
 const fs = require('fs');
 const path = require('path');
 
-const outDir = path.join(__dirname, 'dist');
+const outDir = path.join(__dirname, '..', 'docs', 'dist');
 if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 
 // Render the resume
