@@ -5,6 +5,7 @@
  * - [text](url) → <a href="url">
  * - Auto-linking bare URLs
  * - Paragraphs (double newline)
+ * - Bullet lists (lines starting with "- " or "* ") → <ul><li>
  *
  * No full markdown parser needed. HTML in input is escaped for security.
  */
@@ -31,6 +32,38 @@ function formatInline(text: string): string {
   );
 }
 
+const LIST_ITEM = /^[-*]\s+(.*)$/;
+
+// A block is a paragraph, a bullet list, or text lines and lists alternating.
+function formatBlock(block: string): string {
+  const html: string[] = [];
+  let lines: string[] = [];
+  let items: string[] = [];
+
+  const flushLines = () => {
+    if (lines.length) html.push(`<p style="margin:0">${formatInline(lines.join("\n"))}</p>`);
+    lines = [];
+  };
+  const flushItems = () => {
+    if (items.length) html.push(`<ul>${items.map((item) => `<li>${formatInline(item)}</li>`).join("")}</ul>`);
+    items = [];
+  };
+
+  for (const line of block.split("\n")) {
+    const item = line.trim().match(LIST_ITEM);
+    if (item) {
+      flushLines();
+      items.push(item[1]);
+    } else {
+      flushItems();
+      lines.push(line);
+    }
+  }
+  flushLines();
+  flushItems();
+  return html.join("\n");
+}
+
 export function paragraphSplit(text: string | null | undefined): string {
   if (text == null) return "";
 
@@ -38,8 +71,8 @@ export function paragraphSplit(text: string | null | undefined): string {
   const paragraphs = escaped.split(/\n\n+/).filter((p) => p.trim());
 
   if (paragraphs.length <= 1) {
-    return `<p style="margin:0">${formatInline(escaped.trim())}</p>`;
+    return formatBlock(escaped.trim());
   }
 
-  return paragraphs.map((p) => `<p style="margin:0">${formatInline(p.trim())}</p>`).join("\n");
+  return paragraphs.map((p) => formatBlock(p.trim())).join("\n");
 }

@@ -414,6 +414,29 @@ describe("Basics section details", () => {
     expect(html).toContain("<strong>great</strong>");
     expect(html).toContain("Summary");
   });
+
+  test("summary renders bullet lists", () => {
+    const html = render({
+      basics: { name: "Test", summary: "**Impact**\n\n- Led a team\n* Cut **costs**" },
+    });
+    expect(html).toContain('<p style="margin:0"><strong>Impact</strong></p>');
+    expect(html).toContain("<ul><li>Led a team</li><li>Cut <strong>costs</strong></li></ul>");
+  });
+
+  test("summary renders text followed by a list in the same paragraph", () => {
+    const html = render({
+      basics: { name: "Test", summary: "Selected impact\n- First\n- Second\nClosing line" },
+    });
+    expect(html).toContain('<p style="margin:0">Selected impact</p>\n<ul><li>First</li><li>Second</li></ul>\n<p style="margin:0">Closing line</p>');
+  });
+
+  test("summary keeps italic text at line start out of lists", () => {
+    const html = render({
+      basics: { name: "Test", summary: "*Remote* first" },
+    });
+    expect(html).toContain('<p style="margin:0"><em>Remote</em> first</p>');
+    expect(html).not.toContain("<ul>");
+  });
 });
 
 describe("Full sample resume", () => {
